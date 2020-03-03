@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Pencho\\source\\repos\\UniversityWeb\\UniversityWeb\\UniversityWeb.csproj": {}
+    "E:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\UniversityWeb\\UniversityWeb.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Pencho\\source\\repos\\UniversityWeb\\DataAccess\\DataAccess.csproj": {
+    "E:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\DataAccess\\DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Pencho\\source\\repos\\UniversityWeb\\DataAccess\\DataAccess.csproj",
+        "projectUniqueName": "E:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\DataAccess\\DataAccess.csproj",
         "projectName": "DataAccess",
-        "projectPath": "C:\\Users\\Pencho\\source\\repos\\UniversityWeb\\DataAccess\\DataAccess.csproj",
+        "projectPath": "E:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\DataAccess\\DataAccess.csproj",
         "packagesPath": "C:\\Users\\Pencho\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Pencho\\source\\repos\\UniversityWeb\\DataAccess\\obj\\",
+        "outputPath": "E:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -78,14 +78,14 @@
         }
       }
     },
-    "C:\\Users\\Pencho\\source\\repos\\UniversityWeb\\UniversityWeb\\UniversityWeb.csproj": {
+    "E:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\UniversityWeb\\UniversityWeb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Pencho\\source\\repos\\UniversityWeb\\UniversityWeb\\UniversityWeb.csproj",
+        "projectUniqueName": "E:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\UniversityWeb\\UniversityWeb.csproj",
         "projectName": "UniversityWeb",
-        "projectPath": "C:\\Users\\Pencho\\source\\repos\\UniversityWeb\\UniversityWeb\\UniversityWeb.csproj",
+        "projectPath": "E:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\UniversityWeb\\UniversityWeb.csproj",
         "packagesPath": "C:\\Users\\Pencho\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Pencho\\source\\repos\\UniversityWeb\\UniversityWeb\\obj\\",
+        "outputPath": "E:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\UniversityWeb\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -106,8 +106,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\Pencho\\source\\repos\\UniversityWeb\\DataAccess\\DataAccess.csproj": {
-                "projectPath": "C:\\Users\\Pencho\\source\\repos\\UniversityWeb\\DataAccess\\DataAccess.csproj"
+              "E:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\DataAccess\\DataAccess.csproj": {
+                "projectPath": "E:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\DataAccess\\DataAccess.csproj"
               }
             }
           }
