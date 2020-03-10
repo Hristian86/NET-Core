@@ -9,13 +9,47 @@
     ".NETStandard,Version=v2.0/": {
       "DataAccess/1.0.0": {
         "dependencies": {
+          "Microsoft.AspNet.Identity.EntityFramework": "2.2.3",
           "Microsoft.EntityFrameworkCore": "3.1.1",
+          "Microsoft.EntityFrameworkCore.Design": "3.1.1",
+          "Microsoft.EntityFrameworkCore.SqlServer": "3.1.1",
           "Microsoft.EntityFrameworkCore.Tools": "3.1.1",
-          "Microsoft.Extensions.Caching.SqlServer": "3.1.1",
           "NETStandard.Library": "2.0.3"
         },
         "runtime": {
           "DataAccess.dll": {}
+        }
+      },
+      "EntityFramework/6.1.0": {
+        "runtime": {
+          "lib/net45/EntityFramework.SqlServer.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.1.30225.0"
+          },
+          "lib/net45/EntityFramework.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.1.30225.0"
+          }
+        }
+      },
+      "Microsoft.AspNet.Identity.Core/2.2.3": {
+        "runtime": {
+          "lib/net45/Microsoft.AspNet.Identity.Core.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.2.3.11125"
+          }
+        }
+      },
+      "Microsoft.AspNet.Identity.EntityFramework/2.2.3": {
+        "dependencies": {
+          "EntityFramework": "6.1.0",
+          "Microsoft.AspNet.Identity.Core": "2.2.3"
+        },
+        "runtime": {
+          "lib/net45/Microsoft.AspNet.Identity.EntityFramework.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.2.3.11125"
+          }
         }
       },
       "Microsoft.Bcl.AsyncInterfaces/1.1.0": {
@@ -45,7 +79,7 @@
           }
         }
       },
-      "Microsoft.Data.SqlClient/1.0.19239.1": {
+      "Microsoft.Data.SqlClient/1.0.19269.1": {
         "dependencies": {
           "Microsoft.Identity.Client": "3.0.8",
           "Microsoft.Win32.Registry": "4.5.0",
@@ -59,8 +93,8 @@
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.Data.SqlClient.dll": {
-            "assemblyVersion": "1.0.19239.1",
-            "fileVersion": "1.0.19239.1"
+            "assemblyVersion": "1.0.19269.1",
+            "fileVersion": "1.0.19269.1"
           }
         }
       },
@@ -116,6 +150,18 @@
           }
         }
       },
+      "Microsoft.EntityFrameworkCore.SqlServer/3.1.1": {
+        "dependencies": {
+          "Microsoft.Data.SqlClient": "1.0.19269.1",
+          "Microsoft.EntityFrameworkCore.Relational": "3.1.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.EntityFrameworkCore.SqlServer.dll": {
+            "assemblyVersion": "3.1.1.0",
+            "fileVersion": "3.100.119.61403"
+          }
+        }
+      },
       "Microsoft.EntityFrameworkCore.Tools/3.1.1": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Design": "3.1.1"
@@ -141,19 +187,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.Extensions.Caching.Memory.dll": {
-            "assemblyVersion": "3.1.1.0",
-            "fileVersion": "3.100.119.61404"
-          }
-        }
-      },
-      "Microsoft.Extensions.Caching.SqlServer/3.1.1": {
-        "dependencies": {
-          "Microsoft.Data.SqlClient": "1.0.19239.1",
-          "Microsoft.Extensions.Caching.Abstractions": "3.1.1",
-          "Microsoft.Extensions.Options": "3.1.1"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.Caching.SqlServer.dll": {
             "assemblyVersion": "3.1.1.0",
             "fileVersion": "3.100.119.61404"
           }
@@ -1268,6 +1301,27 @@
       "serviceable": false,
       "sha512": ""
     },
+    "EntityFramework/6.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-u/M0OEfqxTUsL5BwzD66eBGm278/ozqdLK3JvMO6QwUxxc+z7ZUkTYm4suDhWRqzkc6mOhvXDQY5dZUwbldxyQ==",
+      "path": "entityframework/6.1.0",
+      "hashPath": "entityframework.6.1.0.nupkg.sha512"
+    },
+    "Microsoft.AspNet.Identity.Core/2.2.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Mv5FpoaxspE8hlWLE4r1IdZtovg/OyFgVRhxQbx47J4sqdLImN1hnM1lnwCj+/wLmqtqFk/RYMoZ5GAcwm/00g==",
+      "path": "microsoft.aspnet.identity.core/2.2.3",
+      "hashPath": "microsoft.aspnet.identity.core.2.2.3.nupkg.sha512"
+    },
+    "Microsoft.AspNet.Identity.EntityFramework/2.2.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dt4XZChjw3a6jE66Yd6LkF9omspxi0A9lJpwBZz8Wl1sabOS6dlLP1OOTVuUjtPaoAshjoIzvS6DFRQdPyq55g==",
+      "path": "microsoft.aspnet.identity.entityframework/2.2.3",
+      "hashPath": "microsoft.aspnet.identity.entityframework.2.2.3.nupkg.sha512"
+    },
     "Microsoft.Bcl.AsyncInterfaces/1.1.0": {
       "type": "package",
       "serviceable": true,
@@ -1289,12 +1343,12 @@
       "path": "microsoft.csharp/4.7.0",
       "hashPath": "microsoft.csharp.4.7.0.nupkg.sha512"
     },
-    "Microsoft.Data.SqlClient/1.0.19239.1": {
+    "Microsoft.Data.SqlClient/1.0.19269.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Aa7qT20oeaaqogVrl+2J6FbbCE2ppMtwNQjQ72BHd9iC/3cYHINkfNqknwX0CisPlaW0RWTjSlocF9I6tXFXKQ==",
-      "path": "microsoft.data.sqlclient/1.0.19239.1",
-      "hashPath": "microsoft.data.sqlclient.1.0.19239.1.nupkg.sha512"
+      "sha512": "sha512-p2xa+sUAt7IRNxCl8ZT77bd7qHVKookDJ4HDUc+ArWkFk204rIpFhHajCTQqomSbcYi+olwheqQrwr+ohGRmJw==",
+      "path": "microsoft.data.sqlclient/1.0.19269.1",
+      "hashPath": "microsoft.data.sqlclient.1.0.19269.1.nupkg.sha512"
     },
     "Microsoft.EntityFrameworkCore/3.1.1": {
       "type": "package",
@@ -1331,6 +1385,13 @@
       "path": "microsoft.entityframeworkcore.relational/3.1.1",
       "hashPath": "microsoft.entityframeworkcore.relational.3.1.1.nupkg.sha512"
     },
+    "Microsoft.EntityFrameworkCore.SqlServer/3.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ws6yIIpX4w3odZqILfZCWVWvBu7j7mGLLPkdg+GMdorwTSz4/NOQ0ngxnaj/E2on0EKXylv0jHP8OFqvycBM2A==",
+      "path": "microsoft.entityframeworkcore.sqlserver/3.1.1",
+      "hashPath": "microsoft.entityframeworkcore.sqlserver.3.1.1.nupkg.sha512"
+    },
     "Microsoft.EntityFrameworkCore.Tools/3.1.1": {
       "type": "package",
       "serviceable": true,
@@ -1351,13 +1412,6 @@
       "sha512": "sha512-eXKFU6dmz+0EzhlGkVnIJsG8yUIMgSdWRqSN2zLO5IhATJu4JWgUU5vYuRO/HYMCwq8aodK6lVWN7itQXwonkQ==",
       "path": "microsoft.extensions.caching.memory/3.1.1",
       "hashPath": "microsoft.extensions.caching.memory.3.1.1.nupkg.sha512"
-    },
-    "Microsoft.Extensions.Caching.SqlServer/3.1.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-/TrWFZTwtkTKNzQERiUNyFY+QaFUqbIK7c47kdIvasekiSwS4tzENLgRIVC7Q3/RE7fRxtjhxatChPyYYzOeBA==",
-      "path": "microsoft.extensions.caching.sqlserver/3.1.1",
-      "hashPath": "microsoft.extensions.caching.sqlserver.3.1.1.nupkg.sha512"
     },
     "Microsoft.Extensions.Configuration/3.1.1": {
       "type": "package",
