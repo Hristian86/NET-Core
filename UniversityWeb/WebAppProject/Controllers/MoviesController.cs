@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DataDomain.Data.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using DataDomain;
 
 namespace WebAppProject.Controllers
 {
@@ -23,11 +24,13 @@ namespace WebAppProject.Controllers
 
         public async Task<IActionResult> Index()
         {
-            if (User.Identity.IsAuthenticated)
+            if (!User.Identity.IsAuthenticated)
             {
-                return View(await _context.Movies.ToListAsync());
+                CurrentUserTest.Errors = "Not alowed to enter untill loged in";
+                return RedirectToAction("Index", "Home");
             }
-            return View("NotAuthorized");
+
+            return View(await _context.Movies.ToListAsync());
         }
 
         // GET: Movies/Details/5
@@ -37,18 +40,21 @@ namespace WebAppProject.Controllers
             {
                 return NotFound();
             }
-            if (User.Identity.IsAuthenticated)
-            {
-                var movies = await _context.Movies
-                    .FirstOrDefaultAsync(m => m.Id == id);
-                if (movies == null)
-                {
-                    return NotFound();
-                }
 
-                return View(movies);
+            if (!User.Identity.IsAuthenticated)
+            {
+                ViewData.ModelState.AddModelError("Not alowed", "You need to be loged in");
+                return RedirectToAction("Index", "Home");
             }
-            return View("NotAuthorized");
+
+            var movies = await _context.Movies
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (movies == null)
+            {
+                return NotFound();
+            }
+
+            return View(movies);
         }
 
         // GET: Movies/Create
@@ -58,7 +64,8 @@ namespace WebAppProject.Controllers
             {
                 return View();
             }
-            return View("NotAuthorized");
+
+            return RedirectToAction("Index", "Home");
         }
 
         // POST: Movies/Create
@@ -69,14 +76,14 @@ namespace WebAppProject.Controllers
         public async Task<IActionResult> Create([Bind("Id,Title,Director,RealeaseDate,RentMovieId,Picture")] Movies movies)
         {
 
-                if (ModelState.IsValid)
-                {
-                    _context.Add(movies);
-                    await _context.SaveChangesAsync();
-                    return RedirectToAction(nameof(Index));
-                }
-                return View(movies);
-            
+            if (ModelState.IsValid)
+            {
+                _context.Add(movies);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(movies);
+
         }
 
         // GET: Movies/Edit/5
@@ -96,7 +103,8 @@ namespace WebAppProject.Controllers
                 }
                 return View(movies);
             }
-            return View("NotAuthorized");
+
+            return RedirectToAction("Index", "Home");
         }
 
         // POST: Movies/Edit/5
@@ -111,28 +119,28 @@ namespace WebAppProject.Controllers
                 return NotFound();
             }
 
-                if (ModelState.IsValid)
+            if (ModelState.IsValid)
+            {
+                try
                 {
-                    try
-                    {
-                        _context.Update(movies);
-                        await _context.SaveChangesAsync();
-                    }
-
-                    catch (DbUpdateConcurrencyException)
-                    {
-                        if (!MoviesExists(movies.Id))
-                        {
-                            return NotFound();
-                        }
-                        else
-                        {
-                            throw;
-                        }
-                    }
-                    return RedirectToAction(nameof(Index));
+                    _context.Update(movies);
+                    await _context.SaveChangesAsync();
                 }
-                return View(movies);
+
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!MoviesExists(movies.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(movies);
         }
 
         // GET: Movies/Delete/5
@@ -155,7 +163,7 @@ namespace WebAppProject.Controllers
 
                 return View(movies);
             }
-            return View("NotAuthorized");
+            return RedirectToAction("Index", "Home");
         }
 
         // POST: Movies/Delete/5

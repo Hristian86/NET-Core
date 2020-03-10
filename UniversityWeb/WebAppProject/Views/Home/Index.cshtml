@@ -1,8 +1,31 @@
-﻿@{
+﻿@using DataDomain
+@{
     ViewData["Title"] = "Home Page";
 }
 
+
+
 <div class="text-center">
+
+    @*@if (!User.Identity.IsAuthenticated)
+        {
+            var x = ViewData["Not alowed"];
+                <div>Not alowed</div>
+        }*@
+
+    @if (CurrentUserTest.Errors != null)
+    {
+        if (!User.Identity.IsAuthenticated)
+        {
+            var x = CurrentUserTest.Errors;
+            <div>@x</div>
+        }
+        else
+        {
+            CurrentUserTest.Errors = null;
+        }
+    }
+
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>

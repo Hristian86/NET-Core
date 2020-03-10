@@ -48,3 +48,13 @@ C:\Users\Pencho\Desktop\testoveteweba\WebAppProject\WebAppProject\DataDomain\obj
 C:\Users\Pencho\Desktop\testoveteweba\WebAppProject\WebAppProject\DataDomain\obj\Debug\netcoreapp3.1\DataDomain.AssemblyInfo.cs
 C:\Users\Pencho\Desktop\testoveteweba\WebAppProject\WebAppProject\DataDomain\obj\Debug\netcoreapp3.1\DataDomain.dll
 C:\Users\Pencho\Desktop\testoveteweba\WebAppProject\WebAppProject\DataDomain\obj\Debug\netcoreapp3.1\DataDomain.pdb
+E:\FilesForGithub\SoftUni-Exam-Projext\UniversityWeb\DataDomain\bin\Debug\netcoreapp3.1\DataDomain.deps.json
+E:\FilesForGithub\SoftUni-Exam-Projext\UniversityWeb\DataDomain\bin\Debug\netcoreapp3.1\DataDomain.runtimeconfig.json
+E:\FilesForGithub\SoftUni-Exam-Projext\UniversityWeb\DataDomain\bin\Debug\netcoreapp3.1\DataDomain.runtimeconfig.dev.json
+E:\FilesForGithub\SoftUni-Exam-Projext\UniversityWeb\DataDomain\bin\Debug\netcoreapp3.1\DataDomain.dll
+E:\FilesForGithub\SoftUni-Exam-Projext\UniversityWeb\DataDomain\bin\Debug\netcoreapp3.1\DataDomain.pdb
+E:\FilesForGithub\SoftUni-Exam-Projext\UniversityWeb\DataDomain\obj\Debug\netcoreapp3.1\DataDomain.csprojAssemblyReference.cache
+E:\FilesForGithub\SoftUni-Exam-Projext\UniversityWeb\DataDomain\obj\Debug\netcoreapp3.1\DataDomain.AssemblyInfoInputs.cache
+E:\FilesForGithub\SoftUni-Exam-Projext\UniversityWeb\DataDomain\obj\Debug\netcoreapp3.1\DataDomain.AssemblyInfo.cs
+E:\FilesForGithub\SoftUni-Exam-Projext\UniversityWeb\DataDomain\obj\Debug\netcoreapp3.1\DataDomain.dll
+E:\FilesForGithub\SoftUni-Exam-Projext\UniversityWeb\DataDomain\obj\Debug\netcoreapp3.1\DataDomain.pdb

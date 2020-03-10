@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using DataDomain.Data.Models;
 using Microsoft.AspNetCore.Identity;
 using DataDomain;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace WebAppProject.Controllers
 {
@@ -20,10 +21,18 @@ namespace WebAppProject.Controllers
         //    _context = context;
         //}
 
+
         // GET: Rentals
         public async Task<IActionResult> Index()
         {
-            var user = CurrentUserTest.UserName;
+            var users = User.Identity.Name;
+            //CurrentUserTest.UserName;
+
+            if (users != null)
+            {
+            var currentUser = _context.AspNetUsers.Where(x => x.UserName == users).FirstOrDefault();
+                var id = currentUser.Id;
+            }
 
             var movieRentalDBSContext = _context.Rentals.Include(r => r.Movie).Include(r => r.User);
             return View(await movieRentalDBSContext.ToListAsync());
@@ -48,7 +57,7 @@ namespace WebAppProject.Controllers
 
             return View(rentals);
         }
-        
+
         // GET: Rentals/Create
         public IActionResult Create()
         {

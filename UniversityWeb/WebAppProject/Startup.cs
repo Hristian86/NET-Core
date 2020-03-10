@@ -12,6 +12,8 @@ using WebAppProject.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using DataDomain.Data.Models;
+using BusinessLogic;
 using DataDomain;
 
 namespace WebAppProject
@@ -33,6 +35,7 @@ namespace WebAppProject
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
+            // Get connection string
             ConnectionString.ConString = Configuration.GetConnectionString("DefaultConnection");
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)

@@ -16,6 +16,7 @@ namespace DataDomain.Data.Models
         public DateTime RealeaseDate { get; set; }
         public int? RentMovieId { get; set; }
         public string Picture { get; set; }
+        public string Genre { get; set; }
 
         public virtual ICollection<Rentals> Rentals { get; set; }
     }

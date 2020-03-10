@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BusinessLogic;
 using BusinessLogic.interfaces;
+using DataDomain;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;

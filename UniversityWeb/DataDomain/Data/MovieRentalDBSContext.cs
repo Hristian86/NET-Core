@@ -22,8 +22,12 @@ namespace DataDomain.Data.Models
         public virtual DbSet<AspNetUserRoles> AspNetUserRoles { get; set; }
         public virtual DbSet<AspNetUserTokens> AspNetUserTokens { get; set; }
         public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
+        public virtual DbSet<Books> Books { get; set; }
+        public virtual DbSet<Logs> Logs { get; set; }
+        public virtual DbSet<Messages> Messages { get; set; }
         public virtual DbSet<Movies> Movies { get; set; }
         public virtual DbSet<Rentals> Rentals { get; set; }
+        public virtual DbSet<RentalsBooks> RentalsBooks { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -139,8 +143,57 @@ namespace DataDomain.Data.Models
                 entity.Property(e => e.UserName).HasMaxLength(256);
             });
 
+            modelBuilder.Entity<Books>(entity =>
+            {
+                entity.Property(e => e.Author)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Genre)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.RealeseDate).HasColumnType("datetime");
+
+                entity.Property(e => e.Title)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.UserId).HasMaxLength(450);
+            });
+
+            modelBuilder.Entity<Logs>(entity =>
+            {
+                entity.HasKey(e => e.LogId);
+
+                entity.Property(e => e.DateLoged).HasColumnType("datetime");
+
+                entity.Property(e => e.UserLoged)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<Messages>(entity =>
+            {
+                entity.Property(e => e.UserId).HasMaxLength(450);
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.Messages)
+                    .HasForeignKey(d => d.UserId)
+                    .HasConstraintName("FK_Messages_AspNetUsers");
+            });
+
+            modelBuilder.Entity<Movies>(entity =>
+            {
+                entity.Property(e => e.Genre)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+            });
+
             modelBuilder.Entity<Rentals>(entity =>
             {
+                entity.Property(e => e.RentedTime).HasColumnType("datetime");
+
                 entity.Property(e => e.UserId).HasMaxLength(450);
 
                 entity.HasOne(d => d.Movie)
@@ -152,6 +205,23 @@ namespace DataDomain.Data.Models
                     .WithMany(p => p.Rentals)
                     .HasForeignKey(d => d.UserId)
                     .HasConstraintName("FK_Rentals_AspNetUsers");
+            });
+
+            modelBuilder.Entity<RentalsBooks>(entity =>
+            {
+                entity.Property(e => e.RentedDate).HasColumnType("datetime");
+
+                entity.Property(e => e.UserId).HasMaxLength(450);
+
+                entity.HasOne(d => d.Books)
+                    .WithMany(p => p.RentalsBooks)
+                    .HasForeignKey(d => d.BooksId)
+                    .HasConstraintName("FK_RentalsBooks_Books");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.RentalsBooks)
+                    .HasForeignKey(d => d.UserId)
+                    .HasConstraintName("FK_RentalsBooks_AspNetUsers");
             });
 
             OnModelCreatingPartial(modelBuilder);
