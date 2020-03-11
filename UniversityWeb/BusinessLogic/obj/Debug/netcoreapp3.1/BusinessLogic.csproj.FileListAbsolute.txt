@@ -42,3 +42,14 @@ E:\FilesForGithub\SoftUni-Exam-Projext\UniversityWeb\BusinessLogic\obj\Debug\net
 E:\FilesForGithub\SoftUni-Exam-Projext\UniversityWeb\BusinessLogic\obj\Debug\netcoreapp3.1\BusinessLogic.csproj.CopyComplete
 E:\FilesForGithub\SoftUni-Exam-Projext\UniversityWeb\BusinessLogic\obj\Debug\netcoreapp3.1\BusinessLogic.dll
 E:\FilesForGithub\SoftUni-Exam-Projext\UniversityWeb\BusinessLogic\obj\Debug\netcoreapp3.1\BusinessLogic.pdb
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\BusinessLogic\bin\Debug\netcoreapp3.1\BusinessLogic.deps.json
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\BusinessLogic\bin\Debug\netcoreapp3.1\BusinessLogic.dll
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\BusinessLogic\bin\Debug\netcoreapp3.1\BusinessLogic.pdb
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\BusinessLogic\bin\Debug\netcoreapp3.1\DataDomain.dll
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\BusinessLogic\bin\Debug\netcoreapp3.1\DataDomain.pdb
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\BusinessLogic\obj\Debug\netcoreapp3.1\BusinessLogic.csprojAssemblyReference.cache
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\BusinessLogic\obj\Debug\netcoreapp3.1\BusinessLogic.AssemblyInfoInputs.cache
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\BusinessLogic\obj\Debug\netcoreapp3.1\BusinessLogic.AssemblyInfo.cs
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\BusinessLogic\obj\Debug\netcoreapp3.1\BusinessLogic.csproj.CopyComplete
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\BusinessLogic\obj\Debug\netcoreapp3.1\BusinessLogic.dll
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\BusinessLogic\obj\Debug\netcoreapp3.1\BusinessLogic.pdb

@@ -11,6 +11,7 @@ namespace DataDomain.Data.Models
         public DateTime? RentedTime { get; set; }
         public int? BooksId { get; set; }
 
+        public virtual Books Books { get; set; }
         public virtual Movies Movie { get; set; }
         public virtual AspNetUsers User { get; set; }
     }

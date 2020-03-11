@@ -13,12 +13,12 @@ namespace WebAppProject.Controllers
 {
     public class MoviesController : Controller
     {
-        private readonly MovieRentalDBSContext _context = new MovieRentalDBSContext();
+        private readonly MovieRentalDBSEContext _context; //= new MovieRentalDBSEContext();
 
-        //public MoviesController(MovieRentalDBSContext context)
-        //{
-        //    _context = context;
-        //}
+        public MoviesController(MovieRentalDBSEContext context)
+        {
+            _context = context;
+        }
 
         // GET: Movies
 
@@ -29,7 +29,7 @@ namespace WebAppProject.Controllers
                 CurrentUserTest.Errors = "Not alowed to enter untill loged in";
                 return RedirectToAction("Index", "Home");
             }
-
+            
             return View(await _context.Movies.ToListAsync());
         }
 

@@ -14,7 +14,7 @@ namespace WebAppProject.Controllers
 {
     public class RentalsController : Controller
     {
-        private readonly MovieRentalDBSContext _context = new MovieRentalDBSContext();
+        private readonly MovieRentalDBSEContext _context = new MovieRentalDBSEContext();
 
         //public RentalsController(MovieRentalDBSContext context)
         //{

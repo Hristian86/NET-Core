@@ -5,17 +5,16 @@ using System.Linq;
 using System.Threading.Tasks;
 using BusinessLogic;
 using BusinessLogic.interfaces;
-using DataDomain;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace WebAppProject.Areas.Identity.Pages.Account.Manage
 {
-    
+
     public partial class IndexModel : PageModel
     {
-        private IProfileEdit edit = new ProfileEdit();
+        private readonly IProfileEdit edit = new ProfileEdit();
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
 
@@ -28,6 +27,12 @@ namespace WebAppProject.Areas.Identity.Pages.Account.Manage
         }
 
         public string Username { get; set; }
+
+        public string FirstName { get; private set; }
+
+        public string LastName { get; private set; }
+
+        public string Address { get; private set; }
 
         [TempData]
         public string StatusMessage { get; set; }
@@ -75,6 +80,15 @@ namespace WebAppProject.Areas.Identity.Pages.Account.Manage
                 return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
 
+            if (user.UserName != null)
+            {
+                //Creating current profile properties for placeholder
+                var usr = edit.GetUserProperties(user.UserName);
+                this.FirstName = usr.FirstName;
+                this.LastName = usr.LastName;
+                this.Address = usr.Address;
+            }
+
             await LoadAsync(user);
             return Page();
         }
@@ -107,11 +121,10 @@ namespace WebAppProject.Areas.Identity.Pages.Account.Manage
             await _signInManager.RefreshSignInAsync(user);
 
             //Making Custom Identity properties :)
-
-            
-
-            edit.SaveUserProperties(Input.FirstName, Input.LastName, Input.Address, user.Id);
-
+            if (user.Id != null)
+            {
+                edit.SaveUserProperties(Input.FirstName, Input.LastName, Input.Address, user.Id);
+            }
 
             StatusMessage = "Your profile has been updated";
             return RedirectToPage();

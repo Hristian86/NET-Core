@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace DataDomain.Data.Models
 {
-    public partial class MovieRentalDBSContext : DbContext
+    public partial class MovieRentalDBSEContext : DbContext
     {
-        public MovieRentalDBSContext()
+        public MovieRentalDBSEContext()
         {
         }
 
-        public MovieRentalDBSContext(DbContextOptions<MovieRentalDBSContext> options)
+        public MovieRentalDBSEContext(DbContextOptions<MovieRentalDBSEContext> options)
             : base(options)
         {
         }
@@ -27,7 +27,6 @@ namespace DataDomain.Data.Models
         public virtual DbSet<Messages> Messages { get; set; }
         public virtual DbSet<Movies> Movies { get; set; }
         public virtual DbSet<Rentals> Rentals { get; set; }
-        public virtual DbSet<RentalsBooks> RentalsBooks { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -196,6 +195,11 @@ namespace DataDomain.Data.Models
 
                 entity.Property(e => e.UserId).HasMaxLength(450);
 
+                entity.HasOne(d => d.Books)
+                    .WithMany(p => p.Rentals)
+                    .HasForeignKey(d => d.BooksId)
+                    .HasConstraintName("FK_Rentals_Books");
+
                 entity.HasOne(d => d.Movie)
                     .WithMany(p => p.Rentals)
                     .HasForeignKey(d => d.MovieId)
@@ -207,22 +211,7 @@ namespace DataDomain.Data.Models
                     .HasConstraintName("FK_Rentals_AspNetUsers");
             });
 
-            modelBuilder.Entity<RentalsBooks>(entity =>
-            {
-                entity.Property(e => e.RentedDate).HasColumnType("datetime");
-
-                entity.Property(e => e.UserId).HasMaxLength(450);
-
-                entity.HasOne(d => d.Books)
-                    .WithMany(p => p.RentalsBooks)
-                    .HasForeignKey(d => d.BooksId)
-                    .HasConstraintName("FK_RentalsBooks_Books");
-
-                entity.HasOne(d => d.User)
-                    .WithMany(p => p.RentalsBooks)
-                    .HasForeignKey(d => d.UserId)
-                    .HasConstraintName("FK_RentalsBooks_AspNetUsers");
-            });
+            
 
             OnModelCreatingPartial(modelBuilder);
         }

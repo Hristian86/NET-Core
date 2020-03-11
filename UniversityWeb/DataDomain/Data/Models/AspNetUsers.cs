@@ -13,7 +13,6 @@ namespace DataDomain.Data.Models
             AspNetUserTokens = new HashSet<AspNetUserTokens>();
             Messages = new HashSet<Messages>();
             Rentals = new HashSet<Rentals>();
-            RentalsBooks = new HashSet<RentalsBooks>();
         }
 
         public string Id { get; set; }
@@ -42,6 +41,6 @@ namespace DataDomain.Data.Models
         public virtual ICollection<AspNetUserTokens> AspNetUserTokens { get; set; }
         public virtual ICollection<Messages> Messages { get; set; }
         public virtual ICollection<Rentals> Rentals { get; set; }
-        public virtual ICollection<RentalsBooks> RentalsBooks { get; set; }
+        
     }
 }

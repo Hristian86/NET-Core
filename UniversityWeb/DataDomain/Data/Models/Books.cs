@@ -7,7 +7,7 @@ namespace DataDomain.Data.Models
     {
         public Books()
         {
-            RentalsBooks = new HashSet<RentalsBooks>();
+            Rentals = new HashSet<Rentals>();
         }
 
         public int Id { get; set; }
@@ -18,6 +18,6 @@ namespace DataDomain.Data.Models
         public DateTime? RealeseDate { get; set; }
         public string Picture { get; set; }
 
-        public virtual ICollection<RentalsBooks> RentalsBooks { get; set; }
+        public virtual ICollection<Rentals> Rentals { get; set; }
     }
 }

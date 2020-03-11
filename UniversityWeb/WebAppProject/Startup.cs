@@ -15,6 +15,7 @@ using Microsoft.Extensions.Hosting;
 using DataDomain.Data.Models;
 using BusinessLogic;
 using DataDomain;
+using BusinessLogic.interfaces;
 
 namespace WebAppProject
 {
@@ -38,6 +39,9 @@ namespace WebAppProject
             // Get connection string
             ConnectionString.ConString = Configuration.GetConnectionString("DefaultConnection");
 
+            MovieRentalDBSEContext db = new MovieRentalDBSEContext();
+            db.Database.Migrate();
+
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
@@ -55,6 +59,10 @@ namespace WebAppProject
             services.AddControllersWithViews();
 
             services.AddRazorPages();
+
+            services.AddScoped<IProfileEdit, ProfileEdit>();
+
+            services.AddScoped<MovieRentalDBSEContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
