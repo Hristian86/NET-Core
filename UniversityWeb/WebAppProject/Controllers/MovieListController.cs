@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BusinessLogic.interfaces;
 using BusinessLogic.Services;
+using DataDomain.Data.Models;
 using Microsoft.AspNetCore.Mvc;
 using WebAppProject.Models;
 
@@ -11,13 +12,12 @@ namespace WebAppProject.Controllers
 {
     public class MovieListController : Controller
     {
+        private readonly List<Movies> Mview;
 
-        //private readonly IViewMovies Mview;
-
-        //public MovieListController(ViewMovies movie)
-        //{
-        //    this.Mview = movie;
-        //}
+        public MovieListController(MovieRentalDBSEContext db)
+        {
+            this.Mview = db.Movies.ToList();
+        }
 
         public IActionResult Index()
         {
@@ -26,14 +26,9 @@ namespace WebAppProject.Controllers
 
         public IActionResult Collection()
         {
-
-            IViewMovies mov = new ViewMovies();
-
-            var list = mov.GetListOfMovies();
-
             var display = new List<Movieses>();
-
-            foreach (var item in list)
+           
+            foreach (var item in Mview)
             {
                 Movieses movie = new Movieses
                 {

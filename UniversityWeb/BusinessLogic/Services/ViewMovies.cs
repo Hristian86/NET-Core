@@ -9,24 +9,24 @@ namespace BusinessLogic.Services
 {
     public class ViewMovies : IViewMovies
     {
-        private readonly MovieRentalDBSEContext db = new MovieRentalDBSEContext();
-        private List<Movies> movies;
+        //private readonly MovieRentalDBSEContext db = new MovieRentalDBSEContext();
+        private readonly List<Movies> movies;
 
-        //public ViewMovies(MovieRentalDBSEContext dbs)
-        //{
-        //    this.db = dbs;
-        //    movies = dbs.Movies.ToList();
-        //}
+        public ViewMovies(MovieRentalDBSEContext dbs)
+        {
+            //this.db = dbs;
+            movies = dbs.Movies.ToList();
+        }
 
         public List<Movies> GetListOfMovies()
         {
-            CopyMovies();
+            //CopyMovies();
             return this.movies;
         }
 
-        private void CopyMovies()
-        {
-            this.movies = this.db.Movies.ToList();
-        }
+        //private void CopyMovies()
+        //{
+        //    this.movies = this.db.Movies.ToList();
+        //}
     }
 }
