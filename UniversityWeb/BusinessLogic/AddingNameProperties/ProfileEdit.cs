@@ -13,7 +13,7 @@ namespace BusinessLogic
     public class ProfileEdit : IProfileEdit
     {
         private MovieRentalDBSEContext db = new MovieRentalDBSEContext();
-
+        
         /// <summary>
         /// Saving changes for user profile
         /// </summary>
@@ -24,24 +24,24 @@ namespace BusinessLogic
         public void SaveUserProperties(string firstName, string lastName, string address, string userId)
         {
             //method for getting user id
-            var currentUser = FindDbRepository(userId); 
+            var currentUser = FinUserIndDbRepository(userId); 
 
             bool Changes = false;
 
             //Null cheking
-            if (firstName != null)
+            if (firstName != null && firstName.Length <= 20)
             {
                 currentUser.FirstName = firstName;
                 Changes = true;
             }
 
-            if (lastName != null)
+            if (lastName != null && lastName.Length <= 20)
             {
                 currentUser.LastName = lastName;
                 Changes = true;
             }
 
-            if (address != null)
+            if (address != null && address.Length <= 30)
             {
                 currentUser.Address = address;
                 Changes = true;
@@ -75,7 +75,7 @@ namespace BusinessLogic
         }
 
         // Searching for the current user by id
-        private AspNetUsers FindDbRepository(string userId)
+        private AspNetUsers FinUserIndDbRepository(string userId)
         {
             var usr = db.AspNetUsers.Where(x => x.Id == userId).FirstOrDefault();
             return usr;

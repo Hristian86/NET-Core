@@ -23,13 +23,20 @@ namespace WebAppProject.Areas.Identity.Pages.Account
         private readonly UserManager<IdentityUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly RoleManager<IdentityRole> _roleManager;
+
+        private readonly string adminRole = "Admin";
+        private readonly string userRole = "User";
 
         public RegisterModel(
             UserManager<IdentityUser> userManager,
             SignInManager<IdentityUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            RoleManager<IdentityRole> roleManager
+            )
         {
+            this._roleManager = roleManager;
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
@@ -74,12 +81,34 @@ namespace WebAppProject.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
+
+
             returnUrl = returnUrl ?? Url.Content("~/");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
                 var user = new IdentityUser { UserName = Input.UserName, Email = Input.Email };
+
                 var result = await _userManager.CreateAsync(user, Input.Password);
+
+                //TO DO Roles
+
+                //var userRol = await _userManager.GetUserAsync(this.User);
+                
+                if (_userManager.Users.Count() == 1)
+                {
+                    await this._roleManager.CreateAsync(new IdentityRole { Name = this.adminRole });
+
+                    await this._userManager.AddToRoleAsync(user, adminRole);
+
+                }
+                else
+                {
+                    await this._roleManager.CreateAsync(new IdentityRole { Name = this.userRole });
+
+                    await this._userManager.AddToRoleAsync(user, userRole);
+                }
+
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");

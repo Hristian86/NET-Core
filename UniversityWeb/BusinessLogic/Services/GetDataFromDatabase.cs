@@ -7,9 +7,11 @@ namespace BusinessLogic.Services
 {
     public class GetDataFromDatabase
     {
-        private MovieRentalDBSEContext db = new MovieRentalDBSEContext();
-
-
-
+        //private MovieRentalDBSEContext db = new MovieRentalDBSEContext();
+        private readonly MovieRentalDBSEContext db;
+        public GetDataFromDatabase(MovieRentalDBSEContext dbs)
+        {
+            this.db = dbs;
+        }
     }
 }

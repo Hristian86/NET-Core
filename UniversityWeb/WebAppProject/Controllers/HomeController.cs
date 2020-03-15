@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BusinessLogic;
 using BusinessLogic.interfaces;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using WebAppProject.Data;
@@ -14,14 +15,16 @@ namespace WebAppProject.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IProfileEdit edits;
+        private readonly IProfileEdit _edits;
+        private readonly UserManager<IdentityUser> userManager;
         private readonly ILogger<HomeController> _logger;
 
         private UserNames names = new UserNames();
 
-        public HomeController(ILogger<HomeController> logger,IProfileEdit injEdit)
+        public HomeController(ILogger<HomeController> logger,IProfileEdit edit, UserManager<IdentityUser> userManager)
         {
-            this.edits = injEdit;
+            this._edits = edit;
+            this.userManager = userManager;
             _logger = logger;
         }
 
@@ -30,7 +33,9 @@ namespace WebAppProject.Controllers
             if (User.Identity.Name != null)
             {
 
-                var usr = edits.GetUserProperties(User.Identity.Name);
+                var usr = _edits.GetUserProperties(User.Identity.Name);
+
+                var usery = userManager.GetUserId(this.User);
 
                 UserNames tempUser = new UserNames
                 {

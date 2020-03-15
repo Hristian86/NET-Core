@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -6,12 +7,14 @@ namespace DataDomain.Data.Models
 {
     public partial class MovieRentalDBSEContext : DbContext
     {
-        public MovieRentalDBSEContext()
-        {
-        }
+        
 
         public MovieRentalDBSEContext(DbContextOptions<MovieRentalDBSEContext> options)
             : base(options)
+        {
+        }
+
+        public MovieRentalDBSEContext()
         {
         }
 

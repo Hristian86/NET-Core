@@ -1,10 +1,10 @@
-﻿@model IEnumerable<DataDomain.Data.Models.Movies>
+﻿@model IEnumerable<WebAppProject.Models.Movieses>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Collection";
 }
 
-<h1>Index</h1>
+<h1>Collection</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -22,10 +22,10 @@
                 @Html.DisplayNameFor(model => model.RealeaseDate)
             </th>
             <th>
-                Genre
+                @Html.DisplayNameFor(model => model.Picture)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Picture)
+                @Html.DisplayNameFor(model => model.Genre)
             </th>
             <th></th>
         </tr>
@@ -43,16 +43,19 @@
                 @Html.DisplayFor(modelItem => item.RealeaseDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Genre)
-            </td>
-            <td>
-               @* @Html.DisplayFor(modelItem => item.Picture)*@
+                @*@Html.DisplayFor(modelItem => item.Picture)*@
                 <img src="@item.Picture" alt="Alternate Text" />
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                @Html.DisplayFor(modelItem => item.Genre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
             </td>
         </tr>
 }

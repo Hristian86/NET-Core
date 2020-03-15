@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\DataDomain\\DataDomain.csproj": {}
+    "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\DataDomain\\DataDomain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\DataDomain\\DataDomain.csproj": {
+    "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\DataDomain\\DataDomain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\DataDomain\\DataDomain.csproj",
+        "projectUniqueName": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\DataDomain\\DataDomain.csproj",
         "projectName": "DataDomain",
-        "projectPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\DataDomain\\DataDomain.csproj",
+        "projectPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\DataDomain\\DataDomain.csproj",
         "packagesPath": "C:\\Users\\Pencho\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\DataDomain\\obj\\",
+        "outputPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\DataDomain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BusinessLogic;
 using BusinessLogic.interfaces;
+using DataDomain.Data.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -20,8 +21,11 @@ namespace WebAppProject.Areas.Identity.Pages.Account.Manage
 
         public IndexModel(
             UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager)
+            SignInManager<IdentityUser> signInManager
+            //ProfileEdit editJ
+            )
         {
+            //this.edit = editJ;
             _userManager = userManager;
             _signInManager = signInManager;
         }
@@ -83,6 +87,7 @@ namespace WebAppProject.Areas.Identity.Pages.Account.Manage
             if (user.UserName != null)
             {
                 //Creating current profile properties for placeholder
+
                 var usr = edit.GetUserProperties(user.UserName);
                 this.FirstName = usr.FirstName;
                 this.LastName = usr.LastName;
@@ -108,6 +113,7 @@ namespace WebAppProject.Areas.Identity.Pages.Account.Manage
             }
 
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
+
             if (Input.PhoneNumber != phoneNumber)
             {
                 var setPhoneResult = await _userManager.SetPhoneNumberAsync(user, Input.PhoneNumber);

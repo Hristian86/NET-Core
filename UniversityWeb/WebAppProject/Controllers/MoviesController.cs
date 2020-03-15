@@ -8,12 +8,15 @@ using Microsoft.EntityFrameworkCore;
 using DataDomain.Data.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using DataDomain;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebAppProject.Controllers
 {
+
+    [Authorize(Roles = "Admin")]
     public class MoviesController : Controller
     {
-        private readonly MovieRentalDBSEContext _context; //= new MovieRentalDBSEContext();
+        private readonly MovieRentalDBSEContext _context;
 
         public MoviesController(MovieRentalDBSEContext context)
         {
@@ -21,7 +24,6 @@ namespace WebAppProject.Controllers
         }
 
         // GET: Movies
-
         public async Task<IActionResult> Index()
         {
             if (!User.Identity.IsAuthenticated)

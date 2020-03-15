@@ -3,8 +3,12 @@ using System.Collections.Generic;
 
 namespace WebAppProject.Models
 {
-    public partial class Movieses
+    public class Movieses
     {
+        public Movieses()
+        {
+            
+        }
 
         public int Id { get; set; }
         public string Title { get; set; }
@@ -12,5 +16,7 @@ namespace WebAppProject.Models
         public DateTime RealeaseDate { get; set; }
         public int? RentMovieId { get; set; }
         public string Picture { get; set; }
+        public string Genre { get; set; }
+
     }
 }

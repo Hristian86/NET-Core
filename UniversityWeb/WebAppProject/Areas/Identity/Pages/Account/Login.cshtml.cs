@@ -85,7 +85,7 @@ namespace WebAppProject.Areas.Identity.Pages.Account
                 {
                     _logger.LogInformation("User logged in.");
 
-                    //Test get curreb user
+                    //Test get current user
                     CurrentUserTest.UserName = Input.UserName;
 
                     return LocalRedirect(returnUrl);
