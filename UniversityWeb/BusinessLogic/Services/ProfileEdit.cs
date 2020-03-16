@@ -5,14 +5,18 @@ using BusinessLogic.interfaces;
 using DataDomain.Data.Models;
 using Microsoft.AspNetCore.Identity;
 
-namespace BusinessLogic
+namespace BusinessLogic.Services
 {
     /// <summary>
     /// Changing profile atributes
     /// </summary>
     public class ProfileEdit : IProfileEdit
     {
-        private MovieRentalDBSEContext db = new MovieRentalDBSEContext();
+        private MovieRentalDBSEContext db;
+        public ProfileEdit(MovieRentalDBSEContext db)
+        {
+            this.db = db;
+        }
         
         /// <summary>
         /// Saving changes for user profile
@@ -41,7 +45,7 @@ namespace BusinessLogic
                 Changes = true;
             }
 
-            if (address != null && address.Length <= 30)
+            if (address != null && address.Length <= 50)
             {
                 currentUser.Address = address;
                 Changes = true;

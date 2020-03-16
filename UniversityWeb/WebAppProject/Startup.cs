@@ -42,7 +42,7 @@ namespace WebAppProject
                     Configuration.GetConnectionString("DefaultConnection")));
 
             // Get connection string 
-            ConnectionString.ConString = Configuration.GetConnectionString("DefaultConnection");
+            //ConnectionString.ConString = Configuration.GetConnectionString("DefaultConnection");
 
             //MovieRentalDBSEContext db = new MovieRentalDBSEContext();
             //db.Database.Migrate();
@@ -71,6 +71,8 @@ namespace WebAppProject
             services.AddScoped<MovieRentalDBSEContext>();
 
             services.AddScoped<IViewMovies, ViewMovies>();
+
+            services.AddScoped<IConvertingCollection, ConvertingCollection>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

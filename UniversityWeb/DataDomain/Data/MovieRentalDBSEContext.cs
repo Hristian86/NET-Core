@@ -14,9 +14,9 @@ namespace DataDomain.Data.Models
         {
         }
 
-        public MovieRentalDBSEContext()
-        {
-        }
+        //public MovieRentalDBSEContext()
+        //{
+        //}
 
         public virtual DbSet<AspNetRoleClaims> AspNetRoleClaims { get; set; }
         public virtual DbSet<AspNetRoles> AspNetRoles { get; set; }

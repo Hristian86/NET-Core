@@ -31,7 +31,7 @@ namespace WebAppProject.Controllers
                 CurrentUserTest.Errors = "Not alowed to enter untill loged in";
                 return RedirectToAction("Index", "Home");
             }
-            
+
             return View(await _context.Movies.ToListAsync());
         }
 
@@ -75,11 +75,20 @@ namespace WebAppProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Director,RealeaseDate,RentMovieId,Picture")] Movies movies)
+        public async Task<IActionResult> Create([Bind("Id,Title,Director,RealeaseDate,Genre,price,Discount,Picture")] Movies movies)
         {
 
             if (ModelState.IsValid)
             {
+                //var curPrice = movies.price;
+                //var discount = movies.Discount;
+                //var total = curPrice - discount;
+
+                //if (total >= 0)
+                //{
+                //    movies.price = total;
+                //}
+
                 _context.Add(movies);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -99,6 +108,7 @@ namespace WebAppProject.Controllers
             {
 
                 var movies = await _context.Movies.FindAsync(id);
+
                 if (movies == null)
                 {
                     return NotFound();
@@ -114,7 +124,7 @@ namespace WebAppProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Director,RealeaseDate,RentMovieId,Picture")] Movies movies)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Director,RealeaseDate,Genre,price,Discount,Picture")] Movies movies)
         {
             if (id != movies.Id)
             {
@@ -125,6 +135,16 @@ namespace WebAppProject.Controllers
             {
                 try
                 {
+                    //var sum = 0.00;
+                    //var curPricew = movies.price;
+                    //var disc = movies.Discount;
+                    //sum = curPricew - disc;
+
+                    //if (sum >= 0)
+                    //{
+                    //    movies.price = sum;
+                    //}
+
                     _context.Update(movies);
                     await _context.SaveChangesAsync();
                 }

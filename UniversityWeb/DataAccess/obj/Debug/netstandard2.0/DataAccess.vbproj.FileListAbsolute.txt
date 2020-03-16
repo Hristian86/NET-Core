@@ -1,8 +1,0 @@
-C:\Users\Pencho\source\repos\AspWebTest\DataAccess\bin\Debug\netstandard2.0\DataAccess.deps.json
-C:\Users\Pencho\source\repos\AspWebTest\DataAccess\bin\Debug\netstandard2.0\DataAccess.dll
-C:\Users\Pencho\source\repos\AspWebTest\DataAccess\obj\Debug\netstandard2.0\DataAccess.vbprojAssemblyReference.cache
-C:\Users\Pencho\source\repos\AspWebTest\DataAccess\obj\Debug\netstandard2.0\DataAccess.AssemblyInfoInputs.cache
-C:\Users\Pencho\source\repos\AspWebTest\DataAccess\obj\Debug\netstandard2.0\DataAccess.AssemblyInfo.vb
-C:\Users\Pencho\source\repos\AspWebTest\DataAccess\bin\Debug\netstandard2.0\DataAccess.pdb
-C:\Users\Pencho\source\repos\AspWebTest\DataAccess\obj\Debug\netstandard2.0\DataAccess.dll
-C:\Users\Pencho\source\repos\AspWebTest\DataAccess\obj\Debug\netstandard2.0\DataAccess.pdb

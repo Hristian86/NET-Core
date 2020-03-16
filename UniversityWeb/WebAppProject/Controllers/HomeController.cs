@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BusinessLogic;
 using BusinessLogic.interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -13,16 +14,19 @@ using WebAppProject.Models;
 
 namespace WebAppProject.Controllers
 {
+    [AllowAnonymous]
     public class HomeController : Controller
     {
         private readonly IProfileEdit _edits;
         private readonly UserManager<IdentityUser> userManager;
         private readonly ILogger<HomeController> _logger;
+        private readonly IViewMovies _mods;
 
-        private UserNames names = new UserNames();
+        //private UserNames names = new UserNames();
 
-        public HomeController(ILogger<HomeController> logger,IProfileEdit edit, UserManager<IdentityUser> userManager)
+        public HomeController(ILogger<HomeController> logger,IProfileEdit edit, UserManager<IdentityUser> userManager, IViewMovies mods)
         {
+            this._mods = mods;
             this._edits = edit;
             this.userManager = userManager;
             _logger = logger;
@@ -30,6 +34,8 @@ namespace WebAppProject.Controllers
 
         public IActionResult Index()
         {
+            var col = _mods.GetListOfMovies();
+
             if (User.Identity.Name != null)
             {
 

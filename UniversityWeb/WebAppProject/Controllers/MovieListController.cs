@@ -12,11 +12,11 @@ namespace WebAppProject.Controllers
 {
     public class MovieListController : Controller
     {
-        private readonly List<Movies> Mview;
+        private readonly IViewMovies _mods;
 
-        public MovieListController(MovieRentalDBSEContext db)
+        public MovieListController(IViewMovies mods)
         {
-            this.Mview = db.Movies.ToList();
+            this._mods = mods;
         }
 
         public IActionResult Index()
@@ -26,26 +26,7 @@ namespace WebAppProject.Controllers
 
         public IActionResult Collection()
         {
-            var display = new List<Movieses>();
-           
-            foreach (var item in Mview)
-            {
-                Movieses movie = new Movieses
-                {
-                    Id = item.Id,
-                    Title = item.Title,
-                    Director = item.Director,
-                    Genre = item.Genre,
-                    Picture = item.Picture,
-                    RealeaseDate = item.RealeaseDate,
-                    RentMovieId = item.RentMovieId
-                };
-
-                display.Add(movie);
-            }
-
-
-            return this.View(display);
+            return this.View(this._mods.GetListOfMovies());
         }
     }
 }

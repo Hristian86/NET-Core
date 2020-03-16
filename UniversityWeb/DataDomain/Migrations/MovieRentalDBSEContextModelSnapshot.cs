@@ -244,6 +244,12 @@ namespace DataDomain.Migrations
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
+
+                    b.Property<float>("Discount")
+                        .HasColumnType("real");
+
                     b.Property<string>("Genre")
                         .HasColumnType("varchar(50)")
                         .HasMaxLength(50)
@@ -263,6 +269,9 @@ namespace DataDomain.Migrations
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)")
                         .HasMaxLength(450);
+
+                    b.Property<float>("price")
+                        .HasColumnType("real");
 
                     b.HasKey("Id");
 
@@ -314,8 +323,14 @@ namespace DataDomain.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Director")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Discount")
+                        .HasColumnType("float");
 
                     b.Property<string>("Genre")
                         .HasColumnType("varchar(50)")
@@ -333,6 +348,9 @@ namespace DataDomain.Migrations
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("price")
+                        .HasColumnType("float");
 
                     b.HasKey("Id");
 

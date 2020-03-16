@@ -15,23 +15,24 @@ namespace WebAppProject.Areas.Identity.Pages.Account.Manage
 
     public partial class IndexModel : PageModel
     {
-        private readonly IProfileEdit edit = new ProfileEdit();
+        private readonly IProfileEdit _edit;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
 
         public IndexModel(
             UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager
-            //ProfileEdit editJ
+            SignInManager<IdentityUser> signInManager,
+            IProfileEdit edit
             )
         {
-            //this.edit = editJ;
+            this._edit = edit;
             _userManager = userManager;
             _signInManager = signInManager;
         }
 
         public string Username { get; set; }
 
+        //Display properies
         public string FirstName { get; private set; }
 
         public string LastName { get; private set; }
@@ -88,7 +89,7 @@ namespace WebAppProject.Areas.Identity.Pages.Account.Manage
             {
                 //Creating current profile properties for placeholder
 
-                var usr = edit.GetUserProperties(user.UserName);
+                var usr = _edit.GetUserProperties(user.UserName);
                 this.FirstName = usr.FirstName;
                 this.LastName = usr.LastName;
                 this.Address = usr.Address;
@@ -129,7 +130,7 @@ namespace WebAppProject.Areas.Identity.Pages.Account.Manage
             //Making Custom Identity properties :)
             if (user.Id != null)
             {
-                edit.SaveUserProperties(Input.FirstName, Input.LastName, Input.Address, user.Id);
+                _edit.SaveUserProperties(Input.FirstName, Input.LastName, Input.Address, user.Id);
             }
 
             StatusMessage = "Your profile has been updated";

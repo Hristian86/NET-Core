@@ -16,7 +16,10 @@ namespace DataDomain.Data.Models
         public string Genre { get; set; }
         public string UserId { get; set; }
         public DateTime? RealeseDate { get; set; }
+        public DateTime Created { get; set; } = DateTime.UtcNow;
         public string Picture { get; set; }
+        public float price { get; set; }
+        public float Discount { get; set; }
 
         public virtual ICollection<Rentals> Rentals { get; set; }
     }
