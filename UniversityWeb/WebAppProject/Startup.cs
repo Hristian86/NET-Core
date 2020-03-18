@@ -69,6 +69,8 @@ namespace WebAppProject
             services.AddScoped<IViewMovies, ViewMovies>();
 
             services.AddScoped<IConvertingCollection, ConvertingCollection>();
+
+            services.AddScoped<IViewBooks, ViewBooks>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

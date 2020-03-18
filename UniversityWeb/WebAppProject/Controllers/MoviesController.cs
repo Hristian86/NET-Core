@@ -26,12 +26,6 @@ namespace WebAppProject.Controllers
         // GET: Movies
         public async Task<IActionResult> Index()
         {
-            if (!User.Identity.IsAuthenticated)
-            {
-                CurrentUserTest.Errors = "Not alowed to enter untill loged in";
-                return RedirectToAction("Index", "Home");
-            }
-
             return View(await _context.Movies.ToListAsync());
         }
 
@@ -41,12 +35,6 @@ namespace WebAppProject.Controllers
             if (id == null)
             {
                 return NotFound();
-            }
-
-            if (!User.Identity.IsAuthenticated)
-            {
-                ViewData.ModelState.AddModelError("Not alowed", "You need to be loged in");
-                return RedirectToAction("Index", "Home");
             }
 
             var movies = await _context.Movies
@@ -62,12 +50,7 @@ namespace WebAppProject.Controllers
         // GET: Movies/Create
         public IActionResult Create()
         {
-            if (User.Identity.IsAuthenticated)
-            {
-                return View();
-            }
-
-            return RedirectToAction("Index", "Home");
+            return View();
         }
 
         // POST: Movies/Create
@@ -88,7 +71,7 @@ namespace WebAppProject.Controllers
                 //{
                 //    movies.price = total;
                 //}
-                
+
                 _context.Add(movies);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -104,19 +87,15 @@ namespace WebAppProject.Controllers
             {
                 return NotFound();
             }
-            if (User.Identity.IsAuthenticated)
+
+            var movies = await _context.Movies.FindAsync(id);
+
+            if (movies == null)
             {
-
-                var movies = await _context.Movies.FindAsync(id);
-
-                if (movies == null)
-                {
-                    return NotFound();
-                }
-                return View(movies);
+                return NotFound();
             }
 
-            return RedirectToAction("Index", "Home");
+            return View(movies);
         }
 
         // POST: Movies/Edit/5
@@ -173,19 +152,15 @@ namespace WebAppProject.Controllers
                 return NotFound();
             }
 
-            if (User.Identity.IsAuthenticated)
+            var movies = await _context.Movies
+                .FirstOrDefaultAsync(m => m.Id == id);
+
+            if (movies == null)
             {
-
-                var movies = await _context.Movies
-                    .FirstOrDefaultAsync(m => m.Id == id);
-                if (movies == null)
-                {
-                    return NotFound();
-                }
-
-                return View(movies);
+                return NotFound();
             }
-            return RedirectToAction("Index", "Home");
+
+            return View(movies);
         }
 
         // POST: Movies/Delete/5

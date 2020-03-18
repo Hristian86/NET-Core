@@ -1,6 +1,4 @@
-﻿@using DataDomain
-@*@model WebAppProject.Models.UserNames*@
-@{
+﻿@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -8,24 +6,6 @@
 
 <div class="text-center">
 
-    @*@if (!User.Identity.IsAuthenticated)
-        {
-            var x = ViewData["Not alowed"];
-                <div>Not alowed</div>
-        }*@
-
-    @if (CurrentUserTest.Errors != null)
-    {
-        if (!User.Identity.IsAuthenticated)
-        {
-            var x = CurrentUserTest.Errors;
-            <div>@x</div>
-        }
-        else
-        {
-            CurrentUserTest.Errors = null;
-        }
-    }
     @{
         if (User.Identity.IsAuthenticated)
         {
