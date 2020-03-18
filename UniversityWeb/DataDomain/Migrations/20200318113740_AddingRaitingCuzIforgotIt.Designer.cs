@@ -4,14 +4,16 @@ using DataDomain.Data.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataDomain.Migrations
 {
     [DbContext(typeof(MovieRentalDBSEContext))]
-    partial class MovieRentalDBSEContextModelSnapshot : ModelSnapshot
+    [Migration("20200318113740_AddingRaitingCuzIforgotIt")]
+    partial class AddingRaitingCuzIforgotIt
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -239,6 +241,10 @@ namespace DataDomain.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Actors")
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
                     b.Property<string>("Author")
                         .HasColumnType("varchar(50)")
                         .HasMaxLength(50)
@@ -329,10 +335,6 @@ namespace DataDomain.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Actors")
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
 
                     b.Property<DateTime>("Created")
                         .HasColumnType("datetime2");

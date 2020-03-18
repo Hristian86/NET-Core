@@ -22,9 +22,6 @@ namespace DataDomain.Data.Models
         [MaxLength(50)]
         public string Genre { get; set; }
 
-        [MaxLength(100)]
-        public string Actors { get; set; }
-
         public string UserId { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
@@ -37,6 +34,8 @@ namespace DataDomain.Data.Models
 
         [DisplayFormat(DataFormatString = "{0:f2}", ApplyFormatInEditMode = true)]
         public double Discount { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:f1}", ApplyFormatInEditMode = true)]
         public double Raiting { get; set; }
 
         [MaxLength(150)]

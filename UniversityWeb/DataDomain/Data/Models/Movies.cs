@@ -19,6 +19,9 @@ namespace DataDomain.Data.Models
         [MaxLength(30)]
         public string Director { get; set; }
 
+        [MaxLength(100)]
+        public string Actors { get; set; }
+
         [MaxLength(150)]
         public string Description { get; set; }
 
@@ -39,6 +42,9 @@ namespace DataDomain.Data.Models
 
         [DisplayFormat(DataFormatString = "{0:f2}", ApplyFormatInEditMode = true)]
         public double Discount { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:f1}", ApplyFormatInEditMode = true)]
+        public double Raiting { get; set; }
 
         public virtual ICollection<Rentals> Rentals { get; set; }
     }

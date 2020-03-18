@@ -28,19 +28,24 @@ namespace BusinessLogic.Services
 
             var Mview = this.db.Movies.ToList();
 
-            foreach (var item in Mview)
+            foreach (var itemMovie in Mview)
             {
                 Movieses movie = new Movieses
                 {
-                    Id = item.Id,
-                    Title = item.Title,
-                    Director = item.Director,
-                    Genre = item.Genre,
-                    Picture = item.Picture,
-                    Discount = item.Discount,
-                    price = item.price,
-                    RealeaseDate = item.RealeaseDate,
-                    RentMovieId = item.RentMovieId
+                    Id = itemMovie.Id,
+                    Title = itemMovie.Title,
+                    Director = itemMovie.Director,
+                    Genre = itemMovie.Genre,
+                    Picture = itemMovie.Picture,
+                    Discount = itemMovie.Discount,
+                    price = itemMovie.price,
+                    RealeaseDate = itemMovie.RealeaseDate,
+                    RentMovieId = itemMovie.RentMovieId,
+
+                    //new properties
+                    Actors = itemMovie.Actors,
+                    Raiting = itemMovie.Raiting,
+                    Description = itemMovie.Description
                 };
 
                 display.Add(movie);

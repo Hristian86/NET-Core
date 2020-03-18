@@ -7,6 +7,6 @@ namespace BusinessLogic.interfaces
 {
     public interface IViewBooks
     {
-        IReadOnlyList<Bookses> GetListOfBooks();
+        List<Bookses> GetListOfBooks();
     }
 }

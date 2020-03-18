@@ -28,6 +28,15 @@
                     Price
                 </th>
                 <th>
+                    @Html.DisplayNameFor(model => model.Actors)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Raiting)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
                     @Html.DisplayNameFor(model => model.Picture)
                 </th>
                 <th></th>
@@ -51,12 +60,22 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.price) $
-                    
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Actors)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Raiting)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
                 </td>
                 <td>
                     @* @Html.DisplayFor(modelItem => item.Picture)*@
                     <img src="@item.Picture" id="MovieList" alt="Alternate Text" />
                 </td>
+
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                     <a asp-action="Details" asp-route-id="@item.Id">Details</a> |

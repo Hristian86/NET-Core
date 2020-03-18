@@ -17,29 +17,31 @@ namespace BusinessLogic.Services
             this._db = db;
         }
 
-        public IReadOnlyList<Bookses> GetListOfBooks()
+        public List<Bookses> GetListOfBooks()
         {
             return GetBooks();
         }
 
-        private IReadOnlyList<Bookses> GetBooks()
+        private List<Bookses> GetBooks()
         {
             var booksDispplay = new List<Bookses>();
 
-            var Mview = this._db.Books.ToList();
+            var Bview = this._db.Books.ToList();
 
-            foreach (var item in Mview)
+            foreach (var itemBook in Bview)
             {
                 Bookses book = new Bookses
                 {
-                    Id = item.Id,
-                    Title = item.Title,
-                    Author = item.Author,
-                    Genre = item.Genre,
-                    Picture = item.Picture,
-                    Discount = item.Discount,
-                    price = item.price,
-                    RealeseDate = item.RealeseDate,
+                    Id = itemBook.Id,
+                    Title = itemBook.Title,
+                    Author = itemBook.Author,
+                    Genre = itemBook.Genre,
+                    Picture = itemBook.Picture,
+                    Discount = itemBook.Discount,
+                    price = itemBook.price,
+                    RealeseDate = itemBook.RealeseDate,
+                    Description = itemBook.Description,
+                    Raiting = itemBook.Raiting
                 };
 
                 booksDispplay.Add(book);
