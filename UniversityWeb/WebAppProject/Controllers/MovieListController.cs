@@ -29,6 +29,13 @@ namespace WebAppProject.Controllers
             return View();
         }
 
+        [Authorize]
+        [AutoValidateAntiforgeryToken]
+        public IActionResult Shop()
+        {
+            return RedirectToAction("Purchases", "Shoping");
+        }
+
         public IActionResult MovieCollection()
         {
             return this.View(this._mods.GetListOfMovies());

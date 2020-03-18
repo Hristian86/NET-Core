@@ -8,11 +8,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebAppProject.Controllers
 {
-    public class ShopingController : Controller
+    public class ShopedItemsController : Controller
     {
         private readonly IViewMovies _movieDb;
 
-        public ShopingController(IViewMovies movieDb)
+        public ShopedItemsController(IViewMovies movieDb)
         {
             this._movieDb = movieDb;
         }

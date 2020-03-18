@@ -84,14 +84,15 @@
             </td>
             <td>
 
-                @*<a class="nav-link text-dark" asp-area="" asp-controller="MovieList" asp-action="">Create ShopList</a>*@
-                <div id="purchaseHeader" style="text-align:center;">  Buy this product</div>
+                <a class="nav-link text-dark" asp-area="" asp-controller="ShopedItems" asp-action="Index">Create ShopList</a>
+                @Html.ActionLink("BRD", "Purchases", "Shoping", new { id = item.Id }) |
+        @*<div id="purchaseHeader" style="text-align:center;">  Buy this product</div>*@
 
                 @*@Html.ActionLink("MovieList", "BuyMovie", new { id = item.Id }) |
 
-                @Html.ActionLink("Purchase", "Purchase", new { id = item.Id })*@
+        @Html.ActionLink("Purchase", "Purchase", new { id = item.Id })*@
 
-            <button type="submit" class="btn btn-outline-success"> @Html.ActionLink("Purchase", "Purchase", new { id = item.Id })</button>
+                <button type="submit" class="btn btn-outline-success"> @Html.ActionLink("Purchase", "Purchase", new { id = item.Id })</button>
 
             </td>
             
