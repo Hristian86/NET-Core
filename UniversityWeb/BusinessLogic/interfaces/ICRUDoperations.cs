@@ -7,9 +7,6 @@ namespace BusinessLogic.interfaces
 {
     public interface ICRUDoperations
     {
-        List<Movies> GetMovies();
-
-        void CreateMovie(Movies movie);
-
+        public void CreateMovieRental(string userId, int MovieId);
     }
 }

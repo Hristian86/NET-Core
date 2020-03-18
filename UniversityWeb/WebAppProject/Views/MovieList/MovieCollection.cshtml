@@ -85,7 +85,10 @@
                 <img src="@item.Picture" id="MovieList" alt="Alternate Text" />
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                
+                    <a class="nav-link text-dark" asp-area="" asp-controller="MovieList" asp-action="MovieRent">Create Rental</a>
+                
+                @Html.ActionLink("MovieList", "MovieRent", new { id = item.Id }) |
                 @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
             </td>

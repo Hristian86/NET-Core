@@ -71,6 +71,8 @@ namespace WebAppProject
             services.AddScoped<IConvertingCollection, ConvertingCollection>();
 
             services.AddScoped<IViewBooks, ViewBooks>();
+
+            services.AddScoped<ICRUDoperations, CRUDoperations>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
