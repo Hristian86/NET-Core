@@ -27,8 +27,8 @@ namespace BusinessLogic.Services
         /// <param name="userId"></param>
         public void SaveUserProperties(string firstName, string lastName, string address, string userId)
         {
-            //method for getting user id
-            var currentUser = FinUserIndDbRepository(userId); 
+            //method for getting user by id
+            var currentUser = FindUserIndDbRepository(userId); 
 
             bool Changes = false;
 
@@ -79,7 +79,7 @@ namespace BusinessLogic.Services
         }
 
         // Searching for the current user by id
-        private AspNetUsers FinUserIndDbRepository(string userId)
+        private AspNetUsers FindUserIndDbRepository(string userId)
         {
             var usr = db.AspNetUsers.Where(x => x.Id == userId).FirstOrDefault();
             return usr;

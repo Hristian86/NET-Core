@@ -44,16 +44,12 @@ namespace WebAppProject
             // Get connection string 
             //ConnectionString.ConString = Configuration.GetConnectionString("DefaultConnection");
 
-            //MovieRentalDBSEContext db = new MovieRentalDBSEContext();
-            //db.Database.Migrate();
-
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.Configure<IdentityOptions>(options =>
             {
-                
                 options.Password.RequireDigit = false;
                 options.Password.RequireLowercase = false;
                 options.Password.RequireNonAlphanumeric = false;

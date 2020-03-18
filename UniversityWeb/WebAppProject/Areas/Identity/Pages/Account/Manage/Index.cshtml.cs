@@ -118,6 +118,7 @@ namespace WebAppProject.Areas.Identity.Pages.Account.Manage
             if (Input.PhoneNumber != phoneNumber)
             {
                 var setPhoneResult = await _userManager.SetPhoneNumberAsync(user, Input.PhoneNumber);
+
                 if (!setPhoneResult.Succeeded)
                 {
                     var userId = await _userManager.GetUserIdAsync(user);

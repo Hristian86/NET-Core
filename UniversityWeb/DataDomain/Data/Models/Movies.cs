@@ -12,7 +12,11 @@ namespace DataDomain.Data.Models
         }
 
         public int Id { get; set; }
+
+        [MaxLength(50)]
         public string Title { get; set; }
+
+        [MaxLength(50)]
         public string Director { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]

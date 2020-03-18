@@ -4,14 +4,16 @@ using DataDomain.Data.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataDomain.Migrations
 {
     [DbContext(typeof(MovieRentalDBSEContext))]
-    partial class MovieRentalDBSEContextModelSnapshot : ModelSnapshot
+    [Migration("20200316153049_AnotaitionsAppliedM")]
+    partial class AnotaitionsAppliedM
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -327,8 +329,8 @@ namespace DataDomain.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Director")
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasColumnType("nvarchar(40)")
+                        .HasMaxLength(40);
 
                     b.Property<double>("Discount")
                         .HasColumnType("float");
@@ -348,8 +350,8 @@ namespace DataDomain.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasColumnType("nvarchar(40)")
+                        .HasMaxLength(40);
 
                     b.Property<double>("price")
                         .HasColumnType("float");

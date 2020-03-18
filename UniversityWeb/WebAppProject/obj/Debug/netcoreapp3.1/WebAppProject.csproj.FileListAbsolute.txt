@@ -904,9 +904,7 @@ C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppP
 C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\WebAppProject\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\WebAppProject\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\WebAppProject\bin\Debug\netcoreapp3.1\BusinessLogic.dll
-C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\WebAppProject\bin\Debug\netcoreapp3.1\DataDomain.dll
 C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\WebAppProject\bin\Debug\netcoreapp3.1\BusinessLogic.pdb
-C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\WebAppProject\bin\Debug\netcoreapp3.1\DataDomain.pdb
 C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\WebAppProject\obj\Debug\netcoreapp3.1\WebAppProject.csprojAssemblyReference.cache
 C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\WebAppProject\obj\Debug\netcoreapp3.1\staticwebassets\WebAppProject.StaticWebAssets.Manifest.cache
 C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\WebAppProject\obj\Debug\netcoreapp3.1\staticwebassets\WebAppProject.StaticWebAssets.xml
@@ -954,3 +952,5 @@ C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppP
 C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\WebAppProject\obj\Debug\netcoreapp3.1\WebAppProject.dll
 C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\WebAppProject\obj\Debug\netcoreapp3.1\WebAppProject.pdb
 C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\WebAppProject\obj\Debug\netcoreapp3.1\Razor\Views\MovieList\Collection.cshtml.g.cs
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\WebAppProject\bin\Debug\netcoreapp3.1\DataDomain.dll
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\WebAppProject\bin\Debug\netcoreapp3.1\DataDomain.pdb

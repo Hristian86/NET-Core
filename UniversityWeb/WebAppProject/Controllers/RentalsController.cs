@@ -9,9 +9,11 @@ using DataDomain.Data.Models;
 using Microsoft.AspNetCore.Identity;
 using DataDomain;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebAppProject.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class RentalsController : Controller
     {
         private readonly MovieRentalDBSEContext _context;

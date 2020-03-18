@@ -88,7 +88,7 @@ namespace WebAppProject.Controllers
                 //{
                 //    movies.price = total;
                 //}
-
+                
                 _context.Add(movies);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

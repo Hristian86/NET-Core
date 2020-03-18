@@ -1,0 +1,10 @@
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\DataDomain\bin\Debug\netcoreapp3.1\Data.Domain.deps.json
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\DataDomain\bin\Debug\netcoreapp3.1\Data.Domain.runtimeconfig.json
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\DataDomain\bin\Debug\netcoreapp3.1\Data.Domain.runtimeconfig.dev.json
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\DataDomain\bin\Debug\netcoreapp3.1\Data.Domain.dll
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\DataDomain\bin\Debug\netcoreapp3.1\Data.Domain.pdb
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\DataDomain\obj\Debug\netcoreapp3.1\Data.Domain.csprojAssemblyReference.cache
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\DataDomain\obj\Debug\netcoreapp3.1\Data.Domain.AssemblyInfoInputs.cache
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\DataDomain\obj\Debug\netcoreapp3.1\Data.Domain.AssemblyInfo.cs
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\DataDomain\obj\Debug\netcoreapp3.1\Data.Domain.dll
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\DataDomain\obj\Debug\netcoreapp3.1\Data.Domain.pdb
