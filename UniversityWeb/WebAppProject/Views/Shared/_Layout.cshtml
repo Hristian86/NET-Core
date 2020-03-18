@@ -28,7 +28,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="MovieList" asp-action="Collection">Movie collection</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="MovieList" asp-action="MovieCollection">Movie collection</a>
                         </li>
                         @if (User.Identity.IsAuthenticated)
                         {
@@ -45,6 +45,9 @@
 
                                 <li class="nav-item">
                                     <a class="nav-link text-dark" asp-area="" asp-controller="Movies" asp-action="Index">Create Movies</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Books" asp-action="Index">Create Books</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link text-dark" asp-area="" asp-controller="Rentals" asp-action="Index">Create Rentals</a>

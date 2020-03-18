@@ -24,7 +24,7 @@ namespace WebAppProject.Controllers
             return View();
         }
 
-        public IActionResult Collection()
+        public IActionResult MovieCollection()
         {
             return this.View(this._mods.GetListOfMovies());
         }

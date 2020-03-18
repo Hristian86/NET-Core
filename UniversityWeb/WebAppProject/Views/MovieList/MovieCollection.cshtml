@@ -5,10 +5,13 @@
     ViewData["Title"] = "Collection";
 }
 
-<h1>Collection</h1>
+<h1>MovieCollection</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
+</p>
+<p>
+    <a asp-controller="BookList" asp-action="BooksCollection">book collection</a>
 </p>
 <table class="table" id="tabul">
     <thead>
@@ -20,13 +23,22 @@
                 @Html.DisplayNameFor(model => model.Director)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Actors)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Raiting)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.RealeaseDate)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Genre)
             </th>
             <th>
-                Price $
+                @Html.DisplayNameFor(model => model.price)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Picture)
@@ -44,14 +56,23 @@
                 @Html.DisplayFor(modelItem => item.Director)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.Actors)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Raiting)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.RealeaseDate)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Genre)
             </td>
             <td>
-                @{ 
-                   var sum = item.price + item.Discount;
+                @{
+                    var sum = item.price + item.Discount;
                     string pricy = $"{sum:f2} $";
                     string disp = $"{item.price:f2} $";
                 }
