@@ -68,8 +68,6 @@ namespace WebAppProject
 
             services.AddScoped<IViewMovies, ViewMovies>();
 
-            services.AddScoped<IConvertingCollection, ConvertingCollection>();
-
             services.AddScoped<IViewBooks, ViewBooks>();
 
             services.AddScoped<IShopItems, ShopItems>();
@@ -102,7 +100,7 @@ namespace WebAppProject
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}");
                 endpoints.MapRazorPages();
             });
         }

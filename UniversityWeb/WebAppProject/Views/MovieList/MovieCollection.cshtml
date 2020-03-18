@@ -7,9 +7,7 @@
 
 <h1>MovieCollection</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+
 <p>
     <a asp-controller="BookList" asp-action="BooksCollection">book collection</a>
 </p>
@@ -85,13 +83,18 @@
                 <img src="@item.Picture" id="MovieList" alt="Alternate Text" />
             </td>
             <td>
-                
-                    <a class="nav-link text-dark" asp-area="" asp-controller="MovieList" asp-action="BuyMovie">Create ShopList</a>
-                
-                @Html.ActionLink("MovieList", "BuyMovie", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+
+                @*<a class="nav-link text-dark" asp-area="" asp-controller="MovieList" asp-action="">Create ShopList</a>*@
+                <div id="purchaseHeader" style="text-align:center;">  Buy this product</div>
+
+                @*@Html.ActionLink("MovieList", "BuyMovie", new { id = item.Id }) |
+
+                @Html.ActionLink("Purchase", "Purchase", new { id = item.Id })*@
+
+            <button type="submit" class="btn btn-outline-success"> @Html.ActionLink("Purchase", "Purchase", new { id = item.Id })</button>
+
             </td>
+            
         </tr>
 }
     </tbody>

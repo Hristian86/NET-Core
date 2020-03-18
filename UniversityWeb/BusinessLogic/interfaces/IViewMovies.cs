@@ -8,6 +8,7 @@ namespace BusinessLogic.interfaces
 {
     public interface IViewMovies
     {
-       List<Movieses> GetListOfMovies();
+        List<Movieses> GetListOfMovies();
+
     }
 }

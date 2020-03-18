@@ -16,6 +16,7 @@ namespace BusinessLogic.Services
             this._db = db;
         }
 
+
         public void BuyMovie(string userId, int movieId)
         {
 

@@ -8,5 +8,6 @@ namespace BusinessLogic.interfaces
     public interface IShopItems
     {
         public void BuyMovie(string userId, int MovieId);
+
     }
 }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using BusinessLogic.interfaces;
 using BusinessLogic.Services;
 using DataDomain.Data.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using WebAppProject.Models;
@@ -15,12 +16,12 @@ namespace WebAppProject.Controllers
     public class MovieListController : Controller
     {
         private readonly IViewMovies _mods;
-        private readonly IShopItems _createRental;
+        private readonly IShopItems _shoping;
 
-        public MovieListController(IViewMovies mods, IShopItems createRental)
+        public MovieListController(IViewMovies mods, IShopItems shoping)
         {
             this._mods = mods;
-            this._createRental = createRental;
+            this._shoping = shoping;
         }
 
         public IActionResult Index()
@@ -33,6 +34,7 @@ namespace WebAppProject.Controllers
             return this.View(this._mods.GetListOfMovies());
         }
 
+        [Authorize(Roles = "User")]
         public IActionResult BuyMovie(int id)
         {
             //if (id == null)
@@ -42,10 +44,29 @@ namespace WebAppProject.Controllers
 
             var user = User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-            this._createRental.BuyMovie(user, id);
+            this._shoping.BuyMovie(user, id);
 
             return RedirectToAction("Index","Home");
         }
 
+        [Authorize]
+        [AutoValidateAntiforgeryToken]
+        public IActionResult Purchase(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var movies = _mods.GetListOfMovies()
+                .FirstOrDefault(m => m.Id == id);
+
+            if (movies == null)
+            {
+                return NotFound();
+            }
+
+            return View(movies);
+        }
     }
 }
