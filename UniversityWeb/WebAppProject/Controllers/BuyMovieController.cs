@@ -6,10 +6,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebAppProject.Controllers
 {
-    public class RentMovieController : Controller
+    public class BuyMovieController : Controller
     {
 
-        public RentMovieController()
+        public BuyMovieController()
         {
 
         }

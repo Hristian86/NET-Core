@@ -37,7 +37,7 @@ namespace WebAppProject
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddDbContext<MovieRentalDBSEContext>(options =>
+            services.AddDbContext<MovieShopDBSEContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
@@ -64,7 +64,7 @@ namespace WebAppProject
 
             services.AddScoped<IProfileEdit, ProfileEdit>();
 
-            services.AddScoped<MovieRentalDBSEContext>();
+            services.AddScoped<MovieShopDBSEContext>();
 
             services.AddScoped<IViewMovies, ViewMovies>();
 
@@ -72,7 +72,7 @@ namespace WebAppProject
 
             services.AddScoped<IViewBooks, ViewBooks>();
 
-            services.AddScoped<ICRUDoperations, CRUDoperations>();
+            services.AddScoped<IShopItems, ShopItems>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

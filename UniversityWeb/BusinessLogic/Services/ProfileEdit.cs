@@ -12,8 +12,8 @@ namespace BusinessLogic.Services
     /// </summary>
     public class ProfileEdit : IProfileEdit
     {
-        private MovieRentalDBSEContext db;
-        public ProfileEdit(MovieRentalDBSEContext db)
+        private MovieShopDBSEContext db;
+        public ProfileEdit(MovieShopDBSEContext db)
         {
             this.db = db;
         }

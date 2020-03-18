@@ -26,7 +26,7 @@ namespace BusinessLogic.Services
                     Genre = item.Genre,
                     Picture = item.Picture,
                     RealeaseDate = item.RealeaseDate,
-                    RentMovieId = item.RentMovieId
+                    ShopsMovieId = item.ShopsMovieId
                 };
 
                 display.Add(movie);

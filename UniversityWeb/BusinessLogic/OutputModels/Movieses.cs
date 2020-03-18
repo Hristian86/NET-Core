@@ -28,7 +28,7 @@ namespace BusinessLogic.OutputModels
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime RealeaseDate { get; set; }
 
-        public int? RentMovieId { get; set; }
+        public int? ShopsMovieId { get; set; }
 
         public string Picture { get; set; }
 

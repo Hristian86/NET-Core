@@ -10,9 +10,9 @@ namespace BusinessLogic.Services
 {
     public class ViewBooks : IViewBooks
     {
-        private readonly MovieRentalDBSEContext _db;
+        private readonly MovieShopDBSEContext _db;
 
-        public ViewBooks(MovieRentalDBSEContext db)
+        public ViewBooks(MovieShopDBSEContext db)
         {
             this._db = db;
         }

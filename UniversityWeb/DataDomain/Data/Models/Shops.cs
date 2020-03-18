@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace DataDomain.Data.Models
 {
-    public partial class Rentals
+    public partial class Shops
     {
         public int Id { get; set; }
         public string UserId { get; set; }

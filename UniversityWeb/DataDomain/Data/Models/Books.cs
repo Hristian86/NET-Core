@@ -8,7 +8,7 @@ namespace DataDomain.Data.Models
     {
         public Books()
         {
-            Rentals = new HashSet<Rentals>();
+            Shops = new HashSet<Shops>();
         }
 
         public int Id { get; set; }
@@ -41,6 +41,6 @@ namespace DataDomain.Data.Models
         [MaxLength(150)]
         public string Description { get; set; }
 
-        public virtual ICollection<Rentals> Rentals { get; set; }
+        public virtual ICollection<Shops> Shops { get; set; }
     }
 }

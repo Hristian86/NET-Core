@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace DataDomain.Data.Models
 {
-    public partial class MovieRentalDBSEContext : DbContext
+    public partial class MovieShopDBSEContext : DbContext
     {
         
 
-        public MovieRentalDBSEContext(DbContextOptions<MovieRentalDBSEContext> options)
+        public MovieShopDBSEContext(DbContextOptions<MovieShopDBSEContext> options)
             : base(options)
         {
         }
@@ -29,7 +29,7 @@ namespace DataDomain.Data.Models
         public virtual DbSet<Logs> Logs { get; set; }
         public virtual DbSet<Messages> Messages { get; set; }
         public virtual DbSet<Movies> Movies { get; set; }
-        public virtual DbSet<Rentals> Rentals { get; set; }
+        public virtual DbSet<Shops> Shops { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -192,24 +192,24 @@ namespace DataDomain.Data.Models
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<Rentals>(entity =>
+            modelBuilder.Entity<Shops>(entity =>
             {
                 entity.Property(e => e.RentedTime).HasColumnType("datetime");
 
                 entity.Property(e => e.UserId).HasMaxLength(450);
 
                 entity.HasOne(d => d.Books)
-                    .WithMany(p => p.Rentals)
+                    .WithMany(p => p.Shops)
                     .HasForeignKey(d => d.BooksId)
                     .HasConstraintName("FK_Rentals_Books");
 
                 entity.HasOne(d => d.Movie)
-                    .WithMany(p => p.Rentals)
+                    .WithMany(p => p.Shops)
                     .HasForeignKey(d => d.MovieId)
                     .HasConstraintName("FK_Rentals_Movies");
 
                 entity.HasOne(d => d.User)
-                    .WithMany(p => p.Rentals)
+                    .WithMany(p => p.Shops)
                     .HasForeignKey(d => d.UserId)
                     .HasConstraintName("FK_Rentals_AspNetUsers");
             });

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataDomain.Migrations
 {
-    [DbContext(typeof(MovieRentalDBSEContext))]
+    [DbContext(typeof(MovieShopDBSEContext))]
     [Migration("20200311190653_initial2")]
     partial class initial2
     {

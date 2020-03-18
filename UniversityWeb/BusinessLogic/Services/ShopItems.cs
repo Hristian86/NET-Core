@@ -7,16 +7,16 @@ using DataDomain.Data.Models;
 
 namespace BusinessLogic.Services
 {
-    public class CRUDoperations : ICRUDoperations
+    public class ShopItems : IShopItems
     {
-        private readonly MovieRentalDBSEContext _db;
+        private readonly MovieShopDBSEContext _db;
 
-        public CRUDoperations(MovieRentalDBSEContext db)
+        public ShopItems(MovieShopDBSEContext db)
         {
             this._db = db;
         }
 
-        public void CreateMovieRental(string userId, int movieId)
+        public void BuyMovie(string userId, int movieId)
         {
 
             var movie = _db.Movies.Where(x => x.Id == movieId).FirstOrDefault();
@@ -25,7 +25,7 @@ namespace BusinessLogic.Services
 
                 var user = _db.AspNetUsers.Where(x => x.Id == userId).FirstOrDefault();
 
-                Rentals rental = new Rentals
+                Shops rental = new Shops
                 {
                     UserId = userId,
                     MovieId = movieId,
@@ -33,7 +33,7 @@ namespace BusinessLogic.Services
                     User = user
                 };
 
-                _db.Rentals.Add(rental);
+                _db.Shops.Add(rental);
 
                 this._db.SaveChanges();
 

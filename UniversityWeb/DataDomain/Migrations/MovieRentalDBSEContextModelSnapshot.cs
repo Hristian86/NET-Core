@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataDomain.Migrations
 {
-    [DbContext(typeof(MovieRentalDBSEContext))]
+    [DbContext(typeof(MovieShopDBSEContext))]
     partial class MovieRentalDBSEContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
@@ -362,7 +362,7 @@ namespace DataDomain.Migrations
                     b.Property<DateTime>("RealeaseDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("RentMovieId")
+                    b.Property<int?>("ShopsMovieId")
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
@@ -377,7 +377,7 @@ namespace DataDomain.Migrations
                     b.ToTable("Movies");
                 });
 
-            modelBuilder.Entity("DataDomain.Data.Models.Rentals", b =>
+            modelBuilder.Entity("DataDomain.Data.Models.Shops", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -405,7 +405,7 @@ namespace DataDomain.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Rentals");
+                    b.ToTable("Shops");
                 });
 
             modelBuilder.Entity("DataDomain.Data.Models.AspNetRoleClaims", b =>
@@ -467,20 +467,20 @@ namespace DataDomain.Migrations
                         .HasConstraintName("FK_Messages_AspNetUsers");
                 });
 
-            modelBuilder.Entity("DataDomain.Data.Models.Rentals", b =>
+            modelBuilder.Entity("DataDomain.Data.Models.Shops", b =>
                 {
                     b.HasOne("DataDomain.Data.Models.Books", "Books")
-                        .WithMany("Rentals")
+                        .WithMany("Shops")
                         .HasForeignKey("BooksId")
                         .HasConstraintName("FK_Rentals_Books");
 
                     b.HasOne("DataDomain.Data.Models.Movies", "Movie")
-                        .WithMany("Rentals")
+                        .WithMany("Shops")
                         .HasForeignKey("MovieId")
                         .HasConstraintName("FK_Rentals_Movies");
 
                     b.HasOne("DataDomain.Data.Models.AspNetUsers", "User")
-                        .WithMany("Rentals")
+                        .WithMany("Shops")
                         .HasForeignKey("UserId")
                         .HasConstraintName("FK_Rentals_AspNetUsers");
                 });

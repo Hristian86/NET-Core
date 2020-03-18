@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataDomain.Migrations
 {
     [DbContext(typeof(MovieShopDBSEContext))]
-    [Migration("20200318113740_AddingRaitingCuzIforgotIt")]
-    partial class AddingRaitingCuzIforgotIt
+    [Migration("20200318150526_ChangingtoShop")]
+    partial class ChangingtoShop
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -241,10 +241,6 @@ namespace DataDomain.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Actors")
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
-
                     b.Property<string>("Author")
                         .HasColumnType("varchar(50)")
                         .HasMaxLength(50)
@@ -336,6 +332,10 @@ namespace DataDomain.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Actors")
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
                     b.Property<DateTime>("Created")
                         .HasColumnType("datetime2");
 
@@ -364,7 +364,7 @@ namespace DataDomain.Migrations
                     b.Property<DateTime>("RealeaseDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("RentMovieId")
+                    b.Property<int?>("ShopsMovieId")
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
@@ -379,7 +379,7 @@ namespace DataDomain.Migrations
                     b.ToTable("Movies");
                 });
 
-            modelBuilder.Entity("DataDomain.Data.Models.Rentals", b =>
+            modelBuilder.Entity("DataDomain.Data.Models.Shops", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -407,7 +407,7 @@ namespace DataDomain.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Rentals");
+                    b.ToTable("Shops");
                 });
 
             modelBuilder.Entity("DataDomain.Data.Models.AspNetRoleClaims", b =>
@@ -469,20 +469,20 @@ namespace DataDomain.Migrations
                         .HasConstraintName("FK_Messages_AspNetUsers");
                 });
 
-            modelBuilder.Entity("DataDomain.Data.Models.Rentals", b =>
+            modelBuilder.Entity("DataDomain.Data.Models.Shops", b =>
                 {
                     b.HasOne("DataDomain.Data.Models.Books", "Books")
-                        .WithMany("Rentals")
+                        .WithMany("Shops")
                         .HasForeignKey("BooksId")
                         .HasConstraintName("FK_Rentals_Books");
 
                     b.HasOne("DataDomain.Data.Models.Movies", "Movie")
-                        .WithMany("Rentals")
+                        .WithMany("Shops")
                         .HasForeignKey("MovieId")
                         .HasConstraintName("FK_Rentals_Movies");
 
                     b.HasOne("DataDomain.Data.Models.AspNetUsers", "User")
-                        .WithMany("Rentals")
+                        .WithMany("Shops")
                         .HasForeignKey("UserId")
                         .HasConstraintName("FK_Rentals_AspNetUsers");
                 });

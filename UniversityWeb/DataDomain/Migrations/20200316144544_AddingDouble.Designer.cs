@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataDomain.Migrations
 {
-    [DbContext(typeof(MovieRentalDBSEContext))]
+    [DbContext(typeof(MovieShopDBSEContext))]
     [Migration("20200316144544_AddingDouble")]
     partial class AddingDouble
     {

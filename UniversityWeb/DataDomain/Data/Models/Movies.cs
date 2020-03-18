@@ -8,7 +8,7 @@ namespace DataDomain.Data.Models
     {
         public Movies()
         {
-            Rentals = new HashSet<Rentals>();
+            Shops = new HashSet<Shops>();
         }
 
         public int Id { get; set; }
@@ -30,7 +30,7 @@ namespace DataDomain.Data.Models
 
         public DateTime Created { get; set; } = DateTime.UtcNow;
 
-        public int? RentMovieId { get; set; }
+        public int? ShopsMovieId { get; set; }
 
         public string Picture { get; set; }
 
@@ -46,6 +46,6 @@ namespace DataDomain.Data.Models
         [DisplayFormat(DataFormatString = "{0:f1}", ApplyFormatInEditMode = true)]
         public double Raiting { get; set; }
 
-        public virtual ICollection<Rentals> Rentals { get; set; }
+        public virtual ICollection<Shops> Shops { get; set; }
     }
 }

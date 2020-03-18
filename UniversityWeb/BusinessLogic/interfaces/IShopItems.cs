@@ -5,8 +5,8 @@ using DataDomain.Data.Models;
 
 namespace BusinessLogic.interfaces
 {
-    public interface ICRUDoperations
+    public interface IShopItems
     {
-        public void CreateMovieRental(string userId, int MovieId);
+        public void BuyMovie(string userId, int MovieId);
     }
 }

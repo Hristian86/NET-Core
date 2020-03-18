@@ -15,9 +15,9 @@ namespace WebAppProject.Controllers
     public class MovieListController : Controller
     {
         private readonly IViewMovies _mods;
-        private readonly ICRUDoperations _createRental;
+        private readonly IShopItems _createRental;
 
-        public MovieListController(IViewMovies mods, ICRUDoperations createRental)
+        public MovieListController(IViewMovies mods, IShopItems createRental)
         {
             this._mods = mods;
             this._createRental = createRental;
@@ -33,7 +33,7 @@ namespace WebAppProject.Controllers
             return this.View(this._mods.GetListOfMovies());
         }
 
-        public IActionResult MovieRent(int id)
+        public IActionResult BuyMovie(int id)
         {
             //if (id == null)
             //{
@@ -42,7 +42,7 @@ namespace WebAppProject.Controllers
 
             var user = User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-            this._createRental.CreateMovieRental(user, id);
+            this._createRental.BuyMovie(user, id);
 
             return RedirectToAction("Index","Home");
         }

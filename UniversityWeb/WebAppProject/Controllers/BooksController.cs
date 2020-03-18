@@ -13,9 +13,9 @@ namespace WebAppProject.Controllers
     [Authorize(Roles = "Admin")]
     public class BooksController : Controller
     {
-        private readonly MovieRentalDBSEContext _context;
+        private readonly MovieShopDBSEContext _context;
 
-        public BooksController(MovieRentalDBSEContext context)
+        public BooksController(MovieShopDBSEContext context)
         {
             _context = context;
         }
@@ -26,7 +26,7 @@ namespace WebAppProject.Controllers
             return View(await _context.Books.ToListAsync());
         }
 
-        // GET: Books/Details/5
+        // GET: Books/Details
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -51,8 +51,6 @@ namespace WebAppProject.Controllers
         }
 
         // POST: Books/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Title,Author,Genre,UserId,RealeseDate,Created,Picture,price,Discount,Raiting,Description")] Books books)
@@ -66,7 +64,7 @@ namespace WebAppProject.Controllers
             return View(books);
         }
 
-        // GET: Books/Edit/5
+        // GET: Books/Edit
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -82,9 +80,7 @@ namespace WebAppProject.Controllers
             return View(books);
         }
 
-        // POST: Books/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Books/Edit
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Author,Genre,UserId,RealeseDate,Created,Picture,price,Discount,Raiting,Description")] Books books)
@@ -117,7 +113,7 @@ namespace WebAppProject.Controllers
             return View(books);
         }
 
-        // GET: Books/Delete/5
+        // GET: Books/Delete
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -135,7 +131,7 @@ namespace WebAppProject.Controllers
             return View(books);
         }
 
-        // POST: Books/Delete/5
+        // POST: Books/Delete
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

@@ -16,9 +16,9 @@ namespace WebAppProject.Controllers
     [Authorize(Roles = "Admin")]
     public class MoviesController : Controller
     {
-        private readonly MovieRentalDBSEContext _context;
+        private readonly MovieShopDBSEContext _context;
 
-        public MoviesController(MovieRentalDBSEContext context)
+        public MoviesController(MovieShopDBSEContext context)
         {
             _context = context;
         }
@@ -54,8 +54,6 @@ namespace WebAppProject.Controllers
         }
 
         // POST: Movies/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Title,Director,RealeaseDate,Genre,price,Discount,Picture,Actors,Raiting,Description")] Movies movies)
@@ -98,9 +96,6 @@ namespace WebAppProject.Controllers
             return View(movies);
         }
 
-        // POST: Movies/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Director,RealeaseDate,Genre,price,Discount,Picture,Actors,Raiting,Description")] Movies movies)

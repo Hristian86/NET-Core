@@ -10,9 +10,9 @@ namespace BusinessLogic.Services
 {
     public class ViewMovies : IViewMovies
     {
-        private readonly MovieRentalDBSEContext db;
+        private readonly MovieShopDBSEContext db;
 
-        public ViewMovies(MovieRentalDBSEContext dbs)
+        public ViewMovies(MovieShopDBSEContext dbs)
         {
             this.db = dbs;
         }
@@ -40,7 +40,7 @@ namespace BusinessLogic.Services
                     Discount = itemMovie.Discount,
                     price = itemMovie.price,
                     RealeaseDate = itemMovie.RealeaseDate,
-                    RentMovieId = itemMovie.RentMovieId,
+                    ShopsMovieId = itemMovie.ShopsMovieId,
 
                     //new properties
                     Actors = itemMovie.Actors,
