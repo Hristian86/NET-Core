@@ -73,5 +73,12 @@
     </dl>
 </div>
 <div>
-    <button type="submit" class="btn btn-outline-success"> @Html.ActionLink("Buy Movie", "BuyMovie", new { id = Model.Id })</button>
+    <form asp-controller="Shoping" asp-action="Purchase">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="BuyItem" class="btn btn-danger" /> |
+        <button type="submit" class="btn btn-outline-success">
+            </button>
+            <a asp-action="Index">Back to List</a>
+    </form>
+    @*<button type="submit" class="btn btn-outline-success"> @Html.ActionLink("Buy Movie", "BuyMovie", new { id = Model.Id })</button>*@
 </div>
