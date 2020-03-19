@@ -29,6 +29,7 @@ namespace WebAppProject.Controllers
         }
 
         [Authorize]
+        [HttpPost]
         [AutoValidateAntiforgeryToken]
         public IActionResult Purchases(int? id)
         {
@@ -50,15 +51,12 @@ namespace WebAppProject.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AutoValidateAntiforgeryToken]
         public IActionResult Purchase(int id, [Bind("Id,Title,Director,RealeaseDate,Genre,price,Discount,Picture,Actors,Raiting,Description")] Movieses movies)
         {
 
 
             var user = User.FindFirst(ClaimTypes.NameIdentifier).Value;
-
-
-
-
 
             if (id != movies.Id)
             {
@@ -67,28 +65,20 @@ namespace WebAppProject.Controllers
 
             if (ModelState.IsValid)
             {
-                try
+                if (MoviesExists(movies.Id))
                 {
+                    var movi = this._movieDb.GetListOfMovies().Where(x => x.Id == movies.Id && x.price == movies.price).FirstOrDefault();
 
-                    //this._shoping.BuyMovie(user, movies.Id);
-
-
+                    this._shoping.BuyMovie(user, movies.Id);
                 }
-
-                catch (InvalidOperationException ex)
+                else
                 {
-                    if (!MoviesExists(movies.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    return NotFound();
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("MovieCollection", "MovieList");
+                //return RedirectToAction(nameof(Index));
             }
-            return View(movies);
+            return View();
         }
 
         private bool MoviesExists(int id)

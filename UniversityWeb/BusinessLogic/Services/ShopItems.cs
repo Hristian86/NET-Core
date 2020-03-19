@@ -23,10 +23,9 @@ namespace BusinessLogic.Services
             var movie = _db.Movies.Where(x => x.Id == movieId).FirstOrDefault();
             if (movie != null)
             {
-
                 var user = _db.AspNetUsers.Where(x => x.Id == userId).FirstOrDefault();
 
-                Shops rental = new Shops
+                Shops purchasedItem = new Shops
                 {
                     UserId = userId,
                     MovieId = movieId,
@@ -34,7 +33,7 @@ namespace BusinessLogic.Services
                     User = user
                 };
 
-                _db.Shops.Add(rental);
+                _db.Shops.Add(purchasedItem);
 
                 this._db.SaveChanges();
 

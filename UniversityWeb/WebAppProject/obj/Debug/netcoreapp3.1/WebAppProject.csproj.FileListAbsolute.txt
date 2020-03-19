@@ -956,5 +956,9 @@ C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppP
 C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\WebAppProject\obj\Debug\netcoreapp3.1\Razor\Views\Books\Edit.cshtml.g.cs
 C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\WebAppProject\obj\Debug\netcoreapp3.1\Razor\Views\Books\Index.cshtml.g.cs
 C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\WebAppProject\obj\Debug\netcoreapp3.1\Razor\Views\MovieList\Purchase.cshtml.g.cs
-C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\WebAppProject\obj\Debug\netcoreapp3.1\Razor\Views\ShopedItems\Index.cshtml.g.cs
 C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\WebAppProject\obj\Debug\netcoreapp3.1\Razor\Views\Shoping\Purchases.cshtml.g.cs
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\WebAppProject\obj\Debug\netcoreapp3.1\Razor\Views\Shops\Create.cshtml.g.cs
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\WebAppProject\obj\Debug\netcoreapp3.1\Razor\Views\Shops\Delete.cshtml.g.cs
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\WebAppProject\obj\Debug\netcoreapp3.1\Razor\Views\Shops\Details.cshtml.g.cs
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\WebAppProject\obj\Debug\netcoreapp3.1\Razor\Views\Shops\Edit.cshtml.g.cs
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\WebAppProject\obj\Debug\netcoreapp3.1\Razor\Views\Shops\Index.cshtml.g.cs
