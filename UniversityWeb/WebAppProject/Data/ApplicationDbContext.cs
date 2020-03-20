@@ -13,6 +13,5 @@ namespace WebAppProject.Data
             : base(options)
         {
         }
-        public DbSet<WebAppProject.Models.Movieses> Movieses { get; set; }
     }
 }

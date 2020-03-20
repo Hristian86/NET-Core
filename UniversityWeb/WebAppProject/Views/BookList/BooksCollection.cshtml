@@ -8,7 +8,7 @@
 
 <br />
 <p class="movieLink">
-    <a asp-controller="MovieList" asp-action="MovieCollection" class="btn btn-primary btn-lg">Book collection</a>
+    <a asp-controller="MovieList" asp-action="MovieCollection" class="btn btn-primary btn-lg">Movie collection</a>
 </p>
 <table class="table" id="tabul">
     <thead>
@@ -23,11 +23,10 @@
                 @Html.DisplayNameFor(model => model.Raiting)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.RealeseDate)
-            </th>
-
-            <th>
                 @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RealeseDate)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Genre)
@@ -54,10 +53,10 @@
                 @Html.DisplayFor(modelItem => item.Raiting)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.RealeseDate)
+                @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Description)
+                @Html.DisplayFor(modelItem => item.RealeseDate)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Genre)

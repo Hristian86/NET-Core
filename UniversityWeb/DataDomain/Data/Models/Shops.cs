@@ -6,6 +6,7 @@ namespace DataDomain.Data.Models
     public partial class Shops
     {
         public int Id { get; set; }
+        public double ShopedPrice { get; set; }
         public string UserId { get; set; }
         public int? MovieId { get; set; }
         public DateTime? RentedTime { get; set; } = DateTime.UtcNow;

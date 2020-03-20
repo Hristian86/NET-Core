@@ -77,6 +77,7 @@ namespace WebAppProject.Controllers
                 }
                 return RedirectToAction("MovieCollection", "MovieList");
                 //return RedirectToAction(nameof(Index));
+                
             }
             return View();
         }
