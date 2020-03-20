@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace BusinessLogic.OutputModels
 {
-    public class Bookses
+    public class OutputMovies
     {
-        public Bookses()
+        public OutputMovies()
         {
             
         }
@@ -18,17 +17,23 @@ namespace BusinessLogic.OutputModels
         public string Title { get; set; }
 
         [MaxLength(30)]
-        public string Author { get; set; }
+        public string Director { get; set; }
+
+        [MaxLength(100)]
+        public string Actors { get; set; }
+
+        [MaxLength(150)]
+        public string Description { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
+        public DateTime RealeaseDate { get; set; }
+
+        public int? ShopsMovieId { get; set; }
+
+        public string Picture { get; set; }
 
         [MaxLength(50)]
         public string Genre { get; set; }
-
-        public string UserId { get; set; }
-
-        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
-        public DateTime? RealeseDate { get; set; }
-
-        public string Picture { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:f2}", ApplyFormatInEditMode = true)]
         public double price { get; set; }
@@ -38,8 +43,5 @@ namespace BusinessLogic.OutputModels
 
         [DisplayFormat(DataFormatString = "{0:f1}", ApplyFormatInEditMode = true)]
         public double Raiting { get; set; }
-
-        [MaxLength(150)]
-        public string Description { get; set; }
     }
 }

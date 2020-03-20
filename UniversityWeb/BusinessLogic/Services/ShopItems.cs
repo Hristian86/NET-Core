@@ -20,10 +20,14 @@ namespace BusinessLogic.Services
         public void BuyMovie(string userId, int movieId)
         {
 
-            var movie = _db.Movies.Where(x => x.Id == movieId).FirstOrDefault();
+            var movie = _db.Movies
+                .Where(x => x.Id == movieId)
+                .FirstOrDefault();
             if (movie != null)
             {
-                var user = _db.AspNetUsers.Where(x => x.Id == userId).FirstOrDefault();
+                var user = _db.AspNetUsers
+                    .Where(x => x.Id == userId)
+                    .FirstOrDefault();
 
                 Shops purchasedItem = new Shops
                 {

@@ -52,7 +52,7 @@ namespace WebAppProject.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [AutoValidateAntiforgeryToken]
-        public IActionResult Purchase(int id, [Bind("Id,Title,Director,RealeaseDate,Genre,price,Discount,Picture,Actors,Raiting,Description")] Movieses movies)
+        public IActionResult Purchase(int id, [Bind("Id,Title,Director,RealeaseDate,Genre,price,Discount,Picture,Actors,Raiting,Description")] OutputMovies movies)
         {
 
 
@@ -67,7 +67,9 @@ namespace WebAppProject.Controllers
             {
                 if (MoviesExists(movies.Id))
                 {
-                    var movi = this._movieDb.GetListOfMovies().Where(x => x.Id == movies.Id && x.price == movies.price).FirstOrDefault();
+                    var movi = this._movieDb.GetListOfMovies()
+                        .Where(x => x.Id == movies.Id && x.price == movies.price)
+                        .FirstOrDefault();
 
                     this._shoping.BuyMovie(user, movies.Id);
                 }
@@ -84,7 +86,8 @@ namespace WebAppProject.Controllers
 
         private bool MoviesExists(int id)
         {
-            return _movieDb.GetListOfMovies().Any(x => x.Id == id);
+            return _movieDb.GetListOfMovies()
+                .Any(x => x.Id == id);
         }
     }
 }

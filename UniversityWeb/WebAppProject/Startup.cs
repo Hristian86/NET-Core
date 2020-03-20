@@ -73,6 +73,10 @@ namespace WebAppProject
             services.AddScoped<IShopItems, ShopItems>();
 
             services.AddScoped<IAdminPanelMovies, AdminPanelMovies>();
+
+            services.AddScoped<IUserShopedProducts, 
+                UserShopedProducts
+                >();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

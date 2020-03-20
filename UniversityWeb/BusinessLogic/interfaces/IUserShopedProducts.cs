@@ -2,13 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 using BusinessLogic.OutputModels;
-using DataDomain.Data.Models;
 
 namespace BusinessLogic.interfaces
 {
-    public interface IViewMovies
+    public interface IUserShopedProducts
     {
-        List<OutputMovies> GetListOfMovies();
-
+        List<OutputMovies> PersonalItems(string id);
     }
 }

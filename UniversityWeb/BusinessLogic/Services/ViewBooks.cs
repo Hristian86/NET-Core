@@ -17,20 +17,20 @@ namespace BusinessLogic.Services
             this._db = db;
         }
 
-        public List<Bookses> GetListOfBooks()
+        public List<OutputBooks> GetListOfBooks()
         {
             return GetBooks();
         }
 
-        private List<Bookses> GetBooks()
+        private List<OutputBooks> GetBooks()
         {
-            var booksDispplay = new List<Bookses>();
+            var booksDispplay = new List<OutputBooks>();
 
             //var Bview = this._db.Books.ToList();
 
             foreach (var itemBook in this._db.Books)
             {
-                Bookses book = new Bookses
+                OutputBooks book = new OutputBooks
                 {
                     Id = itemBook.Id,
                     Title = itemBook.Title,

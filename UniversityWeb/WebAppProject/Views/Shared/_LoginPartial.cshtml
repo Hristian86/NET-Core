@@ -9,7 +9,7 @@
         {
             @*To Do - add link for evry user shoped items*@
             <Li class="ItemsPerPerson">
-                <a asp-controller="BookList" asp-action="BooksCollection" class="btn btn-dark">Shoped products</a>
+                <a asp-controller="UserShopedItems" asp-action="UserShops" class="btn btn-dark">Shoped products</a>
             </Li>
             if (User.IsInRole("Admin"))
             {

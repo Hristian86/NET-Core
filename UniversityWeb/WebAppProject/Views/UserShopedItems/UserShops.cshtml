@@ -1,10 +1,11 @@
 ﻿@model IEnumerable<BusinessLogic.OutputModels.OutputMovies>
 
 @{
-    ViewData["Title"] = "Collection";
+    ViewData["Title"] = "UserShops";
 }
 
-<h1>MovieCollection</h1>
+<h1>UserShops</h1>
+
 
 <br />
 <p class="bookLink">
@@ -92,21 +93,21 @@
                     @*@Html.ActionLink("Purchase", "Purchases", "Shoping", new { id = item.Id }, new { @class = "btn btn-outline-success" })*@
 
 
-                    @using (Html.BeginForm("Purchases", "Shoping", new { id = item.Id }, FormMethod.Post))
+                    @*@using (Html.BeginForm("Purchases", "Shoping", new { id = item.Id }, FormMethod.Post))
                     {
                         <div class="form-group">
                             <div class="col-lg-10 col-lg-offset-2">
                                 <button type="submit" class="btn btn-outline-primary">Purchase  </button>
                             </div>
                         </div>
-                    }
+                    }*@
 
 
                     @*<div id="purchaseHeader" style="text-align:center;">  Buy this product</div>*@
 
                     @*@Html.ActionLink("MovieList", "BuyMovie", new { id = item.Id }) |*@
 
-                        @*@Html.ActionLink("Purchase", "Purchase", new { id = item.Id })*@
+                    @*@Html.ActionLink("Purchase", "Purchase", new { id = item.Id })*@
 
                     @*<button type="submit" class="btn btn-outline-success"> @Html.ActionLink("Purchase", "Purchase", new { id = item.Id })</button>*@
 

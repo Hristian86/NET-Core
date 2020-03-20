@@ -2,33 +2,38 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using BusinessLogic.interfaces;
 using BusinessLogic.OutputModels;
 using DataDomain.Data.Models;
 
 namespace BusinessLogic.Services
 {
-    public class ViewMovies : IViewMovies
+    public class UserShopedProducts : IUserShopedProducts
     {
         private readonly MovieShopDBSEContext db;
 
-        public ViewMovies(MovieShopDBSEContext dbs)
+        public UserShopedProducts(MovieShopDBSEContext db)
         {
-            this.db = dbs;
+            this.db = db;
         }
 
-        public List<OutputMovies> GetListOfMovies()
+        public List<OutputMovies> PersonalItems(string id)
         {
-            return GetMovies();
+            var display = Convert(id);
+            return display;
         }
 
-        private List<OutputMovies> GetMovies()
+        private List<OutputMovies> Convert(string id)
         {
             var display = new List<OutputMovies>();
 
-            //var Mview = this.db.Movies.ToList();
+            var userMovis = this.db.Shops
+                .Where(x => x.UserId == id)
+                .Select(x => x.Movie)
+                .ToList();
 
-            foreach (var itemMovie in this.db.Movies)
+            foreach (var itemMovie in userMovis)
             {
                 OutputMovies movie = new OutputMovies
                 {

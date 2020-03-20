@@ -962,3 +962,4 @@ C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppP
 C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\WebAppProject\obj\Debug\netcoreapp3.1\Razor\Views\Shops\Details.cshtml.g.cs
 C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\WebAppProject\obj\Debug\netcoreapp3.1\Razor\Views\Shops\Edit.cshtml.g.cs
 C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\WebAppProject\obj\Debug\netcoreapp3.1\Razor\Views\Shops\Index.cshtml.g.cs
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\WebAppProject\obj\Debug\netcoreapp3.1\Razor\Views\UserShopedItems\UserShops.cshtml.g.cs

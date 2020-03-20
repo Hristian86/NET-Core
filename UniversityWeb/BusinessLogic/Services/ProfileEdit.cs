@@ -64,7 +64,9 @@ namespace BusinessLogic.Services
         /// <returns></returns>
         public AspNetUsers GetUserProperties(string userName)
         {
-            var usrs = db.AspNetUsers.Where(x => x.UserName == userName).FirstOrDefault();
+            var usrs = db.AspNetUsers
+                .Where(x => x.UserName == userName)
+                .FirstOrDefault();
 
             //Returning this user for displaying details
             var userNms = new AspNetUsers
@@ -81,7 +83,9 @@ namespace BusinessLogic.Services
         // Searching for the current user by id
         private AspNetUsers FindUserIndDbRepository(string userId)
         {
-            var usr = db.AspNetUsers.Where(x => x.Id == userId).FirstOrDefault();
+            var usr = db.AspNetUsers
+                .Where(x => x.Id == userId)
+                .FirstOrDefault();
             return usr;
         }
     }
