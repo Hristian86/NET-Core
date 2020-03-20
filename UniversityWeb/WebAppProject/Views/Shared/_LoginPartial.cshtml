@@ -2,54 +2,57 @@
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
-<ul class="navbar-nav">
-    @if (SignInManager.IsSignedIn(User))
-    {
-    <Li class="ItemsPerPerson">
-        <a asp-controller="BookList" asp-action="BooksCollection" class="btn btn-dark">Shoped products</a>
-    </Li>
-        if (User.IsInRole("Admin"))
+
+
+    <ul class="navbar-nav">
+        @if (SignInManager.IsSignedIn(User))
         {
-            <!-- Example single danger button -->
-<li>
-    <div class="btn-group">
-        <button type="button" class="btn btn-outline-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Admin Panel
-        </button>
-        <div class="dropdown-menu dropdown-menu-right">
-            <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="Movies" asp-action="Index">Create Movies</a>
+            @*To Do - add link for evry user shoped items*@
+            <Li class="ItemsPerPerson">
+                <a asp-controller="BookList" asp-action="BooksCollection" class="btn btn-dark">Shoped products</a>
+            </Li>
+            if (User.IsInRole("Admin"))
+            {
+                <!-- Example single danger button -->
+                <li>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-outline-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Admin CnlPanel
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="Movies" asp-action="Index">Create Movies</a>
 
-            <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="Books" asp-action="Index">Create Books</a>
+                            <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="Books" asp-action="Index">Create Books</a>
 
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="Shops" asp-action="Index">Shoped items</a>
-        </div>
-    </div>
-</li>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="Shops" asp-action="Index">Shoped items</a>
+                        </div>
+                    </div>
+                </li>
 
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="Identity" id="dropM" asp-page="/Account/Manage/Index">Hello Admin @User.Identity.Name !</a>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index">Hello  @User.Identity.Name !</a>
+                </li>
+            }
             <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="Identity" id="dropM" asp-page="/Account/Manage/Index">Hello Admin @User.Identity.Name !</a>
+                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                    <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+                </form>
             </li>
         }
         else
         {
             <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index">Hello  @User.Identity.Name !</a>
+                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
             </li>
         }
-        <li class="nav-item">
-            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
-            </form>
-        </li>
-    }
-    else
-    {
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
-        </li>
-    }
-</ul>
+    </ul>

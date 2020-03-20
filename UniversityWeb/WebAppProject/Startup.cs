@@ -71,6 +71,8 @@ namespace WebAppProject
             services.AddScoped<IViewBooks, ViewBooks>();
 
             services.AddScoped<IShopItems, ShopItems>();
+
+            services.AddScoped<IAdminPanelMovies, AdminPanelMovies>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

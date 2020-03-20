@@ -26,9 +26,9 @@ namespace BusinessLogic.Services
         {
             var display = new List<Movieses>();
 
-            var Mview = this.db.Movies.ToList();
+            //var Mview = this.db.Movies.ToList();
 
-            foreach (var itemMovie in Mview)
+            foreach (var itemMovie in this.db.Movies)
             {
                 Movieses movie = new Movieses
                 {

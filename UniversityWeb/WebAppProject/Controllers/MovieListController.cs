@@ -18,7 +18,8 @@ namespace WebAppProject.Controllers
         private readonly IViewMovies _mods;
         private readonly IShopItems _shoping;
 
-        public MovieListController(IViewMovies mods, IShopItems shoping)
+        public MovieListController(IViewMovies mods, 
+            IShopItems shoping)
         {
             this._mods = mods;
             this._shoping = shoping;
@@ -41,7 +42,7 @@ namespace WebAppProject.Controllers
             return this.View(this._mods.GetListOfMovies());
         }
 
-        [Authorize(Roles = "User")]
+        [Authorize]
         public IActionResult BuyMovie(int id)
         {
             //if (id == null)

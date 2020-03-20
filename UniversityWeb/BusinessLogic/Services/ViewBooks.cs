@@ -26,9 +26,9 @@ namespace BusinessLogic.Services
         {
             var booksDispplay = new List<Bookses>();
 
-            var Bview = this._db.Books.ToList();
+            //var Bview = this._db.Books.ToList();
 
-            foreach (var itemBook in Bview)
+            foreach (var itemBook in this._db.Books)
             {
                 Bookses book = new Bookses
                 {
