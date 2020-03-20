@@ -7,12 +7,19 @@
     <ul class="navbar-nav">
         @if (SignInManager.IsSignedIn(User))
         {
-            @*To Do - add link for evry user shoped items*@
-            <Li class="ItemsPerPerson">
-                <a asp-controller="UserShopedItems" asp-action="UserShops" class="btn btn-dark">Shoped products</a>
-            </Li>
+            if (User.IsInRole("User"))
+            {
+
+                @*To Do - add link for evry user shoped items*@
+                <Li class="ItemsPerPerson">
+                    <a asp-controller="UserShopedItems" asp-action="UserMovieShops" class="btn btn-dark">Shoped products</a>
+                </Li>
+            }
             if (User.IsInRole("Admin"))
             {
+                <Li class="ItemsPerPerson">
+                    <a asp-controller="UserShopedItems" asp-action="UserMovieShops" class="btn btn-dark">Shoped products</a>
+                </Li>
                 <!-- Example single danger button -->
                 <li>
                     <div class="btn-group">

@@ -57,6 +57,7 @@ namespace WebAppProject.Controllers
             return RedirectToAction("Index","Home");
         }
 
+        [HttpPost]
         [Authorize]
         [AutoValidateAntiforgeryToken]
         public IActionResult Purchase(int? id)

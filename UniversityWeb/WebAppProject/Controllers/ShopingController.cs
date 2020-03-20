@@ -28,8 +28,8 @@ namespace WebAppProject.Controllers
             return View();
         }
 
+        [HttpGet]
         [Authorize]
-        [HttpPost]
         [AutoValidateAntiforgeryToken]
         public IActionResult Purchases(int? id)
         {

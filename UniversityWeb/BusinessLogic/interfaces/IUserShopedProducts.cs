@@ -7,6 +7,8 @@ namespace BusinessLogic.interfaces
 {
     public interface IUserShopedProducts
     {
-        List<OutputMovies> PersonalItems(string id);
+        List<OutputMovies> PersonalMovies(string id);
+
+        List<OutputBooks> PersonalBooks(string id);
     }
 }

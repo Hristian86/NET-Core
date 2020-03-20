@@ -18,13 +18,56 @@ namespace BusinessLogic.Services
             this.db = db;
         }
 
-        public List<OutputMovies> PersonalItems(string id)
+        public List<OutputMovies> PersonalMovies(string id)
         {
-            var display = Convert(id);
+            var display = ConvertMovie(id);
             return display;
         }
 
-        private List<OutputMovies> Convert(string id)
+        public List<OutputBooks> PersonalBooks(string id)
+        {
+            var toBeDisplayed = ConverBooks(id);
+            return toBeDisplayed;
+        }
+
+        private List<OutputBooks> ConverBooks(string id)
+        {
+            var disp = new List<OutputBooks>();
+
+            var userBooks = this.db.Shops
+                .Where(x => x.UserId == id)
+                .Select(x => x.Books)
+                .ToList();
+
+            foreach (var itemBook in userBooks)
+            {
+                if (itemBook != null)
+                {
+
+                    OutputBooks book = new OutputBooks
+                    {
+                        Id = itemBook.Id,
+                        Title = itemBook.Title,
+                        Author = itemBook.Author,
+                        Genre = itemBook.Genre,
+                        Picture = itemBook.Picture,
+                        Discount = itemBook.Discount,
+                        price = itemBook.price,
+                        RealeseDate = itemBook.RealeseDate,
+
+                        //new properties
+                        Raiting = itemBook.Raiting,
+                        Description = itemBook.Description
+                    };
+                    disp.Add(book);
+                }
+
+            }
+
+            return disp;
+        }
+
+        private List<OutputMovies> ConvertMovie(string id)
         {
             var display = new List<OutputMovies>();
 
