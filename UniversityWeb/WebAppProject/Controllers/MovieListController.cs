@@ -18,23 +18,28 @@ namespace WebAppProject.Controllers
         private readonly IViewMovies _mods;
         private readonly IShopItems _shoping;
         private readonly IUserShopedProducts userItems;
+        private readonly Status status;
 
         public MovieListController(IViewMovies mods,
             IShopItems shoping,
-            IUserShopedProducts userItems
+            IUserShopedProducts userItems,
+            Status status
             )
         {
             this._mods = mods;
             this._shoping = shoping;
             this.userItems = userItems;
+            this.status = status;
         }
 
         public IActionResult MovieCollection()
         {
             var list = this._mods.GetListOfMovies();
 
+            //user if from cookies
             var user = User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
+            //current user peronal movies
             var userItm = userItems.PersonalMovies(user);
 
             if (userItm.Count == 0)
@@ -42,25 +47,10 @@ namespace WebAppProject.Controllers
                 return this.View(list);
             }
 
-            for (int i = 0; i < list.Count; i++)
-            {
-                var curMovie = list[i];
-
-                for (int j = 0; j < userItm.Count; j++)
-                {
-                    var userMovies = userItm[j];
-                    if (curMovie.Id == userMovies.Id)
-                    {
-                        curMovie.Status = true;
-                    }
-                }
-
-            }
+            //chek for possesed items in collections
+            status.StatusChek(list,userItm);
 
             return this.View(list);
-
-            //return this.View(this._mods.GetListOfMovies()
-            //    .OrderBy(x => x.Title));
         }
     }
 }

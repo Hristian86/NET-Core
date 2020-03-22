@@ -32,6 +32,8 @@ namespace DataDomain.Data.Models
 
         public int? ShopsMovieId { get; set; }
 
+        public string LinkForProductContentWhenPurchase { get; set; }
+
         public string Picture { get; set; }
 
         [MaxLength(50)]
@@ -45,6 +47,7 @@ namespace DataDomain.Data.Models
 
         [DisplayFormat(DataFormatString = "{0:f1}", ApplyFormatInEditMode = true)]
         public double Raiting { get; set; }
+        
 
         public virtual ICollection<Shops> Shops { get; set; }
     }

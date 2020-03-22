@@ -4,14 +4,16 @@ using DataDomain.Data.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataDomain.Migrations
 {
     [DbContext(typeof(MovieShopDBSEContext))]
-    partial class MovieRentalDBSEContextModelSnapshot : ModelSnapshot
+    [Migration("20200322145133_AddingProductContentWhenPurchased")]
+    partial class AddingProductContentWhenPurchased
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -259,10 +261,10 @@ namespace DataDomain.Migrations
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
-                    b.Property<string>("LinkForProductContentWhenPurchase")
+                    b.Property<string>("Picture")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Picture")
+                    b.Property<string>("ProductContentWhenPurchase")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("Raiting")
@@ -359,10 +361,10 @@ namespace DataDomain.Migrations
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
-                    b.Property<string>("LinkForProductContentWhenPurchase")
+                    b.Property<string>("Picture")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Picture")
+                    b.Property<string>("ProductContentWhenPurchase")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("Raiting")

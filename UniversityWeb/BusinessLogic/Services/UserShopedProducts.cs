@@ -54,7 +54,7 @@ namespace BusinessLogic.Services
                         Discount = itemBook.Discount,
                         price = itemBook.price,
                         RealeseDate = itemBook.RealeseDate,
-
+                        
                         //new properties
                         Raiting = itemBook.Raiting,
                         Description = itemBook.Description
@@ -92,7 +92,7 @@ namespace BusinessLogic.Services
                         price = itemMovie.price,
                         RealeaseDate = itemMovie.RealeaseDate,
                         ShopsMovieId = itemMovie.ShopsMovieId,
-
+                        LinkForPurchasedContend = itemMovie.LinkForProductContentWhenPurchase,
                         //new properties
                         Actors = itemMovie.Actors,
                         Raiting = itemMovie.Raiting,

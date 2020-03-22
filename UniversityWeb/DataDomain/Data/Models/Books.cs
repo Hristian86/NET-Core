@@ -41,6 +41,10 @@ namespace DataDomain.Data.Models
         [MaxLength(150)]
         public string Description { get; set; }
 
+        public bool Status { get; set; }
+
+        public string LinkForProductContentWhenPurchase { get; set; }
+
         public virtual ICollection<Shops> Shops { get; set; }
     }
 }

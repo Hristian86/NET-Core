@@ -72,7 +72,11 @@ namespace WebAppProject.Controllers
                 {
                     return NotFound();
                 }
+
                 return RedirectToAction("MovieCollection", "MovieList");
+
+                //return RedirectToAction("UserMovieShops", "UserShopedItems");
+
                 //return RedirectToAction(nameof(Index));
                 
             }

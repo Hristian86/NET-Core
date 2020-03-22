@@ -94,7 +94,6 @@
 
                     @if (item.Status == false)
                     {
-
                         @using (Html.BeginForm("Purchases", "Shoping", new { id = item.Id }, FormMethod.Get))
                         {
                             <div class="form-group">
@@ -107,7 +106,7 @@
                     }
                     else
                     {
-                            <a asp-controller="UserShopedItems" asp-action="UserMovieShops" class="btn btn-dark">View item</a>
+                        <a asp-controller="UserShopedItems" asp-action="UserMovieShops" style="margin-left:15px;" class="btn btn-warning">Owned p.</a>
                     }
 
                     @*<div id="purchaseHeader" style="text-align:center;">  Buy this product</div>*@

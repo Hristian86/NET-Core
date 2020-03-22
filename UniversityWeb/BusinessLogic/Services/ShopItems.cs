@@ -16,7 +16,6 @@ namespace BusinessLogic.Services
             this._db = db;
         }
 
-
         public void BuyMovie(string userId, int movieId)
         {
 
@@ -29,7 +28,6 @@ namespace BusinessLogic.Services
 
             if (!chek)
             {
-                
 
                 var movie = _db.Movies
                 .Where(x => x.Id == movieId)
@@ -41,18 +39,22 @@ namespace BusinessLogic.Services
                         .Where(x => x.Id == userId)
                         .FirstOrDefault();
 
-                    Shops purchasedItem = new Shops
+                    if (user != null)
                     {
-                        UserId = userId,
-                        MovieId = movieId,
-                        Movie = movie,
-                        User = user
-                    };
 
-                    _db.Shops.Add(purchasedItem);
+                        Shops purchasedItem = new Shops
+                        {
+                            UserId = userId,
+                            MovieId = movieId,
+                            Movie = movie,
+                            User = user
+                        };
 
-                    this._db.SaveChanges();
+                        _db.Shops.Add(purchasedItem);
 
+                        this._db.SaveChanges();
+
+                    }
                 }
             }
         }
