@@ -6,3 +6,7 @@
 .ItemsPerPerson {
     margin-right: 10px;
 }
+
+#hovers:hover {
+    color: skyblue !important;
+}

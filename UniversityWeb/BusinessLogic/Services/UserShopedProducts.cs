@@ -69,7 +69,7 @@ namespace BusinessLogic.Services
 
         private List<OutputMovies> ConvertMovie(string id)
         {
-            var display = new List<OutputMovies>();
+            var displays = new List<OutputMovies>();
 
             var userMovis = this.db.Shops
                 .Where(x => x.UserId == id)
@@ -78,27 +78,32 @@ namespace BusinessLogic.Services
 
             foreach (var itemMovie in userMovis)
             {
-                OutputMovies movie = new OutputMovies
+                if (itemMovie != null)
                 {
-                    Id = itemMovie.Id,
-                    Title = itemMovie.Title,
-                    Director = itemMovie.Director,
-                    Genre = itemMovie.Genre,
-                    Picture = itemMovie.Picture,
-                    Discount = itemMovie.Discount,
-                    price = itemMovie.price,
-                    RealeaseDate = itemMovie.RealeaseDate,
-                    ShopsMovieId = itemMovie.ShopsMovieId,
 
-                    //new properties
-                    Actors = itemMovie.Actors,
-                    Raiting = itemMovie.Raiting,
-                    Description = itemMovie.Description
-                };
+                    OutputMovies movie = new OutputMovies
+                    {
+                        Id = itemMovie.Id,
+                        Title = itemMovie.Title,
+                        Director = itemMovie.Director,
+                        Genre = itemMovie.Genre,
+                        Picture = itemMovie.Picture,
+                        Discount = itemMovie.Discount,
+                        price = itemMovie.price,
+                        RealeaseDate = itemMovie.RealeaseDate,
+                        ShopsMovieId = itemMovie.ShopsMovieId,
 
-                display.Add(movie);
+                        //new properties
+                        Actors = itemMovie.Actors,
+                        Raiting = itemMovie.Raiting,
+                        Description = itemMovie.Description
+                    };
+
+                    displays.Add(movie);
+                }
             }
-            return display;
+
+            return displays;
         }
     }
 }

@@ -17,65 +17,50 @@ namespace WebAppProject.Controllers
     {
         private readonly IViewMovies _mods;
         private readonly IShopItems _shoping;
+        private readonly IUserShopedProducts userItems;
 
-        public MovieListController(IViewMovies mods, 
-            IShopItems shoping)
+        public MovieListController(IViewMovies mods,
+            IShopItems shoping,
+            IUserShopedProducts userItems
+            )
         {
             this._mods = mods;
             this._shoping = shoping;
-        }
-
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-        [Authorize]
-        [AutoValidateAntiforgeryToken]
-        public IActionResult Shop()
-        {
-            return RedirectToAction("Purchases", "Shoping");
+            this.userItems = userItems;
         }
 
         public IActionResult MovieCollection()
         {
-            return this.View(this._mods.GetListOfMovies());
-        }
-
-        [Authorize]
-        public IActionResult BuyMovie(int id)
-        {
-            //if (id == null)
-            //{
-            //    return NotFound();
-            //}
+            var list = this._mods.GetListOfMovies();
 
             var user = User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-            this._shoping.BuyMovie(user, id);
+            var userItm = userItems.PersonalMovies(user);
 
-            return RedirectToAction("Index","Home");
-        }
-
-        [HttpPost]
-        [Authorize]
-        [AutoValidateAntiforgeryToken]
-        public IActionResult Purchase(int? id)
-        {
-            if (id == null)
+            if (userItm.Count == 0)
             {
-                return NotFound();
+                return this.View(list);
             }
 
-            var movies = _mods.GetListOfMovies()
-                .FirstOrDefault(m => m.Id == id);
-
-            if (movies == null)
+            for (int i = 0; i < list.Count; i++)
             {
-                return NotFound();
+                var curMovie = list[i];
+
+                for (int j = 0; j < userItm.Count; j++)
+                {
+                    var userMovies = userItm[j];
+                    if (curMovie.Id == userMovies.Id)
+                    {
+                        curMovie.Status = true;
+                    }
+                }
+
             }
 
-            return View(movies);
+            return this.View(list);
+
+            //return this.View(this._mods.GetListOfMovies()
+            //    .OrderBy(x => x.Title));
         }
     }
 }

@@ -23,11 +23,6 @@ namespace WebAppProject.Controllers
             this._shoping = shoping;
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
-
         [HttpGet]
         [Authorize]
         [AutoValidateAntiforgeryToken]

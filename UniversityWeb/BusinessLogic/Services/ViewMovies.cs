@@ -26,12 +26,12 @@ namespace BusinessLogic.Services
         {
             var display = new List<OutputMovies>();
 
-            //var Mview = this.db.Movies.ToList();
-
             foreach (var itemMovie in this.db.Movies)
             {
+
                 OutputMovies movie = new OutputMovies
                 {
+                    Status = false,
                     Id = itemMovie.Id,
                     Title = itemMovie.Title,
                     Director = itemMovie.Director,
@@ -52,5 +52,6 @@ namespace BusinessLogic.Services
             }
             return display;
         }
+
     }
 }
