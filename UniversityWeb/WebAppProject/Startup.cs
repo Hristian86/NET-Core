@@ -74,7 +74,7 @@ namespace WebAppProject
 
             services.AddScoped<IAdminPanelMovies, AdminPanelMovies>();
 
-            services.AddScoped<Status>();
+            services.AddSingleton<Status>();
 
             services.AddScoped<IUserShopedProducts, 
                 UserShopedProducts

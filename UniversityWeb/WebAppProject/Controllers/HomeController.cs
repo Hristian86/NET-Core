@@ -24,7 +24,12 @@ namespace WebAppProject.Controllers
 
         //private UserNames names = new UserNames();
 
-        public HomeController(ILogger<HomeController> logger,IProfileEdit edit, UserManager<IdentityUser> userManager, IViewMovies mods)
+        public HomeController(
+            ILogger<HomeController> logger,
+            IProfileEdit edit,
+            UserManager<IdentityUser> userManager,
+            IViewMovies mods
+            )
         {
             this._mods = mods;
             this._edits = edit;
@@ -34,20 +39,19 @@ namespace WebAppProject.Controllers
 
         public IActionResult Index()
         {
-            var col = _mods.GetListOfMovies();
 
             if (User.Identity.Name != null)
             {
 
-                var usr = _edits.GetUserProperties(User.Identity.Name);
+                var curUser = _edits.GetUserProperties(User.Identity.Name);
 
                 var usery = userManager.GetUserId(this.User);
 
                 UserNames tempUser = new UserNames
                 {
-                    firstName = usr.FirstName,
-                    LastName = usr.LastName,
-                    Address = usr.Address
+                    firstName = curUser.FirstName,
+                    LastName = curUser.LastName,
+                    Address = curUser.Address
                 };
                 return View(tempUser);
             }

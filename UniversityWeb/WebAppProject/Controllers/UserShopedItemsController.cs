@@ -20,11 +20,6 @@ namespace WebAppProject.Controllers
             this.products = products;
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
-
         [Authorize]
         [AutoValidateAntiforgeryToken]
         public IActionResult UserMovieShops()

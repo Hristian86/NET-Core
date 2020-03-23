@@ -71,7 +71,6 @@ namespace BusinessLogic.Services
             //Returning this user for displaying details
             var userNms = new AspNetUsers
             {
-                Id = usrs.Id,
                 FirstName = usrs.FirstName,
                 LastName = usrs.LastName,
                 Address = usrs.Address

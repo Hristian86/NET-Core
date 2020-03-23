@@ -21,9 +21,11 @@ namespace BusinessLogic.Services
                 for (int j = 0; j < userItm.Count; j++)
                 {
                     var userMovies = userItm[j];
+
                     if (curMovie.Id == userMovies.Id)
                     {
                         curMovie.Status = true;
+                        break;
                     }
                 }
             }

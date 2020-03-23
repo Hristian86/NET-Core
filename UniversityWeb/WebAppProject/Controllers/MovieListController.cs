@@ -5,7 +5,6 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using BusinessLogic.interfaces;
 using BusinessLogic.Services;
-using DataDomain.Data.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -36,19 +35,22 @@ namespace WebAppProject.Controllers
         {
             var list = this._mods.GetListOfMovies();
 
-            //user if from cookies
-            var user = User.FindFirst(ClaimTypes.NameIdentifier).Value;
-
-            //current user peronal movies
-            var userItm = userItems.PersonalMovies(user);
-
-            if (userItm.Count == 0)
+            if (User.Identity.Name != null)
             {
-                return this.View(list);
-            }
 
-            //chek for possesed items in collections
-            status.StatusChek(list,userItm);
+                //Get user id from cookies
+                var user = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+
+                //current user peronal movies
+                var userItm = userItems.PersonalMovies(user);
+
+                if (userItm.Count != 0)
+                {
+                    //chek for possessed items in collections
+                    status.StatusChek(list, userItm);
+                }
+
+            }
 
             return this.View(list);
         }

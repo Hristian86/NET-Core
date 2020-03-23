@@ -5,7 +5,6 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using BusinessLogic.interfaces;
 using BusinessLogic.OutputModels;
-using DataDomain.Data.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
