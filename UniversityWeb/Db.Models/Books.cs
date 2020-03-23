@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace DataDomain.Data.Models
+namespace Db.Models
 {
-    public partial class Movies
+    public partial class Books
     {
-        public Movies()
+        public Books()
         {
             Shops = new HashSet<Shops>();
         }
@@ -17,27 +17,17 @@ namespace DataDomain.Data.Models
         public string Title { get; set; }
 
         [MaxLength(30)]
-        public string Director { get; set; }
-
-        [MaxLength(100)]
-        public string Actors { get; set; }
-
-        [MaxLength(150)]
-        public string Description { get; set; }
-
-        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
-        public DateTime RealeaseDate { get; set; }
-
-        public DateTime Created { get; set; } = DateTime.UtcNow;
-
-        public int? ShopsMovieId { get; set; }
-
-        public string LinkForProductContentWhenPurchase { get; set; }
-
-        public string Picture { get; set; }
+        public string Author { get; set; }
 
         [MaxLength(50)]
         public string Genre { get; set; }
+
+        public string UserId { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
+        public DateTime? RealeseDate { get; set; }
+        public DateTime Created { get; set; } = DateTime.UtcNow;
+        public string Picture { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:f2}", ApplyFormatInEditMode = true)]
         public double price { get; set; }
@@ -47,7 +37,13 @@ namespace DataDomain.Data.Models
 
         [DisplayFormat(DataFormatString = "{0:f1}", ApplyFormatInEditMode = true)]
         public double Raiting { get; set; }
-        
+
+        [MaxLength(150)]
+        public string Description { get; set; }
+
+        public bool Status { get; set; }
+
+        public string LinkForProductContentWhenPurchase { get; set; }
 
         public virtual ICollection<Shops> Shops { get; set; }
     }

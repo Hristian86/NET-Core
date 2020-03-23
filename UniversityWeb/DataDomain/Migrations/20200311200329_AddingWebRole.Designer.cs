@@ -21,7 +21,7 @@ namespace DataDomain.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("DataDomain.Data.Models.AspNetRoleClaims", b =>
+            modelBuilder.Entity("Db.Models.AspNetRoleClaims", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -45,7 +45,7 @@ namespace DataDomain.Migrations
                     b.ToTable("AspNetRoleClaims");
                 });
 
-            modelBuilder.Entity("DataDomain.Data.Models.AspNetRoles", b =>
+            modelBuilder.Entity("Db.Models.AspNetRoles", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -71,7 +71,7 @@ namespace DataDomain.Migrations
                     b.ToTable("AspNetRoles");
                 });
 
-            modelBuilder.Entity("DataDomain.Data.Models.AspNetUserClaims", b =>
+            modelBuilder.Entity("Db.Models.AspNetUserClaims", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -95,7 +95,7 @@ namespace DataDomain.Migrations
                     b.ToTable("AspNetUserClaims");
                 });
 
-            modelBuilder.Entity("DataDomain.Data.Models.AspNetUserLogins", b =>
+            modelBuilder.Entity("Db.Models.AspNetUserLogins", b =>
                 {
                     b.Property<string>("LoginProvider")
                         .HasColumnType("nvarchar(128)")
@@ -119,7 +119,7 @@ namespace DataDomain.Migrations
                     b.ToTable("AspNetUserLogins");
                 });
 
-            modelBuilder.Entity("DataDomain.Data.Models.AspNetUserRoles", b =>
+            modelBuilder.Entity("Db.Models.AspNetUserRoles", b =>
                 {
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
@@ -134,7 +134,7 @@ namespace DataDomain.Migrations
                     b.ToTable("AspNetUserRoles");
                 });
 
-            modelBuilder.Entity("DataDomain.Data.Models.AspNetUserTokens", b =>
+            modelBuilder.Entity("Db.Models.AspNetUserTokens", b =>
                 {
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
@@ -155,7 +155,7 @@ namespace DataDomain.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("DataDomain.Data.Models.AspNetUsers", b =>
+            modelBuilder.Entity("Db.Models.AspNetUsers", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -234,7 +234,7 @@ namespace DataDomain.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("DataDomain.Data.Models.Books", b =>
+            modelBuilder.Entity("Db.Models.Books", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -271,7 +271,7 @@ namespace DataDomain.Migrations
                     b.ToTable("Books");
                 });
 
-            modelBuilder.Entity("DataDomain.Data.Models.Logs", b =>
+            modelBuilder.Entity("Db.Models.Logs", b =>
                 {
                     b.Property<int>("LogId")
                         .ValueGeneratedOnAdd()
@@ -291,7 +291,7 @@ namespace DataDomain.Migrations
                     b.ToTable("Logs");
                 });
 
-            modelBuilder.Entity("DataDomain.Data.Models.Messages", b =>
+            modelBuilder.Entity("Db.Models.Messages", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -309,7 +309,7 @@ namespace DataDomain.Migrations
                     b.ToTable("Messages");
                 });
 
-            modelBuilder.Entity("DataDomain.Data.Models.Movies", b =>
+            modelBuilder.Entity("Db.Models.Movies", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -341,7 +341,7 @@ namespace DataDomain.Migrations
                     b.ToTable("Movies");
                 });
 
-            modelBuilder.Entity("DataDomain.Data.Models.Rentals", b =>
+            modelBuilder.Entity("Db.Models.Rentals", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -372,7 +372,7 @@ namespace DataDomain.Migrations
                     b.ToTable("Rentals");
                 });
 
-            modelBuilder.Entity("DataDomain.Data.Models.WebRole", b =>
+            modelBuilder.Entity("Db.Models.WebRole", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -391,7 +391,7 @@ namespace DataDomain.Migrations
                     b.ToTable("WebRole");
                 });
 
-            modelBuilder.Entity("DataDomain.Data.Models.WebUser", b =>
+            modelBuilder.Entity("Db.Models.WebUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -455,78 +455,78 @@ namespace DataDomain.Migrations
                     b.ToTable("WebUser");
                 });
 
-            modelBuilder.Entity("DataDomain.Data.Models.AspNetRoleClaims", b =>
+            modelBuilder.Entity("Db.Models.AspNetRoleClaims", b =>
                 {
-                    b.HasOne("DataDomain.Data.Models.AspNetRoles", "Role")
+                    b.HasOne("Db.Models.AspNetRoles", "Role")
                         .WithMany("AspNetRoleClaims")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("DataDomain.Data.Models.AspNetUserClaims", b =>
+            modelBuilder.Entity("Db.Models.AspNetUserClaims", b =>
                 {
-                    b.HasOne("DataDomain.Data.Models.AspNetUsers", "User")
+                    b.HasOne("Db.Models.AspNetUsers", "User")
                         .WithMany("AspNetUserClaims")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("DataDomain.Data.Models.AspNetUserLogins", b =>
+            modelBuilder.Entity("Db.Models.AspNetUserLogins", b =>
                 {
-                    b.HasOne("DataDomain.Data.Models.AspNetUsers", "User")
+                    b.HasOne("Db.Models.AspNetUsers", "User")
                         .WithMany("AspNetUserLogins")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("DataDomain.Data.Models.AspNetUserRoles", b =>
+            modelBuilder.Entity("Db.Models.AspNetUserRoles", b =>
                 {
-                    b.HasOne("DataDomain.Data.Models.AspNetRoles", "Role")
+                    b.HasOne("Db.Models.AspNetRoles", "Role")
                         .WithMany("AspNetUserRoles")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("DataDomain.Data.Models.AspNetUsers", "User")
+                    b.HasOne("Db.Models.AspNetUsers", "User")
                         .WithMany("AspNetUserRoles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("DataDomain.Data.Models.AspNetUserTokens", b =>
+            modelBuilder.Entity("Db.Models.AspNetUserTokens", b =>
                 {
-                    b.HasOne("DataDomain.Data.Models.AspNetUsers", "User")
+                    b.HasOne("Db.Models.AspNetUsers", "User")
                         .WithMany("AspNetUserTokens")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("DataDomain.Data.Models.Messages", b =>
+            modelBuilder.Entity("Db.Models.Messages", b =>
                 {
-                    b.HasOne("DataDomain.Data.Models.AspNetUsers", "User")
+                    b.HasOne("Db.Models.AspNetUsers", "User")
                         .WithMany("Messages")
                         .HasForeignKey("UserId")
                         .HasConstraintName("FK_Messages_AspNetUsers");
                 });
 
-            modelBuilder.Entity("DataDomain.Data.Models.Rentals", b =>
+            modelBuilder.Entity("Db.Models.Rentals", b =>
                 {
-                    b.HasOne("DataDomain.Data.Models.Books", "Books")
+                    b.HasOne("Db.Models.Books", "Books")
                         .WithMany("Rentals")
                         .HasForeignKey("BooksId")
                         .HasConstraintName("FK_Rentals_Books");
 
-                    b.HasOne("DataDomain.Data.Models.Movies", "Movie")
+                    b.HasOne("Db.Models.Movies", "Movie")
                         .WithMany("Rentals")
                         .HasForeignKey("MovieId")
                         .HasConstraintName("FK_Rentals_Movies");
 
-                    b.HasOne("DataDomain.Data.Models.AspNetUsers", "User")
+                    b.HasOne("Db.Models.AspNetUsers", "User")
                         .WithMany("Rentals")
                         .HasForeignKey("UserId")
                         .HasConstraintName("FK_Rentals_AspNetUsers");

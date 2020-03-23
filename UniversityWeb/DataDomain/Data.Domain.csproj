@@ -18,4 +18,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Db.Models\Db.Models.csproj" />
+  </ItemGroup>
+
 </Project>

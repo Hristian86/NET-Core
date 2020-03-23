@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using DataDomain.Data.Models;
+using Db.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using DataDomain;
 using Microsoft.AspNetCore.Authorization;

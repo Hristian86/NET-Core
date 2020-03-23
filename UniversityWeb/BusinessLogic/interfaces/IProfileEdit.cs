@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using DataDomain.Data.Models;
+//using Db.Models;
+using Db.Models;
 
 namespace BusinessLogic.interfaces
 {

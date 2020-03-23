@@ -2,9 +2,9 @@
 using System.Linq;
 using BusinessLogic.interfaces;
 //using static AspWebTest.Areas.Identity.Pages.Account.LoginModel;
-using DataDomain.Data.Models;
 using Microsoft.AspNetCore.Identity;
 using DataDomain.Data;
+using Db.Models;
 
 namespace BusinessLogic.Services
 {

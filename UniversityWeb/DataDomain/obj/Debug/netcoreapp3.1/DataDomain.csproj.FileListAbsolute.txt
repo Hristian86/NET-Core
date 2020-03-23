@@ -78,3 +78,6 @@ C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppP
 C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\DataDomain\obj\Debug\netcoreapp3.1\DataDomain.AssemblyInfo.cs
 C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\DataDomain\obj\Debug\netcoreapp3.1\DataDomain.dll
 C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\DataDomain\obj\Debug\netcoreapp3.1\DataDomain.pdb
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\DataDomain\bin\Debug\netcoreapp3.1\Db.Models.dll
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\DataDomain\bin\Debug\netcoreapp3.1\Db.Models.pdb
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\DataDomain\obj\Debug\netcoreapp3.1\DataDomain.csproj.CopyComplete

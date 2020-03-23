@@ -19,7 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj" />
-    <ProjectReference Include="..\DataDomain\DataDomain.csproj" />
+    <ProjectReference Include="..\DataDomain\Data.Domain.csproj" />
   </ItemGroup>
 
 </Project>

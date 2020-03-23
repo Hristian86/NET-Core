@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DataDomain.Data.Models
+namespace Db.Models
 {
     public partial class AspNetUserLogins
     {

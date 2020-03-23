@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using BusinessLogic.interfaces;
-using DataDomain.Data.Models;
 using DataDomain.Data;
+using Db.Models;
 
 namespace BusinessLogic.Services
 {

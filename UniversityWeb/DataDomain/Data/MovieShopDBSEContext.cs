@@ -1,8 +1,8 @@
 ﻿using System;
+using Db.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using DataDomain.Data.Models;
 
 namespace DataDomain.Data
 {

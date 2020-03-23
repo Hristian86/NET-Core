@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using BusinessLogic.OutputModels;
-using DataDomain.Data.Models;
+using Db.Models;
 
 namespace BusinessLogic.interfaces
 {

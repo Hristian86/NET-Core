@@ -1315,19 +1315,30 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "DataDomain/1.0.0": {
+      "Data.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
+          "Db.Models": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.1",
           "Microsoft.EntityFrameworkCore": "3.1.1",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.1"
         },
         "compile": {
-          "bin/placeholder/DataDomain.dll": {}
+          "bin/placeholder/Data.Domain.dll": {}
         },
         "runtime": {
-          "bin/placeholder/DataDomain.dll": {}
+          "bin/placeholder/Data.Domain.dll": {}
+        }
+      },
+      "Db.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/Db.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Db.Models.dll": {}
         }
       }
     }
@@ -5028,15 +5039,20 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
-    "DataDomain/1.0.0": {
+    "Data.Domain/1.0.0": {
       "type": "project",
-      "path": "../DataDomain/DataDomain.csproj",
-      "msbuildProject": "../DataDomain/DataDomain.csproj"
+      "path": "../DataDomain/Data.Domain.csproj",
+      "msbuildProject": "../DataDomain/Data.Domain.csproj"
+    },
+    "Db.Models/1.0.0": {
+      "type": "project",
+      "path": "../Db.Models/Db.Models.csproj",
+      "msbuildProject": "../Db.Models/Db.Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "DataDomain >= 1.0.0"
+      "Data.Domain >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -5072,8 +5088,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\DataDomain\\DataDomain.csproj": {
-              "projectPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\DataDomain\\DataDomain.csproj"
+            "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\DataDomain\\Data.Domain.csproj": {
+              "projectPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\DataDomain\\Data.Domain.csproj"
             }
           }
         }
