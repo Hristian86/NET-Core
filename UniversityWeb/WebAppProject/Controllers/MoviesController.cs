@@ -9,6 +9,7 @@ using DataDomain.Data.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using DataDomain;
 using Microsoft.AspNetCore.Authorization;
+using DataDomain.Data;
 
 namespace WebAppProject.Controllers
 {

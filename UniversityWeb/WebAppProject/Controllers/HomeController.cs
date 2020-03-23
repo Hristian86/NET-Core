@@ -9,8 +9,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using WebAppProject.Data;
 using WebAppProject.Models;
+using DataDomain.Data;
 
 namespace WebAppProject.Controllers
 {
@@ -45,7 +45,7 @@ namespace WebAppProject.Controllers
 
                 var curUser = _edits.GetUserProperties(User.Identity.Name);
 
-                var usery = userManager.GetUserId(this.User);
+                //var usery = userManager.GetUserId(this.User);
 
                 UserNames tempUser = new UserNames
                 {

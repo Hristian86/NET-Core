@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using BusinessLogic.interfaces;
 using BusinessLogic.OutputModels;
-using DataDomain.Data.Models;
+using DataDomain.Data;
 
 namespace BusinessLogic.Services
 {

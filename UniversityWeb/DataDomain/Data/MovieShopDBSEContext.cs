@@ -2,21 +2,17 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using DataDomain.Data.Models;
 
-namespace DataDomain.Data.Models
+namespace DataDomain.Data
 {
     public partial class MovieShopDBSEContext : DbContext
     {
-        
 
         public MovieShopDBSEContext(DbContextOptions<MovieShopDBSEContext> options)
             : base(options)
         {
         }
-
-        //public MovieRentalDBSEContext()
-        //{
-        //}
 
         public virtual DbSet<AspNetRoleClaims> AspNetRoleClaims { get; set; }
         public virtual DbSet<AspNetRoles> AspNetRoles { get; set; }

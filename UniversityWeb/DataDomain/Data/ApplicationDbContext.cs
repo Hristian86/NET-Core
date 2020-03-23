@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using DataDomain.Data.Models;
 
-namespace WebAppProject.Data
+namespace DataDomain.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {

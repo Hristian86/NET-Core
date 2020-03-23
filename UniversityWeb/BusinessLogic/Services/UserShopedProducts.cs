@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BusinessLogic.interfaces;
 using BusinessLogic.OutputModels;
-using DataDomain.Data.Models;
+using DataDomain.Data;
 
 namespace BusinessLogic.Services
 {
