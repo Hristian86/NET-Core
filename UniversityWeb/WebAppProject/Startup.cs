@@ -11,13 +11,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using DataDomain.Data;
+using Data.Domain.Data;
 using BusinessLogic;
-using DataDomain;
+using Data.Domain;
 using BusinessLogic.interfaces;
 using BusinessLogic.Services;
 
-namespace WebAppProject
+namespace MBshop
 {
     public class Startup
     {

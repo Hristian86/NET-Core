@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace DataDomain.Data
+namespace Data.Domain.Data
 {
     public partial class MovieShopDBSEContext : DbContext
     {

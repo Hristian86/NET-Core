@@ -8,7 +8,7 @@ using BusinessLogic.OutputModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace WebAppProject.Controllers
+namespace MBshop.Controllers
 {
     public class ShopingController : Controller
     {

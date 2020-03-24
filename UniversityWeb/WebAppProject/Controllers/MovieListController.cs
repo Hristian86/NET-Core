@@ -8,9 +8,9 @@ using BusinessLogic.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using WebAppProject.Models;
+using MBshop.Models;
 
-namespace WebAppProject.Controllers
+namespace MBshop.Controllers
 {
     public class MovieListController : Controller
     {

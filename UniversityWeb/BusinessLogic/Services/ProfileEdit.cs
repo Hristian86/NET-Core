@@ -3,7 +3,7 @@ using System.Linq;
 using BusinessLogic.interfaces;
 //using static AspWebTest.Areas.Identity.Pages.Account.LoginModel;
 using Microsoft.AspNetCore.Identity;
-using DataDomain.Data;
+using Data.Domain.Data;
 using Db.Models;
 
 namespace BusinessLogic.Services

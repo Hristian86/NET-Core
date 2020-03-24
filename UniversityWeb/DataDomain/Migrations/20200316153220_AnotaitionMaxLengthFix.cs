@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace DataDomain.Migrations
+namespace Data.Domain.Migrations
 {
     public partial class AnotaitionMaxLengthFix : Migration
     {

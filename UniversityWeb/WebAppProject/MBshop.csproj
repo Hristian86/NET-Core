@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <UserSecretsId>aspnet-WebAppProject-5EC9DD8A-8D20-46E6-9330-7CF2F8863406</UserSecretsId>
+    <UserSecretsId>aspnet-MBshop-5EC9DD8A-8D20-46E6-9330-7CF2F8863406</UserSecretsId>
   </PropertyGroup>
 
 
@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj" />
+    <ProjectReference Include="..\DataDomain\Data.Domain.csproj" />
     <ProjectReference Include="..\DataDomain\Data.Domain.csproj" />
   </ItemGroup>
 

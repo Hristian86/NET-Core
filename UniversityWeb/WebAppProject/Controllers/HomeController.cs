@@ -9,10 +9,10 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using WebAppProject.Models;
-using DataDomain.Data;
+using MBshop.Models;
+using Data.Domain.Data;
 
-namespace WebAppProject.Controllers
+namespace MBshop.Controllers
 {
     [AllowAnonymous]
     public class HomeController : Controller

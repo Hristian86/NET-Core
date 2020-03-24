@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using BusinessLogic.interfaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace WebAppProject.Controllers
+namespace MBshop.Controllers
 {
     public class BookListController : Controller
     {

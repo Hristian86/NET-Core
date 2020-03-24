@@ -7,11 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Db.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using DataDomain;
+using Data.Domain;
 using Microsoft.AspNetCore.Authorization;
-using DataDomain.Data;
+using Data.Domain.Data;
 
-namespace WebAppProject.Controllers
+namespace MBshop.Controllers
 {
 
     [Authorize(Roles = "Admin")]
