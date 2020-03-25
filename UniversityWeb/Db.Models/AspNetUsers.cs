@@ -41,6 +41,9 @@ namespace Db.Models
         public virtual ICollection<AspNetUserTokens> AspNetUserTokens { get; set; }
         public virtual ICollection<Messages> Messages { get; set; }
         public virtual ICollection<Shops> Shops { get; set; }
-        
+
+        public virtual ICollection<Rating> Rating { get; set; }
+            = new HashSet<Rating>();
+
     }
 }

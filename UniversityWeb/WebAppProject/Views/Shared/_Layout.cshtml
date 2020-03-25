@@ -33,6 +33,9 @@
                         </li>
                         @if (User.Identity.IsAuthenticated)
                         {
+                            <Li class="ItemsPerPerson">
+                                <a asp-controller="ChatBox" asp-action="ChatPanel" class="btn btn-dark">Shoped products</a>
+                            </Li>
 
                             @if (User.IsInRole("User"))
                             {

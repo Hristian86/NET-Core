@@ -5,6 +5,7 @@ using BusinessLogic.interfaces;
 using Microsoft.AspNetCore.Identity;
 using Data.Domain.Data;
 using Db.Models;
+using System.Threading.Tasks;
 
 namespace BusinessLogic.Services
 {
@@ -26,10 +27,10 @@ namespace BusinessLogic.Services
         /// <param name="lastName"></param>
         /// <param name="address"></param>
         /// <param name="userId"></param>
-        public void SaveUserProperties(string firstName, string lastName, string address, string userId)
+        public async Task SaveUserProperties(string firstName, string lastName, string address, string userId)
         {
             //method for getting user by id
-            var currentUser = FindUserIndDbRepository(userId); 
+            var currentUser = await FindUserIndDbRepository(userId); 
 
             bool Changes = false;
 
@@ -54,7 +55,7 @@ namespace BusinessLogic.Services
 
             if (Changes)
             {
-                db.SaveChanges();
+                await db.SaveChangesAsync();
             }
         }
 
@@ -81,11 +82,13 @@ namespace BusinessLogic.Services
         }
 
         // Searching for the current user by id
-        private AspNetUsers FindUserIndDbRepository(string userId)
+        private async Task<AspNetUsers> FindUserIndDbRepository(string userId)
         {
-            var usr = db.AspNetUsers
-                .Where(x => x.Id == userId)
-                .FirstOrDefault();
+            //var usr = db.AspNetUsers
+            //    .Where(x => x.Id == userId)
+            //    .FirstOrDefault();
+
+            var usr = await db.AspNetUsers.FindAsync(userId);
             return usr;
         }
     }

@@ -131,7 +131,7 @@ namespace MBshop.Areas.Identity.Pages.Account.Manage
             //Making Custom Identity properties :)
             if (user.Id != null)
             {
-                _edit.SaveUserProperties(Input.FirstName, Input.LastName, Input.Address, user.Id);
+                await _edit.SaveUserProperties(Input.FirstName, Input.LastName, Input.Address, user.Id);
             }
 
             StatusMessage = "Your profile has been updated";

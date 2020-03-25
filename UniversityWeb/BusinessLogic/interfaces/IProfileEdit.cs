@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 //using Db.Models;
 using Db.Models;
 
@@ -15,7 +16,7 @@ namespace BusinessLogic.interfaces
         /// <param name="lastName"></param>
         /// <param name="address"></param>
         /// <param name="userId"></param>
-        public void SaveUserProperties(string firstName, string lastName, string address, string userId);
+        Task SaveUserProperties(string firstName, string lastName, string address, string userId);
 
 
         /// <summary>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using BusinessLogic.interfaces;
 using Data.Domain.Data;
 using Db.Models;
@@ -39,6 +40,7 @@ namespace BusinessLogic.Services
                     var user = _db.AspNetUsers
                         .Where(x => x.Id == userId)
                         .FirstOrDefault();
+
 
                     if (user != null)
                     {

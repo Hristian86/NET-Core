@@ -2436,7 +2436,8 @@
       },
       "BusinessLogic/1.0.0": {
         "dependencies": {
-          "Data.Domain": "1.0.0"
+          "Data.Domain": "1.0.0",
+          "Db.Models": "1.0.0"
         },
         "runtime": {
           "BusinessLogic.dll": {}

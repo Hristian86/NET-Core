@@ -26,12 +26,13 @@ namespace Data.Domain.Data
         public virtual DbSet<Messages> Messages { get; set; }
         public virtual DbSet<Movies> Movies { get; set; }
         public virtual DbSet<Shops> Shops { get; set; }
+        public virtual DbSet<Rating> rating { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(ConnectionString.ConString);
+                //optionsBuilder.UseSqlServer(ConnectionString.ConString);
             }
         }
 

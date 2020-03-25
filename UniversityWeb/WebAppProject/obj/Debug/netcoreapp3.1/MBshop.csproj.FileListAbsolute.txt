@@ -208,3 +208,4 @@ C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppP
 C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\WebAppProject\WebAppProject\obj\Debug\netcoreapp3.1\MBshop.csproj.CopyComplete
 C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\WebAppProject\WebAppProject\obj\Debug\netcoreapp3.1\MBshop.dll
 C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\WebAppProject\WebAppProject\obj\Debug\netcoreapp3.1\MBshop.pdb
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\WebAppProject\WebAppProject\obj\Debug\netcoreapp3.1\Razor\Views\ChatBox\ChatPanel.cshtml.g.cs

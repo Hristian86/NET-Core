@@ -46,5 +46,8 @@ namespace Db.Models
         public string LinkForProductContentWhenPurchase { get; set; }
 
         public virtual ICollection<Shops> Shops { get; set; }
+
+        public virtual ICollection<Rating> Rating { get; set; }
+            = new HashSet<Rating>();
     }
 }

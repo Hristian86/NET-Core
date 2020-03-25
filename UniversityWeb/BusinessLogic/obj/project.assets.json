@@ -5052,7 +5052,8 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "Data.Domain >= 1.0.0"
+      "Data.Domain >= 1.0.0",
+      "Db.Models >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -5090,6 +5091,9 @@
           "projectReferences": {
             "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\WebAppProject\\DataDomain\\Data.Domain.csproj": {
               "projectPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\WebAppProject\\DataDomain\\Data.Domain.csproj"
+            },
+            "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\WebAppProject\\Db.Models\\Db.Models.csproj": {
+              "projectPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\WebAppProject\\Db.Models\\Db.Models.csproj"
             }
           }
         }

@@ -54,5 +54,10 @@ namespace MBshop.Controllers
 
             return this.View(list);
         }
+
+        public IActionResult Test()
+        {
+            return this.View(new { title = "idk", ddz = "idk" });
+        }
     }
 }

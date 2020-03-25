@@ -50,5 +50,8 @@ namespace Db.Models
         
 
         public virtual ICollection<Shops> Shops { get; set; }
+
+        public virtual ICollection<Rating> Rating { get; set; } 
+            = new HashSet<Rating>();
     }
 }
