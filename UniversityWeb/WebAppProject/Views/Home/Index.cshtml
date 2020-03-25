@@ -9,7 +9,7 @@
     @{
         if (User.Identity.IsAuthenticated)
         {
-        <h1>@ViewData.Model.firstName @ViewData.Model.LastName @ViewData.Model.Address</h1>
+            <h1>@ViewData.Model.firstName @ViewData.Model.LastName @ViewData.Model.Address</h1>
         }
 
     }
@@ -17,8 +17,5 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
-
-<button class="btn btn-lg btn-primary" onclick="hello()">Click me</button>
-<div id="Output"></div>
 
 

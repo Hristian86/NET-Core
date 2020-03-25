@@ -1,7 +1,12 @@
-﻿
+﻿@model MBshop.Models.ChatModel
 @{
     ViewData["Title"] = "ChatPanel";
 }
 
 <h1>ChatPanel</h1>
+    <input type="text" name="name" value="" id="input" />
+    <button class="btn btn-lg btn-primary" onclick="PostMessages()">Click me</button>
+
+<div id="Output"></div>
+
 

@@ -49,7 +49,6 @@ namespace MBshop.Controllers
         public IActionResult Purchase(int id, [Bind("Id,Title,Director,RealeaseDate,Genre,price,Discount,Picture,Actors,Raiting,Description")] OutputMovies movies)
         {
 
-
             var user = User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
             if (id != movies.Id)
@@ -79,7 +78,7 @@ namespace MBshop.Controllers
                 //return RedirectToAction(nameof(Index));
                 
             }
-            return View();
+            return View(movies);
         }
 
         private bool MoviesExists(int id)

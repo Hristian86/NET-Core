@@ -76,8 +76,17 @@ namespace MBshop
             services.AddSingleton<Status>();
 
             services.AddScoped<IUserShopedProducts, 
-                UserShopedProducts
-                >();
+                UserShopedProducts>();
+
+            services.AddCors(option =>
+            {
+                option.AddPolicy("MessagesCORSPolicy",
+                    builder =>
+                    {
+                        builder.WithOrigins("https://localhost:44342")
+                        .AllowAnyHeader();
+                    });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
