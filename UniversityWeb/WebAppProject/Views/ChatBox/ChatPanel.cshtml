@@ -9,7 +9,8 @@
     <title></title>
 </head>
 <body onload="Start()">
-    <div class="con">
+    <div class="con" style="display:flex;align-items: center;
+  justify-content: center;">
         <h1>
             @{
                 if (User.Identity.IsAuthenticated)
@@ -32,14 +33,14 @@
             {
                 <a class="btn btn-lg btn-warning" id="IdentityBtn" asp-area="Identity" asp-page="/Account/Manage/Index">Create chat nickname</a>
             }
-            @if (User.IsInRole("Admin"))
-            {
-                <form asp-controller="ChatBox" asp-action="Delete" style="float:right;" method="post">
-                    <button class="btn btn-lg btn-warning" id="IdentityBtn">Delete</button>
-                    @*<a class="btn btn-lg btn-warning" id="IdentityBtn" asp-controller="ChatBox" asp-action="Delete">Delete chat</a>*@
-                </form>
-            }
         </h1>
+        @if (User.IsInRole("Admin"))
+        {
+            <form asp-controller="ChatBox" asp-action="Delete"  method="post">
+                <button class="btn btn-lg btn-warning" id="IdentityBtn">Delete</button>
+            </form>
+        }
+
     </div>
 
     <div class="wrapper">
@@ -48,11 +49,6 @@
     </div>
 
     <div id="Output"></div>
-
-
-
-
-
 
 </body>
 </html>
