@@ -14,9 +14,11 @@
             @{
                 if (User.Identity.IsAuthenticated)
                 {
-                    <sction>@ViewData.Model.firstName</sction>
+                    if (ViewData.Model.firstName != null)
+                    {
+                        <sction>@ViewData.Model.firstName's</sction>
+                    }
                 }
-
             }
             Chat panel
             @if (User.Identity.IsAuthenticated)

@@ -5,10 +5,11 @@ using System.Threading.Tasks;
 using Data.Domain.Data;
 using Db.Models;
 using System.Linq;
+using BusinessLogic.interfaces;
 
 namespace BusinessLogic.Services
 {
-    public class ChatService
+    public class ChatService : IChatService
     {
         private readonly MovieShopDBSEContext db;
 
@@ -42,6 +43,13 @@ namespace BusinessLogic.Services
 
             this.db.Messages.Add(messageOrigin);
 
+            await this.db.SaveChangesAsync();
+        }
+
+        public async Task Delete(int id)
+        {
+            var message = this.db.Messages.Where(x => x.Id == id).FirstOrDefault();
+            this.db.Messages.Remove(message);
             await this.db.SaveChangesAsync();
         }
 

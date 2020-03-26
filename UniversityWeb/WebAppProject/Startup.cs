@@ -78,7 +78,7 @@ namespace MBshop
             services.AddScoped<IUserShopedProducts, 
                 UserShopedProducts>();
 
-            services.AddScoped<ChatService>();
+            services.AddScoped<IChatService,ChatService>();
 
             services.AddCors(option =>
             {

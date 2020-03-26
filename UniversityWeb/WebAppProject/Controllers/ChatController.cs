@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using BusinessLogic.Services;
+using BusinessLogic.interfaces;
 using Data.Domain.Data;
 using Db.Models;
 using MBshop.Models;
@@ -18,12 +18,12 @@ namespace MBshop.Controllers
     public class ChatController : ControllerBase
     {
         private readonly MovieShopDBSEContext db;
-        private readonly ChatService msg;
+        private readonly IChatService msg;
         private string user = "";
         private string fullNameOfUsr = "";
 
         public ChatController(MovieShopDBSEContext db,
-            ChatService msg)
+            IChatService msg)
         {
             this.db = db;
             this.msg = msg;
@@ -43,7 +43,6 @@ namespace MBshop.Controllers
 
                 this.fullNameOfUsr = await msg.GetFullName(user);
             }
-
 
             foreach (var item in messageses)
             {
@@ -89,20 +88,11 @@ namespace MBshop.Controllers
         [Authorize]
         [HttpDelete(Name = "Delete")]
         [Route("Delete")]
-        public void Delete(ChatModel model)
+        public async Task Delete(ChatModel model)
         {
-            var message = this.db.Messages.Where(x => x.Id == model.Id).FirstOrDefault();
-            this.db.Messages.Remove(message);
-            this.db.SaveChanges();
-        }
 
-        private async Task<string> GetFullName(string user)
-        {
-            var fullName = await this.db.AspNetUsers.FindAsync(user);
+            await this.msg.Delete(model.Id);
 
-            var names = fullName.FirstName;
-
-            return names;
         }
     }
 }
