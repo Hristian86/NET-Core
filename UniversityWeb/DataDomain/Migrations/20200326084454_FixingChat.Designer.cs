@@ -4,14 +4,16 @@ using Data.Domain.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Data.Domain.Migrations
 {
     [DbContext(typeof(MovieShopDBSEContext))]
-    partial class MovieRentalDBSEContextModelSnapshot : ModelSnapshot
+    [Migration("20200326084454_FixingChat")]
+    partial class FixingChat
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

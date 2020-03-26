@@ -23,23 +23,30 @@ namespace MBshop.Controllers
             this.db = db;
         }
 
-        [HttpGet(Name = "Hello")]
-        [Route("Greet")]
-        public ActionResult<List<Messages>> Hello()
+        [HttpGet(Name = "GetMessages")]
+        [Route("GetMessages")]
+        public ActionResult<List<ChatModel>> GetMessages()
         {
             List<Messages> messageses = this.db.Messages.ToList();
 
-            //List<Messages> messageses = new List<Messages>();
+            List<ChatModel> chats = new List<ChatModel>();
 
-            //Messages mass = new Messages
-            //{
-            //    UserId = User.Identity.Name,
-            //    Content = "Dedagoznam"
-            //};
-            //messageses.Add(mass);
-            //messageses.Add(mass);
+            foreach (var item in messageses)
+            {
+                ChatModel chat = new ChatModel
+                {
+                    Content = item.Content,
+                    UserId = item.UserId,
+                    Id = item.Id,
+                    UserName = item.UserName,
+                    DateT = item.DateT,
+                    CurrentUser = User.Identity.Name
+                };
 
-            return messageses;
+                chats.Add(chat);
+            }
+
+            return chats;
         }
 
         [HttpPost(Name = "Create")]
@@ -51,8 +58,9 @@ namespace MBshop.Controllers
 
             Messages messageOrigin = new Messages
             {
+                UserName = User.Identity.Name,
                 Content = model.Content,
-                UserId = user,
+                UserId = user
             };
 
             this.db.Messages.Add(messageOrigin);
@@ -66,6 +74,15 @@ namespace MBshop.Controllers
             };
 
             return message;
+        }
+
+        [HttpDelete(Name = "Delete")]
+        [Route("Delete")]
+        public void Delete(ChatModel model)
+        {
+            var message = this.db.Messages.Where(x => x.Id == model.Id).FirstOrDefault();
+            this.db.Messages.Remove(message);
+            this.db.SaveChanges();
         }
     }
 }
