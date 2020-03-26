@@ -31,11 +31,12 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="MovieList" asp-action="MovieCollection">Movie collection</a>
                         </li>
+                        <Li class="ItemsPerPerson">
+                            <a asp-controller="ChatBox" asp-action="ChatPanel" class="btn btn-outline-dark">Chat panel</a>
+                        </Li>
                         @if (User.Identity.IsAuthenticated)
                         {
-                            <Li class="ItemsPerPerson">
-                                <a asp-controller="ChatBox" asp-action="ChatPanel" class="btn btn-outline-dark">Chat panel</a>
-                            </Li>
+
 
                             @if (User.IsInRole("User"))
                             {

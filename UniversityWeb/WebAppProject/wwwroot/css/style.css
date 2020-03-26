@@ -12,16 +12,17 @@
 }
 
 .message-candidate {
-    /*background: rgba(223, 229, 121, 0.9);*/
+    background: rgba(223, 229, 121, 0.9);
     padding: 40px;
     /*max-width: 600px;*/
-    width: 95%;
-    /*border-bottom: 4px solid;*/
+    width: 85%;
+    border-bottom: 4px solid;
     margin-bottom: 10px;
     margin: auto;
     margin-top: 25px;
     margin-bottom: 25px;
-    box-shadow: 5px 5px 10px 4px rgba(0,0,0,0.5);
+    border-radius: 15px 50px 30px;
+
 }
 
 .message-hiring-manager {
@@ -57,8 +58,12 @@
 #Output {
     overflow: auto;
     height: 650px;
-    display:block;
-    background-color:yellowgreen;
+    display: block;
+    border: 2px;
+    /*background-color:yellowgreen;*/
+    background: url(https://previews.123rf.com/images/vska/vska1506/vska150600044/40865606-technology-abstract-background-vector.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .wrapper {
@@ -73,4 +78,19 @@
     margin-top:15px;
     height:50px;
     width:400px;
+}
+
+#buttonPost {
+    margin-bottom:10px;
+}
+
+.con {
+    display: inline-block;
+    width: 100%;
+    height: 60px;
+    text-align: center;
+}
+
+#IdentityBtn {
+    margin-left:20px;
 }

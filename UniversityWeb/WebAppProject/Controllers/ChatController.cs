@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using BusinessLogic.Services;
 using Data.Domain.Data;
 using Db.Models;
 using MBshop.Models;
@@ -11,36 +12,48 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MBshop.Controllers
 {
-    [Authorize]
+
     [Route("api/[controller]")]
     [ApiController]
     public class ChatController : ControllerBase
     {
         private readonly MovieShopDBSEContext db;
+        private readonly ChatService msg;
+        private string user = "";
+        private string fullNameOfUsr = "";
 
-        public ChatController(MovieShopDBSEContext db)
+        public ChatController(MovieShopDBSEContext db,
+            ChatService msg)
         {
             this.db = db;
+            this.msg = msg;
         }
 
         [HttpGet(Name = "GetMessages")]
         [Route("GetMessages")]
-        public ActionResult<List<ChatModel>> GetMessages()
+        public async Task<ActionResult<List<ChatModel>>> GetMessages()
         {
-            List<Messages> messageses = this.db.Messages.ToList();
+            List<Messages> messageses = msg.GetMessages();
 
             List<ChatModel> chats = new List<ChatModel>();
+
+            if (User.Identity.Name != null)
+            {
+                this.user = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+
+                this.fullNameOfUsr = await msg.GetFullName(user);
+            }
+
 
             foreach (var item in messageses)
             {
                 ChatModel chat = new ChatModel
                 {
                     Content = item.Content,
-                    UserId = item.UserId,
                     Id = item.Id,
                     UserName = item.UserName,
                     DateT = item.DateT,
-                    CurrentUser = User.Identity.Name
+                    CurrentUser = this.fullNameOfUsr
                 };
 
                 chats.Add(chat);
@@ -51,31 +64,29 @@ namespace MBshop.Controllers
 
         [HttpPost(Name = "Create")]
         [Route("Create")]
-        public ChatModel Create(ChatModel model)
+        public async Task<ChatModel> Create(ChatModel model)
         {
 
             var user = User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-            Messages messageOrigin = new Messages
+            string fullNameOfUser = await msg.GetFullName(user);
+
+            if (fullNameOfUser != null && model.Content.Length > 0)
             {
-                UserName = User.Identity.Name,
-                Content = model.Content,
-                UserId = user
-            };
 
-            this.db.Messages.Add(messageOrigin);
+                await this.msg.CreateMessage(fullNameOfUser, model.Content, user);
 
-            this.db.SaveChanges();
+            }
 
             ChatModel message = new ChatModel
             {
-                UserId = User.Identity.Name,
                 Content = model.Content
             };
 
             return message;
         }
 
+        [Authorize]
         [HttpDelete(Name = "Delete")]
         [Route("Delete")]
         public void Delete(ChatModel model)
@@ -83,6 +94,15 @@ namespace MBshop.Controllers
             var message = this.db.Messages.Where(x => x.Id == model.Id).FirstOrDefault();
             this.db.Messages.Remove(message);
             this.db.SaveChanges();
+        }
+
+        private async Task<string> GetFullName(string user)
+        {
+            var fullName = await this.db.AspNetUsers.FindAsync(user);
+
+            var names = fullName.FirstName;
+
+            return names;
         }
     }
 }

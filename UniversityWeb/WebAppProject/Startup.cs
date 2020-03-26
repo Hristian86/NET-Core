@@ -78,6 +78,8 @@ namespace MBshop
             services.AddScoped<IUserShopedProducts, 
                 UserShopedProducts>();
 
+            services.AddScoped<ChatService>();
+
             services.AddCors(option =>
             {
                 option.AddPolicy("MessagesCORSPolicy",

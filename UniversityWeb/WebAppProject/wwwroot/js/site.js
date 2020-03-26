@@ -34,11 +34,12 @@ function Start() {
     //for starting new compare with data lenght
     count = 0;
     this.console.log('zdrasti');
+    GetMessages();
     setInterval(function () {
         GetMessages();
         console.log('nistaa')
 
-    }, 1000);
+    }, 2000);
 }
 
 var oldLenght = 0;
@@ -58,8 +59,8 @@ function GetMessages() {
                 obj = JSON.parse(this.responseText);
                 
                 var counter = obj.length;
-                console.log(obj);
 
+                console.log(obj);
 
                 if (counter != oldLenght) {
 
@@ -78,7 +79,7 @@ function GetMessages() {
                         
                         //date output
                         var today = new Date(obj[prop].dateT);
-                        var addDate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+                        var addDate = today.getDate() + '.' + (today.getMonth() + 1) + '.' + today.getFullYear() + ' '+today.getHours()+':'+today.getMinutes();
 
                         var y = obj[prop].userName;
                         var z = obj[prop].content;
@@ -94,16 +95,17 @@ function GetMessages() {
 
                         //chek for current user ho can delete 
                         //personal messages
-                        if (y == currUser) {
+                        if (y == currUser) {    
                             var frost = `<p>Delete message</p><p>
-<input type="submit" onclick="Delete(${s})" value="Delete" class="btn btn-danger" />
+<input type="submit" onclick="Delete(${s})" value="Delete" class="btn btn-danger " />
 </p>`;
                             //changing background collor for current loged user
-                            var curUserFont = `background-color:rgba(223, 229, 121, 0.9);`;
+                            var curUserFont = `background-color:rgba(0,255,255, 0.5);margin-right:35px;`;
+                            
                           
                         } else {
                             //background collor for not current user
-                            curUserFont = `background-color:#7c4e2a;color:white`;
+                            curUserFont = `background-color:rgba(223, 229, 121, 0.9);margin-left:35px;`;
                             frost = ``;
                         }
                         console.log
@@ -115,7 +117,7 @@ function GetMessages() {
         <div class="row">
             <div class="col-xs-8 col-md-6">
                 <img src="" class="message-photo">
-                <h4 class="message-name" id="messagename">${y} = ${s}</h4>
+                <h4 class="message-name" id="messagename">${y}</h4>
             </div>
             <div class="col-xs-4 col-md-6 text-right message-date" id="AddDel" >${j}${frost}</div>
         </div>

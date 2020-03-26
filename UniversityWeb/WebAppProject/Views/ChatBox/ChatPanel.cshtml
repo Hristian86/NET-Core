@@ -1,4 +1,4 @@
-﻿@model MBshop.Models.ChatModel
+﻿@*@model MBshop.Models.ChatModel*@
 @{
     ViewData["Title"] = "ChatPanel";
 }
@@ -9,12 +9,40 @@
     <title></title>
 </head>
 <body onload="Start()">
+    <div class="con">
+        <h1>
+            @{
+                if (User.Identity.IsAuthenticated)
+                {
+                    <sction>@ViewData.Model.firstName</sction>
+                }
 
+            }
+            Chat panel
+            @if (User.Identity.IsAuthenticated)
+            {
+                if (ViewData.Model.firstName == null)
+                {
+                    <a class="btn btn-lg btn-warning" id="IdentityBtn" asp-area="Identity" asp-page="/Account/Manage/Index">Create chat nickname</a>
+                }
+            }
+            else
+            {
+                <a class="btn btn-lg btn-warning" id="IdentityBtn" asp-area="Identity" asp-page="/Account/Manage/Index">Create chat nickname</a>
+            }
+            @if (User.IsInRole("Admin"))
+            {
+                <form asp-controller="ChatBox" asp-action="Delete" style="float:right;" method="post">
+                    <button class="btn btn-lg btn-warning" id="IdentityBtn">Delete</button>
+                    @*<a class="btn btn-lg btn-warning" id="IdentityBtn" asp-controller="ChatBox" asp-action="Delete">Delete chat</a>*@
+                </form>
+            }
+        </h1>
+    </div>
 
-    <h1>Chat panel</h1>
     <div class="wrapper">
         <input type="text" name="name" value="" id="input" />
-    <button class="btn btn-lg btn-primary" onclick="PostMessages()">Click me</button>
+        <button class="btn btn-lg btn-primary rounded-pill" id="buttonPost" onclick="PostMessages()">Send Message</button>
     </div>
 
     <div id="Output"></div>
