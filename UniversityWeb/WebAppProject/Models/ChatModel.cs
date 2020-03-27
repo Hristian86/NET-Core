@@ -16,5 +16,7 @@ namespace MBshop.Models
         public string Content { get; set; }
 
         public string CurrentUser { get; set; }
+
+        public string Avatar { get; set; }
     }
 }

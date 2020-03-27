@@ -42,8 +42,8 @@
 }
 
 .message-photo {
-    width: 40px;
-    height: 40px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     object-fit: cover;
     object-position: center center;

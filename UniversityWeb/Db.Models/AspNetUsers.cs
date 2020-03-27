@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Db.Models
 {
@@ -16,6 +17,8 @@ namespace Db.Models
         }
 
         public string Id { get; set; }
+
+        [MaxLength(50)]
         public string UserName { get; set; }
         public string NormalizedUserName { get; set; }
         public string Email { get; set; }
@@ -24,8 +27,18 @@ namespace Db.Models
         public string PasswordHash { get; set; }
         public string SecurityStamp { get; set; }
         public string ConcurrencyStamp { get; set; }
+        public string Avatar { get; set; }
+
+        [MaxLength(30)]
+        public string ChatName { get; set; }
+
+        [MaxLength(30)]
         public string FirstName { get; set; }
+
+        [MaxLength(30)]
         public string LastName { get; set; }
+
+        [MaxLength(50)]
         public string Address { get; set; }
         public string PhoneNumber { get; set; }
         public bool PhoneNumberConfirmed { get; set; }

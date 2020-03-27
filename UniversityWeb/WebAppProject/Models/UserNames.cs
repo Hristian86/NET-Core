@@ -7,6 +7,8 @@ namespace MBshop.Models
 {
     public class UserNames
     {
+        public string ChatName { get; set; }
+
         public string firstName { get; set; }
 
         public string LastName { get; set; }

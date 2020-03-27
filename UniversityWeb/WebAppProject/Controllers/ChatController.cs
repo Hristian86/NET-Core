@@ -4,7 +4,6 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using BusinessLogic.interfaces;
-using Data.Domain.Data;
 using Db.Models;
 using MBshop.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -17,16 +16,16 @@ namespace MBshop.Controllers
     [ApiController]
     public class ChatController : ControllerBase
     {
-        private readonly MovieShopDBSEContext db;
+        private readonly IProfileEdit profEdit;
         private readonly IChatService msg;
-        private string user = "";
-        private string fullNameOfUsr = "";
+        private string fullNameOfUsr;
+        private string user;
 
-        public ChatController(MovieShopDBSEContext db,
-            IChatService msg)
+        public ChatController(IChatService msg,
+            IProfileEdit profEdit)
         {
-            this.db = db;
             this.msg = msg;
+            this.profEdit = profEdit;
         }
 
         [HttpGet(Name = "GetMessages")]
@@ -42,12 +41,16 @@ namespace MBshop.Controllers
                 this.user = User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
                 this.fullNameOfUsr = await msg.GetFullName(user);
-            }
 
+                string curUserAvatar = CurrentUserAvatar();
+            }
+            
             foreach (var item in messageses)
             {
+
                 ChatModel chat = new ChatModel
                 {
+                    Avatar = item.Avatar,
                     Content = item.Content,
                     Id = item.Id,
                     UserName = item.UserName,
@@ -66,14 +69,15 @@ namespace MBshop.Controllers
         public async Task<ChatModel> Create(ChatModel model)
         {
 
-            var user = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            string user = User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
             string fullNameOfUser = await msg.GetFullName(user);
 
             if (fullNameOfUser != null && model.Content.Length > 0)
             {
 
-                await this.msg.CreateMessage(fullNameOfUser, model.Content, user);
+                string avatar = CurrentUserAvatar();
+                await this.msg.CreateMessage(fullNameOfUser, model.Content, user, avatar);
 
             }
 
@@ -93,6 +97,12 @@ namespace MBshop.Controllers
 
             await this.msg.Delete(model.Id);
 
+        }
+
+        public string CurrentUserAvatar()
+        {
+            AspNetUsers curUser = profEdit.GetUserProperties(User.Identity.Name);
+            return curUser.Avatar;
         }
     }
 }

@@ -16,6 +16,8 @@ namespace Db.Models
 
         public string Content { get; set; }
 
+        public string Avatar { get; set; }
+
         public virtual AspNetUsers User { get; set; }
     }
 }

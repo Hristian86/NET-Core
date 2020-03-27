@@ -16,7 +16,7 @@ namespace BusinessLogic.interfaces
         /// <param name="lastName"></param>
         /// <param name="address"></param>
         /// <param name="userId"></param>
-        Task SaveUserProperties(string firstName, string lastName, string address, string userId);
+        Task<bool> SaveUserProperties(string avatar, string chatName, string firstName, string lastName, string address, string userId);
 
 
         /// <summary>

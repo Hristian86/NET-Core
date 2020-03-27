@@ -1,4 +1,4 @@
-﻿@*@model MBshop.Models.ChatModel*@
+﻿
 @{
     ViewData["Title"] = "ChatPanel";
 }
@@ -15,37 +15,42 @@
             @{
                 if (User.Identity.IsAuthenticated)
                 {
-                    if (ViewData.Model.firstName != null)
+                    if (ViewData.Model.ChatName != null)
                     {
-                        <sction>@ViewData.Model.firstName's</sction>
+                        <sction>@ViewData.Model.ChatName's</sction>
                     }
                 }
             }
             Chat panel
-            @if (User.Identity.IsAuthenticated)
-            {
-                if (ViewData.Model.firstName == null)
-                {
-                    <a class="btn btn-lg btn-warning" id="IdentityBtn" asp-area="Identity" asp-page="/Account/Manage/Index">Create chat nickname</a>
-                }
-            }
-            else
-            {
-                <a class="btn btn-lg btn-warning" id="IdentityBtn" asp-area="Identity" asp-page="/Account/Manage/Index">Create chat nickname</a>
-            }
+
         </h1>
         @if (User.IsInRole("Admin"))
         {
-            <form asp-controller="ChatBox" asp-action="Delete"  method="post">
+            <form asp-controller="ChatBox" asp-action="Delete" method="post">
                 <button class="btn btn-lg btn-warning" id="IdentityBtn">Delete</button>
             </form>
         }
-
     </div>
 
     <div class="wrapper">
-        <input type="text" name="name" value="" id="input" />
-        <button class="btn btn-lg btn-primary rounded-pill" id="buttonPost" onclick="PostMessages()">Send Message</button>
+        @*<form action="#" method="post">*@
+        <input type="text" required name="name" value="" id="input" />
+        @if (User.Identity.IsAuthenticated)
+        {
+            if (ViewData.Model.ChatName != null)
+            {
+                <button class="btn btn-lg btn-primary rounded-pill" id="buttonPost" onclick="PostMessages()">Send Message</button>
+            }
+            else
+            {
+                <a class="btn btn-lg rounded-pill btn-warning" id="buttonPost" asp-area="Identity" asp-page="/Account/Manage/Index">Create chat nickname</a>
+            }
+        }
+        else
+        {
+            <a class="btn btn-lg rounded-pill btn-warning" id="buttonPost" asp-area="Identity" asp-page="/Account/Manage/Index">Create chat nickname</a>
+        }
+        @*</form>*@
     </div>
 
     <div id="Output"></div>

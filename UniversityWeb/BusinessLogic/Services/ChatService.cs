@@ -23,19 +23,27 @@ namespace BusinessLogic.Services
             return this.db.Messages.ToList();
         }
 
+        public async Task DeleteAllMessages()
+        {
+            var remove = this.db.Messages.ToList();
+            this.db.Messages.RemoveRange(remove);
+            await this.db.SaveChangesAsync();
+        }
+
         public async Task<string> GetFullName(string user)
         {
             var fullName = await this.db.AspNetUsers.FindAsync(user);
 
-            var name = fullName.FirstName;
+            var name = fullName.ChatName;
 
             return name;
         }
 
-        public async Task CreateMessage(string fullNameOfUser, string content,string user)
+        public async Task CreateMessage(string fullNameOfUser, string content,string user, string avatar)
         {
             Messages messageOrigin = new Messages
             {
+                Avatar = avatar,
                 UserName = fullNameOfUser,
                 Content = content,
                 UserId = user

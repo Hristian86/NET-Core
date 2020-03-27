@@ -18,6 +18,7 @@ namespace MBshop.Areas.Identity.Pages.Account.Manage
         private readonly IProfileEdit _edit;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
+        private bool resultFromCheckNickName;
 
         public IndexModel(
             UserManager<IdentityUser> userManager,
@@ -33,6 +34,9 @@ namespace MBshop.Areas.Identity.Pages.Account.Manage
         public string Username { get; set; }
 
         //Display properies
+        public string ChatName { get; private set; }
+
+        public string Avatar { get; private set; }
         public string FirstName { get; private set; }
 
         public string LastName { get; private set; }
@@ -47,6 +51,10 @@ namespace MBshop.Areas.Identity.Pages.Account.Manage
 
         public class InputModel
         {
+            [Display(Name = "Chat nick name")]
+            [MaxLength(20, ErrorMessage = "To long chat nick name")]
+            public string ChatName { get; set; }
+
             [Phone]
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
@@ -62,6 +70,9 @@ namespace MBshop.Areas.Identity.Pages.Account.Manage
             [Display(Name = "Address")]
             [MaxLength(50, ErrorMessage = "Too long address description")]
             public string Address { get; set; }
+
+            [Display(Name = "Image Avatar")]
+            public string Avatar { get; set; }
         }
 
         private async Task LoadAsync(IdentityUser user)
@@ -90,6 +101,8 @@ namespace MBshop.Areas.Identity.Pages.Account.Manage
                 //Creating current profile properties for placeholder
 
                 var usr = _edit.GetUserProperties(user.UserName);
+                this.Avatar = usr.Avatar;
+                this.ChatName = usr.ChatName;
                 this.FirstName = usr.FirstName;
                 this.LastName = usr.LastName;
                 this.Address = usr.Address;
@@ -128,13 +141,23 @@ namespace MBshop.Areas.Identity.Pages.Account.Manage
 
             await _signInManager.RefreshSignInAsync(user);
 
-            //Making Custom Identity properties :)
+            //Making Custom Identity properties
             if (user.Id != null)
             {
-                await _edit.SaveUserProperties(Input.FirstName, Input.LastName, Input.Address, user.Id);
+
+                this.resultFromCheckNickName = await _edit.SaveUserProperties(Input.Avatar, Input.ChatName, Input.FirstName, Input.LastName, Input.Address, user.Id);
+                
             }
 
-            StatusMessage = "Your profile has been updated";
+            if (this.resultFromCheckNickName)
+            {
+                StatusMessage = "This chat nick name " + $"( {Input.ChatName} )" + " is already taken please choose different name!";
+            }
+            else
+            {
+                StatusMessage = "Your profile has been updated!";
+            }
+
             return RedirectToPage();
         }
     }

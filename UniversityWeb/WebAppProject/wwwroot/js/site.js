@@ -35,11 +35,11 @@ function Start() {
     count = 0;
     this.console.log('zdrasti');
     GetMessages();
-    setInterval(function () {
-        GetMessages();
-        console.log('nistaa')
+    //setInterval(function () {
+    //    GetMessages();
+    //    console.log('nistaa')
 
-    }, 2000);
+    //}, 2000);
 }
 
 var oldLenght = 0;
@@ -85,6 +85,7 @@ function GetMessages() {
                         var z = obj[prop].content;
                         var j = addDate;
                         var s = obj[prop].id;
+                        var avatar = obj[prop].avatar;
                         ids = s;
 
                         //current loget user
@@ -92,6 +93,7 @@ function GetMessages() {
 
                         console.log(currUser);
                         console.log(y);
+                        console.log(avatar);
 
                         //chek for current user ho can delete 
                         //personal messages
@@ -116,7 +118,8 @@ function GetMessages() {
                         var child = `<div class="message-candidate center-block" style="${curUserFont}">
         <div class="row">
             <div class="col-xs-8 col-md-6">
-                <img src="" class="message-photo">
+                <img src="${avatar}" style="width: 70px;
+    height: 70px;" class="message-photo">
                 <h4 class="message-name" id="messagename">${y}</h4>
             </div>
             <div class="col-xs-4 col-md-6 text-right message-date" id="AddDel" >${j}${frost}</div>
