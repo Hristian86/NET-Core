@@ -41,7 +41,9 @@ namespace BusinessLogic.Services
                     price = itemBook.price,
                     RealeseDate = itemBook.RealeseDate,
                     Description = itemBook.Description,
-                    Raiting = itemBook.Raiting
+                    Raiting = itemBook.Raiting,
+                    LinkForProductContentWhenPurchase = itemBook.LinkForProductContentWhenPurchase
+                    
                 };
 
                 booksDispplay.Add(book);

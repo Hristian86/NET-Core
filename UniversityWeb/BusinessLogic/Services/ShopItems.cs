@@ -11,36 +11,30 @@ namespace BusinessLogic.Services
 {
     public class ShopItems : IShopItems
     {
-        private readonly MovieShopDBSEContext _db;
+        private readonly MovieShopDBSEContext db;
 
         public ShopItems(MovieShopDBSEContext db)
         {
-            this._db = db;
+            this.db = db;
         }
 
-        public void BuyMovie(string userId, int movieId)
+        public async Task BuyMovie(string userId, int movieId)
         {
 
-            var userMs = _db.Shops
-                .Where(x => x.UserId == userId)
-                .Select(x => x.Movie)
-                .ToList();
-
-            var chek = userMs.Any(x => x.Id == movieId);
+            var chek = db.Shops.Any(x => x.MovieId == movieId);
 
             if (!chek)
             {
 
-                var movie = _db.Movies
+                var movie = db.Movies
                 .Where(x => x.Id == movieId)
                 .FirstOrDefault();
 
                 if (movie != null)
                 {
-                    var user = _db.AspNetUsers
+                    var user = db.AspNetUsers
                         .Where(x => x.Id == userId)
                         .FirstOrDefault();
-
 
                     if (user != null)
                     {
@@ -53,9 +47,47 @@ namespace BusinessLogic.Services
                             User = user
                         };
 
-                        _db.Shops.Add(purchasedItem);
+                        db.Shops.Add(purchasedItem);
 
-                        this._db.SaveChanges();
+                        await this.db.SaveChangesAsync();
+
+                    }
+                }
+            }
+        }
+
+        public async Task BuyBook(string userId, int bookId)
+        {
+
+            var chek = db.Shops.Any(x => x.BooksId == bookId);
+
+            if (!chek)
+            {
+
+                var book = db.Books
+                    .Where(x => x.Id == bookId)
+                    .FirstOrDefault();
+
+                if (book != null)
+                {
+                    var user = db.AspNetUsers
+                        .Where(x => x.Id == userId)
+                        .FirstOrDefault();
+
+                    if (user != null)
+                    {
+
+                        Shops purchasedItem = new Shops
+                        {
+                            UserId = userId,
+                            BooksId = bookId,
+                            Books = book,
+                            User = user
+                        };
+
+                        db.Shops.Add(purchasedItem);
+
+                        await this.db.SaveChangesAsync();
 
                     }
                 }

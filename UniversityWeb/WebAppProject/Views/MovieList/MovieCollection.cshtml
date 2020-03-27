@@ -94,7 +94,9 @@
 
                     @if (item.Status == false)
                     {
-                        @using (Html.BeginForm("Purchases", "Shoping", new { id = item.Id }, FormMethod.Get))
+                       
+
+                        @using (Html.BeginForm("PurchaseMovie", "MovieList", new { id = item.Id }, FormMethod.Get))
                         {
                             <div class="form-group">
                                 <div class="col-lg-10 col-lg-offset-2">

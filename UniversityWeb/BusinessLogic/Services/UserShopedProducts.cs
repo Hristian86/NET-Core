@@ -26,11 +26,11 @@ namespace BusinessLogic.Services
 
         public List<OutputBooks> PersonalBooks(string id)
         {
-            var toBeDisplayed = ConverBooks(id);
+            var toBeDisplayed = ConvertBooks(id);
             return toBeDisplayed;
         }
 
-        private List<OutputBooks> ConverBooks(string id)
+        private List<OutputBooks> ConvertBooks(string id)
         {
             var disp = new List<OutputBooks>();
 
@@ -57,7 +57,8 @@ namespace BusinessLogic.Services
                         
                         //new properties
                         Raiting = itemBook.Raiting,
-                        Description = itemBook.Description
+                        Description = itemBook.Description,
+                        LinkForProductContentWhenPurchase = itemBook.LinkForProductContentWhenPurchase
                     };
                     disp.Add(book);
                 }

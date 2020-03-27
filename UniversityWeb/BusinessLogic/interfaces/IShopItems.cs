@@ -9,6 +9,7 @@ namespace BusinessLogic.interfaces
 {
     public interface IShopItems
     {
-        public void BuyMovie(string userId, int MovieId);
+        Task BuyMovie(string userId, int MovieId);
+        Task BuyBook(string userId, int bookId);
     }
 }

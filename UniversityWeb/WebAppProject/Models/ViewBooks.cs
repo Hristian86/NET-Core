@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace BusinessLogic.OutputModels
+namespace MBshop.Models
 {
-    public class OutputBooks
+    public class ViewBooks
     {
-        public OutputBooks()
+        public ViewBooks()
         {
             
         }
@@ -41,9 +41,5 @@ namespace BusinessLogic.OutputModels
 
         [MaxLength(150)]
         public string Description { get; set; }
-
-        public bool Status { get; set; }
-
-        public string LinkForProductContentWhenPurchase { get; set; }
     }
 }

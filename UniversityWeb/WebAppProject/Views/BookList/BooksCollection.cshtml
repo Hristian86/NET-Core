@@ -69,9 +69,22 @@
                 <img src="@item.Picture" id="MovieList" alt="Alternate Text" />
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new {  id=item.Id  }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @if (item.Status == false)
+                {
+                    @using (Html.BeginForm("PurchaseBook", "BookList", new { id = item.Id }, FormMethod.Get))
+                    {
+                        <div class="form-group">
+                            <div class="col-lg-10 col-lg-offset-2">
+                                <button type="submit" class="btn btn-outline-primary">Purchase  </button>
+                            </div>
+                        </div>
+                    }
+
+                }
+                else
+                {
+                    <a asp-controller="UserShopedItems" asp-action="UserBooksShops" style="margin-left:15px;" class="btn btn-warning">Owned</a>
+                }
             </td>
         </tr>
 }

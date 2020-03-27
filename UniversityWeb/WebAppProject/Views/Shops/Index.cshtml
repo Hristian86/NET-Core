@@ -35,13 +35,27 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Books.Id)
+                @if (item.Books != null)
+                {
+                    @item.Books.Title
+                }
+                else
+                {
+                    <div>-</div>
+                }
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Movie.Id)
-                @item.Movie.Title
+                @if(item.Movie != null)
+                {
+                    @item.Movie.Title
+                }
+                else
+                {
+                    <div>-</div>
+                }
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.User.Id)
                 Name: @item.User.UserName
             </td>
             <td>

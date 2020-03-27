@@ -42,7 +42,7 @@ namespace MBshop.Controllers
 
                 this.fullNameOfUsr = await msg.GetFullName(user);
 
-                string curUserAvatar = CurrentUserAvatar();
+                //string curUserAvatar = CurrentUserAvatar();
             }
             
             foreach (var item in messageses)
@@ -99,9 +99,10 @@ namespace MBshop.Controllers
 
         }
 
-        public string CurrentUserAvatar()
+        private string CurrentUserAvatar()
         {
             AspNetUsers curUser = profEdit.GetUserProperties(User.Identity.Name);
+
             return curUser.Avatar;
         }
     }
