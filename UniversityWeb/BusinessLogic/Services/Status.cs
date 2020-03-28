@@ -11,6 +11,11 @@ namespace BusinessLogic.Services
         {
         }
 
+        /// <summary>
+        /// Cheking between database movies and purchased movies for status change button in view
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="userItm"></param>
         public void StatusChekMovies(List<OutputMovies> list, List<OutputMovies> userItm)
         {
 
@@ -31,6 +36,11 @@ namespace BusinessLogic.Services
             }
         }
 
+        /// <summary>
+        /// Cheking between database books and purchased movies for status change button in view
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="userItm"></param>
         public void StatusChekBooks(List<OutputBooks> list, List<OutputBooks> userItm)
         {
 

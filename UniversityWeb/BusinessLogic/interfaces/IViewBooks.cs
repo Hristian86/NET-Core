@@ -8,5 +8,7 @@ namespace BusinessLogic.interfaces
     public interface IViewBooks
     {
         List<OutputBooks> GetListOfBooks();
+
+        List<OutputBooks> SortBooks(int orderBy);
     }
 }

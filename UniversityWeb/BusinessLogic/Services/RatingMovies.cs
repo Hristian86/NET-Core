@@ -18,20 +18,20 @@ namespace BusinessLogic.Services
             this.db = db;
         }
 
-        public static int OrderBy { get; set; }
-
+        //public static int OrderBy { get; set; }
 
         public async Task<double> RateMovie(OutputMovies model, string user)
         {
             double final = 0;
 
+            //get current rated movie
             Movies movi = this.db.Movies
                     .Where(x => x.Id == model.Id)
                     .FirstOrDefault();
 
             if (movi != null)
             {
-
+                //get collection of ratngs in numbers
                 var sum = this.db.rating.Where(x => x.Movies == movi).Select(x => x.RatingMovies).ToList();
 
                 var count = sum.Sum();
@@ -47,20 +47,19 @@ namespace BusinessLogic.Services
                 }
                 else
                 {
+                    //updating current rated movie in database
                     movi.Rate = final;
-
                     this.db.Movies.Update(movi);
                 }
 
-                
-
                 if (user != null)
                 {
-
+                    //geting current user
                     var curUser = this.db.AspNetUsers
                         .Where(x => x.Id == user)
                         .FirstOrDefault();
 
+                    //creating new object for database with added values
                     Rating nwRate = new Rating
                     {
                         RatingMovies = model.Raiting,
@@ -84,13 +83,14 @@ namespace BusinessLogic.Services
         {
             double final = 0;
 
+            //get current rated book
             Books book = this.db.Books
                     .Where(x => x.Id == model.Id)
                     .FirstOrDefault();
 
             if (book != null)
             {
-
+                //get collection of ratngs in numbers
                 var sum = this.db.rating.Where(x => x.Books == book).Select(x => x.RatingBooks).ToList();
 
                 var count = sum.Sum();
@@ -106,19 +106,20 @@ namespace BusinessLogic.Services
                 }
                 else
                 {
+                    //updating current rated book in database
                     book.Rate = final;
-
                     this.db.Books.Update(book);
                 }
 
 
                 if (user != null)
                 {
-
+                    //get current user
                     var curUser = this.db.AspNetUsers
                         .Where(x => x.Id == user)
                         .FirstOrDefault();
 
+                    //creating new object for database with added values
                     Rating nwRate = new Rating
                     {
                         RatingBooks = model.Raiting,

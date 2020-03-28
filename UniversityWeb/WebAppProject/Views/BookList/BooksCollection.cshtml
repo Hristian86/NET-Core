@@ -11,6 +11,12 @@
     <a asp-controller="MovieList" asp-action="MovieCollection" class="btn btn-primary btn-lg">Movie collection</a>
 </p>
 
+@Html.ActionLink("Original order", "BooksCollection", "BookList", new { orderBy = 0 }, new { @class = "btn btn-outline-success" })
+@Html.ActionLink("Order by Title A-Z", "BooksCollection", "BookList", new { orderBy = 1 }, new { @class = "btn btn-outline-success" })
+@Html.ActionLink("Order by Title Z-A", "BooksCollection", "BookList", new { orderBy = 2 }, new { @class = "btn btn-outline-success" })
+@Html.ActionLink("Order by Price ascending", "BooksCollection", "BookList", new { orderBy = 3 }, new { @class = "btn btn-outline-success" })
+@Html.ActionLink("Order by Price descending", "BooksCollection", "BookList", new { orderBy = 4 }, new { @class = "btn btn-outline-success" })
+
 <div class="table-responsive-sm">
     <table class="table" id="tabul">
         <thead>

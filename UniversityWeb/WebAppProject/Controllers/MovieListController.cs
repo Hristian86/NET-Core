@@ -44,7 +44,7 @@ namespace MBshop.Controllers
                 //Get user id from cookies
                 var user = User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-                //current user peronal movies
+                //current user personal movies
                 var userItm = userItems.PersonalMovies(user);
 
                 if (userItm.Count != 0)

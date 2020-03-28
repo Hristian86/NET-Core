@@ -44,13 +44,37 @@ namespace BusinessLogic.Services
                     Raiting = itemBook.Raiting,
                     Rate = itemBook.Rate,
                     LinkForProductContentWhenPurchase = itemBook.LinkForProductContentWhenPurchase
-                    
+
                 };
 
                 booksDispplay.Add(book);
             }
 
             return booksDispplay;
+        }
+
+        public List<OutputBooks> SortBooks(int orderBy)
+        {
+            if (orderBy == 1)
+            {
+                return GetBooks().OrderBy(x => x.Title).ToList();
+            }
+            else if (orderBy == 2)
+            {
+                return GetBooks().OrderByDescending(x => x.Title).ToList();
+            }
+            else if (orderBy == 3)
+            {
+                return GetBooks().OrderBy(x => x.price).ToList();
+            }
+            else if (orderBy == 4)
+            {
+                return GetBooks().OrderByDescending(x => x.price).ToList();
+            }
+            else
+            {
+                return GetBooks();
+            }
         }
     }
 }

@@ -33,28 +33,8 @@ namespace MBshop.Controllers
 
         public IActionResult BooksCollection(int orderBy)
         {
-            //var list = this.books.GetListOfBooks();
 
-            if (orderBy == 1)
-            {
-                this.list = this.books.GetListOfBooks().OrderBy(x => x.Title).ToList();
-            }
-            else if (orderBy == 2)
-            {
-                this.list = this.books.GetListOfBooks().OrderByDescending(x => x.Title).ToList();
-            }
-            else if (orderBy == 3)
-            {
-                this.list = this.books.GetListOfBooks().OrderBy(x => x.price).ToList();
-            }
-            else if (orderBy == 4)
-            {
-                this.list = this.books.GetListOfBooks().OrderByDescending(x => x.price).ToList();
-            }
-            else
-            {
-                this.list = this.books.GetListOfBooks();
-            }
+            this.list = this.books.SortBooks(orderBy);
 
             if (User.Identity.Name != null)
             {
@@ -128,7 +108,7 @@ namespace MBshop.Controllers
                     return NotFound();
                 }
 
-                return RedirectToAction("MovieCollection", "MovieList");
+                return RedirectToAction("BooksCollection", "BookList");
 
             }
             return View(book);

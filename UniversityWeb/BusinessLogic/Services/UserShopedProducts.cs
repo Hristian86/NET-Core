@@ -34,11 +34,13 @@ namespace BusinessLogic.Services
         {
             var disp = new List<OutputBooks>();
 
+            //getting personal collection of books for current user
             var userBooks = this.db.Shops
                 .Where(x => x.UserId == id)
                 .Select(x => x.Books)
                 .ToList();
 
+            //mapping to output model
             foreach (var itemBook in userBooks)
             {
                 if (itemBook != null)
@@ -72,6 +74,7 @@ namespace BusinessLogic.Services
         {
             var displays = new List<OutputMovies>();
 
+            //getting personal collection of movies for current user
             var userMovis = this.db.Shops
                 .Where(x => x.UserId == id)
                 .Select(x => x.Movie)
@@ -82,6 +85,7 @@ namespace BusinessLogic.Services
                 if (itemMovie != null)
                 {
 
+                    //mapping to output model
                     OutputMovies movie = new OutputMovies
                     {
                         Id = itemMovie.Id,

@@ -49,7 +49,7 @@ namespace MBshop.Controllers
 
                 double rating = await this.rateService.RateBook(model, user);
 
-                return this.RedirectToAction("MovieCollection", "MovieList");
+                return this.RedirectToAction("BooksCollection", "BookList");
             }
             return this.View();
         }
