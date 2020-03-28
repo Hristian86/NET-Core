@@ -11,15 +11,15 @@ namespace Db.Models
         [Key]
         public int Id { get; set; }
 
-        public int UserRata { get; set; }
+        public int? UserRateCount { get; set; }
 
-        [DisplayFormat(DataFormatString = "{0:f2}", ApplyFormatInEditMode = true)]
-        public double FinalRatingForMovies { get; set; }
+        [DisplayFormat(DataFormatString = "{0:f1}", ApplyFormatInEditMode = true)]
+        public double? RatingMovies { get; set; }
 
-        [DisplayFormat(DataFormatString = "{0:f2}", ApplyFormatInEditMode = true)]
-        public double FinalRatingForBooks { get; set; }
+        [DisplayFormat(DataFormatString = "{0:f1}", ApplyFormatInEditMode = true)]
+        public double? RatingBooks { get; set; }
 
-        public int UserId { get; set; }
+        public string UserId { get; set; }
 
         public int? MoviesId { get; set; }
 

@@ -17,6 +17,7 @@ namespace MBshop.Controllers
         private readonly IUserShopedProducts userItems;
         private readonly IShopItems shoping;
         private readonly Status status;
+        private List<OutputBooks> list = new List<OutputBooks>();
 
         public BookListController(IViewBooks books,
             IUserShopedProducts userItems,
@@ -30,9 +31,30 @@ namespace MBshop.Controllers
         }
 
 
-        public IActionResult BooksCollection()
+        public IActionResult BooksCollection(int orderBy)
         {
-            var list = this.books.GetListOfBooks();
+            //var list = this.books.GetListOfBooks();
+
+            if (orderBy == 1)
+            {
+                this.list = this.books.GetListOfBooks().OrderBy(x => x.Title).ToList();
+            }
+            else if (orderBy == 2)
+            {
+                this.list = this.books.GetListOfBooks().OrderByDescending(x => x.Title).ToList();
+            }
+            else if (orderBy == 3)
+            {
+                this.list = this.books.GetListOfBooks().OrderBy(x => x.price).ToList();
+            }
+            else if (orderBy == 4)
+            {
+                this.list = this.books.GetListOfBooks().OrderByDescending(x => x.price).ToList();
+            }
+            else
+            {
+                this.list = this.books.GetListOfBooks();
+            }
 
             if (User.Identity.Name != null)
             {

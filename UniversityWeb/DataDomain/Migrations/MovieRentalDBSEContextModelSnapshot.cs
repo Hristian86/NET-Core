@@ -275,6 +275,9 @@ namespace Data.Domain.Migrations
                     b.Property<double>("Raiting")
                         .HasColumnType("float");
 
+                    b.Property<double?>("Rate")
+                        .HasColumnType("float");
+
                     b.Property<DateTime?>("RealeseDate")
                         .HasColumnType("datetime");
 
@@ -384,7 +387,10 @@ namespace Data.Domain.Migrations
                     b.Property<string>("Picture")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("Raiting")
+                    b.Property<double?>("Raiting")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Rate")
                         .HasColumnType("float");
 
                     b.Property<DateTime>("RealeaseDate")
@@ -415,22 +421,19 @@ namespace Data.Domain.Migrations
                     b.Property<int?>("BooksId")
                         .HasColumnType("int");
 
-                    b.Property<double>("FinalRatingForBooks")
-                        .HasColumnType("float");
-
-                    b.Property<double>("FinalRatingForMovies")
-                        .HasColumnType("float");
-
                     b.Property<int?>("MoviesId")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
+                    b.Property<double?>("RatingBooks")
+                        .HasColumnType("float");
 
-                    b.Property<string>("UserId1")
+                    b.Property<double?>("RatingMovies")
+                        .HasColumnType("float");
+
+                    b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("UserRata")
+                    b.Property<int?>("UserRateCount")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -439,7 +442,7 @@ namespace Data.Domain.Migrations
 
                     b.HasIndex("MoviesId");
 
-                    b.HasIndex("UserId1");
+                    b.HasIndex("UserId");
 
                     b.ToTable("rating");
                 });
@@ -549,7 +552,7 @@ namespace Data.Domain.Migrations
 
                     b.HasOne("Db.Models.AspNetUsers", "User")
                         .WithMany("Rating")
-                        .HasForeignKey("UserId1");
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("Db.Models.Shops", b =>

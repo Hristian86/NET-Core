@@ -42,7 +42,10 @@ namespace BusinessLogic.OutputModels
         public double Discount { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:f1}", ApplyFormatInEditMode = true)]
-        public double Raiting { get; set; }
+        public double? Raiting { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:f1}", ApplyFormatInEditMode = true)]
+        public double? Rate { get; set; }
         public string LinkForPurchasedContend { get; set; }
         public bool Status { get; set; }
     }

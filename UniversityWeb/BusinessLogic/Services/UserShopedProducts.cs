@@ -94,7 +94,9 @@ namespace BusinessLogic.Services
                         RealeaseDate = itemMovie.RealeaseDate,
                         ShopsMovieId = itemMovie.ShopsMovieId,
                         LinkForPurchasedContend = itemMovie.LinkForProductContentWhenPurchase,
+
                         //new properties
+                        Rate = itemMovie.Rate,
                         Actors = itemMovie.Actors,
                         Raiting = itemMovie.Raiting,
                         Description = itemMovie.Description

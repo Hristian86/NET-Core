@@ -39,6 +39,9 @@ namespace BusinessLogic.OutputModels
         [DisplayFormat(DataFormatString = "{0:f1}", ApplyFormatInEditMode = true)]
         public double Raiting { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:f1}", ApplyFormatInEditMode = true)]
+        public double? Rate { get; set; }
+
         [MaxLength(150)]
         public string Description { get; set; }
 

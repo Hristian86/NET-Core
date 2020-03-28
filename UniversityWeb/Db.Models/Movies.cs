@@ -46,12 +46,16 @@ namespace Db.Models
         public double Discount { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:f1}", ApplyFormatInEditMode = true)]
-        public double Raiting { get; set; }
-        
+        public double? Raiting { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:f1}", ApplyFormatInEditMode = true)]
+        public double? Rate { get; set; }
+
 
         public virtual ICollection<Shops> Shops { get; set; }
 
         public virtual ICollection<Rating> Rating { get; set; } 
             = new HashSet<Rating>();
+
     }
 }

@@ -43,6 +43,7 @@ namespace BusinessLogic.Services
                     ShopsMovieId = itemMovie.ShopsMovieId,
 
                     //new properties
+                    Rate = itemMovie.Rate,
                     Actors = itemMovie.Actors,
                     Raiting = itemMovie.Raiting,
                     Description = itemMovie.Description
@@ -51,6 +52,30 @@ namespace BusinessLogic.Services
                 display.Add(movie);
             }
             return display;
+        }
+
+        public List<OutputMovies> SortMovies(int orderBy)
+        {
+            if (orderBy == 1)
+            {
+                return GetMovies().OrderBy(x => x.Title).ToList();
+            }
+            else if (orderBy == 2)
+            {
+                return GetMovies().OrderByDescending(x => x.Title).ToList();
+            }
+            else if (orderBy == 3)
+            {
+                return GetMovies().OrderBy(x => x.price).ToList();
+            }
+            else if (orderBy == 4)
+            {
+                return GetMovies().OrderByDescending(x => x.price).ToList();
+            }
+            else
+            {
+                return GetMovies();
+            }
         }
 
     }

@@ -30,6 +30,7 @@ namespace MBshop.Controllers
             if (User.Identity.Name != null)
             {
 
+                // all other properties are null
                 var curUser = edit.GetUserProperties(User.Identity.Name);
 
                 UserNames tempUser = new UserNames

@@ -21,7 +21,7 @@ namespace BusinessLogic.Services
         public async Task BuyMovie(string userId, int movieId)
         {
 
-            var chek = db.Shops.Any(x => x.MovieId == movieId);
+            var chek = db.Shops.Any(x => x.MovieId == movieId && x.UserId == userId);
 
             if (!chek)
             {
@@ -59,7 +59,7 @@ namespace BusinessLogic.Services
         public async Task BuyBook(string userId, int bookId)
         {
 
-            var chek = db.Shops.Any(x => x.BooksId == bookId);
+            var chek = db.Shops.Any(x => x.BooksId == bookId && x.UserId == userId);
 
             if (!chek)
             {

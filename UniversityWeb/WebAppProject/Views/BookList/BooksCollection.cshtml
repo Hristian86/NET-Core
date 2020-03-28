@@ -10,83 +10,87 @@
 <p class="movieLink">
     <a asp-controller="MovieList" asp-action="MovieCollection" class="btn btn-primary btn-lg">Movie collection</a>
 </p>
-<table class="table" id="tabul">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Author)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Raiting)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RealeseDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Genre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Picture)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Author)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Raiting)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RealeseDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Genre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.price) $
-            </td>
-            <td>
-                @*@Html.DisplayFor(modelItem => item.Picture)*@
-                <img src="@item.Picture" id="MovieList" alt="Alternate Text" />
-            </td>
-            <td>
-                @if (item.Status == false)
-                {
-                    @using (Html.BeginForm("PurchaseBook", "BookList", new { id = item.Id }, FormMethod.Get))
-                    {
-                        <div class="form-group">
-                            <div class="col-lg-10 col-lg-offset-2">
-                                <button type="submit" class="btn btn-outline-primary">Purchase  </button>
-                            </div>
-                        </div>
-                    }
 
-                }
-                else
-                {
-                    <a asp-controller="UserShopedItems" asp-action="UserBooksShops" style="margin-left:15px;" class="btn btn-warning">Owned</a>
-                }
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="table-responsive-sm">
+    <table class="table" id="tabul">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Author)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Raiting)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RealeseDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Genre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Picture)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Author)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Rate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RealeseDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Genre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.price) $
+                    </td>
+                    <td>
+                        @*@Html.DisplayFor(modelItem => item.Picture)*@
+                        <img src="@item.Picture" id="MovieList" alt="Alternate Text" />
+                    </td>
+                    <td>
+                        @if (item.Status == false)
+                        {
+                            @using (Html.BeginForm("PurchaseBook", "BookList", new { id = item.Id }, FormMethod.Get))
+                            {
+                                <div class="form-group">
+                                    <div class="col-lg-10 col-lg-offset-2">
+                                        <button type="submit" class="btn btn-outline-primary">Purchase  </button>
+                                    </div>
+                                </div>
+                            }
+
+                        }
+                        else
+                        {
+                            <a asp-controller="UserShopedItems" asp-action="UserBooksShops" style="margin-left:15px;" class="btn btn-warning">Owned</a>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

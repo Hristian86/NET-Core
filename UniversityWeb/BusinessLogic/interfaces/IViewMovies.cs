@@ -10,5 +10,7 @@ namespace BusinessLogic.interfaces
     {
         List<OutputMovies> GetListOfMovies();
 
+        List<OutputMovies> SortMovies(int orderBy);
+
     }
 }

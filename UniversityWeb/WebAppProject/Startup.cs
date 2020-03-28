@@ -80,6 +80,8 @@ namespace MBshop
 
             services.AddScoped<IChatService,ChatService>();
 
+            services.AddScoped<RatingMovies>();
+
             services.AddCors(option =>
             {
                 option.AddPolicy("MessagesCORSPolicy",

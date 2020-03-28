@@ -19,6 +19,7 @@ namespace MBshop.Controllers
         private readonly IShopItems _shoping;
         private readonly IUserShopedProducts userItems;
         private readonly Status status;
+        private List<OutputMovies> list = new List<OutputMovies>();
 
         public MovieListController(IViewMovies movieDb,
             IShopItems shoping,
@@ -32,9 +33,10 @@ namespace MBshop.Controllers
             this.status = status;
         }
 
-        public IActionResult MovieCollection()
+        public IActionResult MovieCollection(int orderBy)
         {
-            var list = this.movieDb.GetListOfMovies();
+
+            this.list = this.movieDb.SortMovies(orderBy);
 
             if (User.Identity.Name != null)
             {
@@ -48,12 +50,12 @@ namespace MBshop.Controllers
                 if (userItm.Count != 0)
                 {
                     //chek for possessed items in collections
-                    status.StatusChekMovies(list, userItm);
+                    status.StatusChekMovies(this.list, userItm);
                 }
 
             }
 
-            return this.View(list);
+            return this.View(this.list);
         }
 
         [HttpGet]

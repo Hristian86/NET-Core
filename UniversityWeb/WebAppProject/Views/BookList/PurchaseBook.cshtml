@@ -89,4 +89,14 @@
             Back to movies
         </button>
     </form>
+
+    <form asp-controller="Rating" asp-action="RateBook" method="get">
+        <input type="hidden" asp-for="Id" />
+        <div class="form-group">
+            <label asp-for="Raiting" class="control-label"></label>
+            <input asp-for="Raiting" class="form-control" />
+            <span asp-validation-for="Raiting" class="text-danger"></span>
+        </div>
+        <input type="submit" value="Rate" class="btn btn-outline-success" />
+    </form>
 </div>
