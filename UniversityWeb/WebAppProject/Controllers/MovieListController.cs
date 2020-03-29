@@ -35,7 +35,7 @@ namespace MBshop.Controllers
 
         public IActionResult MovieCollection(int orderBy)
         {
-
+            
             this.list = this.movieDb.SortMovies(orderBy);
 
             if (User.Identity.Name != null)

@@ -4,6 +4,11 @@
     ViewData["Title"] = "Collection";
 }
 
+    @*<div onload="setTimeout(myFunction, 3000)" id="mess">@BusinessLogic.Services.Status.Message</div>*@
+    
+
+
+
 <h1>MovieCollection</h1>
 
 <br />
@@ -38,13 +43,13 @@
                     @Html.DisplayNameFor(model => model.Description)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.RealeaseDate)
+                    Released
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Genre)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.price)
+                    @Html.DisplayNameFor(model => model.price)$
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Picture)
@@ -100,14 +105,14 @@
 
                         @*@Html.ActionLink("Test", "GetMovieCollection", "Home", new { model = Model }, new { @class = "btn btn-outline-success" })*@
                         @*AddToCartMovie
-                        @using (Html.BeginForm("AddToCartMovie", "Cart", new { model = Model }, FormMethod.Post))
-                        {
-                            <div class="form-group">
-                                <div class="col-lg-10 col-lg-offset-2">
-                                    <button type="submit" class="btn btn-outline-primary">Purchase  </button>
+                            @using (Html.BeginForm("AddToCartMovie", "Cart", new { model = Model }, FormMethod.Post))
+                            {
+                                <div class="form-group">
+                                    <div class="col-lg-10 col-lg-offset-2">
+                                        <button type="submit" class="btn btn-outline-primary">Purchase  </button>
+                                    </div>
                                 </div>
-                            </div>
-                        }*@
+                            }*@
 
                         @if (item.Status == false)
                         {

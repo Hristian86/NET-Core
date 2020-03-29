@@ -42,6 +42,8 @@ namespace MBshop.Controllers
         public IActionResult Index()
         {
 
+            ViewData["error"] = "This is error";
+
             if (User.Identity.Name != null)
             {
 

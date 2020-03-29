@@ -16,10 +16,10 @@ namespace MBshop.Controllers
     public class RatingController : Controller
     {
         private readonly MovieShopDBSEContext db;
-        private readonly RatingMovies rateService;
+        private readonly RatingSistem rateService;
 
         public RatingController(MovieShopDBSEContext db,
-            RatingMovies rateService)
+            RatingSistem rateService)
         {
             this.db = db;
             this.rateService = rateService;

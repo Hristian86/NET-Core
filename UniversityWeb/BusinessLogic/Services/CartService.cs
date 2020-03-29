@@ -25,7 +25,7 @@ namespace BusinessLogic.Services
             return carty;
         }
 
-        public void AddToCartBook(int id, double price)
+        public string AddToCartBook(int id, double price)
         {
             //current book to be addet
             var book = this.db.Books
@@ -51,11 +51,20 @@ namespace BusinessLogic.Services
                 if (cart != null)
                 {
                     carts.Add(cart);
+                    return $"Movie {book.Title} added to cart";
                 }
+                else
+                {
+                    return $"Movie not found";
+                }
+            }
+            else
+            {
+                return $"Movie {book.Title} already is added";
             }
         }
 
-        public void AddToCartMovie(int id, double price)
+        public string AddToCartMovie(int id, double price)
         {
             //current movie to be addet
             var movie = this.db.Movies
@@ -81,10 +90,17 @@ namespace BusinessLogic.Services
                 if (cart != null)
                 {
                     carts.Add(cart);
+                    return $"Movie {movie.Title} added to cart";
                 }
-
+                else
+                {
+                    return $"Movie not found";
+                }
             }
-
+            else
+            {
+                return $"Movie {movie.Title} already is added";
+            }
         }
 
         public void DisposeCartProducts()

@@ -3,10 +3,11 @@
 @inject UserManager<IdentityUser> UserManager
 
 
-
     <ul class="navbar-nav">
         @if (SignInManager.IsSignedIn(User))
         {
+            
+            
             if (User.IsInRole("User"))
             {
 

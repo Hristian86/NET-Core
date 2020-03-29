@@ -80,7 +80,7 @@ namespace MBshop
 
             services.AddScoped<IChatService,ChatService>();
 
-            services.AddScoped<RatingMovies>();
+            services.AddScoped<RatingSistem>();
 
             services.AddScoped<ICartService,CartService>();
 

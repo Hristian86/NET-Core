@@ -11,6 +11,8 @@ namespace BusinessLogic.Services
         {
         }
 
+        public static string Message { get; set; }
+
         /// <summary>
         /// Cheking between database movies and purchased movies for status change button in view
         /// </summary>

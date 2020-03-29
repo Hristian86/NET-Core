@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using BusinessLogic.StaticProperyes;
 using BusinessLogic.interfaces;
 using BusinessLogic.OutputModels;
 using BusinessLogic.Services;
+using Data.Domain;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -35,9 +37,10 @@ namespace MBshop.Controllers
 
         
         [HttpPost]
+        [AutoValidateAntiforgeryToken]
         public IActionResult AddToCartMovie(int? id, double? price)
         {
-
+            
             if (id == null && price == null)
             {
                 return NotFound();
@@ -46,13 +49,16 @@ namespace MBshop.Controllers
             int _id = (int)id;
             double _price = (double)price;
 
-            cardBasket.AddToCartMovie(_id,_price);
+            //cart user interface for displayin numberof items in card
+            StatusForCartCount.MessageForStaatus = cardBasket.AddToCartMovie(_id,_price);
 
+            StatusForCartCount.CountOfProductsInBasket = cardBasket.GetCartBascket().Count();
 
             return RedirectToAction("MovieCollection", "MovieList");
         }
 
         [HttpPost]
+        [AutoValidateAntiforgeryToken]
         public IActionResult AddToCartBook(int? id, double? price)
         {
             if (id == null && price == null)
@@ -63,7 +69,9 @@ namespace MBshop.Controllers
             int _id = (int)id;
             double _price = (double)price;
 
-            cardBasket.AddToCartBook(_id,_price);
+            StatusForCartCount.MessageForStaatus = cardBasket.AddToCartBook(_id,_price);
+
+            StatusForCartCount.CountOfProductsInBasket = cardBasket.GetCartBascket().Count();
 
             return RedirectToAction("BooksCollection", "BookList");
         }
@@ -94,6 +102,10 @@ namespace MBshop.Controllers
 
             cardBasket.DisposeCartProducts();
 
+            StatusForCartCount.MessageForStaatus = "Successesful transaction";
+
+            StatusForCartCount.CountOfProductsInBasket = cardBasket.GetCartBascket().Count();
+
             return RedirectToAction("Index", "Home");
         }
 
@@ -108,6 +120,10 @@ namespace MBshop.Controllers
 
             cardBasket.RemoveMovie((int)id);
 
+            StatusForCartCount.MessageForStaatus = "";
+
+            StatusForCartCount.CountOfProductsInBasket = cardBasket.GetCartBascket().Count();
+
             return RedirectToAction("Cart","Cart");
         }
 
@@ -121,6 +137,10 @@ namespace MBshop.Controllers
             }
 
             cardBasket.RemoveBook((int)id);
+
+            StatusForCartCount.MessageForStaatus = "";
+
+            StatusForCartCount.CountOfProductsInBasket = cardBasket.GetCartBascket().Count();
 
             return RedirectToAction("Cart", "Cart");
         }
