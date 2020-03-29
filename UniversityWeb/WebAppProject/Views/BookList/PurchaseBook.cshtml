@@ -80,10 +80,10 @@
     </dl>
 </div>
 <div>
-    <form asp-controller="BookList" asp-action="PurchaseBook" method="post">
+    <form asp-controller="Cart" asp-action="AddToCartBook" method="post">
         <input type="hidden" asp-for="Id" />
         <input type="hidden" asp-for="price" />
-        <input type="submit" value="Purchase" class="btn btn-danger" />
+        <input type="submit" value="Add to cart" class="btn btn-danger" />
 
         <button asp-controller="MovieList" asp-action="MovieCollection" type="submit" class="btn btn-primary">
             Back to movies

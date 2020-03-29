@@ -79,40 +79,40 @@ namespace MBshop.Controllers
             return View(movie);
         }
 
-        [HttpPost]
-        [Authorize]
-        [ValidateAntiForgeryToken]
-        [AutoValidateAntiforgeryToken]
-        public async Task<IActionResult> PurchaseMovie(int id, [Bind("Id,Title,Director,RealeaseDate,Genre,price,Discount,Picture,Actors,Raiting,Description")] OutputMovies movies)
-        {
+        //[HttpPost]
+        //[Authorize]
+        //[ValidateAntiForgeryToken]
+        //[AutoValidateAntiforgeryToken]
+        //public async Task<IActionResult> PurchaseMovie(int id, [Bind("Id,Title,Director,RealeaseDate,Genre,price,Discount,Picture,Actors,Raiting,Description")] OutputMovies movies)
+        //{
 
-            var user = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+        //    var user = User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-            if (id != movies.Id)
-            {
-                return NotFound();
-            }
+        //    if (id != movies.Id)
+        //    {
+        //        return NotFound();
+        //    }
 
-            if (ModelState.IsValid)
-            {
-                if (MoviesExists(movies.Id))
-                {
-                    var movi = this.movieDb.GetListOfMovies()
-                        .Where(x => x.Id == movies.Id && x.price == movies.price)
-                        .FirstOrDefault();
+        //    if (ModelState.IsValid)
+        //    {
+        //        if (MoviesExists(movies.Id))
+        //        {
+        //            var movi = this.movieDb.GetListOfMovies()
+        //                .Where(x => x.Id == movies.Id && x.price == movies.price)
+        //                .FirstOrDefault();
 
-                    await this._shoping.BuyMovie(user, movies.Id);
-                }
-                else
-                {
-                    return NotFound();
-                }
+        //            await this._shoping.BuyMovie(user, movies.Id);
+        //        }
+        //        else
+        //        {
+        //            return NotFound();
+        //        }
 
-                return RedirectToAction("MovieCollection", "MovieList");
+        //        return RedirectToAction("MovieCollection", "MovieList");
 
-            }
-            return View(movies);
-        }
+        //    }
+        //    return View(movies);
+        //}
 
         private bool MoviesExists(int id)
         {

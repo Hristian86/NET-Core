@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MBshop.Models;
 using Data.Domain.Data;
+using BusinessLogic.OutputModels;
 
 namespace MBshop.Controllers
 {
@@ -36,6 +37,7 @@ namespace MBshop.Controllers
             this.userManager = userManager;
             _logger = logger;
         }
+
 
         public IActionResult Index()
         {

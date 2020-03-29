@@ -36,6 +36,11 @@
                         <Li class="ItemsPerPerson">
                             <a asp-controller="ChatBox" asp-action="ChatPanel" class="btn btn-outline-dark">Chat panel</a>
                         </Li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Cart" asp-action="Cart">Cart</a>
+                        </li>
+
+
                         @if (User.Identity.IsAuthenticated)
                         {
 

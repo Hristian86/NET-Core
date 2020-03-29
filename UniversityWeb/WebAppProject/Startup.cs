@@ -82,6 +82,8 @@ namespace MBshop
 
             services.AddScoped<RatingMovies>();
 
+            services.AddScoped<ICartService,CartService>();
+
             services.AddCors(option =>
             {
                 option.AddPolicy("MessagesCORSPolicy",
