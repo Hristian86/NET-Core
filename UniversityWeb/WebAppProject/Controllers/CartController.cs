@@ -19,20 +19,17 @@ namespace MBshop.Controllers
         private readonly IShopItems shopService;
         private readonly ICartService cardBasket;
 
-        public CartController(IShopItems shopeService,
+        public CartController(IShopItems shopService,
             ICartService cardBasket)
         {
-            this.shopService = shopeService;
+            this.shopService = shopService;
             this.cardBasket = cardBasket;
         }
 
 
         public IActionResult Cart()
         {
-
-            var productsInCart = cardBasket.GetCartBascket();
-
-            return View(productsInCart);
+            return View(cardBasket.GetCartBascket());
         }
 
         
@@ -41,7 +38,7 @@ namespace MBshop.Controllers
         public IActionResult AddToCartMovie(int? id, double? price)
         {
             
-            if (id == null && price == null)
+            if ((id == null && price == null) || id == null || price == null)
             {
                 return NotFound();
             }
@@ -61,7 +58,7 @@ namespace MBshop.Controllers
         [AutoValidateAntiforgeryToken]
         public IActionResult AddToCartBook(int? id, double? price)
         {
-            if (id == null && price == null)
+            if ((id == null && price == null) || id == null || price == null)
             {
                 return NotFound();
             }
@@ -69,6 +66,7 @@ namespace MBshop.Controllers
             int _id = (int)id;
             double _price = (double)price;
 
+            //cart user interface for displayin numberof items in card
             StatusForCartCount.MessageForStaatus = cardBasket.AddToCartBook(_id,_price);
 
             StatusForCartCount.CountOfProductsInBasket = cardBasket.GetCartBascket().Count();
@@ -82,6 +80,12 @@ namespace MBshop.Controllers
         [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> CartChekout(IEnumerable<OutputCart> model)
         {
+            if (!ModelState.IsValid)
+            {
+                return NotFound();
+            }
+
+            //Current product in cart basket
             var currentProducts = cardBasket.GetCartBascket();
 
             var user = User.FindFirst(ClaimTypes.NameIdentifier).Value;
@@ -106,7 +110,7 @@ namespace MBshop.Controllers
 
             StatusForCartCount.CountOfProductsInBasket = cardBasket.GetCartBascket().Count();
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("UserMovieShops", "UserShopedItems");
         }
 
         [HttpPost]

@@ -35,7 +35,7 @@ namespace MBshop.Controllers
         {
 
             this.list = this.books.SortBooks(orderBy);
-
+            
             if (User.Identity.Name != null)
             {
 
@@ -53,7 +53,7 @@ namespace MBshop.Controllers
 
             }
 
-            return this.View(list);
+            return this.View(this.list);
 
             //return View(this.books.GetListOfBooks());
         }
@@ -79,46 +79,46 @@ namespace MBshop.Controllers
             return View(book);
         }
 
-        [HttpPost]
-        [Authorize]
-        [ValidateAntiForgeryToken]
-        [AutoValidateAntiforgeryToken]
-        public async Task<IActionResult> PurchaseBook(int id, [Bind("Id,Title,Author,Genre,UserId,RealeseDate,Created,Picture,price,Discount,Raiting,Description")] OutputBooks book)
-        {
+        //[HttpPost]
+        //[Authorize]
+        //[ValidateAntiForgeryToken]
+        //[AutoValidateAntiforgeryToken]
+        //public async Task<IActionResult> PurchaseBook(int id, [Bind("Id,Title,Author,Genre,UserId,RealeseDate,Created,Picture,price,Discount,Raiting,Description")] OutputBooks book)
+        //{
 
-            var user = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+        //    var user = User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-            if (id != book.Id)
-            {
-                return NotFound();
-            }
+        //    if (id != book.Id)
+        //    {
+        //        return NotFound();
+        //    }
 
-            if (ModelState.IsValid)
-            {
-                if (BookExists(book.Id))
-                {
-                    var movi = this.books.GetListOfBooks()
-                        .Where(x => x.Id == book.Id && x.price == book.price)
-                        .FirstOrDefault();
+        //    if (ModelState.IsValid)
+        //    {
+        //        if (BookExists(book.Id))
+        //        {
+        //            var movi = this.books.GetListOfBooks()
+        //                .Where(x => x.Id == book.Id && x.price == book.price)
+        //                .FirstOrDefault();
 
-                    await this.shoping.BuyBook(user, book.Id);
-                }
-                else
-                {
-                    return NotFound();
-                }
+        //            await this.shoping.BuyBook(user, book.Id);
+        //        }
+        //        else
+        //        {
+        //            return NotFound();
+        //        }
 
-                return RedirectToAction("BooksCollection", "BookList");
+        //        return RedirectToAction("BooksCollection", "BookList");
 
-            }
-            return View(book);
-        }
+        //    }
+        //    return View(book);
+        //}
 
-        private bool BookExists(int id)
-        {
-            return this.books.GetListOfBooks()
-                .Any(x => x.Id == id);
-        }
+        //private bool BookExists(int id)
+        //{
+        //    return this.books.GetListOfBooks()
+        //        .Any(x => x.Id == id);
+        //}
 
     }
 }

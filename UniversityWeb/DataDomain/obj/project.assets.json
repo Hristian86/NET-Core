@@ -5116,11 +5116,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\DataDomain\\Data.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\WebAppProject\\DataDomain\\Data.Domain.csproj",
       "projectName": "Data.Domain",
-      "projectPath": "E:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\DataDomain\\Data.Domain.csproj",
+      "projectPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\WebAppProject\\DataDomain\\Data.Domain.csproj",
       "packagesPath": "C:\\Users\\Pencho\\.nuget\\packages\\",
-      "outputPath": "E:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\DataDomain\\obj\\",
+      "outputPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\WebAppProject\\DataDomain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -5141,8 +5141,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "E:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\Db.Models\\Db.Models.csproj": {
-              "projectPath": "E:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\Db.Models\\Db.Models.csproj"
+            "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\WebAppProject\\Db.Models\\Db.Models.csproj": {
+              "projectPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\WebAppProject\\Db.Models\\Db.Models.csproj"
             }
           }
         }

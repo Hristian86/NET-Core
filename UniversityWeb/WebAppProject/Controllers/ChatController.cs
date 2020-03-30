@@ -4,7 +4,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using BusinessLogic.interfaces;
-using Db.Models;
+//using Db.Models;
 using MBshop.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -32,7 +32,7 @@ namespace MBshop.Controllers
         [Route("GetMessages")]
         public async Task<ActionResult<List<ChatModel>>> GetMessages()
         {
-            List<Messages> messageses = msg.GetMessages();
+            var messageses = msg.GetMessages();
 
             List<ChatModel> chats = new List<ChatModel>();
 
@@ -66,6 +66,7 @@ namespace MBshop.Controllers
 
         [HttpPost(Name = "Create")]
         [Route("Create")]
+        [Authorize]
         public async Task<ChatModel> Create(ChatModel model)
         {
 
@@ -76,8 +77,7 @@ namespace MBshop.Controllers
             if (fullNameOfUser != null && model.Content.Length > 0)
             {
 
-                string avatar = CurrentUserAvatar();
-                await this.msg.CreateMessage(fullNameOfUser, model.Content, user, avatar);
+                await this.msg.CreateMessage(fullNameOfUser, model.Content, user, CurrentUserAvatar());
 
             }
 
@@ -101,9 +101,9 @@ namespace MBshop.Controllers
 
         private string CurrentUserAvatar()
         {
-            AspNetUsers curUser = profEdit.GetUserProperties(User.Identity.Name);
+            string avatar = profEdit.GetUserProperties(User.Identity.Name).Avatar;
 
-            return curUser.Avatar;
+            return avatar;
         }
     }
 }

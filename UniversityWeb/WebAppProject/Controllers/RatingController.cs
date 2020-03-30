@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using BusinessLogic.interfaces;
 using BusinessLogic.OutputModels;
-using BusinessLogic.Services;
-using Data.Domain.Data;
 using Db.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -15,13 +14,11 @@ namespace MBshop.Controllers
 
     public class RatingController : Controller
     {
-        private readonly MovieShopDBSEContext db;
-        private readonly RatingSistem rateService;
+        private readonly IRatingSistem rateService;
 
-        public RatingController(MovieShopDBSEContext db,
-            RatingSistem rateService)
+        public RatingController(
+            IRatingSistem rateService)
         {
-            this.db = db;
             this.rateService = rateService;
         }
 
@@ -41,6 +38,7 @@ namespace MBshop.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> RateBook(OutputBooks model)
         {
             if (ModelState.IsValid)
@@ -53,6 +51,5 @@ namespace MBshop.Controllers
             }
             return this.View();
         }
-
     }
 }

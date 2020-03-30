@@ -30,13 +30,14 @@ namespace MBshop.Controllers
             if (User.Identity.Name != null)
             {
 
-                // all other properties are null
+                // all other properties in current logged user are null
                 var curUser = edit.GetUserProperties(User.Identity.Name);
 
                 UserNames tempUser = new UserNames
                 {
                     ChatName = curUser.ChatName
                 };
+
                 return View(tempUser);
             }
 

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\WebAppProject\\MBshop.csproj": {}
+    "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\WebAppProject\\WebAppProject\\MBshop.csproj": {}
   },
   "projects": {
-    "E:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\BusinessLogic\\BusinessLogic.csproj": {
+    "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\WebAppProject\\BusinessLogic\\BusinessLogic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\BusinessLogic\\BusinessLogic.csproj",
+        "projectUniqueName": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\WebAppProject\\BusinessLogic\\BusinessLogic.csproj",
         "projectName": "BusinessLogic",
-        "projectPath": "E:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\BusinessLogic\\BusinessLogic.csproj",
+        "projectPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\WebAppProject\\BusinessLogic\\BusinessLogic.csproj",
         "packagesPath": "C:\\Users\\Pencho\\.nuget\\packages\\",
-        "outputPath": "E:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\BusinessLogic\\obj\\",
+        "outputPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\WebAppProject\\BusinessLogic\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -32,11 +32,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "E:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\DataDomain\\Data.Domain.csproj": {
-                "projectPath": "E:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\DataDomain\\Data.Domain.csproj"
+              "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\WebAppProject\\DataDomain\\Data.Domain.csproj": {
+                "projectPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\WebAppProject\\DataDomain\\Data.Domain.csproj"
               },
-              "E:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\Db.Models\\Db.Models.csproj": {
-                "projectPath": "E:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\Db.Models\\Db.Models.csproj"
+              "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\WebAppProject\\Db.Models\\Db.Models.csproj": {
+                "projectPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\WebAppProject\\Db.Models\\Db.Models.csproj"
               }
             }
           }
@@ -68,14 +68,14 @@
         }
       }
     },
-    "E:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\DataDomain\\Data.Domain.csproj": {
+    "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\WebAppProject\\DataDomain\\Data.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\DataDomain\\Data.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\WebAppProject\\DataDomain\\Data.Domain.csproj",
         "projectName": "Data.Domain",
-        "projectPath": "E:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\DataDomain\\Data.Domain.csproj",
+        "projectPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\WebAppProject\\DataDomain\\Data.Domain.csproj",
         "packagesPath": "C:\\Users\\Pencho\\.nuget\\packages\\",
-        "outputPath": "E:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\DataDomain\\obj\\",
+        "outputPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\WebAppProject\\DataDomain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -96,8 +96,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "E:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\Db.Models\\Db.Models.csproj": {
-                "projectPath": "E:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\Db.Models\\Db.Models.csproj"
+              "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\WebAppProject\\Db.Models\\Db.Models.csproj": {
+                "projectPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\WebAppProject\\Db.Models\\Db.Models.csproj"
               }
             }
           }
@@ -155,14 +155,14 @@
         }
       }
     },
-    "E:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\Db.Models\\Db.Models.csproj": {
+    "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\WebAppProject\\Db.Models\\Db.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\Db.Models\\Db.Models.csproj",
+        "projectUniqueName": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\WebAppProject\\Db.Models\\Db.Models.csproj",
         "projectName": "Db.Models",
-        "projectPath": "E:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\Db.Models\\Db.Models.csproj",
+        "projectPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\WebAppProject\\Db.Models\\Db.Models.csproj",
         "packagesPath": "C:\\Users\\Pencho\\.nuget\\packages\\",
-        "outputPath": "E:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\Db.Models\\obj\\",
+        "outputPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\WebAppProject\\Db.Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -212,14 +212,14 @@
         }
       }
     },
-    "E:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\WebAppProject\\MBshop.csproj": {
+    "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\WebAppProject\\WebAppProject\\MBshop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\WebAppProject\\MBshop.csproj",
+        "projectUniqueName": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\WebAppProject\\WebAppProject\\MBshop.csproj",
         "projectName": "MBshop",
-        "projectPath": "E:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\WebAppProject\\MBshop.csproj",
+        "projectPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\WebAppProject\\WebAppProject\\MBshop.csproj",
         "packagesPath": "C:\\Users\\Pencho\\.nuget\\packages\\",
-        "outputPath": "E:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\WebAppProject\\obj\\",
+        "outputPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\WebAppProject\\WebAppProject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -240,11 +240,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "E:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\BusinessLogic\\BusinessLogic.csproj": {
-                "projectPath": "E:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\BusinessLogic\\BusinessLogic.csproj"
+              "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\WebAppProject\\BusinessLogic\\BusinessLogic.csproj": {
+                "projectPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\WebAppProject\\BusinessLogic\\BusinessLogic.csproj"
               },
-              "E:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\DataDomain\\Data.Domain.csproj": {
-                "projectPath": "E:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\DataDomain\\Data.Domain.csproj"
+              "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\WebAppProject\\DataDomain\\Data.Domain.csproj": {
+                "projectPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\WebAppProject\\DataDomain\\Data.Domain.csproj"
               }
             }
           }

@@ -15,11 +15,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\Db.Models\\Db.Models.csproj",
+      "projectUniqueName": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\WebAppProject\\Db.Models\\Db.Models.csproj",
       "projectName": "Db.Models",
-      "projectPath": "E:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\Db.Models\\Db.Models.csproj",
+      "projectPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\WebAppProject\\Db.Models\\Db.Models.csproj",
       "packagesPath": "C:\\Users\\Pencho\\.nuget\\packages\\",
-      "outputPath": "E:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\Db.Models\\obj\\",
+      "outputPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\WebAppProject\\Db.Models\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",

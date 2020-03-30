@@ -6,12 +6,14 @@ using System.Linq;
 using BusinessLogic.OutputModels;
 using Db.Models;
 using System.Threading.Tasks;
+using BusinessLogic.interfaces;
 
 namespace BusinessLogic.Services
 {
-    public class RatingSistem
+    public class RatingSistem : IRatingSistem
     {
         private readonly MovieShopDBSEContext db;
+        private double final = 0;
 
         public RatingSistem(MovieShopDBSEContext db)
         {
@@ -22,7 +24,7 @@ namespace BusinessLogic.Services
 
         public async Task<double> RateMovie(OutputMovies model, string user)
         {
-            double final = 0;
+            this.final = 0;
 
             //get current rated movie
             Movies movi = this.db.Movies
@@ -36,20 +38,24 @@ namespace BusinessLogic.Services
 
                 var count = sum.Sum();
 
-                double total = (double)count;
+                int counts = sum.Count();
 
-                //display rating 
-                final = total / sum.Count();
+                double total = (double)count + (double)model.Raiting;
+
+                //display rating
+                this.final = total / (counts + 1);
 
                 if (sum.Count() == 0)
                 {
-                    movi.Rate = 0.0;
+                    //updating current rated movie in database
+                    movi.Rate = model.Raiting;
+                    await UpdateMovie(movi);
                 }
-                else
+                if (sum.Count() != 0)
                 {
                     //updating current rated movie in database
-                    movi.Rate = final;
-                    this.db.Movies.Update(movi);
+                    movi.Rate = this.final;
+                    await UpdateMovie(movi);
                 }
 
                 if (user != null)
@@ -71,17 +77,19 @@ namespace BusinessLogic.Services
                     this.db.rating.Add(nwRate);
 
                     await this.db.SaveChangesAsync();
+                    
 
                     total = 0;
                 }
             }
-            return final;
+            return this.final;
         }
 
+        
 
         public async Task<double> RateBook(OutputBooks model, string user)
         {
-            double final = 0;
+            this.final = 0;
 
             //get current rated book
             Books book = this.db.Books
@@ -95,20 +103,24 @@ namespace BusinessLogic.Services
 
                 var count = sum.Sum();
 
-                double total = (double)count;
+                int counts = sum.Count();
 
-                //display rating 
-                final = total / sum.Count();
+                double total = (double)count + (double)model.Raiting;
+
+                //display rating
+                this.final = total / (counts + 1);
 
                 if (sum.Count() == 0)
                 {
-                    book.Rate = 0.0;
+                    //updating current rated book in database
+                    book.Rate = model.Raiting;
+                    await UpdateBook(book);
                 }
                 else
                 {
                     //updating current rated book in database
-                    book.Rate = final;
-                    this.db.Books.Update(book);
+                    book.Rate = this.final;
+                    await UpdateBook(book);
                 }
 
 
@@ -135,7 +147,20 @@ namespace BusinessLogic.Services
                     total = 0;
                 }
             }
-            return final;
+            return this.final;
         }
+
+        private async Task UpdateMovie(Movies movi)
+        {
+            this.db.Movies.Update(movi);
+            await this.db.SaveChangesAsync();
+        }
+
+        private async Task UpdateBook(Books book)
+        {
+            this.db.Books.Update(book);
+            await this.db.SaveChangesAsync();
+        }
+
     }
 }
