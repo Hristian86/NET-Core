@@ -11,9 +11,11 @@ namespace BusinessLogic.Services
     public class ViewBooks : IViewBooks
     {
         private readonly MovieShopDBSEContext _db;
+        private List<OutputBooks> booksDispplay;
 
         public ViewBooks(MovieShopDBSEContext db)
         {
+            booksDispplay = new List<OutputBooks>();
             this._db = db;
         }
 
@@ -24,7 +26,7 @@ namespace BusinessLogic.Services
 
         private List<OutputBooks> GetBooks()
         {
-            var booksDispplay = new List<OutputBooks>();
+            //var booksDispplay = new List<OutputBooks>();
 
             //var Bview = this._db.Books.ToList();
 
@@ -47,10 +49,10 @@ namespace BusinessLogic.Services
 
                 };
 
-                booksDispplay.Add(book);
+                this.booksDispplay.Add(book);
             }
 
-            return booksDispplay;
+            return this.booksDispplay;
         }
 
         public List<OutputBooks> SortBooks(int orderBy)

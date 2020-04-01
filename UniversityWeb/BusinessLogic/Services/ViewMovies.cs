@@ -5,15 +5,18 @@ using System.Text;
 using BusinessLogic.interfaces;
 using BusinessLogic.OutputModels;
 using Data.Domain.Data;
+using Db.Models;
 
 namespace BusinessLogic.Services
 {
     public class ViewMovies : IViewMovies
     {
         private readonly MovieShopDBSEContext db;
+        private List<OutputMovies> display;
 
         public ViewMovies(MovieShopDBSEContext dbs)
         {
+            display = new List<OutputMovies>();
             this.db = dbs;
         }
 
@@ -24,7 +27,7 @@ namespace BusinessLogic.Services
 
         private List<OutputMovies> GetMovies()
         {
-            var display = new List<OutputMovies>();
+            //var display = new List<OutputMovies>();
 
             foreach (var itemMovie in this.db.Movies)
             {
@@ -49,27 +52,31 @@ namespace BusinessLogic.Services
                     Description = itemMovie.Description
                 };
 
-                display.Add(movie);
+                this.display.Add(movie);
             }
-            return display;
+            return this.display;
         }
 
         public List<OutputMovies> SortMovies(int orderBy)
         {
             if (orderBy == 1)
             {
+                //order by title A-Z
                 return GetMovies().OrderBy(x => x.Title).ToList();
             }
             else if (orderBy == 2)
             {
+                //order by title Z-A
                 return GetMovies().OrderByDescending(x => x.Title).ToList();
             }
             else if (orderBy == 3)
             {
+                //order by price 0-9
                 return GetMovies().OrderBy(x => x.price).ToList();
             }
             else if (orderBy == 4)
             {
+                //order by price 9-0
                 return GetMovies().OrderByDescending(x => x.price).ToList();
             }
             else

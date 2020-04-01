@@ -33,9 +33,23 @@ namespace MBshop.Controllers
             this.status = status;
         }
 
-        public IActionResult MovieCollection(int orderBy)
+        public IActionResult MovieCollection(int orderBy, string searchItem, string type)
         {
-            
+            if (searchItem != null && type == "Movie")
+            {
+                List<OutputMovies> result = this.movieDb.GetListOfMovies()
+                    .Where(x => x.Title.ToLower().Contains(searchItem.ToLower()))
+                    .ToList();
+                if (result.Count != 0)
+                {
+                    return this.View(result);
+                }
+            }
+            else if (searchItem != null && type == "Book")
+            {
+                return this.RedirectToAction("BooksCollection", "BookList", new { searchItem });
+            }
+
             this.list = this.movieDb.SortMovies(orderBy);
 
             if (User.Identity.Name != null)

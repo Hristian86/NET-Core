@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "ChatPanel";
 }
 
@@ -24,7 +23,7 @@
             Chat panel
 
         </h1>
-        @if (User.IsInRole("Admin"))
+        @if (User.IsInRole(WebConstansVariables.Admin))
         {
             <form asp-controller="ChatBox" asp-action="Delete" method="post">
                 <button class="btn btn-lg btn-warning" id="IdentityBtn">Delete</button>

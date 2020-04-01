@@ -18,10 +18,11 @@ namespace MBshop.Controllers
     [AllowAnonymous]
     public class HomeController : Controller
     {
-        private readonly IProfileEdit _edits;
+        private readonly IProfileEdit edits;
         private readonly UserManager<IdentityUser> userManager;
         private readonly ILogger<HomeController> _logger;
-        private readonly IViewMovies _mods;
+        private readonly IViewMovies movies;
+        private readonly IViewBooks books;
 
         //private UserNames names = new UserNames();
 
@@ -29,11 +30,13 @@ namespace MBshop.Controllers
             ILogger<HomeController> logger,
             IProfileEdit edit,
             UserManager<IdentityUser> userManager,
-            IViewMovies mods
+            IViewMovies movies,
+            IViewBooks books
             )
         {
-            this._mods = mods;
-            this._edits = edit;
+            this.movies = movies;
+            this.books = books;
+            this.edits = edit;
             this.userManager = userManager;
             _logger = logger;
         }
@@ -47,7 +50,7 @@ namespace MBshop.Controllers
             if (User.Identity.Name != null)
             {
 
-                var curUser = _edits.GetUserProperties(User.Identity.Name);
+                var curUser = edits.GetUserProperties(User.Identity.Name);
 
                 //var usery = userManager.GetUserId(this.User);
 
@@ -60,6 +63,22 @@ namespace MBshop.Controllers
                 return View(tempUser);
             }
             return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult SearchResult(string searchItem)
+        {
+
+            if (searchItem != null)
+            {
+
+                List<OutputMovies> result = this.movies.GetListOfMovies().Where(x => x.Title.ToLower().Contains(searchItem.ToLower())).ToList();
+
+                return View(result);
+            }
+
+            return this.View();
         }
 
         public IActionResult Privacy()

@@ -6,6 +6,7 @@ using BusinessLogic.interfaces;
 using BusinessLogic.OutputModels;
 using Data.Domain.Data;
 using Db.Models;
+using BusinessLogic.WebConstants;
 
 namespace BusinessLogic.Services
 {
@@ -34,7 +35,7 @@ namespace BusinessLogic.Services
 
             //chek for already added
             var chek = carts
-                .Any(x => x.Id == id && (x.Type == "Book" && x.price == price));
+                .Any(x => x.Id == id && (x.Type == WebConstansVariables.Book && x.price == price));
 
             if (book != null && !chek)
             {
@@ -45,22 +46,22 @@ namespace BusinessLogic.Services
                     price = price,
                     Picture = book.Picture,
                     Title = book.Title,
-                    Type = "Book"
+                    Type = WebConstansVariables.Book
                 };
 
                 if (cart != null)
                 {
                     carts.Add(cart);
-                    return $"Movie {book.Title} added to cart";
+                    return $"Book {book.Title} added to cart";
                 }
                 else
                 {
-                    return $"Movie not found";
+                    return $"Book not found";
                 }
             }
             else
             {
-                return $"Movie {book.Title} already is added";
+                return $"Book {book.Title} already is added";
             }
         }
 
@@ -73,7 +74,7 @@ namespace BusinessLogic.Services
 
             //chek for already added
             var chek = carts
-                .Any(x => x.Id == id && (x.Type == "Movie" && x.price == price));
+                .Any(x => x.Id == id && (x.Type == WebConstansVariables.Movie && x.price == price));
 
             if (movie != null && !chek)
             {
@@ -84,7 +85,7 @@ namespace BusinessLogic.Services
                     price = price,
                     Picture = movie.Picture,
                     Title = movie.Title,
-                    Type = "Movie"
+                    Type = WebConstansVariables.Movie
                 };
 
                 if (cart != null)
@@ -110,14 +111,14 @@ namespace BusinessLogic.Services
 
         public void RemoveMovie(int id)
         {
-            var cart = carts.Where(x => x.Id == id && x.Type == "Movie").FirstOrDefault();
+            var cart = carts.Where(x => x.Id == id && x.Type == WebConstansVariables.Movie).FirstOrDefault();
 
             carts.Remove(cart);
         }
 
         public void RemoveBook(int id)
         {
-            var cart = carts.Where(x => x.Id == id && x.Type == "Book").FirstOrDefault();
+            var cart = carts.Where(x => x.Id == id && x.Type == WebConstansVariables.Book).FirstOrDefault();
 
             carts.Remove(cart);
         }

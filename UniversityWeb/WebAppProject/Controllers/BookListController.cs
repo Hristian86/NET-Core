@@ -31,8 +31,17 @@ namespace MBshop.Controllers
         }
 
 
-        public IActionResult BooksCollection(int orderBy)
+        public IActionResult BooksCollection(int orderBy, string searchItem)
         {
+
+            if (searchItem != null)
+            {
+                List<OutputBooks> result = this.books.GetListOfBooks()
+                    .Where(x => x.Title.ToLower().Contains(searchItem.ToLower()))
+                    .ToList();
+
+                return this.View(result);
+            }
 
             this.list = this.books.SortBooks(orderBy);
             

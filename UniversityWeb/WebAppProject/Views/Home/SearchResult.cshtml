@@ -1,0 +1,27 @@
+﻿@model IEnumerable<BusinessLogic.OutputModels.OutputMovies>
+@inject IEnumerable<BusinessLogic.OutputModels.OutputBooks> books
+@{
+    ViewData["Title"] = "SearchResult";
+}
+
+<h1>SearchResult</h1>
+@if (this.books != null)
+{
+    @foreach (var item in books)
+    {
+        <p>@item.Title</p>
+        <p>@item.Rate</p>
+        <p>@item.Author</p>
+        <p><img src="@item.Picture" id="MovieList" alt="Alternate Text" /></p>
+    }
+}
+else
+{
+    @foreach (var item in Model)
+    {
+        <p>@item.Title</p>
+        <p>@item.Rate</p>
+        <p>@item.Director</p>
+        <p><img src="@item.Picture" id="MovieList" alt="Alternate Text" /></p>
+    }
+}

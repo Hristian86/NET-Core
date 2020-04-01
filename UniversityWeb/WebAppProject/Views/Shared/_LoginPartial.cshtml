@@ -3,64 +3,73 @@
 @inject UserManager<IdentityUser> UserManager
 
 
-    <ul class="navbar-nav">
-        @if (SignInManager.IsSignedIn(User))
+<ul class="navbar-nav">
+    @if (SignInManager.IsSignedIn(User))
+    {
+
+
+        if (User.IsInRole(WebConstansVariables.User))
         {
-            
-            
-            if (User.IsInRole("User"))
-            {
 
-                @*To Do - add link for evry user shoped items*@
-                <Li class="ItemsPerPerson">
-                    <a asp-controller="UserShopedItems" asp-action="UserMovieShops" class="btn btn-dark">Shoped products</a>
-                </Li>
-            }
-            if (User.IsInRole("Admin"))
-            {
-                <Li class="ItemsPerPerson">
-                    <a asp-controller="UserShopedItems" asp-action="UserMovieShops" class="btn btn-dark">Shoped products</a>
-                </Li>
-                <!-- Example single danger button -->
-                <li>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-outline-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Admin CnlPanel
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="Movies" asp-action="Index">Create Movies</a>
+            @*To Do - add link for evry user shoped items*@
+            <Li class="ItemsPerPerson">
+                <a asp-controller="UserShopedItems" asp-action="UserMovieShops" class="btn btn-dark">Shoped products</a>
+            </Li>
+        }
+        if (User.IsInRole(WebConstansVariables.Admin))
+        {
+            <Li class="ItemsPerPerson">
+                <a asp-controller="UserShopedItems" asp-action="UserMovieShops" class="btn btn-dark">Shoped products</a>
+            </Li>
+            <!-- Example single danger button -->
+            <li>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-outline-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Admin CnlPanel
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="Movies" asp-action="Index">Create Movies</a>
 
-                            <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="Books" asp-action="Index">Create Books</a>
+                        <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="Books" asp-action="Index">Create Books</a>
 
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="Shops" asp-action="Index">Shoped items</a>
-                        </div>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="Shops" asp-action="Index">Shoped items</a>
                     </div>
-                </li>
+                </div>
+            </li>
 
-                <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="Identity" id="dropM" asp-page="/Account/Manage/Index">Hello Admin @User.Identity.Name !</a>
-                </li>
-            }
-            else
-            {
-                <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index">Hello  @User.Identity.Name !</a>
-                </li>
-            }
             <li class="nav-item">
-                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                    <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
-                </form>
+                <a class="nav-link text-dark" asp-area="Identity" id="dropM" asp-page="/Account/Manage/Index">Hello Admin @User.Identity.Name !</a>
             </li>
         }
         else
         {
             <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index">Hello  @User.Identity.Name !</a>
             </li>
         }
-    </ul>
+        <li class="nav-item">
+            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+            </form>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
+        </li>
+    }
+</ul>
+
+<form method="post" asp-controller="MovieList" asp-action="MovieCollection" class="form-inline my-2 my-lg-0 mr-3">
+    <select name="type" class="form-control mr-sm-2">
+        <option value="Movie">Movies</option>
+        <option value="Book">Books</option>
+    </select>
+    <input class="form-control mr-sm-2" type="text" name="SearchItem" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+</form>
