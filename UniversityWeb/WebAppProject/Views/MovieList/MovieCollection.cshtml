@@ -1,10 +1,10 @@
-﻿@model IEnumerable<BusinessLogic.OutputModels.OutputMovies>
+﻿@model IEnumerable<MBshopService.OutputModels.OutputMovies>
 
 @{
     ViewData["Title"] = "Collection";
 }
 
-    @*<div onload="setTimeout(myFunction, 3000)" id="mess">@BusinessLogic.Services.Status.Message</div>*@
+    @*<div onload="setTimeout(myFunction, 3000)" id="mess">@MBshopService.Services.Status.Message</div>*@
     
 
 
@@ -105,23 +105,43 @@
 
                         @*@Html.ActionLink("Test", "GetMovieCollection", "Home", new { model = Model }, new { @class = "btn btn-outline-success" })*@
                         @*AddToCartMovie
-                            @using (Html.BeginForm("AddToCartMovie", "Cart", new { model = Model }, FormMethod.Post))
-                            {
-                                <div class="form-group">
-                                    <div class="col-lg-10 col-lg-offset-2">
-                                        <button type="submit" class="btn btn-outline-primary">Purchase  </button>
-                                    </div>
-                                </div>
-                            }*@
+        @using (Html.BeginForm("AddToCartMovie", "Cart", new { model = Model }, FormMethod.Post))
+        {
+            <div class="form-group">
+                <div class="col-lg-10 col-lg-offset-2">
+                    <button type="submit" class="btn btn-outline-primary">Purchase  </button>
+                </div>
+            </div>
+        }*@
+
+
+
+
+                        @*@if (item.Status == false)
+                        {
+
+                            <form method="get" asp-controller="MovieList" asp-action="PurchaseMovie" class="form-inline my-2 my-lg-0 mr-3">
+                                <input class="form-control mr-sm-2" type="hidden" value="@item.Id" name="Id" placeholder="Search" aria-label="Search">
+                                <input class="form-control mr-sm-2" type="hidden" name="type" value="@item.Picture" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-primary" type="submit">Purchase</button>
+                            </form>
+
+                        }
+                        else
+                        {
+                            <a asp-controller="UserShopedItems" asp-action="UserMovieShops" style="margin-left:15px;" class="btn btn-warning">Owned p.</a>
+                        }*@
+
+
 
                         @if (item.Status == false)
                         {
-
 
                             @using (Html.BeginForm("PurchaseMovie", "MovieList", new { id = item.Id }, FormMethod.Get))
                             {
                                 <div class="form-group">
                                     <div class="col-lg-10 col-lg-offset-2">
+                                        <input class="form-control mr-sm-2" type="hidden" name="type" value="@item.Picture">
                                         <button type="submit" class="btn btn-outline-primary">Purchase  </button>
                                     </div>
                                 </div>

@@ -12,10 +12,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Data.Domain.Data;
-using BusinessLogic;
+using MBshopService;
 using Data.Domain;
-using BusinessLogic.interfaces;
-using BusinessLogic.Services;
+using MBshopService.interfaces;
+using MBshopService.Services;
 
 namespace MBshop
 {

@@ -28,13 +28,13 @@ using MBshop.Models;
 #nullable disable
 #nullable restore
 #line 3 "C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\WebAppProject\WebAppProject\Views\_ViewImports.cshtml"
-using BusinessLogic.WebConstants;
+using MBshopService.WebConstants;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"858beecb2c90d441a0d486d565e96109cdc605ce", @"/Views/Shops/Delete.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6b5801b255e54fdc715623f4f89343619529da33", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5e1699700dbaa7d2c95adf4bcd0bb8e85078e03b", @"/Views/_ViewImports.cshtml")]
     public class Views_Shops_Delete : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<Db.Models.Shops>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("type", "hidden", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);

@@ -32,13 +32,13 @@
     </div>
 
     <div class="wrapper">
-        @*<form action="#" method="post">*@
+        <form action="/" method="post">
         <input type="text" required name="name" value="" id="input" />
         @if (User.Identity.IsAuthenticated)
         {
             if (ViewData.Model.ChatName != null)
             {
-                <button class="btn btn-lg btn-primary rounded-pill" id="buttonPost" onclick="PostMessages()">Send Message</button>
+                <button class="btn btn-lg btn-primary rounded-pill" id="buttonPost" type="submit" onclick="PostMessages(); return false;">Send Message</button>
             }
             else
             {
@@ -49,7 +49,7 @@
         {
             <a class="btn btn-lg rounded-pill btn-warning" id="buttonPost" asp-area="Identity" asp-page="/Account/Manage/Index">Create chat nickname</a>
         }
-        @*</form>*@
+        </form>
     </div>
 
     <div id="Output"></div>

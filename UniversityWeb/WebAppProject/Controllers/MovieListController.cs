@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using BusinessLogic.interfaces;
-using BusinessLogic.Services;
+using MBshopService.interfaces;
+using MBshopService.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MBshop.Models;
-using BusinessLogic.OutputModels;
+using MBshopService.OutputModels;
 
 namespace MBshop.Controllers
 {
     public class MovieListController : Controller
     {
         private readonly IViewMovies movieDb;
-        private readonly IShopItems _shoping;
+        private readonly IShopItems shoping;
         private readonly IUserShopedProducts userItems;
         private readonly Status status;
         private List<OutputMovies> list = new List<OutputMovies>();
@@ -28,7 +28,7 @@ namespace MBshop.Controllers
             )
         {
             this.movieDb = movieDb;
-            this._shoping = shoping;
+            this.shoping = shoping;
             this.userItems = userItems;
             this.status = status;
         }
@@ -75,7 +75,7 @@ namespace MBshop.Controllers
         [HttpGet]
         [Authorize]
         [AutoValidateAntiforgeryToken]
-        public IActionResult PurchaseMovie(int? id)
+        public IActionResult PurchaseMovie(int? id, string type)
         {
             if (id == null)
             {

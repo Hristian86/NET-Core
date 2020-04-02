@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using BusinessLogic.interfaces;
-using BusinessLogic.OutputModels;
-using BusinessLogic.Services;
+using MBshopService.interfaces;
+using MBshopService.OutputModels;
+using MBshopService.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

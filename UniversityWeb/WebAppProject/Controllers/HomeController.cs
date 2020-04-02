@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using BusinessLogic;
-using BusinessLogic.interfaces;
+using MBshopService;
+using MBshopService.interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MBshop.Models;
 using Data.Domain.Data;
-using BusinessLogic.OutputModels;
+using MBshopService.OutputModels;
 
 namespace MBshop.Controllers
 {
@@ -45,7 +45,7 @@ namespace MBshop.Controllers
         public IActionResult Index()
         {
 
-            ViewData["error"] = "This is error";
+            //ViewData["error"] = "This is error";
 
             if (User.Identity.Name != null)
             {
@@ -72,6 +72,9 @@ namespace MBshop.Controllers
 
             if (searchItem != null)
             {
+
+
+
 
                 List<OutputMovies> result = this.movies.GetListOfMovies().Where(x => x.Title.ToLower().Contains(searchItem.ToLower())).ToList();
 

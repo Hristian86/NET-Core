@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using BusinessLogic.interfaces;
+using MBshopService.interfaces;
 //using Db.Models;
 using MBshop.Models;
 using Microsoft.AspNetCore.Authorization;

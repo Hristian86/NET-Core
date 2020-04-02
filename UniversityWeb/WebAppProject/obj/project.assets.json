@@ -2815,20 +2815,6 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "BusinessLogic/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
-        "dependencies": {
-          "Data.Domain": "1.0.0",
-          "Db.Models": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/BusinessLogic.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/BusinessLogic.dll": {}
-        }
-      },
       "Data.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
@@ -2853,6 +2839,20 @@
         },
         "runtime": {
           "bin/placeholder/Db.Models.dll": {}
+        }
+      },
+      "MBshopService/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Data.Domain": "1.0.0",
+          "Db.Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MBshopService.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MBshopService.dll": {}
         }
       }
     }
@@ -8882,11 +8882,6 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
-    "BusinessLogic/1.0.0": {
-      "type": "project",
-      "path": "../BusinessLogic/BusinessLogic.csproj",
-      "msbuildProject": "../BusinessLogic/BusinessLogic.csproj"
-    },
     "Data.Domain/1.0.0": {
       "type": "project",
       "path": "../DataDomain/Data.Domain.csproj",
@@ -8896,12 +8891,17 @@
       "type": "project",
       "path": "../Db.Models/Db.Models.csproj",
       "msbuildProject": "../Db.Models/Db.Models.csproj"
+    },
+    "MBshopService/1.0.0": {
+      "type": "project",
+      "path": "../MBshopService/MBshopService.csproj",
+      "msbuildProject": "../MBshopService/MBshopService.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "BusinessLogic >= 1.0.0",
       "Data.Domain >= 1.0.0",
+      "MBshopService >= 1.0.0",
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 3.1.1",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 3.1.1",
       "Microsoft.AspNetCore.Identity.UI >= 3.1.1",
@@ -8944,11 +8944,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\WebAppProject\\BusinessLogic\\BusinessLogic.csproj": {
-              "projectPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\WebAppProject\\BusinessLogic\\BusinessLogic.csproj"
-            },
             "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\WebAppProject\\DataDomain\\Data.Domain.csproj": {
               "projectPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\WebAppProject\\DataDomain\\Data.Domain.csproj"
+            },
+            "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\WebAppProject\\MBshopService\\MBshopService.csproj": {
+              "projectPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\WebAppProjectCurrent\\WebAppProject\\WebAppProject\\WebAppProject\\MBshopService\\MBshopService.csproj"
             }
           }
         }
