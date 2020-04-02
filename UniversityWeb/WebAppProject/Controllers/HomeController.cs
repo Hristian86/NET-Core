@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using MBshop.Models;
 using Data.Domain.Data;
 using MBshopService.OutputModels;
+using MBshopService.WebConstants;
 
 namespace MBshop.Controllers
 {
@@ -23,6 +24,7 @@ namespace MBshop.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly IViewMovies movies;
         private readonly IViewBooks books;
+        private List<ViewProducts> allProducts = new List<ViewProducts>();
 
         //private UserNames names = new UserNames();
 
@@ -69,19 +71,55 @@ namespace MBshop.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult SearchResult(string searchItem)
         {
-
             if (searchItem != null)
             {
 
 
+                foreach (var item in this.movies.GetListOfMovies())
+                {
+                    ViewProducts product = new ViewProducts
+                    {
+                        Id = item.Id,
+                        Title = item.Title,
+                        price = item.price,
+                        Picture = item.Picture,
+                        Genre = item.Genre,
+                        Status = item.Status,
+                        Rate = item.Rate,
+                        Type = WebConstansVariables.Movie
+                    };
 
+                    this.allProducts.Add(product);
+                }
 
-                List<OutputMovies> result = this.movies.GetListOfMovies().Where(x => x.Title.ToLower().Contains(searchItem.ToLower())).ToList();
+                foreach (var item in this.books.GetListOfBooks())
+                {
+                    ViewProducts product = new ViewProducts
+                    {
+                        Id = item.Id,
+                        Title = item.Title,
+                        price = item.price,
+                        Picture = item.Picture,
+                        Genre = item.Genre,
+                        Status = item.Status,
+                        Rate = item.Rate,
+                        Type = WebConstansVariables.Book
+                    };
 
-                return View(result);
+                    this.allProducts.Add(product);
+                }
+
+                if (searchItem != null)
+                {
+
+                    var result = this.allProducts.Where(x => x.Title.ToLower().Contains(searchItem.ToLower())).ToList();
+
+                    return View(result);
+                }
+
             }
 
-            return this.View();
+            return this.View(this.allProducts);
         }
 
         public IActionResult Privacy()

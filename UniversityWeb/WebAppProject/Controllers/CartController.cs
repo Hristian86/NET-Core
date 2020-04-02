@@ -78,7 +78,7 @@ namespace MBshop.Controllers
         [Authorize]
         [ValidateAntiForgeryToken]
         [AutoValidateAntiforgeryToken]
-        public async Task<IActionResult> CartChekout(IEnumerable<OutputCart> model)
+        public async Task<IActionResult> CartChekout(IEnumerable<ViewProducts> model)
         {
             if (!ModelState.IsValid)
             {

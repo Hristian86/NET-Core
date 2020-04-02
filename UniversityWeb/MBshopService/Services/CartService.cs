@@ -12,7 +12,7 @@ namespace MBshopService.Services
 {
     public class CartService : ICartService
     {
-        private static List<OutputCart> carts = new List<OutputCart>();
+        private static List<ViewProducts> carts = new List<ViewProducts>();
         private readonly MovieShopDBSEContext db;
 
         public CartService(MovieShopDBSEContext db)
@@ -20,7 +20,7 @@ namespace MBshopService.Services
             this.db = db;
         }
 
-        public List<OutputCart> GetCartBascket()
+        public List<ViewProducts> GetCartBascket()
         {
             var carty = carts.ToList();
             return carty;
@@ -40,7 +40,7 @@ namespace MBshopService.Services
             if (book != null && !chek)
             {
                 //maping book to cart model
-                OutputCart cart = new OutputCart
+                ViewProducts cart = new ViewProducts
                 {
                     Id = id,
                     price = price,
@@ -79,7 +79,7 @@ namespace MBshopService.Services
             if (movie != null && !chek)
             {
                 //maping movie to cart model
-                OutputCart cart = new OutputCart
+                ViewProducts cart = new ViewProducts
                 {
                     Id = id,
                     price = price,
@@ -106,7 +106,7 @@ namespace MBshopService.Services
 
         public void DisposeCartProducts()
         {
-            carts = new List<OutputCart>();
+            carts = new List<ViewProducts>();
         }
 
         public void RemoveMovie(int id)

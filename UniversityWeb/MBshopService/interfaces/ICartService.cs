@@ -7,7 +7,7 @@ namespace MBshopService.interfaces
 {
     public interface ICartService
     {
-        List<OutputCart> GetCartBascket();
+        List<ViewProducts> GetCartBascket();
         string AddToCartBook(int id, double price);
         string AddToCartMovie(int id, double price);
         void DisposeCartProducts();

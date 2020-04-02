@@ -16,6 +16,7 @@ using MBshopService;
 using Data.Domain;
 using MBshopService.interfaces;
 using MBshopService.Services;
+using Microsoft.AspNetCore.Http;
 
 namespace MBshop
 {
@@ -112,6 +113,8 @@ namespace MBshop
 
             app.UseEndpoints(endpoints =>
             {
+                
+
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

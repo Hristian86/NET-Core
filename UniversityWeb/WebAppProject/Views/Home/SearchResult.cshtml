@@ -1,27 +1,86 @@
-﻿@model IEnumerable<MBshopService.OutputModels.OutputMovies>
-@inject IEnumerable<MBshopService.OutputModels.OutputBooks> books
+﻿@model IEnumerable<MBshopService.OutputModels.ViewProducts>
 @{
     ViewData["Title"] = "SearchResult";
 }
 
 <h1>SearchResult</h1>
-@if (this.books != null)
-{
-    @foreach (var item in books)
-    {
-        <p>@item.Title</p>
-        <p>@item.Rate</p>
-        <p>@item.Author</p>
-        <p><img src="@item.Picture" id="MovieList" alt="Alternate Text" /></p>
-    }
-}
-else
-{
-    @foreach (var item in Model)
-    {
-        <p>@item.Title</p>
-        <p>@item.Rate</p>
-        <p>@item.Director</p>
-        <p><img src="@item.Picture" id="MovieList" alt="Alternate Text" /></p>
-    }
-}
+
+
+
+<div class="table-responsive-sm">
+    <table class="table" id="tabul">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Type)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Genre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.price)$
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Picture)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Genre)
+                </td>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.Picture)*@
+                    <img src="@item.Picture" id="MovieList" alt="Alternate Text" />
+                </td>
+
+                <td>
+
+
+                    @if (item.Type == WebConstansVariables.Book)
+                    {
+
+                        @using (Html.BeginForm("PurchaseBook", "BookList", new { id = item.Id }, FormMethod.Get))
+                        {
+                            <div class="form-group">
+                                <div class="col-lg-10 col-lg-offset-2">
+                                    <button type="submit" class="btn btn-outline-primary">Purchase  </button>
+                                </div>
+                            </div>
+                        }
+                    }
+                    else if (item.Type == WebConstansVariables.Movie)
+                    {
+                        @using (Html.BeginForm("PurchaseMovie", "MovieList", new { id = item.Id }, FormMethod.Get))
+                        {
+                            <div class="form-group">
+                                <div class="col-lg-10 col-lg-offset-2">
+                                    <input class="form-control mr-sm-2" type="hidden" name="type" value="@item.Picture">
+                                    <button type="submit" class="btn btn-outline-primary">Purchase  </button>
+                                </div>
+                            </div>
+                        }
+                    }
+                </td>
+            </tr>
+
+            }
+        </tbody>
+    </table>
+</div>
