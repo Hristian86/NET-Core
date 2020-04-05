@@ -47,7 +47,7 @@ namespace MBshop.Controllers
             double _price = (double)price;
 
             //cart user interface for displayin numberof items in card
-            StatusForCartCount.MessageForStaatus = cardBasket.AddToCartMovie(_id,_price);
+            StatusForCartCount.MessageForStaatus = cardBasket.AddToCartMovie(_id,_price, GetCurrentUser());
 
             StatusForCartCount.CountOfProductsInBasket = cardBasket.GetCartBascket().Count();
 
@@ -67,7 +67,7 @@ namespace MBshop.Controllers
             double _price = (double)price;
 
             //cart user interface for displayin numberof items in card
-            StatusForCartCount.MessageForStaatus = cardBasket.AddToCartBook(_id,_price);
+            StatusForCartCount.MessageForStaatus = cardBasket.AddToCartBook(_id,_price, GetCurrentUser());
 
             StatusForCartCount.CountOfProductsInBasket = cardBasket.GetCartBascket().Count();
 
@@ -94,7 +94,7 @@ namespace MBshop.Controllers
             {
                 if (product.Type == "Movie")
                 {
-                    await shopService
+                    StatusForCartCount.MessageForStaatus = await shopService
                         .BuyMovie(user,product.Id);
                 }
                 else if (product.Type == "Book")
@@ -105,8 +105,6 @@ namespace MBshop.Controllers
             }
 
             cardBasket.DisposeCartProducts();
-
-            StatusForCartCount.MessageForStaatus = "Successesful transaction";
 
             StatusForCartCount.CountOfProductsInBasket = cardBasket.GetCartBascket().Count();
 
@@ -147,6 +145,12 @@ namespace MBshop.Controllers
             StatusForCartCount.CountOfProductsInBasket = cardBasket.GetCartBascket().Count();
 
             return RedirectToAction("Cart", "Cart");
+        }
+
+        private string GetCurrentUser()
+        {
+            var user = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            return user;
         }
     }
 }

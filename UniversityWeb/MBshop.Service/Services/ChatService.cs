@@ -39,7 +39,7 @@ namespace MBshop.Service.Services
             return name;
         }
 
-        public async Task CreateMessage(string fullNameOfUser, string content,string user, string avatar)
+        public async Task CreateMessage(string fullNameOfUser, string content, string user, string avatar)
         {
             Messages messageOrigin = new Messages
             {
@@ -52,6 +52,7 @@ namespace MBshop.Service.Services
             this.db.Messages.Add(messageOrigin);
 
             await this.db.SaveChangesAsync();
+
         }
 
         public async Task Delete(int id)

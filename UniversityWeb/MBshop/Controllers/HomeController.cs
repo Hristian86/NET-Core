@@ -23,7 +23,7 @@ namespace MBshop.Controllers
         private readonly IProfileEdit edits;
         private readonly UserManager<IdentityUser> userManager;
         private readonly ILogger<HomeController> _logger;
-        private readonly SearchEngine search;
+        private readonly ISearchEngine search;
         //private List<ViewProducts> allProducts = new List<ViewProducts>();
 
         //private UserNames names = new UserNames();
@@ -32,7 +32,7 @@ namespace MBshop.Controllers
             ILogger<HomeController> logger,
             IProfileEdit edit,
             UserManager<IdentityUser> userManager,
-            SearchEngine search,
+            ISearchEngine search,
             IUserShopedProducts userItems
             )
         {

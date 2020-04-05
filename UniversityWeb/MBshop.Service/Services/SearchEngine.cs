@@ -9,7 +9,7 @@ using MBshop.Service.WebConstants;
 
 namespace MBshop.Service.Services
 {
-    public class SearchEngine
+    public class SearchEngine : ISearchEngine
     {
         private readonly IViewMovies movies;
         private readonly IViewBooks books;
@@ -48,7 +48,7 @@ namespace MBshop.Service.Services
                 Genre = item.Genre,
                 Status = item.Status,
                 Rate = item.Rate,
-                Type = WebConstansVariables.Movie
+                Type = WebConstansVariables.Book
 
             }).ToList();
 

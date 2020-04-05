@@ -73,7 +73,7 @@ namespace MBshop
             services.AddScoped<RatingSistem>();
             services.AddScoped<ICartService,CartService>();
             services.AddScoped<IRatingSistem,RatingSistem>();
-            services.AddScoped<SearchEngine>();
+            services.AddScoped<ISearchEngine,SearchEngine>();
 
             services.AddCors(option =>
             {

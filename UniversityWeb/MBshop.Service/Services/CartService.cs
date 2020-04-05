@@ -14,10 +14,13 @@ namespace MBshop.Service.Services
     {
         private static List<ViewProducts> carts = new List<ViewProducts>();
         private readonly MovieShopDBSEContext db;
+        private readonly IUserShopedProducts userItems;
 
-        public CartService(MovieShopDBSEContext db)
+        public CartService(MovieShopDBSEContext db,
+            IUserShopedProducts userItems)
         {
             this.db = db;
+            this.userItems = userItems;
         }
 
         public List<ViewProducts> GetCartBascket()
@@ -26,7 +29,7 @@ namespace MBshop.Service.Services
             return carty;
         }
 
-        public string AddToCartBook(int id, double price)
+        public string AddToCartBook(int id, double price,string userId)
         {
             //current book to be addet
             var book = this.db.Books
@@ -37,7 +40,13 @@ namespace MBshop.Service.Services
             var chek = carts
                 .Any(x => x.Id == id && (x.Type == WebConstansVariables.Book && x.price == price));
 
-            if (book != null && !chek)
+            bool chekForUserPurchase = userItems.PersonalBooks(userId).Any(x => x.Id == id);
+
+            if (chekForUserPurchase)
+            {
+                return $"This book {book.Title} already is purchased";
+            }
+            else if (book != null && !chek)
             {
                 //maping book to cart model
                 ViewProducts cart = new ViewProducts
@@ -65,7 +74,7 @@ namespace MBshop.Service.Services
             }
         }
 
-        public string AddToCartMovie(int id, double price)
+        public string AddToCartMovie(int id, double price, string userId)
         {
             //current movie to be addet
             var movie = this.db.Movies
@@ -75,6 +84,13 @@ namespace MBshop.Service.Services
             //chek for already added
             var chek = carts
                 .Any(x => x.Id == id && (x.Type == WebConstansVariables.Movie && x.price == price));
+
+            bool chekForUserPurchase = userItems.PersonalMovies(userId).Any(x => x.Id == id);
+
+            if (chekForUserPurchase)
+            {
+                return $"This movie {movie.Title} already is purchased";
+            }
 
             if (movie != null && !chek)
             {

@@ -18,7 +18,7 @@ namespace MBshop.Service.Services
             this.db = db;
         }
 
-        public async Task BuyMovie(string userId, int movieId)
+        public async Task<string> BuyMovie(string userId, int movieId)
         {
 
             var chek = db.Shops.Any(x => x.MovieId == movieId && x.UserId == userId);
@@ -51,9 +51,14 @@ namespace MBshop.Service.Services
 
                         await this.db.SaveChangesAsync();
 
+                        return $"Purchase successed";
                     }
                 }
             }
+
+            string movieTitle = this.db.Movies.Where(x => x.Id == movieId).Select(x => x.Title).FirstOrDefault();
+
+            return $"This product {movieTitle} allready is purchased";
         }
 
         public async Task BuyBook(string userId, int bookId)

@@ -40,10 +40,10 @@
                     @Html.DisplayFor(modelItem => item.Type)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Rate)
+                    @Html.DisplayFor(modelItem => item.Genre)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Genre)
+                    @Html.DisplayFor(modelItem => item.price)
                 </td>
                 <td>
                     @*@Html.DisplayFor(modelItem => item.Picture)*@
@@ -71,7 +71,7 @@
                         {
                             <div class="form-group">
                                 <div class="col-lg-10 col-lg-offset-2">
-                                    <input class="form-control mr-sm-2" type="hidden" name="type" value="@item.Picture">
+                                    <input class="form-control mr-sm-2" type="hidden" name="type" value="@item.Type">
                                     <button type="submit" class="btn btn-outline-primary">Purchase  </button>
                                 </div>
                             </div>

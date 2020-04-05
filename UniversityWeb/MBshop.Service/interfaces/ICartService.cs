@@ -8,8 +8,8 @@ namespace MBshop.Service.interfaces
     public interface ICartService
     {
         List<ViewProducts> GetCartBascket();
-        string AddToCartBook(int id, double price);
-        string AddToCartMovie(int id, double price);
+        string AddToCartBook(int id, double price, string userId);
+        string AddToCartMovie(int id, double price, string userId);
         void DisposeCartProducts();
         void RemoveMovie(int id);
         void RemoveBook(int id);

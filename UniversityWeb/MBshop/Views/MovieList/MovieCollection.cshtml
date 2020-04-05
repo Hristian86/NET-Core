@@ -22,9 +22,10 @@
 @Html.ActionLink("Order by Title Z-A", "MovieCollection", "MovieList", new { orderBy = 2 }, new { @class = "btn btn-outline-success" })
 @Html.ActionLink("Order by Price ascending", "MovieCollection", "MovieList", new { orderBy = 3 }, new { @class = "btn btn-outline-success" })
 @Html.ActionLink("Order by Price descending", "MovieCollection", "MovieList", new { orderBy = 4 }, new { @class = "btn btn-outline-success" })
+    
 
 <div class="table-responsive-sm">
-    <table class="table" id="tabul">
+    <table class="table" id="tabul" >
         <thead>
             <tr>
                 <th>
@@ -89,7 +90,7 @@
                             string disp = $"{item.price:f2} $";
                         }
                         Origin Price: @pricy
-                        <p>Promo: -@item.Discount $</p>
+                        <p>Promo: -@item.Discount$</p>
                         Final Price: @item.price
                     </td>
                     <td>
@@ -98,42 +99,6 @@
                     </td>
                     <td>
 
-                        @*<a class="nav-link text-dark" asp-area="" asp-controller="Shoping" asp-action="Purchases">Create ShopList</a>*@
-
-                        @*<button type="submit" class="btn btn-outline-success">*@
-
-
-                        @*@Html.ActionLink("Test", "GetMovieCollection", "Home", new { model = Model }, new { @class = "btn btn-outline-success" })*@
-                        @*AddToCartMovie
-        @using (Html.BeginForm("AddToCartMovie", "Cart", new { model = Model }, FormMethod.Post))
-        {
-            <div class="form-group">
-                <div class="col-lg-10 col-lg-offset-2">
-                    <button type="submit" class="btn btn-outline-primary">Purchase  </button>
-                </div>
-            </div>
-        }*@
-
-
-
-
-                        @*@if (item.Status == false)
-                        {
-
-                            <form method="get" asp-controller="MovieList" asp-action="PurchaseMovie" class="form-inline my-2 my-lg-0 mr-3">
-                                <input class="form-control mr-sm-2" type="hidden" value="@item.Id" name="Id" placeholder="Search" aria-label="Search">
-                                <input class="form-control mr-sm-2" type="hidden" name="type" value="@item.Picture" placeholder="Search" aria-label="Search">
-                                <button class="btn btn-outline-primary" type="submit">Purchase</button>
-                            </form>
-
-                        }
-                        else
-                        {
-                            <a asp-controller="UserShopedItems" asp-action="UserMovieShops" style="margin-left:15px;" class="btn btn-warning">Owned p.</a>
-                        }*@
-
-
-
                         @if (item.Status == false)
                         {
 
@@ -141,7 +106,7 @@
                             {
                                 <div class="form-group">
                                     <div class="col-lg-10 col-lg-offset-2">
-                                        <input class="form-control mr-sm-2" type="hidden" name="type" value="@item.Picture">
+                                        <input class="form-control mr-sm-2" type="hidden" name="type" value="@item.price">
                                         <button type="submit" class="btn btn-outline-primary">Purchase  </button>
                                     </div>
                                 </div>
@@ -152,17 +117,7 @@
                         {
                             <a asp-controller="UserShopedItems" asp-action="UserMovieShops" style="margin-left:15px;" class="btn btn-warning">Owned p.</a>
                         }
-
-                        @*<div id="purchaseHeader" style="text-align:center;">  Buy this product</div>*@
-
-                        @*@Html.ActionLink("MovieList", "BuyMovie", new { id = item.Id }) |*@
-
-                        @*@Html.ActionLink("Purchase", "Purchase", new { id = item.Id })*@
-
-                        @*<button type="submit" class="btn btn-outline-success"> @Html.ActionLink("Purchase", "Purchase", new { id = item.Id })</button>*@
-
                     </td>
-
                 </tr>
             }
         </tbody>
