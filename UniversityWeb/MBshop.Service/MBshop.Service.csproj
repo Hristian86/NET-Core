@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MBshop.Data\MBshop.Data.csproj" />
+    <ProjectReference Include="..\MBshop.Models\MBshop.Models.csproj" />
+  </ItemGroup>
+
+</Project>

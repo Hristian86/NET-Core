@@ -1,0 +1,24 @@
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\Db.Models\bin\Debug\netcoreapp3.1\Db.Models.deps.json
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\Db.Models\bin\Debug\netcoreapp3.1\Db.Models.dll
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\Db.Models\bin\Debug\netcoreapp3.1\Db.Models.pdb
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\Db.Models\obj\Debug\netcoreapp3.1\Db.Models.csprojAssemblyReference.cache
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\Db.Models\obj\Debug\netcoreapp3.1\Db.Models.AssemblyInfoInputs.cache
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\Db.Models\obj\Debug\netcoreapp3.1\Db.Models.AssemblyInfo.cs
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\Db.Models\obj\Debug\netcoreapp3.1\Db.Models.dll
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\Db.Models\obj\Debug\netcoreapp3.1\Db.Models.pdb
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\WebAppProject\Db.Models\bin\Debug\netcoreapp3.1\Db.Models.deps.json
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\WebAppProject\Db.Models\bin\Debug\netcoreapp3.1\Db.Models.dll
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\WebAppProject\Db.Models\bin\Debug\netcoreapp3.1\Db.Models.pdb
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\WebAppProject\Db.Models\obj\Debug\netcoreapp3.1\Db.Models.csprojAssemblyReference.cache
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\WebAppProject\Db.Models\obj\Debug\netcoreapp3.1\Db.Models.AssemblyInfoInputs.cache
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\WebAppProject\Db.Models\obj\Debug\netcoreapp3.1\Db.Models.AssemblyInfo.cs
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\WebAppProject\Db.Models\obj\Debug\netcoreapp3.1\Db.Models.dll
+C:\Users\Pencho\Desktop\testoveteweba\WebAppProjectCurrent\WebAppProject\WebAppProject\WebAppProject\Db.Models\obj\Debug\netcoreapp3.1\Db.Models.pdb
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\UniversityWeb\MBshop.Models\bin\Debug\netcoreapp3.1\Db.Models.deps.json
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\UniversityWeb\MBshop.Models\bin\Debug\netcoreapp3.1\Db.Models.dll
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\UniversityWeb\MBshop.Models\bin\Debug\netcoreapp3.1\Db.Models.pdb
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\UniversityWeb\MBshop.Models\obj\Debug\netcoreapp3.1\Db.Models.csprojAssemblyReference.cache
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\UniversityWeb\MBshop.Models\obj\Debug\netcoreapp3.1\Db.Models.AssemblyInfoInputs.cache
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\UniversityWeb\MBshop.Models\obj\Debug\netcoreapp3.1\Db.Models.AssemblyInfo.cs
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\UniversityWeb\MBshop.Models\obj\Debug\netcoreapp3.1\Db.Models.dll
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\UniversityWeb\MBshop.Models\obj\Debug\netcoreapp3.1\Db.Models.pdb
