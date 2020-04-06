@@ -6,7 +6,7 @@ using MBshop.Models;
 
 namespace MBshop.Service.interfaces
 {
-    public interface IViewMovies
+    public interface IViewMoviesService
     {
         List<OutputMovies> GetListOfMovies();
 

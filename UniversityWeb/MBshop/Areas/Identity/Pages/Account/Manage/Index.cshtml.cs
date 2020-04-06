@@ -15,7 +15,7 @@ namespace MBshop.Areas.Identity.Pages.Account.Manage
 
     public partial class IndexModel : PageModel
     {
-        private readonly IProfileEdit _edit;
+        private readonly IProfileEditService _edit;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
         private bool resultFromCheckNickName;
@@ -23,7 +23,7 @@ namespace MBshop.Areas.Identity.Pages.Account.Manage
         public IndexModel(
             UserManager<IdentityUser> userManager,
             SignInManager<IdentityUser> signInManager,
-            IProfileEdit edit
+            IProfileEditService edit
             )
         {
             this._edit = edit;

@@ -14,10 +14,10 @@ namespace MBshop.Service.Services
     {
         private static List<ViewProducts> carts = new List<ViewProducts>();
         private readonly MovieShopDBSEContext db;
-        private readonly IUserShopedProducts userItems;
+        private readonly IUserShopedProductsService userItems;
 
         public CartService(MovieShopDBSEContext db,
-            IUserShopedProducts userItems)
+            IUserShopedProductsService userItems)
         {
             this.db = db;
             this.userItems = userItems;

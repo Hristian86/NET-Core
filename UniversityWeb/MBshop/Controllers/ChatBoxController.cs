@@ -12,11 +12,11 @@ namespace MBshop.Controllers
     
     public class ChatBoxController : Controller
     {
-        private readonly IProfileEdit edit;
+        private readonly IProfileEditService edit;
         private readonly IChatService msg;
 
         public ChatBoxController(
-            IProfileEdit edit,
+            IProfileEditService edit,
             IChatService msg)
         {
             this.edit = edit;

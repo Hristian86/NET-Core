@@ -5,10 +5,8 @@ using MBshop.Service.OutputModels;
 
 namespace MBshop.Service.interfaces
 {
-    public interface IViewBooks
+    public interface ISearchEngineService
     {
-        List<OutputBooks> GetListOfBooks();
-
-        List<OutputBooks> SortBooks(int orderBy);
+        List<ViewProducts> Search(string searchItem,string user);
     }
 }

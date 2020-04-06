@@ -8,16 +8,17 @@ using MBshop.Service.OutputModels;
 using MBshop.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using MBshop.Service.StaticProperyes;
 
 namespace MBshop.Controllers
 {
 
     public class RatingController : Controller
     {
-        private readonly IRatingSistem rateService;
+        private readonly IRatingSistemService rateService;
 
         public RatingController(
-            IRatingSistem rateService)
+            IRatingSistemService rateService)
         {
             this.rateService = rateService;
         }
@@ -30,7 +31,7 @@ namespace MBshop.Controllers
             {
                 var user = User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-                double rating = await this.rateService.RateMovie(model,user);
+                 StatusForCartCount.MessageForStaatus = await this.rateService.RateMovie(model,user);
 
                 return this.RedirectToAction("MovieCollection", "MovieList");
             }

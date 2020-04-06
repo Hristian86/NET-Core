@@ -8,11 +8,11 @@ using MBshop.Data.Data;
 
 namespace MBshop.Service.Services
 {
-    public class ViewBooks : IViewBooks
+    public class ViewBooksService : IViewBooksService
     {
         private readonly MovieShopDBSEContext _db;
 
-        public ViewBooks(MovieShopDBSEContext db)
+        public ViewBooksService(MovieShopDBSEContext db)
         {
             this._db = db;
         }

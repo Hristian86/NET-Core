@@ -16,13 +16,13 @@ namespace MBshop.Controllers
     [ApiController]
     public class ChatController : ControllerBase
     {
-        private readonly IProfileEdit profEdit;
+        private readonly IProfileEditService profEdit;
         private readonly IChatService msg;
         private string fullNameOfUsr;
         private string user;
 
         public ChatController(IChatService msg,
-            IProfileEdit profEdit)
+            IProfileEditService profEdit)
         {
             this.msg = msg;
             this.profEdit = profEdit;

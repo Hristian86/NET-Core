@@ -7,7 +7,7 @@ using MBshop.Models;
 
 namespace MBshop.Service.interfaces
 {
-    public interface IProfileEdit
+    public interface IProfileEditService
     {
         /// <summary>
         /// Saving changes for user profile

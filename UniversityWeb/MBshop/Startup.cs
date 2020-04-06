@@ -60,20 +60,20 @@ namespace MBshop
 
             services.AddRazorPages();
 
-            services.AddScoped<IProfileEdit, ProfileEdit>();
+            services.AddScoped<IProfileEditService, ProfileEditService>();
             services.AddScoped<MovieShopDBSEContext>();
-            services.AddScoped<IViewMovies, ViewMovies>();
-            services.AddScoped<IViewBooks, ViewBooks>();
-            services.AddScoped<IShopItems, ShopItems>();
+            services.AddScoped<IViewMoviesService, ViewMoviesService>();
+            services.AddScoped<IViewBooksService, ViewBooksService>();
+            services.AddScoped<IShopItemsService, ShopItemsService>();
             services.AddScoped<IAdminPanelProducts, AdminPanelProducts>();
             services.AddSingleton<Status>();
-            services.AddScoped<IUserShopedProducts, 
-                UserShopedProducts>();
+            services.AddScoped<IUserShopedProductsService, 
+                UserShopedProductsService>();
             services.AddScoped<IChatService,ChatService>();
-            services.AddScoped<RatingSistem>();
+            services.AddScoped<RatingSistemService>();
             services.AddScoped<ICartService,CartService>();
-            services.AddScoped<IRatingSistem,RatingSistem>();
-            services.AddScoped<ISearchEngine,SearchEngine>();
+            services.AddScoped<IRatingSistemService,RatingSistemService>();
+            services.AddScoped<ISearchEngineService,SearchEngineService>();
 
             services.AddCors(option =>
             {

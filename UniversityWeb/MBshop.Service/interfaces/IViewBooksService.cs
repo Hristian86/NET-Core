@@ -5,10 +5,10 @@ using MBshop.Service.OutputModels;
 
 namespace MBshop.Service.interfaces
 {
-    public interface IUserShopedProducts
+    public interface IViewBooksService
     {
-        List<OutputMovies> PersonalMovies(string id);
+        List<OutputBooks> GetListOfBooks();
 
-        List<OutputBooks> PersonalBooks(string id);
+        List<OutputBooks> SortBooks(int orderBy);
     }
 }

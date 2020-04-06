@@ -13,9 +13,9 @@ namespace MBshop.Controllers
 {
     public class UserShopedItemsController : Controller
     {
-        private readonly IUserShopedProducts products;
+        private readonly IUserShopedProductsService products;
 
-        public UserShopedItemsController(IUserShopedProducts products)
+        public UserShopedItemsController(IUserShopedProductsService products)
         {
             this.products = products;
         }

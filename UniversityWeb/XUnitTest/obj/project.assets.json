@@ -6521,11 +6521,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\SoftUni-Exam-Projext-master – Копие\\UniversityWeb\\XUnitTest\\XUnitTest.csproj",
+      "projectUniqueName": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\SoftUni-Exam-Projext-master – Копие\\XUnitTest\\XUnitTest.csproj",
       "projectName": "XUnitTest",
-      "projectPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\SoftUni-Exam-Projext-master – Копие\\UniversityWeb\\XUnitTest\\XUnitTest.csproj",
+      "projectPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\SoftUni-Exam-Projext-master – Копие\\XUnitTest\\XUnitTest.csproj",
       "packagesPath": "C:\\Users\\Pencho\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\SoftUni-Exam-Projext-master – Копие\\UniversityWeb\\XUnitTest\\obj\\",
+      "outputPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\SoftUni-Exam-Projext-master – Копие\\XUnitTest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",

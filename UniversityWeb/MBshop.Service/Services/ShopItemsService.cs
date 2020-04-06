@@ -9,11 +9,11 @@ using MBshop.Models;
 
 namespace MBshop.Service.Services
 {
-    public class ShopItems : IShopItems
+    public class ShopItemsService : IShopItemsService
     {
         private readonly MovieShopDBSEContext db;
 
-        public ShopItems(MovieShopDBSEContext db)
+        public ShopItemsService(MovieShopDBSEContext db)
         {
             this.db = db;
         }

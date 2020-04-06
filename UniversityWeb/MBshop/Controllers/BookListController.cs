@@ -13,15 +13,15 @@ namespace MBshop.Controllers
 {
     public class BookListController : Controller
     {
-        private readonly IViewBooks books;
-        private readonly IUserShopedProducts userItems;
-        private readonly IShopItems shoping;
+        private readonly IViewBooksService books;
+        private readonly IUserShopedProductsService userItems;
+        private readonly IShopItemsService shoping;
         private readonly Status status;
         private List<OutputBooks> list = new List<OutputBooks>();
 
-        public BookListController(IViewBooks books,
-            IUserShopedProducts userItems,
-            IShopItems shoping,
+        public BookListController(IViewBooksService books,
+            IUserShopedProductsService userItems,
+            IShopItemsService shoping,
             Status status)
         {
             this.books = books;

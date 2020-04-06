@@ -15,15 +15,15 @@ namespace MBshop.Controllers
 {
     public class MovieListController : Controller
     {
-        private readonly IViewMovies movieDb;
-        private readonly IShopItems shoping;
-        private readonly IUserShopedProducts userItems;
+        private readonly IViewMoviesService movieDb;
+        private readonly IShopItemsService shoping;
+        private readonly IUserShopedProductsService userItems;
         private readonly Status status;
         //private List<OutputMovies> list = new List<OutputMovies>();
 
-        public MovieListController(IViewMovies movieDb,
-            IShopItems shoping,
-            IUserShopedProducts userItems,
+        public MovieListController(IViewMoviesService movieDb,
+            IShopItemsService shoping,
+            IUserShopedProductsService userItems,
             Status status
             )
         {

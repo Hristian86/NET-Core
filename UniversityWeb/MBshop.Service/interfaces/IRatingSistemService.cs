@@ -6,9 +6,9 @@ using MBshop.Service.OutputModels;
 
 namespace MBshop.Service.interfaces
 {
-    public interface IRatingSistem
+    public interface IRatingSistemService
     {
-        Task<double> RateMovie(OutputMovies model, string user);
+        Task<string> RateMovie(OutputMovies model, string user);
         Task<double> RateBook(OutputBooks model, string user);
     }
 }

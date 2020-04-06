@@ -5,8 +5,10 @@ using MBshop.Service.OutputModels;
 
 namespace MBshop.Service.interfaces
 {
-    public interface ISearchEngine
+    public interface IUserShopedProductsService
     {
-        List<ViewProducts> Search(string searchItem,string user);
+        List<OutputMovies> PersonalMovies(string id);
+
+        List<OutputBooks> PersonalBooks(string id);
     }
 }

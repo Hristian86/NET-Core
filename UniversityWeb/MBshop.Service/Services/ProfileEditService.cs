@@ -12,10 +12,10 @@ namespace MBshop.Service.Services
     /// <summary>
     /// Changing profile atributes
     /// </summary>
-    public class ProfileEdit : IProfileEdit
+    public class ProfileEditService : IProfileEditService
     {
         private MovieShopDBSEContext db;
-        public ProfileEdit(MovieShopDBSEContext db)
+        public ProfileEditService(MovieShopDBSEContext db)
         {
             this.db = db;
         }

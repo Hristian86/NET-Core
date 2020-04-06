@@ -9,11 +9,11 @@ using MBshop.Data.Data;
 
 namespace MBshop.Service.Services
 {
-    public class UserShopedProducts : IUserShopedProducts
+    public class UserShopedProductsService : IUserShopedProductsService
     {
         private readonly MovieShopDBSEContext db;
 
-        public UserShopedProducts(MovieShopDBSEContext db)
+        public UserShopedProductsService(MovieShopDBSEContext db)
         {
             this.db = db;
         }

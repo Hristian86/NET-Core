@@ -16,10 +16,10 @@ namespace MBshop.Controllers
     [Authorize]
     public class CartController : Controller
     {
-        private readonly IShopItems shopService;
+        private readonly IShopItemsService shopService;
         private readonly ICartService cardBasket;
 
-        public CartController(IShopItems shopService,
+        public CartController(IShopItemsService shopService,
             ICartService cardBasket)
         {
             this.shopService = shopService;

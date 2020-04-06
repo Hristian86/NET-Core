@@ -21,20 +21,20 @@ namespace MBshop.Controllers
     [AllowAnonymous]
     public class HomeController : Controller
     {
-        private readonly IProfileEdit edits;
+        private readonly IProfileEditService edits;
         private readonly UserManager<IdentityUser> userManager;
         private readonly ILogger<HomeController> _logger;
-        private readonly ISearchEngine search;
+        private readonly ISearchEngineService search;
         private string user = "";
 
         //private UserNames names = new UserNames();
 
         public HomeController(
             ILogger<HomeController> logger,
-            IProfileEdit edit,
+            IProfileEditService edit,
             UserManager<IdentityUser> userManager,
-            ISearchEngine search,
-            IUserShopedProducts userItems
+            ISearchEngineService search,
+            IUserShopedProductsService userItems
             )
         {
             this.search = search;

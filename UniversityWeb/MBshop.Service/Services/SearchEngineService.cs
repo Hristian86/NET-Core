@@ -9,16 +9,16 @@ using MBshop.Service.WebConstants;
 
 namespace MBshop.Service.Services
 {
-    public class SearchEngine : ISearchEngine
+    public class SearchEngineService : ISearchEngineService
     {
-        private readonly IViewMovies movies;
-        private readonly IViewBooks books;
-        private readonly IUserShopedProducts userItems;
+        private readonly IViewMoviesService movies;
+        private readonly IViewBooksService books;
+        private readonly IUserShopedProductsService userItems;
         private readonly Status status;
 
-        public SearchEngine(IViewMovies movies,
-            IViewBooks books,
-            IUserShopedProducts userItems,
+        public SearchEngineService(IViewMoviesService movies,
+            IViewBooksService books,
+            IUserShopedProductsService userItems,
             Status status)
         {
             this.movies = movies;

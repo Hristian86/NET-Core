@@ -10,19 +10,17 @@ using MBshop.Service.interfaces;
 
 namespace MBshop.Service.Services
 {
-    public class RatingSistem : IRatingSistem
+    public class RatingSistemService : IRatingSistemService
     {
         private readonly MovieShopDBSEContext db;
         private double final = 0;
 
-        public RatingSistem(MovieShopDBSEContext db)
+        public RatingSistemService(MovieShopDBSEContext db)
         {
             this.db = db;
         }
 
-        //public static int OrderBy { get; set; }
-
-        public async Task<double> RateMovie(OutputMovies model, string user)
+        public async Task<string> RateMovie(OutputMovies model, string user)
         {
             this.final = 0;
 
@@ -39,6 +37,11 @@ namespace MBshop.Service.Services
                 var count = sum.Sum();
 
                 int counts = sum.Count();
+
+                if (model.Raiting < 1 || model.Raiting > 5)
+                {
+                    return $"This rating is invalid for {movi.Title}";
+                }
 
                 double total = (double)count + (double)model.Raiting;
 
@@ -82,7 +85,7 @@ namespace MBshop.Service.Services
                     total = 0;
                 }
             }
-            return this.final;
+            return $"You have rated this {movi.Title} movie succesfuly";
         }
 
         
