@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MBshop.Controllers
 {
-    [Authorize]
+    
     public class CartController : Controller
     {
         private readonly IShopItemsService shopService;
@@ -26,13 +26,12 @@ namespace MBshop.Controllers
             this.cardBasket = cardBasket;
         }
 
-
         public IActionResult Cart()
         {
             return View(cardBasket.GetCartBascket());
         }
 
-        
+        [Authorize]
         [HttpPost]
         [AutoValidateAntiforgeryToken]
         public IActionResult AddToCartMovie(int? id, double? price)
@@ -54,6 +53,7 @@ namespace MBshop.Controllers
             return RedirectToAction("MovieCollection", "MovieList");
         }
 
+        [Authorize]
         [HttpPost]
         [AutoValidateAntiforgeryToken]
         public IActionResult AddToCartBook(int? id, double? price)
@@ -111,6 +111,7 @@ namespace MBshop.Controllers
             return RedirectToAction("UserMovieShops", "UserShopedItems");
         }
 
+        [Authorize]
         [HttpPost]
         [AutoValidateAntiforgeryToken]
         public IActionResult RemoveMovieProduct(int? id)
@@ -129,6 +130,7 @@ namespace MBshop.Controllers
             return RedirectToAction("Cart","Cart");
         }
 
+        [Authorize]
         [HttpPost]
         [AutoValidateAntiforgeryToken]
         public IActionResult RemoveBookProduct(int? id)

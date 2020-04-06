@@ -87,6 +87,9 @@ namespace MBshop.Controllers
                     return this.RedirectToAction("Index", "Home");
                 }
 
+
+                ViewData["Search"] = searchItem;
+
                 return View(result);
 
             }

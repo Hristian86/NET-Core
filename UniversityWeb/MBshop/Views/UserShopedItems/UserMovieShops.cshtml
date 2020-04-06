@@ -18,27 +18,6 @@
                 @Html.DisplayNameFor(model => model.Title)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Director)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Actors)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Raiting)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                Released
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Genre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.price)
-            </th>
-            <th>
                 Product
             </th>
             <th>
@@ -55,34 +34,6 @@
                     @Html.DisplayFor(modelItem => item.Title)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Director)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Actors)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Rate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.RealeaseDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Genre)
-                </td>
-                <td>
-                    @{
-                        var sum = item.price + item.Discount;
-                        string pricy = $"{sum:f2} $";
-                        string disp = $"{item.price:f2} $";
-                    }
-                    Origin Price: @pricy
-                    <p>Promo: -@item.Discount $</p>
-                    Final Price: @item.price
-                </td>
-                <td>
                     @*@Html.DisplayFor(modelItem => item.LinkForPurchasedContend)*@
                     <iframe width="420" height="315"
                             src="@item.LinkForPurchasedContend">
@@ -90,9 +41,20 @@
                 </td>
                 <td>
                     @*@Html.DisplayFor(modelItem => item.Picture)*@
-                    <img src="@item.Picture" id="MovieList" alt="Alternate Text" />
+                    <img src="@item.Picture" class="mb-3" id="MovieList" alt="Alternate Text" />
+
+                    @using (Html.BeginForm("MovieDetail", "MovieList", new { id = item.Id }, FormMethod.Post))
+                    {
+                        <div class="form-group">
+                            <div class="col-lg-10 col-lg-offset-2">
+                                <input class="form-control mr-sm-2" type="hidden" name="type" value="@item.price">
+                                <button type="submit" class="btn btn-outline-primary">Details </button>
+                            </div>
+                        </div>
+                    }
                 </td>
             </tr>
+            
         }
     </tbody>
 </table>

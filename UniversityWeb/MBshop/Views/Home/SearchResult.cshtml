@@ -3,7 +3,7 @@
     ViewData["Title"] = "SearchResult";
 }
 
-<h1>SearchResult</h1>
+<h1>Results for @ViewData["Search"]</h1>
 
 <div class="table-responsive-sm">
     <table class="table bg-transparent" id="tabul">
@@ -59,7 +59,7 @@
                             }
                             else
                             {
-                                @using (Html.BeginForm("PurchaseBook", "BookList", new { id = item.Id }, FormMethod.Get))
+                                @using (Html.BeginForm("BookDetail", "BookList", new { id = item.Id }, FormMethod.Post))
                                 {
                                     <div class="form-group">
                                         <div class="col-lg-10 col-lg-offset-2">
@@ -79,7 +79,7 @@
                             }
                             else
                             {
-                                @using (Html.BeginForm("PurchaseMovie", "MovieList", new { id = item.Id }, FormMethod.Get))
+                                @using (Html.BeginForm("MovieDetail", "MovieList", new { id = item.Id }, FormMethod.Post))
                                 {
                                     <div class="form-group">
                                         <div class="col-lg-10 col-lg-offset-2">

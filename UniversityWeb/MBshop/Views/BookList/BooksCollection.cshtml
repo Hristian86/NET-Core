@@ -81,11 +81,11 @@
                     <td>
                         @if (item.Status == false)
                         {
-                            @using (Html.BeginForm("PurchaseBook", "BookList", new { id = item.Id }, FormMethod.Get))
+                            @using (Html.BeginForm("BookDetail", "BookList", new { id = item.Id }, FormMethod.Post))
                             {
                                 <div class="form-group">
                                     <div class="col-lg-10 col-lg-offset-2">
-                                        <button type="submit" class="btn btn-outline-primary">Purchase  </button>
+                                        <button type="submit" class="btn btn-outline-primary">Details  </button>
                                     </div>
                                 </div>
                             }

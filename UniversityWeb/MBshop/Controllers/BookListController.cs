@@ -67,10 +67,10 @@ namespace MBshop.Controllers
             //return View(this.books.GetListOfBooks());
         }
 
-        [HttpGet]
+        [HttpPost]
         [Authorize]
         [AutoValidateAntiforgeryToken]
-        public IActionResult PurchaseBook(int? id)
+        public IActionResult BookDetail(int? id)
         {
             if (id == null)
             {
@@ -79,6 +79,23 @@ namespace MBshop.Controllers
 
             var book = books.GetListOfBooks()
                 .FirstOrDefault(m => m.Id == id);
+
+            string user = "";
+
+            if (User.Identity.Name != null)
+            {
+                //Get user id from cookies
+                user = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+
+                bool userBook = userItems.PersonalBooks(user).Any(x => x.Id == book.Id);
+
+                if (userBook)
+                {
+                    book.Status = true;
+                }
+            }
+
+            //To Do status chek for purchase
 
             if (book == null)
             {

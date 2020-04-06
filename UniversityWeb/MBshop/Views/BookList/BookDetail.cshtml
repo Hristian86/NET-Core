@@ -1,0 +1,139 @@
+﻿@model MBshop.Service.OutputModels.OutputBooks
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <h4>Books</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Author)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Author)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Genre)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Genre)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UserId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UserId)
+        </dd>
+        <dt class="col-sm-2">
+            Release date
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RealeseDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Picture)
+        </dt>
+        <dd class="col-sm-10">
+            <img src="@Model.Picture" id="MovieList" alt="Alternate Text" />
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.price) $
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.price)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Discount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Discount)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Raiting)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Rate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+    </dl>
+</div>
+
+@if (Model.Status)
+{
+<a asp-controller="UserShopedItems" asp-action="UserMovieShops" class="btn btn-dark">Back to personal collection</a>
+}
+else
+{
+    <form asp-controller="Cart" asp-action="AddToCartBook" method="post">
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="price" />
+        <input type="submit" value="Add to cart" class="btn btn-danger" />
+
+        <button asp-controller="BookList" asp-action="BooksCollection" type="submit" class="btn btn-primary">
+            Back to books
+        </button>
+    </form>
+}
+
+
+
+<div>
+    <div style="display:flex;align-items: center;
+  justify-content: center;">
+        <form asp-controller="Rating" asp-action="RateBook" method="get">
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <input type="hidden" asp-for="Raiting" value="1" class="form-control" />
+                <span asp-validation-for="Raiting" class="text-danger"></span>
+            </div>
+            <input type="submit" style="background-image:url(https://st.depositphotos.com/1216158/4699/v/950/depositphotos_46997111-stock-illustration-yellow-stars-vector-illustration-single.jpg);background-size:cover; height:70px;" value="Rate 1" class="btn btn-outline-success" />
+        </form>
+        <form asp-controller="Rating" asp-action="RateBook" method="get">
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <input type="hidden" asp-for="Raiting" value="2" class="form-control" />
+                <span asp-validation-for="Raiting" class="text-danger"></span>
+            </div>
+            <input type="submit" value="Rate 2" class="btn btn-outline-success" style="background-image:url(https://st.depositphotos.com/1216158/4699/v/950/depositphotos_46997111-stock-illustration-yellow-stars-vector-illustration-single.jpg);background-size:cover; height:70px;" />
+        </form>
+        <form asp-controller="Rating" asp-action="RateBook" method="get">
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <input type="hidden" asp-for="Raiting" value="3" class="form-control" />
+                <span asp-validation-for="Raiting" class="text-danger"></span>
+            </div>
+            <input type="submit" value="Rate 3" class="btn btn-outline-success" style="background-image:url(https://st.depositphotos.com/1216158/4699/v/950/depositphotos_46997111-stock-illustration-yellow-stars-vector-illustration-single.jpg);background-size:cover; height:70px;" />
+        </form>
+        <form asp-controller="Rating" asp-action="RateBook" method="get">
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <input type="hidden" asp-for="Raiting" value="4" class="form-control" />
+                <span asp-validation-for="Raiting" class="text-danger"></span>
+            </div>
+            <input type="submit" value="Rate 4" class="btn btn-outline-success" style="background-image:url(https://st.depositphotos.com/1216158/4699/v/950/depositphotos_46997111-stock-illustration-yellow-stars-vector-illustration-single.jpg);background-size:cover; height:70px;" />
+        </form>
+        <form asp-controller="Rating" asp-action="RateBook" method="get">
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <input type="hidden" asp-for="Raiting" value="5" class="form-control" />
+                <span asp-validation-for="Raiting" class="text-danger"></span>
+            </div>
+            <input type="submit" value="Rate 5" class="btn btn-outline-success" style="background-image:url(https://st.depositphotos.com/1216158/4699/v/950/depositphotos_46997111-stock-illustration-yellow-stars-vector-illustration-single.jpg);background-size:cover; height:70px;" />
+        </form>
+    </div>
+</div>

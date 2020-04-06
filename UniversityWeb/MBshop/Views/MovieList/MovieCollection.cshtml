@@ -25,7 +25,7 @@
     
 
 <div class="table-responsive-sm">
-    <table class="table bg-transparent" id="tabul" >
+    <table class="table" id="tabul" >
         <thead>
             <tr>
                 <th>
@@ -84,14 +84,7 @@
                         @Html.DisplayFor(modelItem => item.Genre)
                     </td>
                     <td>
-                        @{
-                            var sum = item.price + item.Discount;
-                            string pricy = $"{sum:f2} $";
-                            string disp = $"{item.price:f2} $";
-                        }
-                        Origin Price: @pricy
-                        <p>Promo: -@item.Discount$</p>
-                        Final Price: @item.price
+                        Price: @item.price
                     </td>
                     <td>
                         @*@Html.DisplayFor(modelItem => item.Picture)*@
@@ -102,12 +95,12 @@
                         @if (item.Status == false)
                         {
 
-                            @using (Html.BeginForm("PurchaseMovie", "MovieList", new { id = item.Id }, FormMethod.Get))
+                            @using (Html.BeginForm("MovieDetail", "MovieList", new { id = item.Id }, FormMethod.Post))
                             {
                                 <div class="form-group">
                                     <div class="col-lg-10 col-lg-offset-2">
                                         <input class="form-control mr-sm-2" type="hidden" name="type" value="@item.price">
-                                        <button type="submit" class="btn btn-outline-primary">Purchase  </button>
+                                        <button type="submit" class="btn btn-outline-primary">Details  </button>
                                     </div>
                                 </div>
                             }
@@ -115,7 +108,7 @@
                         }
                         else
                         {
-                            <a asp-controller="UserShopedItems" asp-action="UserMovieShops" style="margin-left:15px;" class="btn btn-warning">Owned p.</a>
+                            <a asp-controller="UserShopedItems" asp-action="UserMovieShops" style="margin-left:15px;" class="btn btn-warning">Owned</a>
                         }
                     </td>
                 </tr>

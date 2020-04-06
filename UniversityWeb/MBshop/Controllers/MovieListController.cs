@@ -19,7 +19,6 @@ namespace MBshop.Controllers
         private readonly IShopItemsService shoping;
         private readonly IUserShopedProductsService userItems;
         private readonly Status status;
-        //private List<OutputMovies> list = new List<OutputMovies>();
 
         public MovieListController(IViewMoviesService movieDb,
             IShopItemsService shoping,
@@ -37,7 +36,8 @@ namespace MBshop.Controllers
         {
             if (searchItem != null && type == "Movie")
             {
-                List<OutputMovies> result = this.movieDb.GetListOfMovies()
+                List<OutputMovies> result = this.movieDb
+                    .GetListOfMovies()
                     .Where(x => x.Title.ToLower().Contains(searchItem.ToLower()))
                     .ToList();
                 if (result.Count != 0)
@@ -72,10 +72,10 @@ namespace MBshop.Controllers
             return this.View(list);
         }
 
-        [HttpGet]
+        [HttpPost]
         [Authorize]
         [AutoValidateAntiforgeryToken]
-        public IActionResult PurchaseMovie(int? id, string type)
+        public IActionResult MovieDetail(int? id, string type)
         {
             if (id == null)
             {
@@ -85,6 +85,20 @@ namespace MBshop.Controllers
             var movie = movieDb.GetListOfMovies()
                 .FirstOrDefault(m => m.Id == id);
 
+            string user = "";
+
+            if (User.Identity.Name != null)
+            {
+                //Get user id from cookies
+                user = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+
+                bool userMovie = userItems.PersonalMovies(user).Any(x => x.Id == movie.Id);
+
+                if (userMovie)
+                {
+                    movie.Status = true;
+                }
+            }
             //status check for movies in purchase method
 
             if (movie == null)
