@@ -36,10 +36,11 @@ namespace MBshop.Service.Services
                 .Where(x => x.Id == id && x.price == price)
                 .FirstOrDefault();
 
-            //chek for already added
+            //chek for already added in cart
             var chek = carts
                 .Any(x => x.Id == id && (x.Type == WebConstansVariables.Book && x.price == price));
 
+            //chek for user personal product
             bool chekForUserPurchase = userItems.PersonalBooks(userId).Any(x => x.Id == id);
 
             if (chekForUserPurchase)
@@ -81,10 +82,11 @@ namespace MBshop.Service.Services
                 .Where(x => x.Id == id && x.price == price)
                 .FirstOrDefault();
 
-            //chek for already added
+            //chek for already added to cart
             var chek = carts
                 .Any(x => x.Id == id && (x.Type == WebConstansVariables.Movie && x.price == price));
 
+            //chek for user personal product
             bool chekForUserPurchase = userItems.PersonalMovies(userId).Any(x => x.Id == id);
 
             if (chekForUserPurchase)

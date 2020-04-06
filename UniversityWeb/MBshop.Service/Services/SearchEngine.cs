@@ -13,19 +13,36 @@ namespace MBshop.Service.Services
     {
         private readonly IViewMovies movies;
         private readonly IViewBooks books;
+        private readonly IUserShopedProducts userItems;
+        private readonly Status status;
 
         public SearchEngine(IViewMovies movies,
-            IViewBooks books)
+            IViewBooks books,
+            IUserShopedProducts userItems,
+            Status status)
         {
             this.movies = movies;
             this.books = books;
+            this.userItems = userItems;
+            this.status = status;
         }
 
 
-        public List<ViewProducts> Search(string searchItem)
+        public List<ViewProducts> Search(string searchItem, string user)
         {
-            var result = movies
-                .GetListOfMovies()
+            var movieses = movies.GetListOfMovies();
+            var bookses = books.GetListOfBooks();
+
+            var userPersonalMovies = userItems.PersonalMovies(user);
+
+            var userPersonalBooks = userItems.PersonalBooks(user);
+
+            status.StatusChekBooks(bookses,userPersonalBooks);
+
+            //status chek for movies
+            status.StatusChekMovies(movieses,userPersonalMovies);
+
+            var result = movieses
                 .Select(item => new ViewProducts
                 {
                     Id = item.Id,
@@ -39,7 +56,10 @@ namespace MBshop.Service.Services
 
                 }).ToList();
 
-            var result1 = this.books.GetListOfBooks().Select(item => new ViewProducts
+
+
+            var result1 = bookses
+                .Select(item => new ViewProducts
             {
                 Id = item.Id,
                 Title = item.Title,

@@ -7,6 +7,6 @@ namespace MBshop.Service.interfaces
 {
     public interface ISearchEngine
     {
-        List<ViewProducts> Search(string searchItem);
+        List<ViewProducts> Search(string searchItem,string user);
     }
 }

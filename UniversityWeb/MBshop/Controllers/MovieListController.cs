@@ -19,7 +19,7 @@ namespace MBshop.Controllers
         private readonly IShopItems shoping;
         private readonly IUserShopedProducts userItems;
         private readonly Status status;
-        private List<OutputMovies> list = new List<OutputMovies>();
+        //private List<OutputMovies> list = new List<OutputMovies>();
 
         public MovieListController(IViewMovies movieDb,
             IShopItems shoping,
@@ -50,7 +50,7 @@ namespace MBshop.Controllers
                 return this.RedirectToAction("BooksCollection", "BookList", new { searchItem });
             }
 
-            this.list = this.movieDb.SortMovies(orderBy);
+            var list = this.movieDb.SortMovies(orderBy);
 
             if (User.Identity.Name != null)
             {
@@ -64,12 +64,12 @@ namespace MBshop.Controllers
                 if (userItm.Count != 0)
                 {
                     //chek for possessed items in collections
-                    status.StatusChekMovies(this.list, userItm);
+                    status.StatusChekMovies(list, userItm);
                 }
 
             }
 
-            return this.View(this.list);
+            return this.View(list);
         }
 
         [HttpGet]
@@ -85,6 +85,8 @@ namespace MBshop.Controllers
             var movie = movieDb.GetListOfMovies()
                 .FirstOrDefault(m => m.Id == id);
 
+            //status check for movies in purchase method
+
             if (movie == null)
             {
                 return NotFound();
@@ -92,7 +94,5 @@ namespace MBshop.Controllers
 
             return View(movie);
         }
-
-
     }
 }

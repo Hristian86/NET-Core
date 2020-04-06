@@ -73,6 +73,10 @@
     </dl>
 </div>
 Add to cart
+@if (Model.Status == true)
+{
+<div><h1>aaaaaaaaaaaaaaaaaaaaaaaaaaa</h1></div>
+}
 <div>
     <form asp-controller="Cart" asp-action="AddToCartMovie" method="post">
         <input type="hidden" asp-for="Id" />

@@ -14,6 +14,7 @@ using MBshop.Data.Data;
 using MBshop.Service.OutputModels;
 using MBshop.Service.WebConstants;
 using MBshop.Service.Services;
+using System.Security.Claims;
 
 namespace MBshop.Controllers
 {
@@ -24,7 +25,7 @@ namespace MBshop.Controllers
         private readonly UserManager<IdentityUser> userManager;
         private readonly ILogger<HomeController> _logger;
         private readonly ISearchEngine search;
-        //private List<ViewProducts> allProducts = new List<ViewProducts>();
+        private string user = "";
 
         //private UserNames names = new UserNames();
 
@@ -70,11 +71,16 @@ namespace MBshop.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult SearchResult(string searchItem)
         {
+            
 
             if (searchItem != null)
             {
+                if (User.Identity.Name != null)
+                {
+                    user = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+                }
 
-                var result = search.Search(searchItem);
+                var result = search.Search(searchItem,user);
 
                 if (result.Count() == 0)
                 {

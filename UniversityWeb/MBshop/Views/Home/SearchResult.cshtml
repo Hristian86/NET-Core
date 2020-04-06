@@ -5,10 +5,8 @@
 
 <h1>SearchResult</h1>
 
-
-
 <div class="table-responsive-sm">
-    <table class="table" id="tabul">
+    <table class="table bg-transparent" id="tabul">
         <thead>
             <tr>
                 <th>
@@ -32,53 +30,70 @@
         <tbody>
             @foreach (var item in Model)
             {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Type)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Genre)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.price)
-                </td>
-                <td>
-                    @*@Html.DisplayFor(modelItem => item.Picture)*@
-                    <img src="@item.Picture" id="MovieList" alt="Alternate Text" />
-                </td>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Type)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Genre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.price)
+                    </td>
+                    <td>
+                        @*@Html.DisplayFor(modelItem => item.Picture)*@
+                        <img src="@item.Picture" id="MovieList" alt="Alternate Text" />
+                    </td>
 
-                <td>
+                    <td>
 
 
-                    @if (item.Type == WebConstansVariables.Book)
-                    {
-
-                        @using (Html.BeginForm("PurchaseBook", "BookList", new { id = item.Id }, FormMethod.Get))
+                        @if (item.Type == WebConstansVariables.Book)
                         {
-                            <div class="form-group">
-                                <div class="col-lg-10 col-lg-offset-2">
-                                    <button type="submit" class="btn btn-outline-primary">Purchase  </button>
-                                </div>
-                            </div>
+                            if (item.Status)
+                            {
+                                <a asp-controller="UserShopedItems" asp-action="UserBooksShops" style="margin-left:15px;" class="btn btn-warning">Owned</a>
+                            }
+                            else
+                            {
+                                @using (Html.BeginForm("PurchaseBook", "BookList", new { id = item.Id }, FormMethod.Get))
+                                {
+                                    <div class="form-group">
+                                        <div class="col-lg-10 col-lg-offset-2">
+                                            <button type="submit" class="btn btn-outline-primary">Purchase  </button>
+                                        </div>
+                                    </div>
+                                }
+                            }
+
+
                         }
-                    }
-                    else if (item.Type == WebConstansVariables.Movie)
-                    {
-                        @using (Html.BeginForm("PurchaseMovie", "MovieList", new { id = item.Id }, FormMethod.Get))
+                        else if (item.Type == WebConstansVariables.Movie)
                         {
-                            <div class="form-group">
-                                <div class="col-lg-10 col-lg-offset-2">
-                                    <input class="form-control mr-sm-2" type="hidden" name="type" value="@item.Type">
-                                    <button type="submit" class="btn btn-outline-primary">Purchase  </button>
-                                </div>
-                            </div>
+                            if (item.Status)
+                            {
+                                <a asp-controller="UserShopedItems" asp-action="UserMovieShops" style="margin-left:15px;" class="btn btn-warning">Owned p.</a>
+                            }
+                            else
+                            {
+                                @using (Html.BeginForm("PurchaseMovie", "MovieList", new { id = item.Id }, FormMethod.Get))
+                                {
+                                    <div class="form-group">
+                                        <div class="col-lg-10 col-lg-offset-2">
+                                            <input class="form-control mr-sm-2" type="hidden" name="type" value="@item.Type">
+                                            <button type="submit" class="btn btn-outline-primary">Purchase  </button>
+                                        </div>
+                                    </div>
+                                }
+                            }
+
+
                         }
-                    }
-                </td>
-            </tr>
+                    </td>
+                </tr>
 
             }
         </tbody>
