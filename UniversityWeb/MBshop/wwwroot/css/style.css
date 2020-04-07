@@ -96,4 +96,7 @@
 }
 
 
-
+#moviePic {
+    background-size:cover;
+    background:center;
+}

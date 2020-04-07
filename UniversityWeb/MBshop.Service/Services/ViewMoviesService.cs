@@ -18,7 +18,9 @@ namespace MBshop.Service.Services
             this.db = dbs;
         }
 
-        public List<OutputMovies> GetListOfMovies() => this.db.Movies.Select(itemMovie => new OutputMovies
+        public List<OutputMovies> GetListOfMovies() => this.db
+            .Movies
+            .Select(itemMovie => new OutputMovies
         {
             Status = false,
             Id = itemMovie.Id,

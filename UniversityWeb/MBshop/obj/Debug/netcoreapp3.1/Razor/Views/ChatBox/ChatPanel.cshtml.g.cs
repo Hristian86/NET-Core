@@ -33,8 +33,15 @@ using MBshop.Service.WebConstants;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop\Views\_ViewImports.cshtml"
+using MBshop.Service.OutputModels;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6189454e41f8e3d57f7d3e60d831c9e40a785cce", @"/Views/ChatBox/ChatPanel.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"856c01d2fa959d9d051b5b32355dbe48ab181e18", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"826b060901f52d9bf02c148d94d0fe92e16fe72b", @"/Views/_ViewImports.cshtml")]
     public class Views_ChatBox_ChatPanel : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "ChatBox", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -83,7 +90,7 @@ using MBshop.Service.WebConstants;
 #line hidden
 #nullable disable
             WriteLiteral("\n\n<html>\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6189454e41f8e3d57f7d3e60d831c9e40a785cce7263", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6189454e41f8e3d57f7d3e60d831c9e40a785cce7514", async() => {
                 WriteLiteral("\n    <title></title>\n");
             }
             );
@@ -97,7 +104,7 @@ using MBshop.Service.WebConstants;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6189454e41f8e3d57f7d3e60d831c9e40a785cce8246", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6189454e41f8e3d57f7d3e60d831c9e40a785cce8497", async() => {
                 WriteLiteral("\n    <div class=\"con\" style=\"display:flex;align-items: center;\n  justify-content: center;\">\n        <h1>\n");
 #nullable restore
 #line 14 "C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop\Views\ChatBox\ChatPanel.cshtml"
@@ -138,7 +145,7 @@ using MBshop.Service.WebConstants;
 #line hidden
 #nullable disable
                 WriteLiteral("            ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6189454e41f8e3d57f7d3e60d831c9e40a785cce10079", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6189454e41f8e3d57f7d3e60d831c9e40a785cce10330", async() => {
                     WriteLiteral("\n                <button class=\"btn btn-lg btn-warning\" id=\"IdentityBtn\">Delete</button>\n            ");
                 }
                 );
@@ -168,7 +175,7 @@ using MBshop.Service.WebConstants;
 #line hidden
 #nullable disable
                 WriteLiteral("    </div>\n\n    <div class=\"wrapper\">\n        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6189454e41f8e3d57f7d3e60d831c9e40a785cce12421", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6189454e41f8e3d57f7d3e60d831c9e40a785cce12672", async() => {
                     WriteLiteral("\n        <input type=\"text\" required name=\"name\"");
                     BeginWriteAttribute("value", " value=\"", 924, "\"", 932, 0);
                     EndWriteAttribute();
@@ -194,7 +201,7 @@ using MBshop.Service.WebConstants;
 #line hidden
 #nullable disable
                     WriteLiteral("                ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6189454e41f8e3d57f7d3e60d831c9e40a785cce13786", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6189454e41f8e3d57f7d3e60d831c9e40a785cce14037", async() => {
                         WriteLiteral("Create chat nickname");
                     }
                     );
@@ -225,7 +232,7 @@ using MBshop.Service.WebConstants;
 #line hidden
 #nullable disable
                     WriteLiteral("            ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6189454e41f8e3d57f7d3e60d831c9e40a785cce15797", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6189454e41f8e3d57f7d3e60d831c9e40a785cce16048", async() => {
                         WriteLiteral("Create chat nickname");
                     }
                     );

@@ -34,19 +34,15 @@ namespace MBshop.Controllers
         [Authorize]
         [HttpPost]
         [AutoValidateAntiforgeryToken]
-        public IActionResult AddToCartMovie(int? id, double? price)
+        public IActionResult AddToCartMovie([Bind("Id","price")] OutputMovies model)
         {
-            
-            if ((id == null && price == null) || id == null || price == null)
+            if (!ModelState.IsValid)
             {
                 return NotFound();
             }
 
-            int _id = (int)id;
-            double _price = (double)price;
-
             //cart user interface for displayin numberof items in card
-            StatusForCartCount.MessageForStaatus = cardBasket.AddToCartMovie(_id,_price, GetCurrentUser());
+            StatusForCartCount.MessageForStaatus = cardBasket.AddToCartMovie(model.Id,model.price, GetCurrentUser());
 
             StatusForCartCount.CountOfProductsInBasket = cardBasket.GetCartBascket().Count();
 
@@ -56,18 +52,15 @@ namespace MBshop.Controllers
         [Authorize]
         [HttpPost]
         [AutoValidateAntiforgeryToken]
-        public IActionResult AddToCartBook(int? id, double? price)
+        public IActionResult AddToCartBook([Bind("Id", "price")] OutputBooks model)
         {
-            if ((id == null && price == null) || id == null || price == null)
+            if (!ModelState.IsValid)
             {
                 return NotFound();
             }
 
-            int _id = (int)id;
-            double _price = (double)price;
-
             //cart user interface for displayin numberof items in card
-            StatusForCartCount.MessageForStaatus = cardBasket.AddToCartBook(_id,_price, GetCurrentUser());
+            StatusForCartCount.MessageForStaatus = cardBasket.AddToCartBook(model.Id,model.price, GetCurrentUser());
 
             StatusForCartCount.CountOfProductsInBasket = cardBasket.GetCartBascket().Count();
 

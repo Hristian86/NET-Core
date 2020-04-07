@@ -1,85 +1,94 @@
-﻿@model IEnumerable<MBshop.Service.OutputModels.OutputBooks>
+﻿@model IEnumerable<OutputBooks>
 
 @{
     ViewData["Title"] = "UserBooksShops";
 }
 
 
-    <h1>@User.Identity.Name's shoped products</h1>
+<h1>@User.Identity.Name's shoped products</h1>
 
 <br />
 <p class="movieLink">
     <a asp-controller="UserShopedItems" asp-action="UserMovieShops" class="btn btn-primary btn-lg">Movie Collection</a>
 </p>
-<table class="table" id="tabul">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Author)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Raiting)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                Released
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Genre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.price)
-            </th>
-            <th>
-                Product
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Picture)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Author)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Raiting)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RealeseDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Genre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.price) $
-            </td>
-            <td>
-                @*@Html.DisplayFor(modelItem => item.LinkForPurchasedContend)*@
-                <iframe width="420" height="315"
-                        src="@item.LinkForProductContentWhenPurchase">
-                </iframe>
-                
-            </td>
-            <td>
-                <img src="@item.Picture" id="MovieList" alt="Alternate Text" />
-            </td>
-        </tr>
-        }
-    </tbody>
-</table>
+@if (Model.Any())
+{
+
+    <table class="table" id="tabul">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Author)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Raiting)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    Released
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Genre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.price)
+                </th>
+                <th>
+                    Product
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Picture)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Author)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Raiting)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RealeseDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Genre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.price) $
+                    </td>
+                    <td>
+                        @*@Html.DisplayFor(modelItem => item.LinkForPurchasedContend)*@
+                        <iframe width="420" height="315"
+                                src="@item.LinkForProductContentWhenPurchase">
+                        </iframe>
+
+                    </td>
+                    <td>
+                        <img src="@item.Picture" id="MovieList" alt="Alternate Text" />
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}
+else
+{
+<div class="wrapper bg-transparent mt-5"><h3 class="text-center pt-3">There are no products</h3></div>
+}

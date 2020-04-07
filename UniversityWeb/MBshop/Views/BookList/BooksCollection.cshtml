@@ -11,6 +11,15 @@
     <a asp-controller="MovieList" asp-action="MovieCollection" class="btn btn-primary btn-lg">Movie collection</a>
 </p>
 
+<form>
+    <select>
+        <option value="1">text</option>
+        <option value="2">text</option>
+        <option value="3">text</option>
+        <option value="3">text</option>
+    </select>
+    <button class = "btn btn-outline-success" asp-controller="BookList" asp-action="BooksCollection"></button>
+</form>
 
 @Html.ActionLink("Original order", "BooksCollection", "BookList", new { orderBy = 0 }, new { @class = "btn btn-outline-success" })
 @Html.ActionLink("Order by Title A-Z", "BooksCollection", "BookList", new { orderBy = 1 }, new { @class = "btn btn-outline-success" })
