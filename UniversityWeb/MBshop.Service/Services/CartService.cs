@@ -36,6 +36,11 @@ namespace MBshop.Service.Services
                 .Where(x => x.Id == id && x.price == price)
                 .FirstOrDefault();
 
+            if (book == null)
+            {
+                return $"Book not found";
+            }
+
             //chek for already added in cart
             var chek = carts
                 .Any(x => x.Id == id && (x.Type == WebConstansVariables.Book && x.price == price));
@@ -81,6 +86,11 @@ namespace MBshop.Service.Services
             var movie = this.db.Movies
                 .Where(x => x.Id == id && x.price == price)
                 .FirstOrDefault();
+
+            if (movie == null)
+            {
+                return $"Movie not found";
+            }
 
             //chek for already added to cart
             var chek = carts

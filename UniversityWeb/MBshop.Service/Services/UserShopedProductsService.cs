@@ -18,25 +18,25 @@ namespace MBshop.Service.Services
             this.db = db;
         }
 
-        public List<OutputMovies> PersonalMovies(string id)
+        public List<OutputMovies> PersonalMovies(string userId)
         {
-            var display = ConvertMovie(id);
+            var display = ConvertMovie(userId);
             return display;
         }
 
-        public List<OutputBooks> PersonalBooks(string id)
+        public List<OutputBooks> PersonalBooks(string userId)
         {
-            var toBeDisplayed = ConvertBooks(id);
+            var toBeDisplayed = ConvertBooks(userId);
             return toBeDisplayed;
         }
 
-        private List<OutputBooks> ConvertBooks(string id)
+        private List<OutputBooks> ConvertBooks(string userId)
         {
             var disp = new List<OutputBooks>();
 
             //getting personal collection of books for current user
             var userBooks = this.db.Shops
-                .Where(x => x.UserId == id)
+                .Where(x => x.UserId == userId)
                 .Select(x => x.Books)
                 .ToList();
 
@@ -70,13 +70,13 @@ namespace MBshop.Service.Services
             return disp;
         }
 
-        private List<OutputMovies> ConvertMovie(string id)
+        private List<OutputMovies> ConvertMovie(string userId)
         {
             var displays = new List<OutputMovies>();
 
             //getting personal collection of movies for current user
             var userMovis = this.db.Shops
-                .Where(x => x.UserId == id)
+                .Where(x => x.UserId == userId)
                 .Select(x => x.Movie)
                 .ToList();
 

@@ -81,12 +81,6 @@ namespace MBshop.Controllers
 
                 var result = search.Search(searchItem,user);
 
-                //if (result.Count() == 0)
-                //{
-                //    return this.RedirectToAction("Index", "Home");
-                //}
-
-
                 ViewData["Search"] = searchItem;
 
                 return this.View(result);
@@ -94,7 +88,6 @@ namespace MBshop.Controllers
             }
 
             return this.View();
-            //return this.RedirectToAction("Index", "Home");
         }
 
         public IActionResult Privacy()

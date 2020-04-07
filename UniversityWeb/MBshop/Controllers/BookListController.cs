@@ -67,7 +67,7 @@ namespace MBshop.Controllers
             //return View(this.books.GetListOfBooks());
         }
 
-        [HttpPost]
+        [HttpGet]
         [Authorize]
         [AutoValidateAntiforgeryToken]
         public IActionResult BookDetail(int? id)

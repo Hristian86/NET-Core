@@ -7,8 +7,8 @@ namespace MBshop.Service.interfaces
 {
     public interface IUserShopedProductsService
     {
-        List<OutputMovies> PersonalMovies(string id);
+        List<OutputMovies> PersonalMovies(string userId);
 
-        List<OutputBooks> PersonalBooks(string id);
+        List<OutputBooks> PersonalBooks(string userId);
     }
 }

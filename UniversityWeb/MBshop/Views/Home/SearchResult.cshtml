@@ -62,11 +62,11 @@
                                 }
                                 else
                                 {
-                                    @using (Html.BeginForm("BookDetail", "BookList", new { id = item.Id }, FormMethod.Post))
+                                    @using (Html.BeginForm("BookDetail", "BookList", new { id = item.Id }, FormMethod.Get))
                                     {
                                         <div class="form-group">
                                             <div class="col-lg-10 col-lg-offset-2">
-                                                <button type="submit" class="btn btn-outline-primary">Purchase  </button>
+                                                <button type="submit" class="btn btn-outline-primary">Details  </button>
                                             </div>
                                         </div>
                                     }
@@ -78,16 +78,16 @@
                             {
                                 if (item.Status)
                                 {
-                                    <a asp-controller="UserShopedItems" asp-action="UserMovieShops" style="margin-left:15px;" class="btn btn-warning">Owned p.</a>
+                                    <a asp-controller="UserShopedItems" asp-action="UserMovieShops" style="margin-left:15px;" class="btn btn-warning">Owned</a>
                                 }
                                 else
                                 {
-                                    @using (Html.BeginForm("MovieDetail", "MovieList", new { id = item.Id }, FormMethod.Post))
+                                    @using (Html.BeginForm("MovieDetail", "MovieList", new { id = item.Id }, FormMethod.Get))
                                     {
                                         <div class="form-group">
                                             <div class="col-lg-10 col-lg-offset-2">
                                                 <input class="form-control mr-sm-2" type="hidden" name="type" value="@item.Type">
-                                                <button type="submit" class="btn btn-outline-primary">Purchase  </button>
+                                                <button type="submit" class="btn btn-outline-primary">Details  </button>
                                             </div>
                                         </div>
                                     }

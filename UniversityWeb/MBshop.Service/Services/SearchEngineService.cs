@@ -28,14 +28,14 @@ namespace MBshop.Service.Services
         }
 
 
-        public List<ViewProducts> Search(string searchItem, string user)
+        public List<ViewProducts> Search(string searchItem, string userId)
         {
             var movieses = movies.GetListOfMovies();
             var bookses = books.GetListOfBooks();
 
-            var userPersonalMovies = userItems.PersonalMovies(user);
+            var userPersonalMovies = userItems.PersonalMovies(userId);
 
-            var userPersonalBooks = userItems.PersonalBooks(user);
+            var userPersonalBooks = userItems.PersonalBooks(userId);
 
             status.StatusChekBooks(bookses,userPersonalBooks);
 
@@ -75,6 +75,55 @@ namespace MBshop.Service.Services
             result.AddRange(result1);
 
             return result.ToList().Where(x => x.Title.ToLower().Contains(searchItem.ToLower())).ToList();
+        }
+
+        public List<ViewProducts> ViewProducts(string userId)
+        {
+            var movieses = movies.GetListOfMovies();
+            var bookses = books.GetListOfBooks();
+
+            var userPersonalMovies = userItems.PersonalMovies(userId);
+
+            var userPersonalBooks = userItems.PersonalBooks(userId);
+
+            status.StatusChekBooks(bookses, userPersonalBooks);
+
+            //status chek for movies
+            status.StatusChekMovies(movieses, userPersonalMovies);
+
+            var result = movieses
+                .Select(item => new ViewProducts
+                {
+                    Id = item.Id,
+                    Title = item.Title,
+                    price = item.price,
+                    Picture = item.Picture,
+                    Genre = item.Genre,
+                    Status = item.Status,
+                    Rate = item.Rate,
+                    Type = WebConstansVariables.Movie
+
+                }).ToList();
+
+
+
+            var result1 = bookses
+                .Select(item => new ViewProducts
+                {
+                    Id = item.Id,
+                    Title = item.Title,
+                    price = item.price,
+                    Picture = item.Picture,
+                    Genre = item.Genre,
+                    Status = item.Status,
+                    Rate = item.Rate,
+                    Type = WebConstansVariables.Book
+
+                }).ToList();
+
+            result.AddRange(result1);
+
+            return result.ToList();
         }
     }
 }

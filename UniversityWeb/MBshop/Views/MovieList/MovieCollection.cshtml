@@ -17,22 +17,21 @@
 </p>
 
 
-    <form onchange="$('#autoPost').submit();" asp-controller="MovieList" asp-action="MovieCollection" id="autoPost" class="orderForm">
-        <select name="orderBy" class="custom-select-sm drop">
-            <option value="0">Original order</option>
-            <option value="1">Order by Title A-Z</option>
-            <option value="2">Order by Title Z-A</option>
-            <option value="3">Order by Price ascending</option>
-            <option value="4">Order by Price descending</option>
-        </select>
-        @*<input type="submit" class ="btn btn-outline-success" value="Order Movies"/>*@
-    </form>
+@*<form onchange="$('#autoPost').submit();" asp-controller="MovieList" asp-action="MovieCollection" id="autoPost" class="orderForm">
+    <select name="orderBy" class="custom-select-sm drop">
+        <option value="0">Original order</option>
+        <option value="1">Order by Title A-Z</option>
+        <option value="2">Order by Title Z-A</option>
+        <option value="3">Order by Price ascending</option>
+        <option value="4">Order by Price descending</option>
+    </select>
+</form>*@
 
-@*@Html.ActionLink("Original order", "MovieCollection", "MovieList", new { orderBy = 0 }, new { @class = "btn btn-outline-success" })
-@Html.ActionLink("Order by Title A-Z", "MovieCollection", "MovieList", new { orderBy = 1 }, new { @class = "btn btn-outline-success" })
-@Html.ActionLink("Order by Title Z-A", "MovieCollection", "MovieList", new { orderBy = 2 }, new { @class = "btn btn-outline-success" })
-@Html.ActionLink("Order by Price ascending", "MovieCollection", "MovieList", new { orderBy = 3 }, new { @class = "btn btn-outline-success" })
-@Html.ActionLink("Order by Price descending", "MovieCollection", "MovieList", new { orderBy = 4 }, new { @class = "btn btn-outline-success" })*@
+@Html.ActionLink("Original order", "MovieCollection", "MovieList", new { orderBy = 0 }, new { @class = "btn btn-outline-success" })
+    @Html.ActionLink("Order by Title A-Z", "MovieCollection", "MovieList", new { orderBy = 1 }, new { @class = "btn btn-outline-success" })
+    @Html.ActionLink("Order by Title Z-A", "MovieCollection", "MovieList", new { orderBy = 2 }, new { @class = "btn btn-outline-success" })
+    @Html.ActionLink("Order by Price ascending", "MovieCollection", "MovieList", new { orderBy = 3 }, new { @class = "btn btn-outline-success" })
+    @Html.ActionLink("Order by Price descending", "MovieCollection", "MovieList", new { orderBy = 4 }, new { @class = "btn btn-outline-success" })
 
 
 <div class="table-responsive-sm">
@@ -106,7 +105,7 @@
                         @if (item.Status == false)
                         {
 
-                            @using (Html.BeginForm("MovieDetail", "MovieList", new { id = item.Id }, FormMethod.Post))
+                            @using (Html.BeginForm("MovieDetail", "MovieList", new { id = item.Id }, FormMethod.Get))
                             {
                                 <div class="form-group">
                                     <div class="col-lg-10 col-lg-offset-2">
