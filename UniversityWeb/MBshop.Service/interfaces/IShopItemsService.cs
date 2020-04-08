@@ -10,6 +10,6 @@ namespace MBshop.Service.interfaces
     public interface IShopItemsService
     {
         Task<string> BuyMovie(string userId, int MovieId);
-        Task BuyBook(string userId, int bookId);
+        Task<string> BuyBook(string userId, int bookId);
     }
 }

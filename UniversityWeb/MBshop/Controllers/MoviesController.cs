@@ -165,7 +165,15 @@ namespace MBshop.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var movies = await _context.Movies.FindAsync(id);
+            
+            //cascade delete manualy 
+            var shopMovies = _context.Shops.Where(x => x.MovieId == movies.Id).ToList();
+            var ratingMovies = _context.rating.Where(x => x.MoviesId == movies.Id).ToList();
+
+            _context.rating.RemoveRange(ratingMovies);
+            _context.RemoveRange(shopMovies);
             _context.Movies.Remove(movies);
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

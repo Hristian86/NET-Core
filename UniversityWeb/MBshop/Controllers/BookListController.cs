@@ -17,7 +17,6 @@ namespace MBshop.Controllers
         private readonly IUserShopedProductsService userItems;
         private readonly IShopItemsService shoping;
         private readonly Status status;
-        private List<OutputBooks> list = new List<OutputBooks>();
 
         public BookListController(IViewBooksService books,
             IUserShopedProductsService userItems,
@@ -33,17 +32,7 @@ namespace MBshop.Controllers
 
         public IActionResult BooksCollection(int orderBy, string searchItem)
         {
-
-            if (searchItem != null)
-            {
-                List<OutputBooks> result = this.books.GetListOfBooks()
-                    .Where(x => x.Title.ToLower().Contains(searchItem.ToLower()))
-                    .ToList();
-
-                return this.View(result);
-            }
-
-            this.list = this.books.SortBooks(orderBy);
+            var list = this.books.SortBooks(orderBy);
             
             if (User.Identity.Name != null)
             {
@@ -62,9 +51,7 @@ namespace MBshop.Controllers
 
             }
 
-            return this.View(this.list);
-
-            //return View(this.books.GetListOfBooks());
+            return this.View(list);
         }
 
         [HttpGet]

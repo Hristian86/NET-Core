@@ -53,6 +53,14 @@ namespace MBshop.Service.Services
 
                         return $"Purchase successed";
                     }
+                    else
+                    {
+                        return $"User does not exists";
+                    }
+                }
+                else
+                {
+                    return $"Movie does not exists";
                 }
             }
 
@@ -61,7 +69,7 @@ namespace MBshop.Service.Services
             return $"This product {movieTitle} allready is purchased";
         }
 
-        public async Task BuyBook(string userId, int bookId)
+        public async Task<string> BuyBook(string userId, int bookId)
         {
 
             var chek = db.Shops.Any(x => x.BooksId == bookId && x.UserId == userId);
@@ -95,8 +103,20 @@ namespace MBshop.Service.Services
                         await this.db.SaveChangesAsync();
 
                     }
+                    else
+                    {
+                        return $"User does not exists";
+                    }
+                }
+                else
+                {
+                    return $"Book does not exists";
                 }
             }
+
+            string bookTitle = this.db.Books.Where(x => x.Id == bookId).Select(x => x.Title).FirstOrDefault();
+
+            return $"This product {bookTitle} allready is purchased";
         }
     }
 }

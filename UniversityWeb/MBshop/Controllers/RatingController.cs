@@ -29,9 +29,9 @@ namespace MBshop.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+                var userId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-                 StatusForCartCount.MessageForStaatus = await this.rateService.RateMovie(model,user);
+                 StatusForCartCount.MessageForStaatus = await this.rateService.RateMovie(model,userId);
 
                 return this.RedirectToAction("MovieCollection", "MovieList");
             }

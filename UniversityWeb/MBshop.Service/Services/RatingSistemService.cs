@@ -20,7 +20,7 @@ namespace MBshop.Service.Services
             this.db = db;
         }
 
-        public async Task<string> RateMovie(OutputMovies model, string user)
+        public async Task<string> RateMovie(OutputMovies model, string userId)
         {
             this.final = 0;
 
@@ -61,11 +61,11 @@ namespace MBshop.Service.Services
                     await UpdateMovie(movi);
                 }
 
-                if (user != null)
+                if (userId != null)
                 {
                     //geting current user
                     var curUser = this.db.AspNetUsers
-                        .Where(x => x.Id == user)
+                        .Where(x => x.Id == userId)
                         .FirstOrDefault();
 
                     //creating new object for database with added values
@@ -73,7 +73,7 @@ namespace MBshop.Service.Services
                     {
                         RatingMovies = model.Raiting,
                         Movies = movi,
-                        UserId = user,
+                        UserId = userId,
                         User = curUser
                     };
 
@@ -84,13 +84,17 @@ namespace MBshop.Service.Services
 
                     total = 0;
                 }
+                else
+                {
+                    return $"User is not found";
+                }
             }
             return $"You have rated this {movi.Title} movie succesfuly";
         }
 
         
 
-        public async Task<double> RateBook(OutputBooks model, string user)
+        public async Task<double> RateBook(OutputBooks model, string userId)
         {
             this.final = 0;
 
@@ -127,11 +131,11 @@ namespace MBshop.Service.Services
                 }
 
 
-                if (user != null)
+                if (userId != null)
                 {
                     //get current user
                     var curUser = this.db.AspNetUsers
-                        .Where(x => x.Id == user)
+                        .Where(x => x.Id == userId)
                         .FirstOrDefault();
 
                     //creating new object for database with added values
@@ -139,7 +143,7 @@ namespace MBshop.Service.Services
                     {
                         RatingBooks = model.Raiting,
                         Books = book,
-                        UserId = user,
+                        UserId = userId,
                         User = curUser
                     };
 

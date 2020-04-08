@@ -81,6 +81,10 @@
                     </td>
                     <td>
                         <img src="@item.Picture" id="MovieList" alt="Alternate Text" />
+                        @using (Html.BeginForm("BookDetail", "BookList", new { id = item.Id }, FormMethod.Get))
+                        {
+                                    <button type="submit" class="btn btn-outline-primary">Details  </button>
+                        }
                     </td>
                 </tr>
             }
