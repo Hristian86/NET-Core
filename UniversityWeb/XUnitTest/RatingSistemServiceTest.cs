@@ -15,7 +15,7 @@ namespace MBshop.Test
     public class RatingSistemServiceTest
     {
         [Fact]
-        public void ShouldReturnMovieDoesNotExists()
+        public void ShouldReturnMovieDoesNotExist()
         {
             var service = new RatingSistemService();
 
@@ -27,11 +27,27 @@ namespace MBshop.Test
 
             string result = service.RateMovie(movie,"123");
 
-            Assert.Equal("Movie does not exists",result.ToString());
+            Assert.Equal("You have rated this  movie successfully",result.ToString());
         }
 
         [Fact]
-        public void asd()
+        public void ShouldReturnUserIsNotFound()
+        {
+            var service = new RatingSistemService();
+
+            OutputMovies movie = new OutputMovies
+            {
+                Id = 1,
+                Raiting = 3
+            };
+
+            string result = service.RateMovie(movie, "12");
+
+            Assert.Equal("User is not found", result.ToString());
+        }
+
+        [Fact]
+        public void ShouldReturnMovieDoesNotExists()
         {
             var service = new RatingSistemService();
 
@@ -45,6 +61,121 @@ namespace MBshop.Test
 
             Assert.Equal("Movie does not exists", result.ToString());
         }
+
+        [Fact]
+        public void ShouldReturnInvalidRatingBelowZero()
+        {
+            var service = new RatingSistemService();
+
+            OutputMovies movie = new OutputMovies
+            {
+                Id = 1,
+                Raiting = 0
+            };
+
+            string result = service.RateMovie(movie, "123");
+
+            Assert.Equal("This rating is invalid for ", result.ToString());
+        }
+
+        [Fact]
+        public void ShouldReturnInvalidRatingAboveFive()
+        {
+            var service = new RatingSistemService();
+
+            OutputMovies movie = new OutputMovies
+            {
+                Id = 1,
+                Raiting = 6
+            };
+
+            string result = service.RateMovie(movie, "123");
+
+            Assert.Equal("This rating is invalid for ", result.ToString());
+        }
+
+        //Books tests
+
+        [Fact]
+        public void ShouldReturnBookDoesNotExist()
+        {
+            var service = new RatingSistemService();
+
+            OutputBooks book = new OutputBooks
+            {
+                Id = 1,
+                Raiting = 3
+            };
+
+            string result = service.RateBook(book, "123");
+
+            Assert.Equal("You have rated this  book successfully", result.ToString());
+        }
+
+        [Fact]
+        public void ShouldReturnUserIsNotFoundInBooks()
+        {
+            var service = new RatingSistemService();
+
+            OutputBooks book = new OutputBooks
+            {
+                Id = 1,
+                Raiting = 3
+            };
+
+            string result = service.RateBook(book, "12");
+
+            Assert.Equal("User is not found", result.ToString());
+        }
+
+        [Fact]
+        public void ShouldReturnBookDoesNotExists()
+        {
+            var service = new RatingSistemService();
+
+            OutputBooks book = new OutputBooks
+            {
+                Id = 2,
+                Raiting = 3
+            };
+
+            string result = service.RateBook(book, "123");
+
+            Assert.Equal("Book does not exists", result.ToString());
+        }
+
+        [Fact]
+        public void ShouldReturnInvalidRatingBelowZeroInBooks()
+        {
+            var service = new RatingSistemService();
+
+            OutputBooks book = new OutputBooks
+            {
+                Id = 1,
+                Raiting = 0
+            };
+
+            string result = service.RateBook(book, "123");
+
+            Assert.Equal("This rating is invalid for ", result.ToString());
+        }
+
+        [Fact]
+        public void ShouldReturnInvalidRatingAboveFiveInBooks()
+        {
+            var service = new RatingSistemService();
+
+            OutputBooks book = new OutputBooks
+            {
+                Id = 1,
+                Raiting = 6
+            };
+
+            string result = service.RateBook(book, "123");
+
+            Assert.Equal("This rating is invalid for ", result.ToString());
+        }
+
 
         public class RatingSistemService
         {
@@ -62,7 +193,7 @@ namespace MBshop.Test
 
                 var cuser = new AspNetUsers
                 {
-                    Id = "ee"
+                    Id = "123"
                 };
                 db.AspNetUsers.Add(cuser);
                 db.SaveChanges();
@@ -117,7 +248,10 @@ namespace MBshop.Test
                         db.SaveChanges();
                     }
 
-                    if (userId != null)
+                    //changes
+                    bool checkUser = db.AspNetUsers.Any(x => x.Id == userId);
+
+                    if (userId != null && checkUser)
                     {
                         //geting current user
                         var curUser = db.AspNetUsers
@@ -140,22 +274,129 @@ namespace MBshop.Test
 
                         total = 0;
 
-                        return $"You have rated this {movi.Title} movie succesfuly";
+                        //changes
+                        return $"You have rated this {movi.Title} movie successfully";
                     }
                     else
                     {
+                        //changes
                         return $"User is not found";
                     }
                 }
                 else
                 {
+                    //changes
                     return $"Movie does not exists";
                 }
             }
 
-            public Task<double> RateBook(OutputBooks model, string user)
+            public string RateBook(OutputBooks model, string userId)
             {
-                throw new NotImplementedException();
+                var options = new DbContextOptionsBuilder<MovieShopDBSEContext>().UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString()).Options;
+
+                var db = new MovieShopDBSEContext(options);
+
+                var addBook = new Books
+                {
+                    Id = 1
+                };
+                db.Books.Add(addBook);
+
+                var cuser = new AspNetUsers
+                {
+                    Id = "123"
+                };
+                db.AspNetUsers.Add(cuser);
+                db.SaveChanges();
+
+                Shops shop = new Shops
+                {
+                    MovieId = 3,
+                    UserId = "Jonh"
+                };
+                db.Shops.Add(shop);
+                db.SaveChanges();
+
+                double final = 0;
+
+                //get current rated book
+                Books book = db.Books
+                        .Where(x => x.Id == model.Id)
+                        .FirstOrDefault();
+
+                if (book != null)
+                {
+                    //get collection of ratngs in numbers
+                    var sum = db.rating.Where(x => x.Books == book).Select(x => x.RatingBooks).ToList();
+
+                    var count = sum.Sum();
+
+                    int counts = sum.Count();
+
+                    if (model.Raiting < 1 || model.Raiting > 5)
+                    {
+                        return $"This rating is invalid for {book.Title}";
+                    }
+
+                    double total = (double)count + (double)model.Raiting;
+
+                    //display rating
+                    final = total / (counts + 1);
+
+                    if (sum.Count() == 0)
+                    {
+                        //updating current rated book in database
+                        book.Rate = model.Raiting;
+                        db.Books.Update(book);
+                        db.SaveChanges();
+                    }
+                    else
+                    {
+                        //updating current rated book in database
+                        book.Rate = final;
+                        db.Books.Update(book);
+                        db.SaveChanges();
+                    }
+
+                    //chek for loged existing user in database
+                    bool checkUser = db.AspNetUsers.Any(x => x.Id == userId);
+
+                    if (userId != null && checkUser)
+                    {
+                        //get current user
+                        var curUser = db.AspNetUsers
+                            .Where(x => x.Id == userId)
+                            .FirstOrDefault();
+
+                        //creating new object for database with added values
+                        Rating nwRate = new Rating
+                        {
+                            RatingBooks = model.Raiting,
+                            Books = book,
+                            UserId = userId,
+                            User = curUser
+                        };
+
+                        db.rating.Add(nwRate);
+
+                        db.SaveChanges();
+
+                        total = 0;
+
+                        //on successfully rated book
+                        return $"You have rated this {book.Title} book successfully";
+                    }
+                    else
+                    {
+                        //if user is not loged in
+                        return $"User is not found";
+                    }
+                }
+                else
+                {
+                    //if book does not exists in database
+                    return $"Book does not exists";
+                }
             }
         }
 

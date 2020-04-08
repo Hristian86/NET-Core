@@ -46,10 +46,11 @@ namespace MBshop.Controllers
             {
                 var user = User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-                double rating = await this.rateService.RateBook(model, user);
+                string rating = await this.rateService.RateBook(model, user);
 
                 return this.RedirectToAction("BooksCollection", "BookList");
             }
+
             return this.View();
         }
     }

@@ -54,14 +54,17 @@ namespace MBshop.Service.Services
                     movi.Rate = model.Raiting;
                     await UpdateMovie(movi);
                 }
-                if (sum.Count() != 0)
+                else
                 {
                     //updating current rated movie in database
                     movi.Rate = this.final;
                     await UpdateMovie(movi);
                 }
 
-                if (userId != null)
+                //chek for loged existing user in database
+                bool checkUser = db.AspNetUsers.Any(x => x.Id == userId);
+
+                if (userId != null && checkUser)
                 {
                     //geting current user
                     var curUser = this.db.AspNetUsers
@@ -83,18 +86,27 @@ namespace MBshop.Service.Services
                     
 
                     total = 0;
+
+                    //on successfully rated movie
+                    return $"You have rated this {movi.Title} movie successfully";
                 }
                 else
                 {
+                    //if user is not loged in
                     return $"User is not found";
                 }
             }
-            return $"You have rated this {movi.Title} movie succesfuly";
+            else
+            {
+                //if movie does not exists in database
+                return $"Movie does not exists";
+            }
+            
         }
 
         
 
-        public async Task<double> RateBook(OutputBooks model, string userId)
+        public async Task<string> RateBook(OutputBooks model, string userId)
         {
             this.final = 0;
 
@@ -111,6 +123,11 @@ namespace MBshop.Service.Services
                 var count = sum.Sum();
 
                 int counts = sum.Count();
+
+                if (model.Raiting < 1 || model.Raiting > 5)
+                {
+                    return $"This rating is invalid for {book.Title}";
+                }
 
                 double total = (double)count + (double)model.Raiting;
 
@@ -130,8 +147,10 @@ namespace MBshop.Service.Services
                     await UpdateBook(book);
                 }
 
+                //chek for loged existing user in database
+                bool checkUser = db.AspNetUsers.Any(x => x.Id == userId);
 
-                if (userId != null)
+                if (userId != null && checkUser)
                 {
                     //get current user
                     var curUser = this.db.AspNetUsers
@@ -152,9 +171,21 @@ namespace MBshop.Service.Services
                     await this.db.SaveChangesAsync();
 
                     total = 0;
+
+                    //on successfully rated book
+                    return $"You have rated this {book.Title} book successfully";
+                }
+                else
+                {
+                    //if user is not loged in
+                    return $"User is not found";
                 }
             }
-            return this.final;
+            else
+            {
+                //if book does not exists in database
+                return $"Book does not exists";
+            }
         }
 
         private async Task UpdateMovie(Movies movi)

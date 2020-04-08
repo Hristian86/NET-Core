@@ -9,6 +9,6 @@ namespace MBshop.Service.interfaces
     public interface IRatingSistemService
     {
         Task<string> RateMovie(OutputMovies model, string userId);
-        Task<double> RateBook(OutputBooks model, string userId);
+        Task<string> RateBook(OutputBooks model, string userId);
     }
 }
