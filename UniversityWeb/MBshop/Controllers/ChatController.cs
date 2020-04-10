@@ -32,7 +32,7 @@ namespace MBshop.Controllers
         [Route("GetMessages")]
         public async Task<ActionResult<List<ChatModel>>> GetMessages()
         {
-            var messageses = msg.GetMessages();
+            var messageses = this.msg.GetMessages();
 
             List<ChatModel> chats = new List<ChatModel>();
 
@@ -40,7 +40,7 @@ namespace MBshop.Controllers
             {
                 this.user = User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-                this.fullNameOfUsr = await msg.GetFullName(user);
+                this.fullNameOfUsr = await this.msg.GetFullName(user);
 
                 //string curUserAvatar = CurrentUserAvatar();
             }
@@ -72,7 +72,7 @@ namespace MBshop.Controllers
 
             string user = User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-            string fullNameOfUser = await msg.GetFullName(user);
+            string fullNameOfUser = await this.msg.GetFullName(user);
 
             if (fullNameOfUser != null && model.Content.Length > 0)
             {
@@ -101,7 +101,7 @@ namespace MBshop.Controllers
 
         private string CurrentUserAvatar()
         {
-            string avatar = profEdit.GetUserProperties(User.Identity.Name).Avatar;
+            string avatar = this.profEdit.GetUserProperties(User.Identity.Name).Avatar;
 
             return avatar;
         }

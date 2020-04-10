@@ -28,7 +28,7 @@ namespace MBshop.Controllers
 
         public IActionResult Cart()
         {
-            return View(cardBasket.GetCartBascket());
+            return View(this.cardBasket.GetCartBascket());
         }
 
         [Authorize]
@@ -42,9 +42,9 @@ namespace MBshop.Controllers
             }
 
             //cart user interface for displayin numberof items in card
-            StatusForCartCount.MessageForStaatus = cardBasket.AddToCartMovie(model.Id,model.price, GetCurrentUser());
+            StatusForCartCount.MessageForStaatus = this.cardBasket.AddToCartMovie(model.Id,model.price, GetCurrentUser());
 
-            StatusForCartCount.CountOfProductsInBasket = cardBasket.GetCartBascket().Count();
+            StatusForCartCount.CountOfProductsInBasket = this.cardBasket.GetCartBascket().Count();
 
             return RedirectToAction("MovieCollection", "MovieList");
         }
@@ -60,9 +60,9 @@ namespace MBshop.Controllers
             }
 
             //cart user interface for displayin numberof items in card
-            StatusForCartCount.MessageForStaatus = cardBasket.AddToCartBook(model.Id,model.price, GetCurrentUser());
+            StatusForCartCount.MessageForStaatus = this.cardBasket.AddToCartBook(model.Id,model.price, GetCurrentUser());
 
-            StatusForCartCount.CountOfProductsInBasket = cardBasket.GetCartBascket().Count();
+            StatusForCartCount.CountOfProductsInBasket = this.cardBasket.GetCartBascket().Count();
 
             return RedirectToAction("BooksCollection", "BookList");
         }
@@ -79,7 +79,7 @@ namespace MBshop.Controllers
             }
 
             //Current product in cart basket
-            var currentProducts = cardBasket.GetCartBascket();
+            var currentProducts = this.cardBasket.GetCartBascket();
 
             var user = User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
@@ -87,19 +87,20 @@ namespace MBshop.Controllers
             {
                 if (product.Type == "Movie")
                 {
-                    StatusForCartCount.MessageForStaatus = await shopService
+                    StatusForCartCount.MessageForStaatus = await this.shopService
                         .BuyMovie(user,product.Id);
                 }
                 else if (product.Type == "Book")
                 {
-                    await shopService
+                    //To Do string message
+                    StatusForCartCount.MessageForStaatus = await this.shopService
                         .BuyBook(user,product.Id);
                 }
             }
 
-            cardBasket.DisposeCartProducts();
+            this.cardBasket.DisposeCartProducts();
 
-            StatusForCartCount.CountOfProductsInBasket = cardBasket.GetCartBascket().Count();
+            StatusForCartCount.CountOfProductsInBasket = this.cardBasket.GetCartBascket().Count();
 
             return RedirectToAction("UserMovieShops", "UserShopedItems");
         }
@@ -114,11 +115,11 @@ namespace MBshop.Controllers
                 return NotFound();
             }
 
-            cardBasket.RemoveMovie((int)id);
+            this.cardBasket.RemoveMovie((int)id);
 
             StatusForCartCount.MessageForStaatus = "";
 
-            StatusForCartCount.CountOfProductsInBasket = cardBasket.GetCartBascket().Count();
+            StatusForCartCount.CountOfProductsInBasket = this.cardBasket.GetCartBascket().Count();
 
             return RedirectToAction("Cart","Cart");
         }
@@ -133,11 +134,11 @@ namespace MBshop.Controllers
                 return NotFound();
             }
 
-            cardBasket.RemoveBook((int)id);
+            this.cardBasket.RemoveBook((int)id);
 
             StatusForCartCount.MessageForStaatus = "";
 
-            StatusForCartCount.CountOfProductsInBasket = cardBasket.GetCartBascket().Count();
+            StatusForCartCount.CountOfProductsInBasket = this.cardBasket.GetCartBascket().Count();
 
             return RedirectToAction("Cart", "Cart");
         }

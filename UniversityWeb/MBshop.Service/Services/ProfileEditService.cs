@@ -70,7 +70,7 @@ namespace MBshop.Service.Services
 
             if (Changes && !chatNameChek)
             {
-                await db.SaveChangesAsync();
+                await this.db.SaveChangesAsync();
             }
             return chatNameChek;
         }
@@ -82,7 +82,7 @@ namespace MBshop.Service.Services
         /// <returns></returns>
         public AspNetUsers GetUserProperties(string userName)
         {
-            var usrs = db.AspNetUsers
+            var usrs = this.db.AspNetUsers
                 .Where(x => x.UserName == userName)
                 .FirstOrDefault();
 
@@ -106,7 +106,7 @@ namespace MBshop.Service.Services
             //    .Where(x => x.Id == userId)
             //    .FirstOrDefault();
 
-            var usr = await db.AspNetUsers.FindAsync(userId);
+            var usr = await this.db.AspNetUsers.FindAsync(userId);
             return usr;
         }
 

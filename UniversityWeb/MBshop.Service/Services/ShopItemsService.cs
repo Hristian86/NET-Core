@@ -21,18 +21,18 @@ namespace MBshop.Service.Services
         public async Task<string> BuyMovie(string userId, int movieId)
         {
 
-            var chek = db.Shops.Any(x => x.MovieId == movieId && x.UserId == userId);
+            var chek = this.db.Shops.Any(x => x.MovieId == movieId && x.UserId == userId);
 
             if (!chek)
             {
 
-                var movie = db.Movies
+                var movie = this.db.Movies
                 .Where(x => x.Id == movieId)
                 .FirstOrDefault();
 
                 if (movie != null)
                 {
-                    var user = db.AspNetUsers
+                    var user = this.db.AspNetUsers
                         .Where(x => x.Id == userId)
                         .FirstOrDefault();
 
@@ -47,7 +47,7 @@ namespace MBshop.Service.Services
                             User = user
                         };
 
-                        db.Shops.Add(purchasedItem);
+                        this.db.Shops.Add(purchasedItem);
 
                         await this.db.SaveChangesAsync();
 
@@ -72,18 +72,18 @@ namespace MBshop.Service.Services
         public async Task<string> BuyBook(string userId, int bookId)
         {
 
-            var chek = db.Shops.Any(x => x.BooksId == bookId && x.UserId == userId);
+            var chek = this.db.Shops.Any(x => x.BooksId == bookId && x.UserId == userId);
 
             if (!chek)
             {
 
-                var book = db.Books
+                var book = this.db.Books
                     .Where(x => x.Id == bookId)
                     .FirstOrDefault();
 
                 if (book != null)
                 {
-                    var user = db.AspNetUsers
+                    var user = this.db.AspNetUsers
                         .Where(x => x.Id == userId)
                         .FirstOrDefault();
 
@@ -98,10 +98,11 @@ namespace MBshop.Service.Services
                             User = user
                         };
 
-                        db.Shops.Add(purchasedItem);
+                        this.db.Shops.Add(purchasedItem);
 
                         await this.db.SaveChangesAsync();
 
+                        return $"Purchase successed";
                     }
                     else
                     {

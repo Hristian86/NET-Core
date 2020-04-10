@@ -25,8 +25,8 @@ namespace MBshop.Service.Services
 
         public async Task DeleteAllMessages()
         {
-            var remove = this.db.Messages.ToList();
-            this.db.Messages.RemoveRange(remove);
+            var removeAllMessages = this.db.Messages.ToList();
+            this.db.Messages.RemoveRange(removeAllMessages);
             await this.db.SaveChangesAsync();
         }
 

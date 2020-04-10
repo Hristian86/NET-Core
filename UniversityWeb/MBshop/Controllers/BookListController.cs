@@ -15,17 +15,14 @@ namespace MBshop.Controllers
     {
         private readonly IViewBooksService books;
         private readonly IUserShopedProductsService userItems;
-        private readonly IShopItemsService shoping;
         private readonly Status status;
 
         public BookListController(IViewBooksService books,
             IUserShopedProductsService userItems,
-            IShopItemsService shoping,
             Status status)
         {
             this.books = books;
             this.userItems = userItems;
-            this.shoping = shoping;
             this.status = status;
         }
 
@@ -41,12 +38,12 @@ namespace MBshop.Controllers
                 var user = User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
                 //current user peronal books
-                var userItm = userItems.PersonalBooks(user);
+                var userItm = this.userItems.PersonalBooks(user);
 
                 if (userItm.Count != 0)
                 {
                     //chek for possessed items in collections
-                    status.StatusChekBooks(list, userItm);
+                    this.status.StatusChekBooks(list, userItm);
                 }
 
             }
@@ -64,7 +61,7 @@ namespace MBshop.Controllers
                 return NotFound();
             }
 
-            var book = books.GetListOfBooks()
+            var book = this.books.GetListOfBooks()
                 .FirstOrDefault(m => m.Id == id);
 
             string user = "";
@@ -74,7 +71,7 @@ namespace MBshop.Controllers
                 //Get user id from cookies
                 user = User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-                bool userBook = userItems.PersonalBooks(user).Any(x => x.Id == book.Id);
+                bool userBook = this.userItems.PersonalBooks(user).Any(x => x.Id == book.Id);
 
                 if (userBook)
                 {

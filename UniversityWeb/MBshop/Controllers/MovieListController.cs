@@ -16,18 +16,15 @@ namespace MBshop.Controllers
     public class MovieListController : Controller
     {
         private readonly IViewMoviesService movieDb;
-        private readonly IShopItemsService shoping;
         private readonly IUserShopedProductsService userItems;
         private readonly Status status;
 
         public MovieListController(IViewMoviesService movieDb,
-            IShopItemsService shoping,
             IUserShopedProductsService userItems,
             Status status
             )
         {
             this.movieDb = movieDb;
-            this.shoping = shoping;
             this.userItems = userItems;
             this.status = status;
         }
@@ -44,12 +41,12 @@ namespace MBshop.Controllers
                 var user = User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
                 //current user personal movies
-                var userItm = userItems.PersonalMovies(user);
+                var userItm = this.userItems.PersonalMovies(user);
 
                 if (userItm.Count != 0)
                 {
                     //chek for possessed items in collections
-                    status.StatusChekMovies(list, userItm);
+                    this.status.StatusChekMovies(list, userItm);
                 }
 
             }
@@ -67,17 +64,17 @@ namespace MBshop.Controllers
                 return NotFound();
             }
 
-            var movie = movieDb.GetListOfMovies()
+            var movie = this.movieDb.GetListOfMovies()
                 .FirstOrDefault(m => m.Id == id);
 
             string user = "";
 
-            if (User.Identity.Name != null)
+            if (User.Identity.Name != null && movie != null)
             {
                 //Get user id from cookies
                 user = User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-                bool userMovie = userItems.PersonalMovies(user).Any(x => x.Id == movie.Id);
+                bool userMovie = this.userItems.PersonalMovies(user).Any(x => x.Id == movie.Id);
 
                 if (userMovie)
                 {

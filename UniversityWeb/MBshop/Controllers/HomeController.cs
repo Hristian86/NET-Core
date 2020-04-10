@@ -52,7 +52,7 @@ namespace MBshop.Controllers
             if (User.Identity.Name != null)
             {
 
-                var curUser = edits.GetUserProperties(User.Identity.Name);
+                var curUser = this.edits.GetUserProperties(User.Identity.Name);
 
                 //var usery = userManager.GetUserId(this.User);
 
@@ -79,7 +79,7 @@ namespace MBshop.Controllers
                     user = User.FindFirst(ClaimTypes.NameIdentifier).Value;
                 }
 
-                var result = search.Search(searchItem,user);
+                var result = this.search.Search(searchItem,user);
 
                 ViewData["Search"] = searchItem;
 

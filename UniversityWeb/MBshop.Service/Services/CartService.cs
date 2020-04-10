@@ -41,12 +41,12 @@ namespace MBshop.Service.Services
                 return $"Book not found";
             }
 
-            //chek for already added in cart
-            var chek = carts
+            //chek for already added in cart : static list
+            bool chek = carts
                 .Any(x => x.Id == id && (x.Type == WebConstansVariables.Book && x.price == price));
 
             //chek for user personal product
-            bool chekForUserPurchase = userItems.PersonalBooks(userId).Any(x => x.Id == id);
+            bool chekForUserPurchase = this.userItems.PersonalBooks(userId).Any(x => x.Id == id);
 
             if (chekForUserPurchase)
             {
@@ -64,14 +64,15 @@ namespace MBshop.Service.Services
                     Type = WebConstansVariables.Book
                 };
 
-                if (cart != null)
+                if (cart != null && cart.Title != null)
                 {
                     carts.Add(cart);
                     return $"Book {book.Title} added to cart";
                 }
                 else
                 {
-                    return $"Book not found";
+                    //error
+                    return $"Opps it seems that there is an error when adding book to the cart";
                 }
             }
             else
@@ -97,7 +98,7 @@ namespace MBshop.Service.Services
                 .Any(x => x.Id == id && (x.Type == WebConstansVariables.Movie && x.price == price));
 
             //chek for user personal product
-            bool chekForUserPurchase = userItems.PersonalMovies(userId).Any(x => x.Id == id);
+            bool chekForUserPurchase = this.userItems.PersonalMovies(userId).Any(x => x.Id == id);
 
             if (chekForUserPurchase)
             {
@@ -116,14 +117,15 @@ namespace MBshop.Service.Services
                     Type = WebConstansVariables.Movie
                 };
 
-                if (cart != null)
+                if (cart != null && cart.Title != null)
                 {
                     carts.Add(cart);
                     return $"Movie {movie.Title} added to cart";
                 }
                 else
                 {
-                    return $"Movie not found";
+                    //error
+                    return $"Opps it seems that there is an error when adding book to the cart";
                 }
             }
             else

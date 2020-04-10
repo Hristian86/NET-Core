@@ -30,7 +30,7 @@ namespace MBshop.Controllers
             {
 
                 // all other properties in current logged user are null
-                var curUser = edit.GetUserProperties(User.Identity.Name);
+                var curUser = this.edit.GetUserProperties(User.Identity.Name);
 
                 UserNames tempUser = new UserNames
                 {

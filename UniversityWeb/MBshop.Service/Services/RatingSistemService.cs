@@ -105,7 +105,6 @@ namespace MBshop.Service.Services
         }
 
         
-
         public async Task<string> RateBook(OutputBooks model, string userId)
         {
             this.final = 0;
@@ -148,7 +147,7 @@ namespace MBshop.Service.Services
                 }
 
                 //chek for loged existing user in database
-                bool checkUser = db.AspNetUsers.Any(x => x.Id == userId);
+                bool checkUser = this.db.AspNetUsers.Any(x => x.Id == userId);
 
                 if (userId != null && checkUser)
                 {
@@ -199,6 +198,5 @@ namespace MBshop.Service.Services
             this.db.Books.Update(book);
             await this.db.SaveChangesAsync();
         }
-
     }
 }

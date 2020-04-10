@@ -31,7 +31,7 @@ namespace MBshop.Controllers
                 user = User.FindFirst(ClaimTypes.NameIdentifier).Value;
             }
 
-            var result = search.ViewProducts(user);
+            var result = this.search.ViewProducts(user);
 
             //Can be made orderBy
 

@@ -31,7 +31,7 @@ namespace MBshop.Controllers
                 return NotFound();
             }
 
-            IEnumerable<OutputMovies> movi = products.PersonalMovies(user);
+            IEnumerable<OutputMovies> movi = this.products.PersonalMovies(user);
 
             return View(movi);
         }
@@ -47,7 +47,7 @@ namespace MBshop.Controllers
                 return NotFound();
             }
 
-            IEnumerable<OutputBooks> books = products.PersonalBooks(user); 
+            IEnumerable<OutputBooks> books = this.products.PersonalBooks(user); 
 
             return View(books);
         }

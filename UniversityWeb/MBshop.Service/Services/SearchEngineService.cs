@@ -30,12 +30,12 @@ namespace MBshop.Service.Services
 
         public List<ViewProducts> Search(string searchItem, string userId)
         {
-            var movieses = movies.GetListOfMovies();
-            var bookses = books.GetListOfBooks();
+            var movieses = this.movies.GetListOfMovies();
+            var bookses = this.books.GetListOfBooks();
 
-            var userPersonalMovies = userItems.PersonalMovies(userId);
+            var userPersonalMovies = this.userItems.PersonalMovies(userId);
 
-            var userPersonalBooks = userItems.PersonalBooks(userId);
+            var userPersonalBooks = this.userItems.PersonalBooks(userId);
 
             status.StatusChekBooks(bookses,userPersonalBooks);
 
@@ -79,17 +79,17 @@ namespace MBshop.Service.Services
 
         public List<ViewProducts> ViewProducts(string userId)
         {
-            var movieses = movies.GetListOfMovies();
-            var bookses = books.GetListOfBooks();
+            var movieses = this.movies.GetListOfMovies();
+            var bookses = this.books.GetListOfBooks();
 
-            var userPersonalMovies = userItems.PersonalMovies(userId);
+            var userPersonalMovies = this.userItems.PersonalMovies(userId);
 
-            var userPersonalBooks = userItems.PersonalBooks(userId);
+            var userPersonalBooks = this.userItems.PersonalBooks(userId);
 
-            status.StatusChekBooks(bookses, userPersonalBooks);
+            this.status.StatusChekBooks(bookses, userPersonalBooks);
 
             //status chek for movies
-            status.StatusChekMovies(movieses, userPersonalMovies);
+            this.status.StatusChekMovies(movieses, userPersonalMovies);
 
             var result = movieses
                 .Select(item => new ViewProducts
