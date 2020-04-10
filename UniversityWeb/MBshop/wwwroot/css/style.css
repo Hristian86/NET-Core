@@ -100,3 +100,9 @@
     background-size:cover;
     background:center;
 }
+
+#rateStars {
+    background-image: url(https://st.depositphotos.com/1216158/4699/v/950/depositphotos_46997111-stock-illustration-yellow-stars-vector-illustration-single.jpg);
+    background-size: cover;
+    height: 70px;
+}

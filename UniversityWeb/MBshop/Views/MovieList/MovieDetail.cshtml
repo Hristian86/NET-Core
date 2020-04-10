@@ -97,45 +97,45 @@ else
 {
     <div style="display:flex;align-items: center;
   justify-content: center;">
-        <form asp-controller="Rating" asp-action="RateMovie" method="get">
+        <form asp-controller="Rating" asp-action="RateMovie" method="post">
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
                 <input type="hidden" asp-for="Raiting" value="1" class="form-control" />
                 <span asp-validation-for="Raiting" class="text-danger"></span>
             </div>
-            <input type="submit" style="background-image:url(https://st.depositphotos.com/1216158/4699/v/950/depositphotos_46997111-stock-illustration-yellow-stars-vector-illustration-single.jpg);background-size:cover; height:70px;" value="Rate 1" class="btn btn-outline-success" />
+            <input type="submit" id="rateStars" value="Rate 1" class="btn btn-outline-success" />
         </form>
-        <form asp-controller="Rating" asp-action="RateMovie" method="get">
+        <form asp-controller="Rating" asp-action="RateMovie" method="post">
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
                 <input type="hidden" asp-for="Raiting" value="2" class="form-control" />
                 <span asp-validation-for="Raiting" class="text-danger"></span>
             </div>
-            <input type="submit" value="Rate 2" class="btn btn-outline-success" style="background-image:url(https://st.depositphotos.com/1216158/4699/v/950/depositphotos_46997111-stock-illustration-yellow-stars-vector-illustration-single.jpg);background-size:cover; height:70px;" />
+            <input type="submit" value="Rate 2" class="btn btn-outline-success" id="rateStars" />
         </form>
-        <form asp-controller="Rating" asp-action="RateMovie" method="get">
+        <form asp-controller="Rating" asp-action="RateMovie" method="post">
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
                 <input type="hidden" asp-for="Raiting" value="3" class="form-control" />
                 <span asp-validation-for="Raiting" class="text-danger"></span>
             </div>
-            <input type="submit" value="Rate 3" class="btn btn-outline-success" style="background-image:url(https://st.depositphotos.com/1216158/4699/v/950/depositphotos_46997111-stock-illustration-yellow-stars-vector-illustration-single.jpg);background-size:cover; height:70px;" />
+            <input type="submit" value="Rate 3" class="btn btn-outline-success" id="rateStars" />
         </form>
-        <form asp-controller="Rating" asp-action="RateMovie" method="get">
+        <form asp-controller="Rating" asp-action="RateMovie" method="post">
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
                 <input type="hidden" asp-for="Raiting" value="4" class="form-control" />
                 <span asp-validation-for="Raiting" class="text-danger"></span>
             </div>
-            <input type="submit" value="Rate 4" class="btn btn-outline-success" style="background-image:url(https://st.depositphotos.com/1216158/4699/v/950/depositphotos_46997111-stock-illustration-yellow-stars-vector-illustration-single.jpg);background-size:cover; height:70px;" />
+            <input type="submit" value="Rate 4" class="btn btn-outline-success" id="rateStars" />
         </form>
-        <form asp-controller="Rating" asp-action="RateMovie" method="get">
+        <form asp-controller="Rating" asp-action="RateMovie" method="post">
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
                 <input type="hidden" asp-for="Raiting" value="5" class="form-control" />
                 <span asp-validation-for="Raiting" class="text-danger"></span>
             </div>
-            <input type="submit" value="Rate 5" class="btn btn-outline-success" style="background-image:url(https://st.depositphotos.com/1216158/4699/v/950/depositphotos_46997111-stock-illustration-yellow-stars-vector-illustration-single.jpg);background-size:cover; height:70px;" />
+            <input type="submit" value="Rate 5" class="btn btn-outline-success" id="rateStars"/>
         </form>
     </div>
 }

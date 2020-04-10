@@ -23,9 +23,9 @@ namespace MBshop.Controllers
             this.rateService = rateService;
         }
 
-        [HttpGet]
+        [HttpPost]
         [Authorize]
-        public async Task<IActionResult> RateMovie(OutputMovies model)
+        public async Task<IActionResult> RateMovie([Bind("Id", "Raiting")] OutputMovies model)
         {
             if (ModelState.IsValid)
             {
@@ -38,9 +38,9 @@ namespace MBshop.Controllers
             return this.View();
         }
 
-        [HttpGet]
+        [HttpPost]
         [Authorize]
-        public async Task<IActionResult> RateBook(OutputBooks model)
+        public async Task<IActionResult> RateBook([Bind("Id", "Raiting")] OutputBooks model)
         {
             if (ModelState.IsValid)
             {

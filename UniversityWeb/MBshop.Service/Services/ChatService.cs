@@ -41,6 +41,7 @@ namespace MBshop.Service.Services
 
         public async Task CreateMessage(string fullNameOfUser, string content, string user, string avatar)
         {
+
             Messages messageOrigin = new Messages
             {
                 Avatar = avatar,

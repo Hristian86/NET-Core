@@ -18,8 +18,8 @@ namespace MBshop.Controllers
     {
         private readonly IProfileEditService profEdit;
         private readonly IChatService msg;
-        private string fullNameOfUsr;
-        private string user;
+        private string fullNameOfUser;
+        private string userId;
 
         public ChatController(IChatService msg,
             IProfileEditService profEdit)
@@ -32,36 +32,29 @@ namespace MBshop.Controllers
         [Route("GetMessages")]
         public async Task<ActionResult<List<ChatModel>>> GetMessages()
         {
-            var messageses = this.msg.GetMessages();
-
-            List<ChatModel> chats = new List<ChatModel>();
 
             if (User.Identity.Name != null)
             {
-                this.user = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+                this.userId = GetUserId();
 
-                this.fullNameOfUsr = await this.msg.GetFullName(user);
+                this.fullNameOfUser = await this.msg.GetFullName(userId);
 
                 //string curUserAvatar = CurrentUserAvatar();
             }
-            
-            foreach (var item in messageses)
+
+            var messageses = this.msg.GetMessages().Select(item => new ChatModel
             {
+                Avatar = item.Avatar,
+                Content = item.Content,
+                Id = item.Id,
+                UserName = item.UserName,
+                DateT = item.DateT,
+                CurrentUser = this.fullNameOfUser
+            }).ToList();
 
-                ChatModel chat = new ChatModel
-                {
-                    Avatar = item.Avatar,
-                    Content = item.Content,
-                    Id = item.Id,
-                    UserName = item.UserName,
-                    DateT = item.DateT,
-                    CurrentUser = this.fullNameOfUsr
-                };
+            this.fullNameOfUser = "";
 
-                chats.Add(chat);
-            }
-
-            return chats;
+            return messageses;
         }
 
         [HttpPost(Name = "Create")]
@@ -70,21 +63,23 @@ namespace MBshop.Controllers
         public async Task<ChatModel> Create(ChatModel model)
         {
 
-            string user = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            this.userId = GetUserId();
 
-            string fullNameOfUser = await this.msg.GetFullName(user);
-
-            if (fullNameOfUser != null && model.Content.Length > 0)
+            this.fullNameOfUser = await this.msg.GetFullName(this.userId);
+            
+            if (this.fullNameOfUser != null && model.Content.Length > 1)
             {
-
-                await this.msg.CreateMessage(fullNameOfUser, model.Content, user, CurrentUserAvatar());
+                // creating message in database
+                await this.msg.CreateMessage(this.fullNameOfUser, model.Content, userId, CurrentUserAvatar());
 
             }
 
             ChatModel message = new ChatModel
             {
-                Content = model.Content
+                //Content = model.Content
             };
+
+            this.fullNameOfUser = "";
 
             return message;
         }
@@ -97,6 +92,11 @@ namespace MBshop.Controllers
 
             await this.msg.Delete(model.Id);
 
+        }
+
+        private string GetUserId()
+        {
+            return User.FindFirst(ClaimTypes.NameIdentifier).Value;
         }
 
         private string CurrentUserAvatar()
