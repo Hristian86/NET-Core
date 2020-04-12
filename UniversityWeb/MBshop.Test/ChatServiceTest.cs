@@ -31,18 +31,34 @@ namespace MBshop.Test
 
             string name = "icaka";
             string content = "hi";
-            string user = "ico";
+            string userId = "ico";
             string avatar = "img";
 
-            var result = service.CreateMessage(name,content,user,avatar).Result;
+            var result = service.CreateMessage(name,content,userId,avatar).Result;
 
             Assert.Equal("Message created successfully",result);
 
         }
 
+        [Fact]
+        public void ShouldReturnUserIsRequired()
+        {
+            var service = new ChatService();
+
+            string name = "icaka";
+            string content = "hi";
+            string userId = "";
+            string avatar = "img";
+
+            var result = service.CreateMessage(name, content, userId, avatar).Result;
+
+            Assert.Equal("User account is required!", result);
+
+        }
+
         public class ChatService : IChatService
         {
-            public async Task<string> CreateMessage(string fullNameOfUser, string content, string user, string avatar)
+            public async Task<string> CreateMessage(string fullNameOfUser, string content, string userId, string avatar)
             {
                 var options = new DbContextOptionsBuilder<MovieShopDBSEContext>().UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString()).Options;
 
@@ -53,8 +69,13 @@ namespace MBshop.Test
                     Avatar = avatar,
                     UserName = fullNameOfUser,
                     Content = content,
-                    UserId = user
+                    UserId = userId
                 };
+
+                if (userId == null || userId.Length < 1)
+                {
+                    return $"User account is required!";
+                }
 
                 db.Messages.Add(messageOrigin);
 

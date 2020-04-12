@@ -13,6 +13,7 @@ namespace MBshop.Service.Services
     public class CartService : ICartService
     {
         private static List<ViewProducts> carts = new List<ViewProducts>();
+
         private readonly MovieShopDBSEContext db;
         private readonly IUserShopedProductsService userItems;
 
@@ -23,12 +24,23 @@ namespace MBshop.Service.Services
             this.userItems = userItems;
         }
 
+        /// <summary>
+        /// Retrive all products in the basket
+        /// </summary>
+        /// <returns></returns>
         public List<ViewProducts> GetCartBascket()
         {
             var carty = carts.ToList();
             return carty;
         }
 
+        /// <summary>
+        /// Add book to cart
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="price"></param>
+        /// <param name="userId"></param>
+        /// <returns></returns>
         public string AddToCartBook(int id, double price,string userId)
         {
             //current book to be addet
@@ -77,10 +89,17 @@ namespace MBshop.Service.Services
             }
             else
             {
-                return $"Book {book.Title} already is added";
+                return $"Book {book.Title} is already added";
             }
         }
 
+        /// <summary>
+        /// Add movie to cart
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="price"></param>
+        /// <param name="userId"></param>
+        /// <returns></returns>
         public string AddToCartMovie(int id, double price, string userId)
         {
             //current movie to be addet
@@ -130,15 +149,22 @@ namespace MBshop.Service.Services
             }
             else
             {
-                return $"Movie {movie.Title} already is added";
+                return $"Movie {movie.Title} is already added";
             }
         }
 
+        /// <summary>
+        /// Remove items from cart when chekout is pressed
+        /// </summary>
         public void DisposeCartProducts()
         {
             carts = new List<ViewProducts>();
         }
 
+        /// <summary>
+        /// Remove product : Type = Movie
+        /// </summary>
+        /// <param name="id"></param>
         public void RemoveMovie(int id)
         {
             var cart = carts.Where(x => x.Id == id && x.Type == WebConstansVariables.Movie).FirstOrDefault();
@@ -146,6 +172,10 @@ namespace MBshop.Service.Services
             carts.Remove(cart);
         }
 
+        /// <summary>
+        /// Remove product : Type = Book
+        /// </summary>
+        /// <param name="id"></param>
         public void RemoveBook(int id)
         {
             var cart = carts.Where(x => x.Id == id && x.Type == WebConstansVariables.Book).FirstOrDefault();

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MBshop.Service.OutputModels.ViewProducts>
+﻿@model IEnumerable<ViewProducts>
 
 @{
     ViewData["Title"] = "Cart";
@@ -83,8 +83,13 @@ else
         {
             <div class="form-group">
                 <div class="col-lg-10 col-lg-offset-2">
+                    @foreach (var item in Model)
+                    {
+                        <input type="hidden" name="productId" value="@item.Id" />
+                        <input type="hidden" name="type" value="@item.Type" />
+                    }
                     <button type="submit" class="btn btn-danger">Check out  </button>
-                    @Model.Sum(p => p.price)
+                    @Model.Sum(p => p.price) $
                 </div>
             </div>
         }

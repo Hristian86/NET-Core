@@ -18,6 +18,12 @@ namespace MBshop.Service.Services
             this.db = db;
         }
 
+        /// <summary>
+        /// Function for purchasing movie and add them in to database
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="movieId"></param>
+        /// <returns></returns>
         public async Task<string> BuyMovie(string userId, int movieId)
         {
 
@@ -69,6 +75,12 @@ namespace MBshop.Service.Services
             return $"This product {movieTitle} allready is purchased";
         }
 
+        /// <summary>
+        /// Function for purchasing book and add them in to database
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="bookId"></param>
+        /// <returns></returns>
         public async Task<string> BuyBook(string userId, int bookId)
         {
 

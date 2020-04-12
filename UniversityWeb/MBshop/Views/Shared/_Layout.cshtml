@@ -44,9 +44,9 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Cart" asp-action="Cart">
                                 Cart
-                                @if (StatusForCartCount.CountOfProductsInBasket != 0)
+                                @if (GlobalAlertMessages.CountOfProductsInBasket != 0)
                                 {
-                                    @StatusForCartCount.CountOfProductsInBasket
+                                    @GlobalAlertMessages.CountOfProductsInBasket
                                 } @*<text class="bg-light">@StatusForCartCount.MessageForStaatus</text>*@
                             </a>
                         </li>
@@ -58,8 +58,8 @@
 
     @*Alert status message for user requests*@
     <div  id="hideMessage">
-        <div class="statusMessage" ><h4 class="bg-success text-light messageHeader" id="message">@StatusForCartCount.MessageForStaatus</h4></div>
-        @{ StatusForCartCount.MessageForStaatus = ""; }
+        <div class="statusMessage" ><h4 class="bg-success text-light messageHeader" id="message">@GlobalAlertMessages.MessageForStaatus</h4></div>
+        @{ GlobalAlertMessages.MessageForStaatus = ""; }
     </div>
 
     <div class="container">

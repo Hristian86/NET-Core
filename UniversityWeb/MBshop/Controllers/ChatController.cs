@@ -8,6 +8,7 @@ using MBshop.Service.interfaces;
 using MBshop.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using MBshop.Service.StaticProperyes;
 
 namespace MBshop.Controllers
 {
@@ -71,9 +72,14 @@ namespace MBshop.Controllers
 
             if (this.fullNameOfUser != null && model.Content.Length > 1)
             {
+
                 // creating message in database
                 string responce = await this.msg.CreateMessage(this.fullNameOfUser, model.Content, userId, CurrentUserAvatar());
 
+                if (responce == "User account is required!")
+                {
+                    GlobalAlertMessages.MessageForStaatus = responce;
+                }
             }
 
             ChatModel message = new ChatModel

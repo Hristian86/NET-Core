@@ -18,6 +18,10 @@ namespace MBshop.Service.Services
             this.db = dbs;
         }
 
+        /// <summary>
+        /// Mapped movies to output model
+        /// </summary>
+        /// <returns></returns>
         public List<OutputMovies> GetListOfMovies() => this.db
             .Movies
             .Select(itemMovie => new OutputMovies
@@ -40,7 +44,11 @@ namespace MBshop.Service.Services
             Description = itemMovie.Description
         }).ToList();
 
-
+        /// <summary>
+        /// Sorted movies
+        /// </summary>
+        /// <param name="orderBy"></param>
+        /// <returns></returns>
         public List<OutputMovies> SortMovies(int orderBy)
         {
             if (orderBy == 1)

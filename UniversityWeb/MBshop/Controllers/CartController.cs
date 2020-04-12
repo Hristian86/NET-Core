@@ -42,9 +42,9 @@ namespace MBshop.Controllers
             }
 
             //cart user interface for displayin numberof items in card
-            StatusForCartCount.MessageForStaatus = this.cardBasket.AddToCartMovie(model.Id,model.price, GetCurrentUser());
+            GlobalAlertMessages.MessageForStaatus = this.cardBasket.AddToCartMovie(model.Id,model.price, GetCurrentUser());
 
-            StatusForCartCount.CountOfProductsInBasket = this.cardBasket.GetCartBascket().Count();
+            GlobalAlertMessages.CountOfProductsInBasket = this.cardBasket.GetCartBascket().Count();
 
             return RedirectToAction("MovieCollection", "MovieList");
         }
@@ -60,9 +60,9 @@ namespace MBshop.Controllers
             }
 
             //cart user interface for displayin numberof items in card
-            StatusForCartCount.MessageForStaatus = this.cardBasket.AddToCartBook(model.Id,model.price, GetCurrentUser());
+            GlobalAlertMessages.MessageForStaatus = this.cardBasket.AddToCartBook(model.Id,model.price, GetCurrentUser());
 
-            StatusForCartCount.CountOfProductsInBasket = this.cardBasket.GetCartBascket().Count();
+            GlobalAlertMessages.CountOfProductsInBasket = this.cardBasket.GetCartBascket().Count();
 
             return RedirectToAction("BooksCollection", "BookList");
         }
@@ -71,7 +71,7 @@ namespace MBshop.Controllers
         [Authorize]
         [ValidateAntiForgeryToken]
         [AutoValidateAntiforgeryToken]
-        public async Task<IActionResult> CartChekout(IEnumerable<ViewProducts> model)
+        public async Task<IActionResult> CartChekout(IEnumerable<ViewProducts> model,List<int> productId, List<string> type)
         {
             if (!ModelState.IsValid)
             {
@@ -87,20 +87,20 @@ namespace MBshop.Controllers
             {
                 if (product.Type == "Movie")
                 {
-                    StatusForCartCount.MessageForStaatus = await this.shopService
+                    GlobalAlertMessages.MessageForStaatus = await this.shopService
                         .BuyMovie(user,product.Id);
                 }
                 else if (product.Type == "Book")
                 {
                     //To Do string message
-                    StatusForCartCount.MessageForStaatus = await this.shopService
+                    GlobalAlertMessages.MessageForStaatus = await this.shopService
                         .BuyBook(user,product.Id);
                 }
             }
 
             this.cardBasket.DisposeCartProducts();
 
-            StatusForCartCount.CountOfProductsInBasket = this.cardBasket.GetCartBascket().Count();
+            GlobalAlertMessages.CountOfProductsInBasket = this.cardBasket.GetCartBascket().Count();
 
             return RedirectToAction("UserMovieShops", "UserShopedItems");
         }
@@ -117,9 +117,9 @@ namespace MBshop.Controllers
 
             this.cardBasket.RemoveMovie((int)id);
 
-            StatusForCartCount.MessageForStaatus = "";
+            GlobalAlertMessages.MessageForStaatus = "";
 
-            StatusForCartCount.CountOfProductsInBasket = this.cardBasket.GetCartBascket().Count();
+            GlobalAlertMessages.CountOfProductsInBasket = this.cardBasket.GetCartBascket().Count();
 
             return RedirectToAction("Cart","Cart");
         }
@@ -136,9 +136,9 @@ namespace MBshop.Controllers
 
             this.cardBasket.RemoveBook((int)id);
 
-            StatusForCartCount.MessageForStaatus = "";
+            GlobalAlertMessages.MessageForStaatus = "";
 
-            StatusForCartCount.CountOfProductsInBasket = this.cardBasket.GetCartBascket().Count();
+            GlobalAlertMessages.CountOfProductsInBasket = this.cardBasket.GetCartBascket().Count();
 
             return RedirectToAction("Cart", "Cart");
         }

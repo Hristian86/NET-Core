@@ -18,12 +18,22 @@ namespace MBshop.Service.Services
             this.db = db;
         }
 
+        /// <summary>
+        /// Current logged user purchased movies
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
         public List<OutputMovies> PersonalMovies(string userId)
         {
             var display = ConvertMovie(userId);
             return display;
         }
 
+        /// <summary>
+        /// Current logged user purchased books
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
         public List<OutputBooks> PersonalBooks(string userId)
         {
             var toBeDisplayed = ConvertBooks(userId);

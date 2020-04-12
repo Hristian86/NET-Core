@@ -20,6 +20,12 @@ namespace MBshop.Service.Services
             this.db = db;
         }
 
+        /// <summary>
+        /// Rate movie
+        /// </summary>
+        /// <param name="model"></param>
+        /// <param name="userId"></param>
+        /// <returns></returns>
         public async Task<string> RateMovie(OutputMovies model, string userId)
         {
             this.final = 0;
@@ -104,7 +110,12 @@ namespace MBshop.Service.Services
             
         }
 
-        
+        /// <summary>
+        /// Rate book
+        /// </summary>
+        /// <param name="model"></param>
+        /// <param name="userId"></param>
+        /// <returns></returns>
         public async Task<string> RateBook(OutputBooks model, string userId)
         {
             this.final = 0;

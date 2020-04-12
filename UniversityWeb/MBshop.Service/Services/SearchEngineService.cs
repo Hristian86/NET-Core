@@ -27,7 +27,12 @@ namespace MBshop.Service.Services
             this.status = status;
         }
 
-
+        /// <summary>
+        /// Search for product in combine collection from database
+        /// </summary>
+        /// <param name="searchItem"></param>
+        /// <param name="userId"></param>
+        /// <returns></returns>
         public List<ViewProducts> Search(string searchItem, string userId)
         {
             var movieses = this.movies.GetListOfMovies();
@@ -77,6 +82,11 @@ namespace MBshop.Service.Services
             return result.ToList().Where(x => x.Title.ToLower().Contains(searchItem.ToLower())).ToList();
         }
 
+        /// <summary>
+        /// Combined collection of products
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
         public List<ViewProducts> ViewProducts(string userId)
         {
             var movieses = this.movies.GetListOfMovies();

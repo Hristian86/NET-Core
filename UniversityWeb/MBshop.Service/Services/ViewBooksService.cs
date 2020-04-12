@@ -17,6 +17,10 @@ namespace MBshop.Service.Services
             this._db = db;
         }
 
+        /// <summary>
+        /// Mapped books to output model
+        /// </summary>
+        /// <returns></returns>
         public List<OutputBooks> GetListOfBooks() => this._db
             .Books
             .Select(itemBook => new OutputBooks
@@ -35,6 +39,11 @@ namespace MBshop.Service.Services
             LinkForProductContentWhenPurchase = itemBook.LinkForProductContentWhenPurchase
         }).ToList();
 
+        /// <summary>
+        /// Sorting books
+        /// </summary>
+        /// <param name="orderBy"></param>
+        /// <returns></returns>
         public List<OutputBooks> SortBooks(int orderBy)
         {
             if (orderBy == 1)

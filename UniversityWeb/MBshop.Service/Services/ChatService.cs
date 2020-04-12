@@ -18,11 +18,19 @@ namespace MBshop.Service.Services
             this.db = db;
         }
 
+        /// <summary>
+        /// Get all messages in database
+        /// </summary>
+        /// <returns></returns>
         public List<Messages> GetMessages()
         {
             return this.db.Messages.ToList();
         }
 
+        /// <summary>
+        /// Only Admin : Can remove all messages
+        /// </summary>
+        /// <returns></returns>
         public async Task DeleteAllMessages()
         {
             var removeAllMessages = this.db.Messages.ToList();
@@ -30,6 +38,11 @@ namespace MBshop.Service.Services
             await this.db.SaveChangesAsync();
         }
 
+        /// <summary>
+        /// Get Chat name for current logged user from manage page
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         public async Task<string> GetFullName(string user)
         {
             var fullName = await this.db.AspNetUsers.FindAsync(user);
@@ -39,7 +52,15 @@ namespace MBshop.Service.Services
             return name;
         }
 
-        public async Task<string> CreateMessage(string fullNameOfUser, string content, string user, string avatar)
+        /// <summary>
+        /// Creating message only if user is logged and has chat name
+        /// </summary>
+        /// <param name="fullNameOfUser"></param>
+        /// <param name="content"></param>
+        /// <param name="userId"></param>
+        /// <param name="avatar"></param>
+        /// <returns></returns>
+        public async Task<string> CreateMessage(string fullNameOfUser, string content, string userId, string avatar)
         {
 
             Messages messageOrigin = new Messages
@@ -47,8 +68,13 @@ namespace MBshop.Service.Services
                 Avatar = avatar,
                 UserName = fullNameOfUser,
                 Content = content,
-                UserId = user
+                UserId = userId
             };
+
+            if (userId == null || userId.Length < 1)
+            {
+                return $"User account is required!";
+            }
 
             this.db.Messages.Add(messageOrigin);
 
@@ -57,6 +83,11 @@ namespace MBshop.Service.Services
             return $"Message created successfully";
         }
 
+        /// <summary>
+        /// User can delete personal messages
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task Delete(int id)
         {
             var message = this.db.Messages.Where(x => x.Id == id).FirstOrDefault();

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MBshop.Service.StaticProperyes
 {
-    public class StatusForCartCount
+    public class GlobalAlertMessages
     {
         public static string MessageForStaatus { get; set; }
 
