@@ -67,13 +67,15 @@ namespace MBshop
             services.AddScoped<IShopItemsService, ShopItemsService>();
             services.AddScoped<IAdminPanelProducts, AdminPanelProducts>();
             services.AddSingleton<Status>();
-            services.AddScoped<IUserShopedProductsService, 
+            services.AddScoped<IUserShopedProductsService,
                 UserShopedProductsService>();
-            services.AddScoped<IChatService,ChatService>();
+            services.AddScoped<IChatService, ChatService>();
             services.AddScoped<RatingSistemService>();
-            services.AddScoped<ICartService,CartService>();
-            services.AddScoped<IRatingSistemService,RatingSistemService>();
-            services.AddScoped<ISearchEngineService,SearchEngineService>();
+
+            services.AddScoped<ICartService, CartService>();
+
+            services.AddScoped<IRatingSistemService, RatingSistemService>();
+            services.AddScoped<ISearchEngineService, SearchEngineService>();
 
             services.AddCors(option =>
             {
@@ -112,7 +114,7 @@ namespace MBshop
 
             app.UseEndpoints(endpoints =>
             {
-                
+
 
                 endpoints.MapControllerRoute(
                     name: "default",

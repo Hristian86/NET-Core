@@ -42,7 +42,9 @@ namespace MBshop.Controllers
                 //string curUserAvatar = CurrentUserAvatar();
             }
 
-            var messageses = this.msg.GetMessages().Select(item => new ChatModel
+            var messageses = this.msg.GetMessages();
+
+            var messages = messageses.Select(item => new ChatModel
             {
                 Avatar = item.Avatar,
                 Content = item.Content,
@@ -54,7 +56,7 @@ namespace MBshop.Controllers
 
             this.fullNameOfUser = "";
 
-            return messageses;
+            return messages;
         }
 
         [HttpPost(Name = "Create")]
@@ -66,11 +68,11 @@ namespace MBshop.Controllers
             this.userId = GetUserId();
 
             this.fullNameOfUser = await this.msg.GetFullName(this.userId);
-            
+
             if (this.fullNameOfUser != null && model.Content.Length > 1)
             {
                 // creating message in database
-                await this.msg.CreateMessage(this.fullNameOfUser, model.Content, userId, CurrentUserAvatar());
+                string responce = await this.msg.CreateMessage(this.fullNameOfUser, model.Content, userId, CurrentUserAvatar());
 
             }
 

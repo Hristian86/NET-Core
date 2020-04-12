@@ -106,3 +106,22 @@
     background-size: cover;
     height: 70px;
 }
+
+
+
+
+
+
+.statusMessage {
+    position: fixed;
+    margin-top: 20px;
+    width: 38%;
+    text-align: center;
+    /*display:none;*/
+}
+
+
+#hideMessage {
+    display: flex;
+    justify-content: flex-end;
+}

@@ -40,8 +40,15 @@ using MBshop.Service.OutputModels;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 5 "C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop\Views\_ViewImports.cshtml"
+using MBshop.Service.StaticProperyes;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"2700e98f2efcb75c40a54bf5dc4beb78bacdb9e6", @"/Views/Books/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"826b060901f52d9bf02c148d94d0fe92e16fe72b", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"8579fc7af4c90e53a0565a581932c1274a5b5cc0", @"/Views/_ViewImports.cshtml")]
     public class Views_Books_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<MBshop.Models.Books>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Create", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -84,7 +91,7 @@ using MBshop.Service.OutputModels;
 #line hidden
 #nullable disable
             WriteLiteral("\n<h1>Create book</h1>\n\n<p>\n    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2700e98f2efcb75c40a54bf5dc4beb78bacdb9e65993", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2700e98f2efcb75c40a54bf5dc4beb78bacdb9e66247", async() => {
                 WriteLiteral("Create New");
             }
             );
@@ -264,7 +271,7 @@ WriteAttributeValue("", 2635, item.Picture, 2635, 13, false);
 #nullable disable
             EndWriteAttribute();
             WriteLiteral(" id=\"MovieList\" alt=\"Alternate Text\" />\n                    </td>\n                    <td>\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2700e98f2efcb75c40a54bf5dc4beb78bacdb9e615437", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2700e98f2efcb75c40a54bf5dc4beb78bacdb9e615691", async() => {
                 WriteLiteral("Edit");
             }
             );
@@ -296,7 +303,7 @@ WriteAttributeValue("", 2635, item.Picture, 2635, 13, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral(" <br />\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2700e98f2efcb75c40a54bf5dc4beb78bacdb9e617792", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2700e98f2efcb75c40a54bf5dc4beb78bacdb9e618046", async() => {
                 WriteLiteral("Details");
             }
             );
@@ -328,7 +335,7 @@ WriteAttributeValue("", 2635, item.Picture, 2635, 13, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral(" <br />\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2700e98f2efcb75c40a54bf5dc4beb78bacdb9e620153", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2700e98f2efcb75c40a54bf5dc4beb78bacdb9e620407", async() => {
                 WriteLiteral("Delete");
             }
             );

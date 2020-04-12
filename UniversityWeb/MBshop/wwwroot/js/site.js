@@ -81,12 +81,12 @@ function GetMessages() {
                     //for (var prop = 0; prop < obj.length; prop++)
                     //var messagesLenght = obj.length;
                     for (var prop = newLenght - 1; newLenght > 0; prop--) {
-
                         //date output
-                        var messageCreatedDate = new Date(obj[prop].dateT);
+
+                       var messageCreatedDate = new Date(obj[prop].dateT);
 
                         if (messageCreatedDate.getMinutes() == 0) {
-                            DayTimeMinutes = '0'+'0';
+                            DayTimeMinutes = '0' + '0';
                         } else if (messageCreatedDate.getMinutes() < 10) {
                             DayTimeMinutes = '0' + messageCreatedDate.getMinutes();
                         } else {
@@ -124,7 +124,7 @@ function GetMessages() {
                             curUserFont = `background-color:rgba(223, 229, 121, 0.9);margin-left:35px;`;
                             deleteButton = ``;
                         }
-                        
+
                         //parent where is addet the child html 
                         var Parent = document.getElementById('Output');
 
@@ -142,7 +142,7 @@ function GetMessages() {
             ${messageContent}
         </div>
     </div>`;
-
+                        
 
                         //adding the messages in chatbox
                         let wrapper = document.createElement("div")

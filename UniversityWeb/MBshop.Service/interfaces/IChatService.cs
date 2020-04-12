@@ -10,7 +10,7 @@ namespace MBshop.Service.interfaces
     {
         List<Messages> GetMessages();
         Task<string> GetFullName(string user);
-        Task CreateMessage(string fullNameOfUser, string content, string user, string avatar);
+        Task<string> CreateMessage(string fullNameOfUser, string content, string user, string avatar);
         Task Delete(int id);
         Task DeleteAllMessages();
     }

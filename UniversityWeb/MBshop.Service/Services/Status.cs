@@ -22,7 +22,6 @@ namespace MBshop.Service.Services
         public void StatusChekMovies(List<OutputMovies> list, List<OutputMovies> userItm)
         {
 
-
             for (int i = 0; i < list.Count; i++)
             {
                 var curMovie = list[i];
@@ -64,6 +63,5 @@ namespace MBshop.Service.Services
                 }
             }
         }
-
     }
 }

@@ -1,6 +1,5 @@
 ﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @addTagHelper *, AuthoringTagHelpers
-@using MBshop.Service.StaticProperyes
 
 <!DOCTYPE html>
 <html lang="en">
@@ -26,7 +25,7 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <partial name="_LoginPartial" />
                     <ul class="navbar-nav flex-grow-1">
-                        
+
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
@@ -48,7 +47,7 @@
                                 @if (StatusForCartCount.CountOfProductsInBasket != 0)
                                 {
                                     @StatusForCartCount.CountOfProductsInBasket
-                                } <text class="bg-light">@StatusForCartCount.MessageForStaatus</text>
+                                } @*<text class="bg-light">@StatusForCartCount.MessageForStaatus</text>*@
                             </a>
                         </li>
                     </ul>
@@ -56,6 +55,13 @@
             </div>
         </nav>
     </header>
+
+    @*Alert status message for user requests*@
+    <div  id="hideMessage">
+        <div class="statusMessage" ><h4 class="bg-success text-light messageHeader" id="message">@StatusForCartCount.MessageForStaatus</h4></div>
+        @{ StatusForCartCount.MessageForStaatus = ""; }
+    </div>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()

@@ -17,17 +17,17 @@ namespace MBshop.Controllers
     [Authorize(Roles = "Admin")]
     public class MoviesController : Controller
     {
-        private readonly MovieShopDBSEContext _context;
+        private readonly MovieShopDBSEContext db;
 
-        public MoviesController(MovieShopDBSEContext context)
+        public MoviesController(MovieShopDBSEContext db)
         {
-            _context = context;
+            this.db = db;
         }
 
         // GET: Movies
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Movies.ToListAsync());
+            return View(await this.db.Movies.ToListAsync());
         }
 
         // GET: Movies/Details/5
@@ -38,8 +38,9 @@ namespace MBshop.Controllers
                 return NotFound();
             }
 
-            var movies = await _context.Movies
+            var movies = await db.Movies
                 .FirstOrDefaultAsync(m => m.Id == id);
+
             if (movies == null)
             {
                 return NotFound();
@@ -71,8 +72,8 @@ namespace MBshop.Controllers
                 //    movies.price = total;
                 //}
 
-                _context.Add(movies);
-                await _context.SaveChangesAsync();
+                db.Add(movies);
+                await db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(movies);
@@ -87,7 +88,7 @@ namespace MBshop.Controllers
                 return NotFound();
             }
 
-            var movies = await _context.Movies.FindAsync(id);
+            var movies = await db.Movies.FindAsync(id);
 
             if (movies == null)
             {
@@ -120,8 +121,8 @@ namespace MBshop.Controllers
                     //    movies.price = sum;
                     //}
 
-                    _context.Update(movies);
-                    await _context.SaveChangesAsync();
+                    db.Update(movies);
+                    await db.SaveChangesAsync();
                 }
 
                 catch (DbUpdateConcurrencyException)
@@ -148,7 +149,7 @@ namespace MBshop.Controllers
                 return NotFound();
             }
 
-            var movies = await _context.Movies
+            var movies = await db.Movies
                 .FirstOrDefaultAsync(m => m.Id == id);
 
             if (movies == null)
@@ -164,23 +165,23 @@ namespace MBshop.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var movies = await _context.Movies.FindAsync(id);
+            var movies = await db.Movies.FindAsync(id);
             
             //cascade delete manualy 
-            var shopMovies = _context.Shops.Where(x => x.MovieId == movies.Id).ToList();
-            var ratingMovies = _context.rating.Where(x => x.MoviesId == movies.Id).ToList();
+            var shopMovies = db.Shops.Where(x => x.MovieId == movies.Id).ToList();
+            var ratingMovies = db.rating.Where(x => x.MoviesId == movies.Id).ToList();
 
-            _context.rating.RemoveRange(ratingMovies);
-            _context.RemoveRange(shopMovies);
-            _context.Movies.Remove(movies);
+            db.rating.RemoveRange(ratingMovies);
+            db.RemoveRange(shopMovies);
+            db.Movies.Remove(movies);
 
-            await _context.SaveChangesAsync();
+            await db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool MoviesExists(int id)
         {
-            return _context.Movies.Any(e => e.Id == id);
+            return db.Movies.Any(e => e.Id == id);
         }
     }
 }

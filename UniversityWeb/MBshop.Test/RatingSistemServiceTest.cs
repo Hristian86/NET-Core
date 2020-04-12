@@ -15,7 +15,7 @@ namespace MBshop.Test
     public class RatingSistemServiceTest
     {
         [Fact]
-        public void ShouldReturnMovieDoesNotExist()
+        public void ShouldReturnMovieIsRatedSuccessfully()
         {
             var service = new RatingSistemService();
 
@@ -97,7 +97,7 @@ namespace MBshop.Test
         //Books tests
 
         [Fact]
-        public void ShouldReturnBookDoesNotExist()
+        public void ShouldReturnBookIsRatedSuccessfully()
         {
             var service = new RatingSistemService();
 
