@@ -88,6 +88,5 @@ namespace MBshop.Controllers
 
             return View(book);
         }
-
     }
 }

@@ -13,9 +13,9 @@ namespace MBshop.Service.Services
     {
         private readonly MovieShopDBSEContext db;
 
-        public ViewMoviesService(MovieShopDBSEContext dbs)
+        public ViewMoviesService(MovieShopDBSEContext db)
         {
-            this.db = dbs;
+            this.db = db;
         }
 
         /// <summary>

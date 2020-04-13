@@ -3,100 +3,103 @@
     ViewData["Title"] = "Products";
 }
 
+<div class="container">
+
     <h1>@ViewData["Title"]</h1>
 
 
-<div class="table-responsive-sm">
-    <table class="table bg-transparent" id="tabul">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Title)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Type)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Genre)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.price)$
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Picture)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
+    <div class="table-responsive-sm">
+        <table class="table bg-transparent" id="tabul">
+            <thead>
                 <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Title)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Type)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Genre)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.price)
-                    </td>
-                    <td>
-                        @*@Html.DisplayFor(modelItem => item.Picture)*@
-                        <img src="@item.Picture" id="MovieList" alt="Alternate Text" />
-                    </td>
-
-                    <td>
-
-
-                        @if (item.Type == WebConstansVariables.Book)
-                        {
-                            if (item.Status)
-                            {
-                                <a asp-controller="UserShopedItems" asp-action="UserBooksShops" style="margin-left:15px;" class="btn btn-warning">Owned</a>
-                            }
-                            else
-                            {
-                                @using (Html.BeginForm("BookDetail", "BookList", new { id = item.Id }, FormMethod.Get))
-                                {
-                                    <div class="form-group">
-                                        <div class="col-lg-10 col-lg-offset-2">
-                                            <button type="submit" class="btn btn-outline-primary">Details  </button>
-                                        </div>
-                                    </div>
-                                }
-                            }
-
-
-                        }
-                        else if (item.Type == WebConstansVariables.Movie)
-                        {
-                            if (item.Status)
-                            {
-                                <a asp-controller="UserShopedItems" asp-action="UserMovieShops" style="margin-left:15px;" class="btn btn-warning">Owned</a>
-                            }
-                            else
-                            {
-                                @using (Html.BeginForm("MovieDetail", "MovieList", new { id = item.Id }, FormMethod.Get))
-                                {
-                                    <div class="form-group">
-                                        <div class="col-lg-10 col-lg-offset-2">
-                                            <input class="form-control mr-sm-2" type="hidden" name="type" value="@item.Type">
-                                            <button type="submit" class="btn btn-outline-primary">Details  </button>
-                                        </div>
-                                    </div>
-                                }
-                            }
-
-
-                        }
-                    </td>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Title)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Type)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Genre)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.price)$
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Picture)
+                    </th>
+                    <th></th>
                 </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Type)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Genre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.price)
+                        </td>
+                        <td>
+                            @*@Html.DisplayFor(modelItem => item.Picture)*@
+                            <img src="@item.Picture" id="MovieList" alt="Alternate Text" />
+                        </td>
 
-            }
-        </tbody>
-    </table>
+                        <td>
+
+
+                            @if (item.Type == WebConstansVariables.Book)
+                            {
+                                if (item.Status)
+                                {
+                                    <a asp-controller="UserShopedItems" asp-action="UserBooksShops" style="margin-left:15px;" class="btn btn-warning">Owned</a>
+                                }
+                                else
+                                {
+                                    @using (Html.BeginForm("BookDetail", "BookList", new { id = item.Id }, FormMethod.Get))
+                                    {
+                                        <div class="form-group">
+                                            <div class="col-lg-10 col-lg-offset-2">
+                                                <button type="submit" class="btn btn-outline-primary">Details  </button>
+                                            </div>
+                                        </div>
+                                    }
+                                }
+
+
+                            }
+                            else if (item.Type == WebConstansVariables.Movie)
+                            {
+                                if (item.Status)
+                                {
+                                    <a asp-controller="UserShopedItems" asp-action="UserMovieShops" style="margin-left:15px;" class="btn btn-warning">Owned</a>
+                                }
+                                else
+                                {
+                                    @using (Html.BeginForm("MovieDetail", "MovieList", new { id = item.Id }, FormMethod.Get))
+                                    {
+                                        <div class="form-group">
+                                            <div class="col-lg-10 col-lg-offset-2">
+                                                <input class="form-control mr-sm-2" type="hidden" name="type" value="@item.Type">
+                                                <button type="submit" class="btn btn-outline-primary">Details  </button>
+                                            </div>
+                                        </div>
+                                    }
+                                }
+
+
+                            }
+                        </td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+    </div>
 </div>

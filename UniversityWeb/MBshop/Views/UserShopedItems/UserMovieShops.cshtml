@@ -3,70 +3,72 @@
 @{
     ViewData["Title"] = "UserShops";
 }
+    <div class="container">
 
-<h1>@User.Identity.Name's shoped products</h1>
-
-
-<br />
-<p class="bookLink">
-    <a asp-controller="UserShopedItems" asp-action="UserBooksShops" class="btn btn-primary btn-lg">Book collection</a>
-</p>
+        <h1>@User.Identity.Name's shoped products</h1>
 
 
-@if (Model.Any())
-{
+        <br />
+        <p class="bookLink">
+            <a asp-controller="UserShopedItems" asp-action="UserBooksShops" class="btn btn-primary btn-lg">Book collection</a>
+        </p>
 
-    <table class="table" id="tabul">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Title)
-                </th>
-                <th>
-                    Product
-                </th>
-                @*<th>
-                    @Html.DisplayNameFor(model => model.Picture)
-                </th>*@
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        
-                        <img src="@item.Picture" class="mb-3" id="MovieList" alt="Alternate Text" />
-                        @using (Html.BeginForm("MovieDetail", "MovieList", new { id = item.Id }, FormMethod.Get))
-                        {
-                            <input class="form-control mr-sm-2" type="hidden" name="type" value="@item.price">
-                            <button type="submit" class="btn btn-outline-primary btn-lg">Details </button>
-                        }
-                    </td>
-                    <td>
-                        @*@Html.DisplayFor(modelItem => item.LinkForPurchasedContend)*@
-                        <iframe width="420" height="315"
-                                src="@item.LinkForPurchasedContend">
-                        </iframe>
-                    </td>
-                    @*<td>
-                        <img src="@item.Picture" class="mb-3" id="MovieList" alt="Alternate Text" />
 
-                        @using (Html.BeginForm("MovieDetail", "MovieList", new { id = item.Id }, FormMethod.Get))
-                        {
-                            <input class="form-control mr-sm-2" type="hidden" name="type" value="@item.price">
-                            <button type="submit" class="btn btn-outline-primary btn-lg">Details </button>
-                        }
-                    </td>*@
-                </tr>
+        @if (Model.Any())
+        {
 
-            }
-        </tbody>
-    </table>
+            <table class="table" id="tabul">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Title)
+                        </th>
+                        <th>
+                            Product
+                        </th>
+                        @*<th>
+                            @Html.DisplayNameFor(model => model.Picture)
+                        </th>*@
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
 
-}
-else
-{
-    <div class="wrapper bg-transparent mt-5"><h3 class="text-center pt-3">There are no products</h3></div>
-}
+                                <img src="@item.Picture" class="mb-3" id="MovieList" alt="Alternate Text" />
+                                @using (Html.BeginForm("MovieDetail", "MovieList", new { id = item.Id }, FormMethod.Get))
+                                {
+                                    <input class="form-control mr-sm-2" type="hidden" name="type" value="@item.price">
+                                    <button type="submit" class="btn btn-outline-primary btn-lg">Details </button>
+                                }
+                            </td>
+                            <td>
+                                @*@Html.DisplayFor(modelItem => item.LinkForPurchasedContend)*@
+                                <iframe width="420" height="315"
+                                        src="@item.LinkForPurchasedContend">
+                                </iframe>
+                            </td>
+                            @*<td>
+                                <img src="@item.Picture" class="mb-3" id="MovieList" alt="Alternate Text" />
+
+                                @using (Html.BeginForm("MovieDetail", "MovieList", new { id = item.Id }, FormMethod.Get))
+                                {
+                                    <input class="form-control mr-sm-2" type="hidden" name="type" value="@item.price">
+                                    <button type="submit" class="btn btn-outline-primary btn-lg">Details </button>
+                                }
+                            </td>*@
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+
+        }
+        else
+        {
+            <div class="wrapper bg-transparent mt-5"><h3 class="text-center pt-3">There are no products</h3></div>
+        }
+</div>

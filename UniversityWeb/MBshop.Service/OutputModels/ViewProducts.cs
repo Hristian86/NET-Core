@@ -17,7 +17,7 @@ namespace MBshop.Service.OutputModels
         [MaxLength(50)]
         public string Genre { get; set; }
 
-        [DisplayFormat(DataFormatString = "{0:f1}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:f2}", ApplyFormatInEditMode = true)]
         public double? Rate { get; set; }
 
         public string Picture { get; set; }

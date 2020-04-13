@@ -62,9 +62,24 @@ namespace MBshop.Controllers
                     LastName = curUser.LastName,
                     Address = curUser.Address
                 };
-                return View(tempUser);
+                //return View(tempUser);
             }
-            return View();
+
+            string user = "";
+
+            if (User.Identity.Name != null)
+            {
+                //Get user id from cookies
+                user = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            }
+
+            var result = this.search.ViewProducts(user);
+
+            //Can be made orderBy
+
+            return this.View(result.OrderByDescending(x => x.Rate).Take(3));
+
+            //return View();
         }
 
         [HttpPost]

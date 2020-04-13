@@ -8,51 +8,52 @@
     <title></title>
 </head>
 <body onload="Start()">
-    <div class="con" style="display:flex;align-items: center;
+    <div class="container">
+        <div class="con" style="display:flex;align-items: center;
   justify-content: center;">
-        <h1>
-            @{
-                if (User.Identity.IsAuthenticated)
+            <h1>
+                @{
+                    if (User.Identity.IsAuthenticated)
+                    {
+                        if (ViewData.Model.ChatName != null)
+                        {
+                            <sction>@ViewData.Model.ChatName's</sction>
+                        }
+                    }
+                }
+                Chat panel
+
+            </h1>
+            @if (User.IsInRole(WebConstansVariables.Admin))
+            {
+                <form asp-controller="ChatBox" asp-action="Delete" method="post">
+                    <button class="btn btn-lg btn-warning" id="IdentityBtn">Delete</button>
+                </form>
+            }
+        </div>
+
+        <div class="wrapper">
+            <form action="/" method="post">
+                <input type="text" required name="name" value="" id="input" />
+                @if (User.Identity.IsAuthenticated)
                 {
                     if (ViewData.Model.ChatName != null)
                     {
-                        <sction>@ViewData.Model.ChatName's</sction>
+                        <button class="btn btn-lg btn-primary rounded-pill" id="buttonPost" type="submit" onclick="PostMessages(); return false;">Send Message</button>
+                    }
+                    else
+                    {
+                        <a class="btn btn-lg rounded-pill btn-warning" id="buttonPost" asp-area="Identity" asp-page="/Account/Manage/Index">Create chat nickname</a>
                     }
                 }
-            }
-            Chat panel
-
-        </h1>
-        @if (User.IsInRole(WebConstansVariables.Admin))
-        {
-            <form asp-controller="ChatBox" asp-action="Delete" method="post">
-                <button class="btn btn-lg btn-warning" id="IdentityBtn">Delete</button>
+                else
+                {
+                    <a class="btn btn-lg rounded-pill btn-warning" id="buttonPost" asp-area="Identity" asp-page="/Account/Manage/Index">Create chat nickname</a>
+                }
             </form>
-        }
-    </div>
+        </div>
 
-    <div class="wrapper">
-        <form action="/" method="post">
-        <input type="text" required name="name" value="" id="input" />
-        @if (User.Identity.IsAuthenticated)
-        {
-            if (ViewData.Model.ChatName != null)
-            {
-                <button class="btn btn-lg btn-primary rounded-pill" id="buttonPost" type="submit" onclick="PostMessages(); return false;">Send Message</button>
-            }
-            else
-            {
-                <a class="btn btn-lg rounded-pill btn-warning" id="buttonPost" asp-area="Identity" asp-page="/Account/Manage/Index">Create chat nickname</a>
-            }
-        }
-        else
-        {
-            <a class="btn btn-lg rounded-pill btn-warning" id="buttonPost" asp-area="Identity" asp-page="/Account/Manage/Index">Create chat nickname</a>
-        }
-        </form>
-    </div>
-
-    <div id="Output"></div>
-
+        <div id="Output"></div>
+        </div>
 </body>
 </html>

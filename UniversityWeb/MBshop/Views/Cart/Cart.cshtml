@@ -3,96 +3,97 @@
 @{
     ViewData["Title"] = "Cart";
 }
+    <div class="container">
+        <h1>Cart</h1>
 
-<h1>Cart</h1>
-
-@if (Model.Any())
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Title)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Type)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.price) $
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Picture)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Title)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Type)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.price)
-                    </td>
-                    <td>
-                        <img src="@item.Picture" id="MovieList" alt="Alternate Text" />
-                    </td>
-                    <td>
-                        @if (item.Type == WebConstansVariables.Movie)
-                        {
-
-                            @using (Html.BeginForm("RemoveMovieProduct", "Cart", new { id = item.Id }, FormMethod.Post))
-                            {
-                                <div class="form-group">
-                                    <div class="col-lg-10 col-lg-offset-2">
-                                        <button type="submit" class="btn btn-warning">Remove Product</button>
-                                    </div>
-                                </div>
-                            }
-                        }
-                        else if (item.Type == WebConstansVariables.Book)
-                        {
-                            @using (Html.BeginForm("RemoveBookProduct", "Cart", new { id = item.Id }, FormMethod.Post))
-                            {
-                                <div class="form-group">
-                                    <div class="col-lg-10 col-lg-offset-2">
-                                        <button type="submit" class="btn btn-warning">Remove Product</button>
-                                    </div>
-                                </div>
-                            }
-                        }
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
-else
-{
-    <div class="wrapper bg-transparent mt-5"><h3 class="text-center pt-3">There is no items in the cart</h3></div>
-}
-@{
-    if (Model.Any())
-    {
-        @using (Html.BeginForm("CartChekout", "Cart", new { model = Model }, FormMethod.Post))
+        @if (Model.Any())
         {
-            <div class="form-group">
-                <div class="col-lg-10 col-lg-offset-2">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Title)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Type)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.price) $
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Picture)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
                     @foreach (var item in Model)
                     {
-                        <input type="hidden" name="productId" value="@item.Id" />
-                        <input type="hidden" name="type" value="@item.Type" />
-                    }
-                    <button type="submit" class="btn btn-danger">Check out  </button>
-                    @Model.Sum(p => p.price) $
-                </div>
-            </div>
-        }
-    }
-}
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Title)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Type)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.price)
+                            </td>
+                            <td>
+                                <img src="@item.Picture" id="MovieList" alt="Alternate Text" />
+                            </td>
+                            <td>
+                                @if (item.Type == WebConstansVariables.Movie)
+                                {
 
+                                    @using (Html.BeginForm("RemoveMovieProduct", "Cart", new { id = item.Id }, FormMethod.Post))
+                                    {
+                                        <div class="form-group">
+                                            <div class="col-lg-10 col-lg-offset-2">
+                                                <button type="submit" class="btn btn-warning">Remove Product</button>
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                                else if (item.Type == WebConstansVariables.Book)
+                                {
+                                    @using (Html.BeginForm("RemoveBookProduct", "Cart", new { id = item.Id }, FormMethod.Post))
+                                    {
+                                        <div class="form-group">
+                                            <div class="col-lg-10 col-lg-offset-2">
+                                                <button type="submit" class="btn btn-warning">Remove Product</button>
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <div class="wrapper bg-transparent mt-5"><h3 class="text-center pt-3">There is no items in the cart</h3></div>
+        }
+        @{
+            if (Model.Any())
+            {
+                @using (Html.BeginForm("CartChekout", "Cart", new { model = Model }, FormMethod.Post))
+                {
+                    <div class="form-group">
+                        <div class="col-lg-10 col-lg-offset-2">
+                            @foreach (var item in Model)
+                            {
+                                <input type="hidden" name="productId" value="@item.Id" />
+                                <input type="hidden" name="type" value="@item.Type" />
+                            }
+                            <button type="submit" class="btn btn-danger">Check out  </button>
+                            @Model.Sum(p => p.price) $
+                        </div>
+                    </div>
+                }
+            }
+        }
+
+</div>

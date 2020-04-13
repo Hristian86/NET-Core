@@ -10,18 +10,18 @@ namespace MBshop.Service.Services
 {
     public class ViewBooksService : IViewBooksService
     {
-        private readonly MovieShopDBSEContext _db;
+        private readonly MovieShopDBSEContext db;
 
         public ViewBooksService(MovieShopDBSEContext db)
         {
-            this._db = db;
+            this.db = db;
         }
 
         /// <summary>
         /// Mapped books to output model
         /// </summary>
         /// <returns></returns>
-        public List<OutputBooks> GetListOfBooks() => this._db
+        public List<OutputBooks> GetListOfBooks() => this.db
             .Books
             .Select(itemBook => new OutputBooks
         {

@@ -6,123 +6,125 @@
 
 @*<div onload="setTimeout(myFunction, 3000)" id="mess">@MBshop.Service.Services.Status.Message</div>*@
 
+    <div class="container">
 
 
 
-<h1>Movie collection</h1>
+        <h1>Movie collection</h1>
 
-<br />
-<p class="bookLink">
-    <a asp-controller="BookList" asp-action="BooksCollection" class="btn btn-primary btn-lg">Book collection</a>
-</p>
-
-
-@*<form onchange="$('#autoPost').submit();" asp-controller="MovieList" asp-action="MovieCollection" id="autoPost" class="orderForm">
-    <select name="orderBy" class="custom-select-sm drop">
-        <option value="0">Original order</option>
-        <option value="1">Order by Title A-Z</option>
-        <option value="2">Order by Title Z-A</option>
-        <option value="3">Order by Price ascending</option>
-        <option value="4">Order by Price descending</option>
-    </select>
-</form>*@
-
-@Html.ActionLink("Original order", "MovieCollection", "MovieList", new { orderBy = 0 }, new { @class = "btn btn-outline-success" })
-    @Html.ActionLink("Order by Title A-Z", "MovieCollection", "MovieList", new { orderBy = 1 }, new { @class = "btn btn-outline-success" })
-    @Html.ActionLink("Order by Title Z-A", "MovieCollection", "MovieList", new { orderBy = 2 }, new { @class = "btn btn-outline-success" })
-    @Html.ActionLink("Order by Price ascending", "MovieCollection", "MovieList", new { orderBy = 3 }, new { @class = "btn btn-outline-success" })
-    @Html.ActionLink("Order by Price descending", "MovieCollection", "MovieList", new { orderBy = 4 }, new { @class = "btn btn-outline-success" })
+        <br />
+        <p class="bookLink">
+            <a asp-controller="BookList" asp-action="BooksCollection" class="btn btn-primary btn-lg">Book collection</a>
+        </p>
 
 
-<div class="table-responsive-sm">
-    <table class="table" id="tabul">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Title)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Director)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Actors)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Raiting)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Description)
-                </th>
-                <th>
-                    Released
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Genre)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.price)$
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Picture)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Title)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Director)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Actors)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Rate)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Description)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.RealeaseDate)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Genre)
-                    </td>
-                    <td>
-                        Price: @item.price
-                    </td>
-                    <td>
-                        @*@Html.DisplayFor(modelItem => item.Picture)*@
-                        <img src="@item.Picture" id="MovieList" alt="Alternate Text" />
-                    </td>
-                    <td>
+        @*<form onchange="$('#autoPost').submit();" asp-controller="MovieList" asp-action="MovieCollection" id="autoPost" class="orderForm">
+            <select name="orderBy" class="custom-select-sm drop">
+                <option value="0">Original order</option>
+                <option value="1">Order by Title A-Z</option>
+                <option value="2">Order by Title Z-A</option>
+                <option value="3">Order by Price ascending</option>
+                <option value="4">Order by Price descending</option>
+            </select>
+        </form>*@
 
-                        @if (item.Status == false)
-                        {
+        @Html.ActionLink("Original order", "MovieCollection", "MovieList", new { orderBy = 0 }, new { @class = "btn btn-outline-success" })
+        @Html.ActionLink("Order by Title A-Z", "MovieCollection", "MovieList", new { orderBy = 1 }, new { @class = "btn btn-outline-success" })
+        @Html.ActionLink("Order by Title Z-A", "MovieCollection", "MovieList", new { orderBy = 2 }, new { @class = "btn btn-outline-success" })
+        @Html.ActionLink("Order by Price ascending", "MovieCollection", "MovieList", new { orderBy = 3 }, new { @class = "btn btn-outline-success" })
+        @Html.ActionLink("Order by Price descending", "MovieCollection", "MovieList", new { orderBy = 4 }, new { @class = "btn btn-outline-success" })
 
-                            @using (Html.BeginForm("MovieDetail", "MovieList", new { id = item.Id }, FormMethod.Get))
-                            {
-                                <div class="form-group">
-                                    <div class="col-lg-10 col-lg-offset-2">
-                                        <input class="form-control mr-sm-2" type="hidden" name="type" value="@item.price">
-                                        <button type="submit" class="btn btn-outline-primary">Details  </button>
-                                    </div>
-                                </div>
-                            }
 
-                        }
-                        else
-                        {
-                            <a asp-controller="UserShopedItems" asp-action="UserMovieShops" style="margin-left:15px;" class="btn btn-warning">Owned</a>
-                        }
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+        <div class="table-responsive-sm">
+            <table class="table" id="tabul">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Title)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Director)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Actors)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Raiting)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Description)
+                        </th>
+                        <th>
+                            Released
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Genre)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.price)$
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Picture)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Title)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Director)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Actors)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Rate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Description)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.RealeaseDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Genre)
+                            </td>
+                            <td>
+                                Price: @item.price
+                            </td>
+                            <td>
+                                @*@Html.DisplayFor(modelItem => item.Picture)*@
+                                <img src="@item.Picture" id="MovieList" alt="Alternate Text" />
+                            </td>
+                            <td>
+
+                                @if (item.Status == false)
+                                {
+
+                                    @using (Html.BeginForm("MovieDetail", "MovieList", new { id = item.Id }, FormMethod.Get))
+                                    {
+                                        <div class="form-group">
+                                            <div class="col-lg-10 col-lg-offset-2">
+                                                <input class="form-control mr-sm-2" type="hidden" name="type" value="@item.price">
+                                                <button type="submit" class="btn btn-outline-primary">Details  </button>
+                                            </div>
+                                        </div>
+                                    }
+
+                                }
+                                else
+                                {
+                                    <a asp-controller="UserShopedItems" asp-action="UserMovieShops" style="margin-left:15px;" class="btn btn-warning">Owned</a>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
 </div>
