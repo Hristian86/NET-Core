@@ -10,24 +10,34 @@ using MBshop.Service.Services;
 using MBshop.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using MBshop.Service.WebConstants;
 
 namespace MBshop.Controllers
 {
-    
+
     public class CartController : Controller
     {
         private readonly IShopItemsService shopService;
         private readonly ICartService cartBasket;
+        private readonly GlobalAlertMessages globalMessage;
 
         public CartController(IShopItemsService shopService,
-            ICartService cartBasket)
+            ICartService cartBasket,
+            GlobalAlertMessages globalMessage)
         {
             this.shopService = shopService;
             this.cartBasket = cartBasket;
+            this.globalMessage = globalMessage;
         }
 
         public IActionResult Cart()
         {
+
+            if (User.Identity.Name == null)
+            {
+                return this.View();
+            }
+
             var viewItms = this.cartBasket.GetCartBasketUser(GetCurrentUser());
 
             return this.View(viewItms);
@@ -37,7 +47,7 @@ namespace MBshop.Controllers
         [Authorize]
         [HttpPost]
         [AutoValidateAntiforgeryToken]
-        public async Task<IActionResult> AddToCartMovie([Bind("Id","price")] OutputMovies model)
+        public async Task<IActionResult> AddToCartMovie([Bind("Id", "price")] OutputMovies model)
         {
             if (!ModelState.IsValid)
             {
@@ -45,9 +55,11 @@ namespace MBshop.Controllers
             }
 
             //cart user interface for displayin numberof items in card
-            GlobalAlertMessages.MessageForStaatus = await this.cartBasket.AddToCartMovie(model.Id,model.price, GetCurrentUser());
+            GlobalAlertMessages.MessageForStaatus = await this.cartBasket.AddToCartMovie(model.Id, model.price, GetCurrentUser());
 
-            GlobalAlertMessages.CountOfProductsInBasket = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count();
+            ViewData["CartCount"] = this.cartBasket.GetCartBasketUser(GetCurrentUser());
+
+            globalMessage.CountOfProductsInBasket = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count;
 
             return RedirectToAction("MovieCollection", "MovieList");
         }
@@ -63,9 +75,11 @@ namespace MBshop.Controllers
             }
 
             //cart user interface for displayin numberof items in card
-            GlobalAlertMessages.MessageForStaatus = await this.cartBasket.AddToCartBook(model.Id,model.price, GetCurrentUser());
+            GlobalAlertMessages.MessageForStaatus = await this.cartBasket.AddToCartBook(model.Id, model.price, GetCurrentUser());
 
-            GlobalAlertMessages.CountOfProductsInBasket = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count();
+            ViewData["CartCount"] = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count;
+
+            globalMessage.CountOfProductsInBasket = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count();
 
             return RedirectToAction("BooksCollection", "BookList");
         }
@@ -74,7 +88,7 @@ namespace MBshop.Controllers
         [Authorize]
         [ValidateAntiForgeryToken]
         [AutoValidateAntiforgeryToken]
-        public async Task<IActionResult> CartChekout(IEnumerable<ViewProducts> model,List<int> productId, List<string> type)
+        public async Task<IActionResult> CartChekout(IEnumerable<ViewProducts> model, List<int> productId, List<string> type)
         {
             if (!ModelState.IsValid)
             {
@@ -91,19 +105,21 @@ namespace MBshop.Controllers
                 if (product.Type == "Movie")
                 {
                     GlobalAlertMessages.MessageForStaatus = await this.shopService
-                        .BuyMovie(user,product.Id);
+                        .BuyMovie(user, product.Id);
                 }
                 else if (product.Type == "Book")
                 {
                     //To Do string message
                     GlobalAlertMessages.MessageForStaatus = await this.shopService
-                        .BuyBook(user,product.Id);
+                        .BuyBook(user, product.Id);
                 }
             }
 
             await this.cartBasket.DisposeCartProducts(GetCurrentUser());
 
-            GlobalAlertMessages.CountOfProductsInBasket = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count();
+            ViewData["CartCount"] = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count.ToString();
+
+            globalMessage.CountOfProductsInBasket = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count();
 
             return RedirectToAction("UserMovieShops", "UserShopedItems");
         }
@@ -113,18 +129,20 @@ namespace MBshop.Controllers
         [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> RemoveMovieProduct(int? id)
         {
-            if (id == null )
+            if (id == null)
             {
                 return NotFound();
             }
 
-            GlobalAlertMessages.MessageForStaatus = await this.cartBasket.RemoveMovie((int)id,GetCurrentUser());
+            GlobalAlertMessages.MessageForStaatus = await this.cartBasket.RemoveMovie((int)id, GetCurrentUser());
 
-            GlobalAlertMessages.MessageForStaatus = "";
+            //GlobalAlertMessages.MessageForStaatus = "";
 
-            GlobalAlertMessages.CountOfProductsInBasket = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count();
+            ViewData["CartCount"] = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count.ToString();
 
-            return RedirectToAction("Cart","Cart");
+            globalMessage.CountOfProductsInBasket = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count();
+
+            return RedirectToAction("Cart", "Cart");
         }
 
         [Authorize]
@@ -137,11 +155,13 @@ namespace MBshop.Controllers
                 return NotFound();
             }
 
-            await this.cartBasket.RemoveBook((int)id,GetCurrentUser());
+            GlobalAlertMessages.MessageForStaatus = await this.cartBasket.RemoveBook((int)id, GetCurrentUser());
 
-            GlobalAlertMessages.MessageForStaatus = "";
+            //GlobalAlertMessages.MessageForStaatus = "";
 
-            GlobalAlertMessages.CountOfProductsInBasket = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count();
+            ViewData["CartCount"] = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count.ToString();
+
+            globalMessage.CountOfProductsInBasket = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count();
 
             return RedirectToAction("Cart", "Cart");
         }

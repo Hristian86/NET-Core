@@ -34,8 +34,8 @@ namespace MBshop.Service.Services
                 .Where(x => x.UserId == userId)
                 .Select(item => new ViewProducts
                 {
-                    
-                    Id = (int)item.MovieId,
+
+                    Id = (int)item.ProductId,
                     price = item.price,
                     Picture = item.Picture,
                     Title = item.Title,
@@ -67,7 +67,7 @@ namespace MBshop.Service.Services
 
             //chek for already added in cart : static list
             var chek = this.db.Cart
-                 .Any(x => x.UserId == userId && x.BookId == bookId && (x.Type == WebConstansVariables.Book && x.price == price));
+                 .Any(x => x.UserId == userId && x.ProductId == bookId && (x.Type == WebConstansVariables.Book && x.price == price));
 
             var currentLogedUser = this.db.AspNetUsers.Where(x => x.Id == userId).FirstOrDefault();
 
@@ -84,7 +84,7 @@ namespace MBshop.Service.Services
                 
                 Cart cart = new Cart
                 {
-                    MovieId = book.Id,
+                    ProductId = book.Id,
                     price = price,
                     Picture = book.Picture,
                     Title = book.Title,
@@ -133,7 +133,7 @@ namespace MBshop.Service.Services
             }
 
             var chek = this.db.Cart
-                .Any(x => x.UserId == userId && x.MovieId == movieId && (x.Type == WebConstansVariables.Movie && x.price == price));
+                .Any(x => x.UserId == userId && x.ProductId == movieId && (x.Type == WebConstansVariables.Movie && x.price == price));
 
             var currentLogedUser = this.db.AspNetUsers.Where(x => x.Id == userId).FirstOrDefault();
 
@@ -152,7 +152,7 @@ namespace MBshop.Service.Services
 
                 Cart cart = new Cart
                 {
-                    MovieId = movie.Id,
+                    ProductId = movie.Id,
                     price = price,
                     Picture = movie.Picture,
                     Title = movie.Title,
@@ -201,13 +201,15 @@ namespace MBshop.Service.Services
         /// <param name="id"></param>
         public async Task<string> RemoveMovie(int id, string userId)
         {
-            var cart = this.db.Cart.Where(x => x.UserId == userId && (x.MovieId == id && x.Type == WebConstansVariables.Movie)).FirstOrDefault();
+            var cart = this.db.Cart.Where(x => x.UserId == userId && (x.ProductId == id && x.Type == WebConstansVariables.Movie)).FirstOrDefault();
+
+            var movieTitle = cart.Title;
 
             this.db.Cart.Remove(cart);
 
             await this.db.SaveChangesAsync();
 
-            return "";
+            return $"{movieTitle} removed from the cart";
         }
 
         /// <summary>
@@ -216,13 +218,15 @@ namespace MBshop.Service.Services
         /// <param name="id"></param>
         public async Task<string> RemoveBook(int id, string userId)
         {
-            var cart = this.db.Cart.Where(x => x.UserId == userId && (x.MovieId == id && x.Type == WebConstansVariables.Book)).FirstOrDefault();
+            var cart = this.db.Cart.Where(x => x.UserId == userId && (x.ProductId == id && x.Type == WebConstansVariables.Book)).FirstOrDefault();
+
+            var bookTitle = cart.Title;
 
             this.db.Cart.Remove(cart);
 
             await this.db.SaveChangesAsync();
 
-            return "";
+            return $"{bookTitle} removed from the cart";
         }
     }
 }

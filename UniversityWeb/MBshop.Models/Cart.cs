@@ -33,13 +33,14 @@ namespace MBshop.Models
 
         public AspNetUsers User { get; set; }
 
+        public int ProductId { get; set; }
 
-        public int? MovieId { get; set; }
+        //public int? MovieId { get; set; }
 
-        public Movies Movie { get; set; }
+        //public Movies Movie { get; set; }
 
-        public int? BookId { get; set; }
+        //public int? BookId { get; set; }
 
-        public Books Book { get; set; }
+        //public Books Book { get; set; }
     }
 }

@@ -29,21 +29,24 @@
 
                         @*drop down for products*@
                         <li>
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-outline-primary dropdown-toggle mr-3" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
+                            <div class="btn-group" id="main-button-dropdown">
+                                <button type="button" class="btn btn-outline-primary dropdown-toggle mr-3" data-toggle="dropdown" data-hover="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Categories
                                 </button>
-                                <div class="dropdown-menu dropdown-menu-left" style="width:500px;">
+                                <div class="dropdown-menu dropdown-menu-left " id="drop-menu-links-js" style="width:500px;">
 
-                                    <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-
-                                    <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="MovieList" asp-action="MovieCollection">Movies</a>
-
-
-                                    <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="BookList" asp-action="BooksCollection">Books</a>
+                                    <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="Home" asp-action="Privacy" aria-haspopup="true" aria-expanded="false">Privacy</a>
 
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="Products" asp-action="ProductsCollection">All products</a>
+
+                                    <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="MovieList" asp-action="MovieCollection" aria-haspopup="true" aria-expanded="false">Movies</a>
+
+                                    <div class="dropdown-divider"></div>
+
+                                    <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="BookList" asp-action="BooksCollection" aria-haspopup="true" aria-expanded="false">Books</a>
+
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="Products" asp-action="ProductsCollection" aria-haspopup="true" aria-expanded="false">All products</a>
                                 </div>
                             </div>
                         </li>
@@ -54,10 +57,11 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark btn btn-outline-warning" asp-area="" asp-controller="Cart" id="cart" asp-action="Cart">
                                 Cart
+                                
                                 @*@if (GlobalAlertMessages.CountOfProductsInBasket != 0)
-                                {
-                                    @GlobalAlertMessages.CountOfProductsInBasket
-                                }*@
+                                    {
+                                        @GlobalAlertMessages.CountOfProductsInBasket
+                                    }*@
                             </a>
                         </li>
                     </ul>
@@ -67,8 +71,8 @@
     </header>
 
     @*Alert status message for user requests*@
-    <div  id="hideMessage">
-        <div class="statusMessage" ><h4 class="bg-success text-light messageHeader" id="message">@GlobalAlertMessages.MessageForStaatus</h4></div>
+    <div id="hideMessage">
+        <div class="statusMessage"><h4 class="bg-success text-light messageHeader" id="message">@GlobalAlertMessages.MessageForStaatus</h4></div>
         @{ GlobalAlertMessages.MessageForStaatus = ""; }
     </div>
 

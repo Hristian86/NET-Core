@@ -15,6 +15,8 @@ using Microsoft.AspNetCore.Http;
 using MBshop.Data.Data;
 using MBshop.Service.interfaces;
 using MBshop.Service.Services;
+using MBshop.Service.StaticProperyes;
+using MBshop.Service.WebConstants;
 
 namespace MBshop
 {
@@ -76,6 +78,7 @@ namespace MBshop
 
             services.AddScoped<IRatingSistemService, RatingSistemService>();
             services.AddScoped<ISearchEngineService, SearchEngineService>();
+            services.AddScoped<GlobalAlertMessages>();
 
             services.AddCors(option =>
             {
