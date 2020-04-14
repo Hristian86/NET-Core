@@ -169,9 +169,9 @@ namespace MBshop.Controllers
             
             //cascade delete manualy 
             var shopMovies = db.Shops.Where(x => x.MovieId == movies.Id).ToList();
-            var ratingMovies = db.rating.Where(x => x.MoviesId == movies.Id).ToList();
+            var ratingMovies = db.Rating.Where(x => x.MoviesId == movies.Id).ToList();
 
-            db.rating.RemoveRange(ratingMovies);
+            db.Rating.RemoveRange(ratingMovies);
             db.RemoveRange(shopMovies);
             db.Movies.Remove(movies);
 

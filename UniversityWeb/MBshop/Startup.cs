@@ -72,7 +72,7 @@ namespace MBshop
             services.AddScoped<IChatService, ChatService>();
             services.AddScoped<RatingSistemService>();
 
-            services.AddScoped<ICartService, CartService>();
+            services.AddTransient<ICartService, CartService>();
 
             services.AddScoped<IRatingSistemService, RatingSistemService>();
             services.AddScoped<ISearchEngineService, SearchEngineService>();

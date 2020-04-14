@@ -9,6 +9,7 @@ using MBshop.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using MBshop.Service.StaticProperyes;
 
 namespace MBshop.Areas.Identity.Pages.Account.Manage
 {
@@ -151,11 +152,12 @@ namespace MBshop.Areas.Identity.Pages.Account.Manage
 
             if (this.resultFromCheckNickName)
             {
-                StatusMessage = "This chat nick name " + $"( {Input.ChatName} )" + " is already taken please choose different name!";
+
+                GlobalAlertMessages.MessageForStaatus = "This chat nick name " + $"( {Input.ChatName} )" + " is already taken please choose different name!";
             }
             else
             {
-                StatusMessage = "Your profile has been updated!";
+                GlobalAlertMessages.MessageForStaatus = "Your profile has been updated!";
             }
 
             return RedirectToPage();

@@ -110,7 +110,14 @@
 
 
 
+#cart {
+    width:80px;
+    height:38px;
+}
 
+/*#drop-down-menu {
+    width:180px;
+}*/
 
 .statusMessage {
     position: fixed;
@@ -129,7 +136,7 @@
 /*corousal size window*/
 #corousel-size {
     width: 1000px;
-    height: 625px;
+    height: 700px;
 }
 
 /*slider product pictures*/
@@ -160,12 +167,37 @@
 }
 
 #header-content {
-    margin-top:120px;
+    margin-top:60px;
     margin-right:200px;
     /*background-color:skyblue;*/
 }
 
+/*landing page*/
 /*products rating*/
 .product-rate {
     background-color: rgba(32,32,32,0.8);
+}
+
+.title-header {
+    height:60px;
+}
+
+#button-landing-page {
+    /*margin-top:10px;*/
+}
+
+#slider-first-page {
+    width: 100%;
+    height: 800px;
+    background: url(https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293__340.jpg);
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+#front-header-landing-page {
+    display:flex;
+    justify-content:center;
+    width:100%;
+    /*background-color:skyblue;*/
+    height:10%;
 }

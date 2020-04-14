@@ -16,7 +16,7 @@
 </head>
 <body id="body-customize">
     <header>
-        <nav class="navbar navbar-expand-lg navbar-toggleable-lg navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-xl navbar-toggleable-lg navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MBshop</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -27,28 +27,37 @@
                     <partial name="_LoginPartial" />
                     <ul class="navbar-nav flex-grow-1">
 
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        @*drop down for products*@
+                        <li>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-outline-primary dropdown-toggle mr-3" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
+                                    Categories
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-left" style="width:500px;">
+
+                                    <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+
+                                    <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="MovieList" asp-action="MovieCollection">Movies</a>
+
+
+                                    <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="BookList" asp-action="BooksCollection">Books</a>
+
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="Products" asp-action="ProductsCollection">All products</a>
+                                </div>
+                            </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Products" asp-action="ProductsCollection">All</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="MovieList" asp-action="MovieCollection">Movies</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="BookList" asp-action="BooksCollection">Books</a>
-                        </li>
+
                         <Li class="ItemsPerPerson">
-                            <a asp-controller="ChatBox" asp-action="ChatPanel" class="btn btn-outline-dark">Chat panel</a>
+                            <a asp-controller="ChatBox" asp-action="ChatPanel" id="caht-panel" class="btn btn-outline-success ">Chat panel</a>
                         </Li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Cart" asp-action="Cart">
+                            <a class="nav-link text-dark btn btn-outline-warning" asp-area="" asp-controller="Cart" id="cart" asp-action="Cart">
                                 Cart
-                                @if (GlobalAlertMessages.CountOfProductsInBasket != 0)
+                                @*@if (GlobalAlertMessages.CountOfProductsInBasket != 0)
                                 {
                                     @GlobalAlertMessages.CountOfProductsInBasket
-                                } @*<text class="bg-light">@StatusForCartCount.MessageForStaatus</text>*@
+                                }*@
                             </a>
                         </li>
                     </ul>

@@ -217,7 +217,7 @@ namespace MBshop.Test
                 if (movi != null)
                 {
                     //get collection of ratngs in numbers
-                    var sum = db.rating.Where(x => x.Movies == movi).Select(x => x.RatingMovies).ToList();
+                    var sum = db.Rating.Where(x => x.Movies == movi).Select(x => x.RatingMovies).ToList();
 
                     var count = sum.Sum();
 
@@ -267,7 +267,7 @@ namespace MBshop.Test
                             User = curUser
                         };
 
-                        db.rating.Add(nwRate);
+                        db.Rating.Add(nwRate);
 
                         await db.SaveChangesAsync();
 
@@ -327,7 +327,7 @@ namespace MBshop.Test
                 if (book != null)
                 {
                     //get collection of ratngs in numbers
-                    var sum = db.rating.Where(x => x.Books == book).Select(x => x.RatingBooks).ToList();
+                    var sum = db.Rating.Where(x => x.Books == book).Select(x => x.RatingBooks).ToList();
 
                     var count = sum.Sum();
 
@@ -377,7 +377,7 @@ namespace MBshop.Test
                             User = curUser
                         };
 
-                        db.rating.Add(nwRate);
+                        db.Rating.Add(nwRate);
 
                         await db.SaveChangesAsync();
 

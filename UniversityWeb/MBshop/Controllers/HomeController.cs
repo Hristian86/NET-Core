@@ -77,7 +77,7 @@ namespace MBshop.Controllers
 
             //Can be made orderBy
 
-            return this.View(result.OrderByDescending(x => x.Rate).Take(3));
+            return this.View(result.OrderByDescending(x => x.Rate).ThenBy(x => x.Title).Take(3).ToList());
 
             //return View();
         }

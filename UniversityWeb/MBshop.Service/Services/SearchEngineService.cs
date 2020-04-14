@@ -122,7 +122,7 @@ namespace MBshop.Service.Services
                     Picture = item.Picture,
                     Genre = item.Genre,
                     Status = item.Status,
-                    Rate = item.Rate,
+                    Rate = Math.Round((double)item.Rate,1),
                     Type = WebConstansVariables.Book
 
                 }).ToList();

@@ -17,24 +17,27 @@ namespace MBshop.Controllers
     public class CartController : Controller
     {
         private readonly IShopItemsService shopService;
-        private readonly ICartService cardBasket;
+        private readonly ICartService cartBasket;
 
         public CartController(IShopItemsService shopService,
-            ICartService cardBasket)
+            ICartService cartBasket)
         {
             this.shopService = shopService;
-            this.cardBasket = cardBasket;
+            this.cartBasket = cartBasket;
         }
 
         public IActionResult Cart()
         {
-            return View(this.cardBasket.GetCartBascket());
+            var viewItms = this.cartBasket.GetCartBasketUser(GetCurrentUser());
+
+            return this.View(viewItms);
+            //return View(this.cardBasket.GetCartBascket());
         }
 
         [Authorize]
         [HttpPost]
         [AutoValidateAntiforgeryToken]
-        public IActionResult AddToCartMovie([Bind("Id","price")] OutputMovies model)
+        public async Task<IActionResult> AddToCartMovie([Bind("Id","price")] OutputMovies model)
         {
             if (!ModelState.IsValid)
             {
@@ -42,9 +45,9 @@ namespace MBshop.Controllers
             }
 
             //cart user interface for displayin numberof items in card
-            GlobalAlertMessages.MessageForStaatus = this.cardBasket.AddToCartMovie(model.Id,model.price, GetCurrentUser());
+            GlobalAlertMessages.MessageForStaatus = await this.cartBasket.AddToCartMovie(model.Id,model.price, GetCurrentUser());
 
-            GlobalAlertMessages.CountOfProductsInBasket = this.cardBasket.GetCartBascket().Count();
+            GlobalAlertMessages.CountOfProductsInBasket = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count();
 
             return RedirectToAction("MovieCollection", "MovieList");
         }
@@ -52,7 +55,7 @@ namespace MBshop.Controllers
         [Authorize]
         [HttpPost]
         [AutoValidateAntiforgeryToken]
-        public IActionResult AddToCartBook([Bind("Id", "price")] OutputBooks model)
+        public async Task<IActionResult> AddToCartBook([Bind("Id", "price")] OutputBooks model)
         {
             if (!ModelState.IsValid)
             {
@@ -60,9 +63,9 @@ namespace MBshop.Controllers
             }
 
             //cart user interface for displayin numberof items in card
-            GlobalAlertMessages.MessageForStaatus = this.cardBasket.AddToCartBook(model.Id,model.price, GetCurrentUser());
+            GlobalAlertMessages.MessageForStaatus = await this.cartBasket.AddToCartBook(model.Id,model.price, GetCurrentUser());
 
-            GlobalAlertMessages.CountOfProductsInBasket = this.cardBasket.GetCartBascket().Count();
+            GlobalAlertMessages.CountOfProductsInBasket = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count();
 
             return RedirectToAction("BooksCollection", "BookList");
         }
@@ -79,7 +82,7 @@ namespace MBshop.Controllers
             }
 
             //Current product in cart basket
-            var currentProducts = this.cardBasket.GetCartBascket();
+            var currentProducts = this.cartBasket.GetCartBasketUser(GetCurrentUser());
 
             var user = User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
@@ -98,9 +101,9 @@ namespace MBshop.Controllers
                 }
             }
 
-            this.cardBasket.DisposeCartProducts();
+            await this.cartBasket.DisposeCartProducts(GetCurrentUser());
 
-            GlobalAlertMessages.CountOfProductsInBasket = this.cardBasket.GetCartBascket().Count();
+            GlobalAlertMessages.CountOfProductsInBasket = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count();
 
             return RedirectToAction("UserMovieShops", "UserShopedItems");
         }
@@ -108,18 +111,18 @@ namespace MBshop.Controllers
         [Authorize]
         [HttpPost]
         [AutoValidateAntiforgeryToken]
-        public IActionResult RemoveMovieProduct(int? id)
+        public async Task<IActionResult> RemoveMovieProduct(int? id)
         {
             if (id == null )
             {
                 return NotFound();
             }
 
-            this.cardBasket.RemoveMovie((int)id);
+            GlobalAlertMessages.MessageForStaatus = await this.cartBasket.RemoveMovie((int)id,GetCurrentUser());
 
             GlobalAlertMessages.MessageForStaatus = "";
 
-            GlobalAlertMessages.CountOfProductsInBasket = this.cardBasket.GetCartBascket().Count();
+            GlobalAlertMessages.CountOfProductsInBasket = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count();
 
             return RedirectToAction("Cart","Cart");
         }
@@ -127,18 +130,18 @@ namespace MBshop.Controllers
         [Authorize]
         [HttpPost]
         [AutoValidateAntiforgeryToken]
-        public IActionResult RemoveBookProduct(int? id)
+        public async Task<IActionResult> RemoveBookProduct(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            this.cardBasket.RemoveBook((int)id);
+            await this.cartBasket.RemoveBook((int)id,GetCurrentUser());
 
             GlobalAlertMessages.MessageForStaatus = "";
 
-            GlobalAlertMessages.CountOfProductsInBasket = this.cardBasket.GetCartBascket().Count();
+            GlobalAlertMessages.CountOfProductsInBasket = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count();
 
             return RedirectToAction("Cart", "Cart");
         }

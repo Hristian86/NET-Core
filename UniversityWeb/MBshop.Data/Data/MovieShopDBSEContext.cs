@@ -26,7 +26,8 @@ namespace MBshop.Data.Data
         public virtual DbSet<Messages> Messages { get; set; }
         public virtual DbSet<Movies> Movies { get; set; }
         public virtual DbSet<Shops> Shops { get; set; }
-        public virtual DbSet<Rating> rating { get; set; }
+        public virtual DbSet<Rating> Rating { get; set; }
+        public virtual DbSet<Cart> Cart { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

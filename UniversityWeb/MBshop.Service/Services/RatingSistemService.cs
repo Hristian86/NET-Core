@@ -38,7 +38,7 @@ namespace MBshop.Service.Services
             if (movi != null)
             {
                 //get collection of ratngs in numbers
-                var sum = this.db.rating.Where(x => x.Movies == movi).Select(x => x.RatingMovies).ToList();
+                var sum = this.db.Rating.Where(x => x.Movies == movi).Select(x => x.RatingMovies).ToList();
 
                 var count = sum.Sum();
 
@@ -86,7 +86,7 @@ namespace MBshop.Service.Services
                         User = curUser
                     };
 
-                    this.db.rating.Add(nwRate);
+                    this.db.Rating.Add(nwRate);
 
                     await this.db.SaveChangesAsync();
                     
@@ -128,7 +128,7 @@ namespace MBshop.Service.Services
             if (book != null)
             {
                 //get collection of ratngs in numbers
-                var sum = this.db.rating.Where(x => x.Books == book).Select(x => x.RatingBooks).ToList();
+                var sum = this.db.Rating.Where(x => x.Books == book).Select(x => x.RatingBooks).ToList();
 
                 var count = sum.Sum();
 
@@ -176,7 +176,7 @@ namespace MBshop.Service.Services
                         User = curUser
                     };
 
-                    this.db.rating.Add(nwRate);
+                    this.db.Rating.Add(nwRate);
 
                     await this.db.SaveChangesAsync();
 

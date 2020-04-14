@@ -7,12 +7,12 @@ using MBshop.Service.OutputModels;
 using MBshop.Data.Data;
 using MBshop.Models;
 using MBshop.Service.WebConstants;
+using System.Threading.Tasks;
 
 namespace MBshop.Service.Services
 {
     public class CartService : ICartService
     {
-        private static List<ViewProducts> carts = new List<ViewProducts>();
 
         private readonly MovieShopDBSEContext db;
         private readonly IUserShopedProductsService userItems;
@@ -28,24 +28,36 @@ namespace MBshop.Service.Services
         /// Retrive all products in the basket
         /// </summary>
         /// <returns></returns>
-        public List<ViewProducts> GetCartBascket()
+        public List<ViewProducts> GetCartBasketUser(string userId)
         {
-            var carty = carts.ToList();
-            return carty;
+            var carties = this.db.Cart
+                .Where(x => x.UserId == userId)
+                .Select(item => new ViewProducts
+                {
+                    
+                    Id = (int)item.MovieId,
+                    price = item.price,
+                    Picture = item.Picture,
+                    Title = item.Title,
+                    Type = item.Type,
+
+                }).ToList();
+
+            return carties;
         }
 
         /// <summary>
         /// Add book to cart
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="bookId"></param>
         /// <param name="price"></param>
         /// <param name="userId"></param>
         /// <returns></returns>
-        public string AddToCartBook(int id, double price,string userId)
+        public async Task<string> AddToCartBook(int bookId, double price, string userId)
         {
             //current book to be addet
             var book = this.db.Books
-                .Where(x => x.Id == id && x.price == price)
+                .Where(x => x.Id == bookId && x.price == price)
                 .FirstOrDefault();
 
             if (book == null)
@@ -54,11 +66,13 @@ namespace MBshop.Service.Services
             }
 
             //chek for already added in cart : static list
-            bool chek = carts
-                .Any(x => x.Id == id && (x.Type == WebConstansVariables.Book && x.price == price));
+            var chek = this.db.Cart
+                 .Any(x => x.UserId == userId && x.BookId == bookId && (x.Type == WebConstansVariables.Book && x.price == price));
+
+            var currentLogedUser = this.db.AspNetUsers.Where(x => x.Id == userId).FirstOrDefault();
 
             //chek for user personal product
-            bool chekForUserPurchase = this.userItems.PersonalBooks(userId).Any(x => x.Id == id);
+            bool chekForUserPurchase = this.userItems.PersonalBooks(userId).Any(x => x.Id == bookId);
 
             if (chekForUserPurchase)
             {
@@ -67,18 +81,24 @@ namespace MBshop.Service.Services
             else if (book != null && !chek)
             {
                 //maping book to cart model
-                ViewProducts cart = new ViewProducts
+                
+                Cart cart = new Cart
                 {
-                    Id = id,
+                    MovieId = book.Id,
                     price = price,
                     Picture = book.Picture,
                     Title = book.Title,
-                    Type = WebConstansVariables.Book
+                    Type = WebConstansVariables.Book,
+                    UserId = userId,
+                    User = currentLogedUser
                 };
 
                 if (cart != null && cart.Title != null)
                 {
-                    carts.Add(cart);
+                    this.db.Cart.Add(cart);
+
+                    await this.db.SaveChangesAsync();
+
                     return $"Book {book.Title} added to cart";
                 }
                 else
@@ -96,15 +116,15 @@ namespace MBshop.Service.Services
         /// <summary>
         /// Add movie to cart
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="movieId"></param>
         /// <param name="price"></param>
         /// <param name="userId"></param>
         /// <returns></returns>
-        public string AddToCartMovie(int id, double price, string userId)
+        public async Task<string> AddToCartMovie(int movieId, double price, string userId)
         {
             //current movie to be addet
             var movie = this.db.Movies
-                .Where(x => x.Id == id && x.price == price)
+                .Where(x => x.Id == movieId && x.price == price)
                 .FirstOrDefault();
 
             if (movie == null)
@@ -112,12 +132,14 @@ namespace MBshop.Service.Services
                 return $"Movie not found";
             }
 
-            //chek for already added to cart
-            var chek = carts
-                .Any(x => x.Id == id && (x.Type == WebConstansVariables.Movie && x.price == price));
+            var chek = this.db.Cart
+                .Any(x => x.UserId == userId && x.MovieId == movieId && (x.Type == WebConstansVariables.Movie && x.price == price));
+
+            var currentLogedUser = this.db.AspNetUsers.Where(x => x.Id == userId).FirstOrDefault();
 
             //chek for user personal product
-            bool chekForUserPurchase = this.userItems.PersonalMovies(userId).Any(x => x.Id == id);
+            bool chekForUserPurchase = this.userItems.PersonalMovies(userId).Any(x => x.Id == movieId);
+
 
             if (chekForUserPurchase)
             {
@@ -127,18 +149,24 @@ namespace MBshop.Service.Services
             if (movie != null && !chek)
             {
                 //maping movie to cart model
-                ViewProducts cart = new ViewProducts
+
+                Cart cart = new Cart
                 {
-                    Id = id,
+                    MovieId = movie.Id,
                     price = price,
                     Picture = movie.Picture,
                     Title = movie.Title,
-                    Type = WebConstansVariables.Movie
+                    Type = WebConstansVariables.Movie,
+                    UserId = userId,
+                    User = currentLogedUser
                 };
 
                 if (cart != null && cart.Title != null)
                 {
-                    carts.Add(cart);
+                    this.db.Add(cart);
+
+                    await this.db.SaveChangesAsync();
+
                     return $"Movie {movie.Title} added to cart";
                 }
                 else
@@ -156,31 +184,45 @@ namespace MBshop.Service.Services
         /// <summary>
         /// Remove items from cart when chekout is pressed
         /// </summary>
-        public void DisposeCartProducts()
+        public async Task<string> DisposeCartProducts(string userId)
         {
-            carts = new List<ViewProducts>();
+            var products = this.db.Cart.Where(x => x.UserId == userId).ToList();
+
+            this.db.Cart.RemoveRange(products);
+
+            await this.db.SaveChangesAsync();
+
+            return $"";
         }
 
         /// <summary>
         /// Remove product : Type = Movie
         /// </summary>
         /// <param name="id"></param>
-        public void RemoveMovie(int id)
+        public async Task<string> RemoveMovie(int id, string userId)
         {
-            var cart = carts.Where(x => x.Id == id && x.Type == WebConstansVariables.Movie).FirstOrDefault();
+            var cart = this.db.Cart.Where(x => x.UserId == userId && (x.MovieId == id && x.Type == WebConstansVariables.Movie)).FirstOrDefault();
 
-            carts.Remove(cart);
+            this.db.Cart.Remove(cart);
+
+            await this.db.SaveChangesAsync();
+
+            return "";
         }
 
         /// <summary>
         /// Remove product : Type = Book
         /// </summary>
         /// <param name="id"></param>
-        public void RemoveBook(int id)
+        public async Task<string> RemoveBook(int id, string userId)
         {
-            var cart = carts.Where(x => x.Id == id && x.Type == WebConstansVariables.Book).FirstOrDefault();
+            var cart = this.db.Cart.Where(x => x.UserId == userId && (x.MovieId == id && x.Type == WebConstansVariables.Book)).FirstOrDefault();
 
-            carts.Remove(cart);
+            this.db.Cart.Remove(cart);
+
+            await this.db.SaveChangesAsync();
+
+            return "";
         }
     }
 }

@@ -58,5 +58,7 @@ namespace MBshop.Models
         public virtual ICollection<Rating> Rating { get; set; }
             = new HashSet<Rating>();
 
+        public virtual ICollection<Cart> Cart { get; set; } = new HashSet<Cart>();
+
     }
 }

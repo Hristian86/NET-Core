@@ -140,9 +140,9 @@ namespace MBshop.Controllers
             //fixing cascade delete manualy 
             var books = await _context.Books.FindAsync(id);
             var shopBooks = _context.Shops.Where(x => x.BooksId == books.Id).ToList();
-            var ratingBooks = _context.rating.Where(x => x.BooksId == books.Id).ToList();
+            var ratingBooks = _context.Rating.Where(x => x.BooksId == books.Id).ToList();
 
-            _context.rating.RemoveRange(ratingBooks);
+            _context.Rating.RemoveRange(ratingBooks);
             _context.RemoveRange(shopBooks);
             _context.Books.Remove(books);
 
