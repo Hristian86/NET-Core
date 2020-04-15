@@ -6,10 +6,12 @@
 <div class="container">
     <h1>Cart</h1>
 
+    @*model set to null : throws error*@
     @if (Model != null)
     {
         if (Model.Count() > 0)
         {
+
             <table class="table">
                 <thead>
                     <tr>

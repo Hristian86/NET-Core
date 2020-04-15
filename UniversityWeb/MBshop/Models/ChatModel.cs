@@ -9,12 +9,15 @@ namespace MBshop.Models
     public class ChatModel
     {
         public int Id { get; set; }
+
+        [MaxLength(50)]
         public string UserName { get; set; }
 
         public DateTime? DateT { get; set; }
 
         public string Content { get; set; }
 
+        [MaxLength(50)]
         public string CurrentUser { get; set; }
 
         public string Avatar { get; set; }

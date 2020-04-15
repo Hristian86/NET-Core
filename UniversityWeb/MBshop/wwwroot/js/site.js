@@ -1,4 +1,6 @@
 ﻿var count = 0;
+var urlLink = "";
+
 
 function PostMessages() {
     var xhr = new XMLHttpRequest();
@@ -24,13 +26,24 @@ function PostMessages() {
     document.getElementById('input').value = "";
 
     const jsonToSend = JSON.stringify(tobesendet);
-    xhr.open("Post", "https://localhost:44342/api/Chat", true);
+
+    if (urlLink == "Development") {
+        //Development environment
+        xhr.open("Post", "https://localhost:44342/api/Chat", true);
+    } else {
+        //Production environment
+        xhr.open("Post", "https://localhost:5001/api/Chat", true);
+    }
+
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(jsonToSend);
     chek = true;
 }
 
 function Start() {
+    //setting the enviornment
+    var urlLinks = document.getElementById("secretEnviornment");
+    urlLink = urlLinks.getAttribute('value');
 
     //reseting count when the page is loadet on user requested -
     //and starting new compare with data lenght
@@ -83,7 +96,7 @@ function GetMessages() {
                     for (var prop = newLenght - 1; newLenght > 0; prop--) {
                         //date output
 
-                       var messageCreatedDate = new Date(obj[prop].dateT);
+                        var messageCreatedDate = new Date(obj[prop].dateT);
 
                         if (messageCreatedDate.getMinutes() == 0) {
                             DayTimeMinutes = '0' + '0';
@@ -99,6 +112,7 @@ function GetMessages() {
                         var messageContent = obj[prop].content; // {z}
                         var deleteMessage = obj[prop].id;
                         var avatar = obj[prop].avatar;
+
                         //ids = s;
                         if (avatar == null || avatar.length < 1) {
                             avatar = 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTYPN-S2G6m1RHbx5S4JjAGITpWCYYoBnMTa28lW3E-2aSMCHbD&usqp=CAU';
@@ -142,7 +156,7 @@ function GetMessages() {
             ${messageContent}
         </div>
     </div>`;
-                        
+
 
                         //adding the messages in chatbox
                         let wrapper = document.createElement("div")
@@ -163,7 +177,16 @@ function GetMessages() {
     }
 
 
-    xhr.open("Get", "https://localhost:44342/api/Chat", true);
+    if (urlLink == "Development") {
+        console.log(urlLink);
+        //Development environment
+        xhr.open("Get", "https://localhost:44342/api/Chat", true);
+    } else {
+
+        //Production environment
+        xhr.open("Get", "https://localhost:5001/api/Chat", true);
+    }
+
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send();
 
@@ -195,7 +218,15 @@ function Delete(element) {
     document.getElementById('input').value = "";
 
     const jsonToSend = JSON.stringify(tobesendet);
-    xhr.open("Delete", "https://localhost:44342/api/Chat", true);
+
+    if (urlLink == "Development") {
+        //Development environment
+        xhr.open("Delete", "https://localhost:44342/api/Chat", true);
+    } else {
+        //Production environment
+        xhr.open("Delete", "https://localhost:5001/api/Chat", true);
+    }
+
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(jsonToSend);
 }

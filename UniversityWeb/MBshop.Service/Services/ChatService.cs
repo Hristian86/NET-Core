@@ -68,7 +68,7 @@ namespace MBshop.Service.Services
                 Avatar = avatar,
                 UserName = fullNameOfUser,
                 Content = content,
-                UserId = userId
+                UserId = userId,
             };
 
             if (userId == null || userId.Length < 1)

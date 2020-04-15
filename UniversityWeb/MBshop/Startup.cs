@@ -87,6 +87,8 @@ namespace MBshop
                     {
                         builder.WithOrigins("https://localhost:44342")
                         .AllowAnyHeader();
+
+                        builder.WithOrigins("https://localhost:5001").AllowAnyHeader();
                     });
             });
         }
@@ -96,11 +98,13 @@ namespace MBshop
         {
             if (env.IsDevelopment())
             {
+                WebConstansVariables.EnvironmentVariables = "Development";
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
             }
             else
             {
+                WebConstansVariables.EnvironmentVariables = "Production";
                 app.UseExceptionHandler("/Home/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
