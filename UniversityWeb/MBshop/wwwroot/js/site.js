@@ -27,14 +27,8 @@ function PostMessages() {
 
     const jsonToSend = JSON.stringify(tobesendet);
 
-    if (urlLink == "Development") {
-        //Development environment
-        xhr.open("Post", "https://localhost:44342/api/Chat", true);
-    } else {
-        //Production environment
-        xhr.open("Post", "https://localhost:5001/api/Chat", true);
-    }
-
+    
+    xhr.open("Post", urlLink, true);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(jsonToSend);
     chek = true;
@@ -44,6 +38,7 @@ function Start() {
     //setting the enviornment
     var urlLinks = document.getElementById("secretEnviornment");
     urlLink = urlLinks.getAttribute('value');
+
 
     //reseting count when the page is loadet on user requested -
     //and starting new compare with data lenght
@@ -109,7 +104,7 @@ function GetMessages() {
                         var addDate = messageCreatedDate.getDate() + '.' + (messageCreatedDate.getMonth() + 1) + '.' + messageCreatedDate.getFullYear() + ' ' + messageCreatedDate.getHours() + ':' + DayTimeMinutes;
 
                         var userName = obj[prop].userName;
-                        var messageContent = obj[prop].content; // {z}
+                        var messageContent = obj[prop].content;
                         var deleteMessage = obj[prop].id;
                         var avatar = obj[prop].avatar;
 
@@ -177,16 +172,9 @@ function GetMessages() {
     }
 
 
-    if (urlLink == "Development") {
-        console.log(urlLink);
-        //Development environment
-        xhr.open("Get", "https://localhost:44342/api/Chat", true);
-    } else {
+    
 
-        //Production environment
-        xhr.open("Get", "https://localhost:5001/api/Chat", true);
-    }
-
+    xhr.open("Get", urlLink, true);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send();
 
@@ -219,14 +207,8 @@ function Delete(element) {
 
     const jsonToSend = JSON.stringify(tobesendet);
 
-    if (urlLink == "Development") {
-        //Development environment
-        xhr.open("Delete", "https://localhost:44342/api/Chat", true);
-    } else {
-        //Production environment
-        xhr.open("Delete", "https://localhost:5001/api/Chat", true);
-    }
-
+    
+    xhr.open("Delete", urlLink, true);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(jsonToSend);
 }

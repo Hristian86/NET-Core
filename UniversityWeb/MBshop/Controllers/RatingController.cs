@@ -31,7 +31,7 @@ namespace MBshop.Controllers
             {
                 var userId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-                 GlobalAlertMessages.MessageForStaatus = await this.rateService.RateMovie(model,userId);
+                 GlobalAlertMessages.StatusMessage = await this.rateService.RateMovie(model,userId);
 
                 return this.RedirectToAction("MovieCollection", "MovieList");
             }
@@ -46,7 +46,7 @@ namespace MBshop.Controllers
             {
                 var user = User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-                GlobalAlertMessages.MessageForStaatus = await this.rateService.RateBook(model, user);
+                GlobalAlertMessages.StatusMessage = await this.rateService.RateBook(model, user);
 
                 return this.RedirectToAction("BooksCollection", "BookList");
             }

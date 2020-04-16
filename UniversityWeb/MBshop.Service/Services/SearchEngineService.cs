@@ -42,10 +42,10 @@ namespace MBshop.Service.Services
 
             var userPersonalBooks = this.userItems.PersonalBooks(userId);
 
-            status.StatusChekBooks(bookses,userPersonalBooks);
+            status.StatusChekBooks(bookses, userPersonalBooks);
 
             //status chek for movies
-            status.StatusChekMovies(movieses,userPersonalMovies);
+            status.StatusChekMovies(movieses, userPersonalMovies);
 
             var result = movieses
                 .Select(item => new ViewProducts
@@ -63,17 +63,17 @@ namespace MBshop.Service.Services
 
             var result1 = bookses
                 .Select(item => new ViewProducts
-            {
-                Id = item.Id,
-                Title = item.Title,
-                price = item.price,
-                Picture = item.Picture,
-                Genre = item.Genre,
-                Status = item.Status,
-                Rate = item.Rate,
-                Type = WebConstansVariables.Book
+                {
+                    Id = item.Id,
+                    Title = item.Title,
+                    price = item.price,
+                    Picture = item.Picture,
+                    Genre = item.Genre,
+                    Status = item.Status,
+                    Rate = item.Rate,
+                    Type = WebConstansVariables.Book
 
-            }).ToList();
+                }).ToList();
 
             result.AddRange(result1);
 
@@ -108,7 +108,7 @@ namespace MBshop.Service.Services
                     Picture = item.Picture,
                     Genre = item.Genre,
                     Status = item.Status,
-                    Rate = Math.Round((double)item.Rate,1),
+                    Rate = Math.Round((double)item.Rate, 1),
                     Type = WebConstansVariables.Movie
 
                 }).ToList();
@@ -122,7 +122,7 @@ namespace MBshop.Service.Services
                     Picture = item.Picture,
                     Genre = item.Genre,
                     Status = item.Status,
-                    Rate = Math.Round((double)item.Rate,1),
+                    Rate = Math.Round((double)item.Rate, 1),
                     Type = WebConstansVariables.Book
 
                 }).ToList();

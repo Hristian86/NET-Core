@@ -153,11 +153,11 @@ namespace MBshop.Areas.Identity.Pages.Account.Manage
             if (this.resultFromCheckNickName)
             {
 
-                GlobalAlertMessages.MessageForStaatus = "This chat nick name " + $"( {Input.ChatName} )" + " is already taken please choose different name!";
+                GlobalAlertMessages.StatusMessage = "This chat nick name " + $"( {Input.ChatName} )" + " is already taken please choose different name!";
             }
             else
             {
-                GlobalAlertMessages.MessageForStaatus = "Your profile has been updated!";
+                GlobalAlertMessages.StatusMessage = "Your profile has been updated!";
             }
 
             return RedirectToPage();

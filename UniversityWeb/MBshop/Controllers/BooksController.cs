@@ -58,6 +58,7 @@ namespace MBshop.Controllers
         {
             if (ModelState.IsValid)
             {
+                books.Rate = 0;
                 _context.Add(books);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

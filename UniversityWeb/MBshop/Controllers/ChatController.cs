@@ -79,7 +79,7 @@ namespace MBshop.Controllers
 
                 if (responce == "User account is required!")
                 {
-                    GlobalAlertMessages.MessageForStaatus = responce;
+                    GlobalAlertMessages.StatusMessage = responce;
                 }
             }
 

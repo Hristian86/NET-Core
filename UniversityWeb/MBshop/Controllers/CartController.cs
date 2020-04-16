@@ -55,7 +55,7 @@ namespace MBshop.Controllers
             }
 
             //cart user interface for displayin numberof items in card
-            GlobalAlertMessages.MessageForStaatus = await this.cartBasket.AddToCartMovie(model.Id, model.price, GetCurrentUser());
+            GlobalAlertMessages.StatusMessage = await this.cartBasket.AddToCartMovie(model.Id, model.price, GetCurrentUser());
 
             ViewData["CartCount"] = this.cartBasket.GetCartBasketUser(GetCurrentUser());
 
@@ -75,7 +75,7 @@ namespace MBshop.Controllers
             }
 
             //cart user interface for displayin numberof items in card
-            GlobalAlertMessages.MessageForStaatus = await this.cartBasket.AddToCartBook(model.Id, model.price, GetCurrentUser());
+            GlobalAlertMessages.StatusMessage = await this.cartBasket.AddToCartBook(model.Id, model.price, GetCurrentUser());
 
             ViewData["CartCount"] = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count;
 
@@ -104,13 +104,13 @@ namespace MBshop.Controllers
             {
                 if (product.Type == "Movie")
                 {
-                    GlobalAlertMessages.MessageForStaatus = await this.shopService
+                    GlobalAlertMessages.StatusMessage = await this.shopService
                         .BuyMovie(user, product.Id);
                 }
                 else if (product.Type == "Book")
                 {
                     //To Do string message
-                    GlobalAlertMessages.MessageForStaatus = await this.shopService
+                    GlobalAlertMessages.StatusMessage = await this.shopService
                         .BuyBook(user, product.Id);
                 }
             }
@@ -134,7 +134,7 @@ namespace MBshop.Controllers
                 return NotFound();
             }
 
-            GlobalAlertMessages.MessageForStaatus = await this.cartBasket.RemoveMovie((int)id, GetCurrentUser());
+            GlobalAlertMessages.StatusMessage = await this.cartBasket.RemoveMovie((int)id, GetCurrentUser());
 
             //GlobalAlertMessages.MessageForStaatus = "";
 
@@ -155,7 +155,7 @@ namespace MBshop.Controllers
                 return NotFound();
             }
 
-            GlobalAlertMessages.MessageForStaatus = await this.cartBasket.RemoveBook((int)id, GetCurrentUser());
+            GlobalAlertMessages.StatusMessage = await this.cartBasket.RemoveBook((int)id, GetCurrentUser());
 
             //GlobalAlertMessages.MessageForStaatus = "";
 

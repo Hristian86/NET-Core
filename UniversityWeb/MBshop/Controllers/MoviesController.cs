@@ -63,15 +63,7 @@ namespace MBshop.Controllers
 
             if (ModelState.IsValid)
             {
-                //var curPrice = movies.price;
-                //var discount = movies.Discount;
-                //var total = curPrice - discount;
-
-                //if (total >= 0)
-                //{
-                //    movies.price = total;
-                //}
-
+                movies.Rate = 0;
                 db.Add(movies);
                 await db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

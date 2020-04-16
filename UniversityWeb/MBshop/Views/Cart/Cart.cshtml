@@ -101,8 +101,11 @@
                                 <input type="hidden" name="productId" value="@item.Id" />
                                 <input type="hidden" name="type" value="@item.Type" />
                             }
-                            <button type="submit" class="btn btn-danger">Check out  </button>
-                            @Model.Sum(p => p.price) $
+                            <button type="submit" class="btn btn-danger mr-1">Check out  </button>
+                            @{
+                                var sum = $"{Model.Sum(p => p.price):f2}";
+                            }
+                            @sum $
                         </div>
                     </div>
                 }

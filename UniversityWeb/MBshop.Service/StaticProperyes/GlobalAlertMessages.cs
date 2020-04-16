@@ -7,7 +7,7 @@ namespace MBshop.Service.StaticProperyes
     public class GlobalAlertMessages
     {
 
-        public static string MessageForStaatus { get; set; }
+        public static string StatusMessage { get; set; }
 
         public int CountOfProductsInBasket { get; set; }
     }
