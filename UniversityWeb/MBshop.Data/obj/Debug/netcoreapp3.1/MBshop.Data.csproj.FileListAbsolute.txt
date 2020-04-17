@@ -24,3 +24,4 @@ C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-P
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop.Data\obj\Debug\netcoreapp3.1\MBshop.Data.csproj.CopyComplete
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop.Data\obj\Debug\netcoreapp3.1\MBshop.Data.dll
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop.Data\obj\Debug\netcoreapp3.1\MBshop.Data.pdb
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop.Data\obj\Debug\netcoreapp3.1\MBshop.Data.genruntimeconfig.cache

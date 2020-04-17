@@ -91,6 +91,7 @@ namespace MBshop
                         builder.WithOrigins("https://localhost:5001").AllowAnyHeader();
                     });
             });
+            services.AddApplicationInsightsTelemetry();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

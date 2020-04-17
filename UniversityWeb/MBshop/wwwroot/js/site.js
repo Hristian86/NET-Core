@@ -46,11 +46,10 @@ function Start() {
     //this.console.log('zdrasti');
     GetMessages();
     // Real time message sistem
-    //setInterval(function () {
-    //    GetMessages();
-    //    //console.log('get responce from server')
-
-    //}, 2000);
+    setInterval(function () {
+        GetMessages();
+        //console.log('get responce from server')
+    }, 2000);
 }
 
 //saving previous lenght number for comparing with new messages from controller as data
