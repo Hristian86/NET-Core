@@ -67,7 +67,7 @@ namespace MBshop
             services.AddScoped<IViewMoviesService, ViewMoviesService>();
             services.AddScoped<IViewBooksService, ViewBooksService>();
             services.AddScoped<IShopItemsService, ShopItemsService>();
-            services.AddScoped<IAdminPanelProducts, AdminPanelProducts>();
+            services.AddScoped<IAdminPanel, AdminPanel>();
             services.AddSingleton<Status>();
             services.AddScoped<IUserShopedProductsService,
                 UserShopedProductsService>();
@@ -98,7 +98,7 @@ namespace MBshop
         {
             if (env.IsDevelopment())
             {
-                WebConstansVariables.EnvironmentVariables = Configuration.GetConnectionString("DevelopmentConnection");
+                WebConstantsVariables.EnvironmentVariables = Configuration.GetConnectionString("DevelopmentConnection");
 
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
@@ -106,7 +106,7 @@ namespace MBshop
             else
             {
 
-                WebConstansVariables.EnvironmentVariables = Configuration.GetConnectionString("ProductionConnection");
+                WebConstantsVariables.EnvironmentVariables = Configuration.GetConnectionString("ProductionConnection");
 
                 app.UseExceptionHandler("/Home/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.

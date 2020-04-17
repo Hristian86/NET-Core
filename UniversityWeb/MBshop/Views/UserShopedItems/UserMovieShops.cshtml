@@ -26,9 +26,6 @@
                         <th>
                             Product
                         </th>
-                        @*<th>
-                            @Html.DisplayNameFor(model => model.Picture)
-                        </th>*@
                         <th></th>
                     </tr>
                 </thead>
@@ -37,7 +34,7 @@
                     {
                         <tr>
                             <td>
-
+                                <h3 id="user-product-title">@item.Title</h3>
                                 <img src="@item.Picture" class="mb-3" id="MovieList" alt="Alternate Text" />
                                 @using (Html.BeginForm("MovieDetail", "MovieList", new { id = item.Id }, FormMethod.Get))
                                 {
@@ -51,15 +48,6 @@
                                         src="@item.LinkForPurchasedContend">
                                 </iframe>
                             </td>
-                            @*<td>
-                                <img src="@item.Picture" class="mb-3" id="MovieList" alt="Alternate Text" />
-
-                                @using (Html.BeginForm("MovieDetail", "MovieList", new { id = item.Id }, FormMethod.Get))
-                                {
-                                    <input class="form-control mr-sm-2" type="hidden" name="type" value="@item.price">
-                                    <button type="submit" class="btn btn-outline-primary btn-lg">Details </button>
-                                }
-                            </td>*@
                         </tr>
 
                     }

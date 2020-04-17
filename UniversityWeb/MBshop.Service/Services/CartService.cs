@@ -67,12 +67,15 @@ namespace MBshop.Service.Services
 
             //chek for already added in cart : static list
             var chek = this.db.Cart
-                 .Any(x => x.UserId == userId && x.ProductId == bookId && (x.Type == WebConstansVariables.Book && x.price == price));
+                 .Any(x => x.UserId == userId && x.ProductId == bookId && (x.Type == WebConstantsVariables.Book && x.price == price));
 
-            var currentLogedUser = this.db.AspNetUsers.Where(x => x.Id == userId).FirstOrDefault();
+            var currentLogedUser = this.db.AspNetUsers
+                .Where(x => x.Id == userId)
+                .FirstOrDefault();
 
             //chek for user personal product
-            bool chekForUserPurchase = this.userItems.PersonalBooks(userId).Any(x => x.Id == bookId);
+            bool chekForUserPurchase = this.userItems.PersonalBooks(userId)
+                .Any(x => x.Id == bookId);
 
             if (chekForUserPurchase)
             {
@@ -88,7 +91,7 @@ namespace MBshop.Service.Services
                     price = price,
                     Picture = book.Picture,
                     Title = book.Title,
-                    Type = WebConstansVariables.Book,
+                    Type = WebConstantsVariables.Book,
                     UserId = userId,
                     User = currentLogedUser
                 };
@@ -133,12 +136,15 @@ namespace MBshop.Service.Services
             }
 
             var chek = this.db.Cart
-                .Any(x => x.UserId == userId && x.ProductId == movieId && (x.Type == WebConstansVariables.Movie && x.price == price));
+                .Any(x => x.UserId == userId && x.ProductId == movieId && (x.Type == WebConstantsVariables.Movie && x.price == price));
 
-            var currentLogedUser = this.db.AspNetUsers.Where(x => x.Id == userId).FirstOrDefault();
+            var currentLogedUser = this.db.AspNetUsers
+                .Where(x => x.Id == userId)
+                .FirstOrDefault();
 
             //chek for user personal product
-            bool chekForUserPurchase = this.userItems.PersonalMovies(userId).Any(x => x.Id == movieId);
+            bool chekForUserPurchase = this.userItems.PersonalMovies(userId)
+                .Any(x => x.Id == movieId);
 
 
             if (chekForUserPurchase)
@@ -156,7 +162,7 @@ namespace MBshop.Service.Services
                     price = price,
                     Picture = movie.Picture,
                     Title = movie.Title,
-                    Type = WebConstansVariables.Movie,
+                    Type = WebConstantsVariables.Movie,
                     UserId = userId,
                     User = currentLogedUser
                 };
@@ -186,7 +192,9 @@ namespace MBshop.Service.Services
         /// </summary>
         public async Task<string> DisposeCartProducts(string userId)
         {
-            var products = this.db.Cart.Where(x => x.UserId == userId).ToList();
+            var products = this.db.Cart
+                .Where(x => x.UserId == userId)
+                .ToList();
 
             this.db.Cart.RemoveRange(products);
 
@@ -201,7 +209,9 @@ namespace MBshop.Service.Services
         /// <param name="id"></param>
         public async Task<string> RemoveMovie(int id, string userId)
         {
-            var cart = this.db.Cart.Where(x => x.UserId == userId && (x.ProductId == id && x.Type == WebConstansVariables.Movie)).FirstOrDefault();
+            var cart = this.db.Cart
+                .Where(x => x.UserId == userId && (x.ProductId == id && x.Type == WebConstantsVariables.Movie))
+                .FirstOrDefault();
 
             var movieTitle = cart.Title;
 
@@ -218,7 +228,9 @@ namespace MBshop.Service.Services
         /// <param name="id"></param>
         public async Task<string> RemoveBook(int id, string userId)
         {
-            var cart = this.db.Cart.Where(x => x.UserId == userId && (x.ProductId == id && x.Type == WebConstansVariables.Book)).FirstOrDefault();
+            var cart = this.db.Cart
+                .Where(x => x.UserId == userId && (x.ProductId == id && x.Type == WebConstantsVariables.Book))
+                .FirstOrDefault();
 
             var bookTitle = cart.Title;
 

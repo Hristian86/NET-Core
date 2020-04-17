@@ -47,7 +47,7 @@
                                 <img src="@item.Picture" id="MovieList" alt="Alternate Text" />
                             </td>
                             <td>
-                                @if (item.Type == WebConstansVariables.Movie)
+                                @if (item.Type == WebConstantsVariables.Movie)
                                 {
 
                                     @using (Html.BeginForm("RemoveMovieProduct", "Cart", new { id = item.Id }, FormMethod.Post))
@@ -59,7 +59,7 @@
                                         </div>
                                     }
                                 }
-                                else if (item.Type == WebConstansVariables.Book)
+                                else if (item.Type == WebConstantsVariables.Book)
                                 {
                                     @using (Html.BeginForm("RemoveBookProduct", "Cart", new { id = item.Id }, FormMethod.Post))
                                     {

@@ -9,7 +9,8 @@ using MBshop.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using MBshop.Data;
 using Microsoft.AspNetCore.Authorization;
-using MBshop.Data.Data;
+using MBshop.Service.interfaces;
+using MBshop.Service.StaticProperyes;
 
 namespace MBshop.Controllers
 {
@@ -17,17 +18,17 @@ namespace MBshop.Controllers
     [Authorize(Roles = "Admin")]
     public class MoviesController : Controller
     {
-        private readonly MovieShopDBSEContext db;
+        private readonly IAdminPanel adminProducts;
 
-        public MoviesController(MovieShopDBSEContext db)
+        public MoviesController(IAdminPanel adminProducts)
         {
-            this.db = db;
+            this.adminProducts = adminProducts;
         }
 
         // GET: Movies
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            return View(await this.db.Movies.ToListAsync());
+            return this.View(this.adminProducts.GetMovies());
         }
 
         // GET: Movies/Details/5
@@ -38,8 +39,7 @@ namespace MBshop.Controllers
                 return NotFound();
             }
 
-            var movies = await db.Movies
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var movies = await this.adminProducts.FindMovieById(id);
 
             if (movies == null)
             {
@@ -63,9 +63,9 @@ namespace MBshop.Controllers
 
             if (ModelState.IsValid)
             {
-                movies.Rate = 0;
-                db.Add(movies);
-                await db.SaveChangesAsync();
+
+               GlobalAlertMessages.StatusMessage = await this.adminProducts.CreateMovie(movies);
+
                 return RedirectToAction(nameof(Index));
             }
             return View(movies);
@@ -80,7 +80,7 @@ namespace MBshop.Controllers
                 return NotFound();
             }
 
-            var movies = await db.Movies.FindAsync(id);
+            var movies = await this.adminProducts.FindMovieById(id);
 
             if (movies == null)
             {
@@ -103,18 +103,9 @@ namespace MBshop.Controllers
             {
                 try
                 {
-                    //var sum = 0.00;
-                    //var curPricew = movies.price;
-                    //var disc = movies.Discount;
-                    //sum = curPricew - disc;
 
-                    //if (sum >= 0)
-                    //{
-                    //    movies.price = sum;
-                    //}
+                    GlobalAlertMessages.StatusMessage = await this.adminProducts.UpdateMovie(movies);
 
-                    db.Update(movies);
-                    await db.SaveChangesAsync();
                 }
 
                 catch (DbUpdateConcurrencyException)
@@ -141,8 +132,7 @@ namespace MBshop.Controllers
                 return NotFound();
             }
 
-            var movies = await db.Movies
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var movies = await this.adminProducts.FindMovieById(id);
 
             if (movies == null)
             {
@@ -157,23 +147,15 @@ namespace MBshop.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var movies = await db.Movies.FindAsync(id);
-            
-            //cascade delete manualy 
-            var shopMovies = db.Shops.Where(x => x.MovieId == movies.Id).ToList();
-            var ratingMovies = db.Rating.Where(x => x.MoviesId == movies.Id).ToList();
 
-            db.Rating.RemoveRange(ratingMovies);
-            db.RemoveRange(shopMovies);
-            db.Movies.Remove(movies);
+            GlobalAlertMessages.StatusMessage = await adminProducts.RemoveMovie(id);
 
-            await db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool MoviesExists(int id)
         {
-            return db.Movies.Any(e => e.Id == id);
+            return this.adminProducts.MovieExist(id);
         }
     }
 }

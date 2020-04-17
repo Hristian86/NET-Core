@@ -27,7 +27,8 @@ namespace MBshop.Service.Services
         public async Task<string> BuyMovie(string userId, int movieId)
         {
 
-            var chek = this.db.Shops.Any(x => x.MovieId == movieId && x.UserId == userId);
+            var chek = this.db.Shops
+                .Any(x => x.MovieId == movieId && x.UserId == userId);
 
             if (!chek)
             {
@@ -70,7 +71,10 @@ namespace MBshop.Service.Services
                 }
             }
 
-            string movieTitle = this.db.Movies.Where(x => x.Id == movieId).Select(x => x.Title).FirstOrDefault();
+            string movieTitle = this.db.Movies
+                .Where(x => x.Id == movieId)
+                .Select(x => x.Title)
+                .FirstOrDefault();
 
             return $"This product {movieTitle} allready is purchased";
         }
@@ -84,7 +88,8 @@ namespace MBshop.Service.Services
         public async Task<string> BuyBook(string userId, int bookId)
         {
 
-            var chek = this.db.Shops.Any(x => x.BooksId == bookId && x.UserId == userId);
+            var chek = this.db.Shops
+                .Any(x => x.BooksId == bookId && x.UserId == userId);
 
             if (!chek)
             {
@@ -127,7 +132,10 @@ namespace MBshop.Service.Services
                 }
             }
 
-            string bookTitle = this.db.Books.Where(x => x.Id == bookId).Select(x => x.Title).FirstOrDefault();
+            string bookTitle = this.db.Books
+                .Where(x => x.Id == bookId)
+                .Select(x => x.Title)
+                .FirstOrDefault();
 
             return $"This product {bookTitle} allready is purchased";
         }

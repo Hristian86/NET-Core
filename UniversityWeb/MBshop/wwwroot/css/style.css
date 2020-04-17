@@ -112,6 +112,7 @@
 #cart {
     width: 80px;
     height: 38px;
+    padding-left:18px;
 }
 
 /*#drop-down-menu {
@@ -200,4 +201,11 @@
     /*background-color:skyblue;*/
     height: 10%;
 }
+
+#user-product-title {
+    /*background-color:rgb(40, 242, 242);*/
+    text-align:start;
+    height:80px;
+}
+
 

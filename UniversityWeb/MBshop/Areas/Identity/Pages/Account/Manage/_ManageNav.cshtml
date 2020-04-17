@@ -13,7 +13,7 @@
     <li class="nav-item"><a class="nav-link @ManageNavPages.TwoFactorAuthenticationNavClass(ViewContext)" id="two-factor" asp-page="./TwoFactorAuthentication">Two-factor authentication</a></li>
     <li class="nav-item"><a class="nav-link @ManageNavPages.PersonalDataNavClass(ViewContext)" id="personal-data" asp-page="./PersonalData">Personal data</a></li>
     <li class="nav-item">
-        @if (User.IsInRole(WebConstansVariables.User) || User.IsInRole(WebConstansVariables.Admin))
+        @if (User.IsInRole(WebConstantsVariables.User) || User.IsInRole(WebConstantsVariables.Admin))
         {
             @*To Do - add link for evry user shoped items*@
             <a asp-controller="UserShopedItems" asp-action="UserMovieShops" class="btn btn-primary">Shoped products</a>

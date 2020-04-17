@@ -7,24 +7,25 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MBshop.Models;
 using Microsoft.AspNetCore.Authorization;
-using MBshop.Data.Data;
+using MBshop.Service.interfaces;
+using MBshop.Service.StaticProperyes;
 
 namespace MBshop.Controllers
 {
     [Authorize(Roles = "Admin")]
     public class BooksController : Controller
     {
-        private readonly MovieShopDBSEContext _context;
+        private readonly IAdminPanel adminPanel;
 
-        public BooksController(MovieShopDBSEContext context)
+        public BooksController(IAdminPanel adminPanel)
         {
-            _context = context;
+            this.adminPanel = adminPanel;
         }
 
         // GET: Books
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            return View(await _context.Books.ToListAsync());
+            return this.View(this.adminPanel.GetBooks());
         }
 
         // GET: Books/Details
@@ -35,8 +36,8 @@ namespace MBshop.Controllers
                 return NotFound();
             }
 
-            var books = await _context.Books
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var books = await this.adminPanel.FindBookById(id);
+
             if (books == null)
             {
                 return NotFound();
@@ -58,9 +59,9 @@ namespace MBshop.Controllers
         {
             if (ModelState.IsValid)
             {
-                books.Rate = 0;
-                _context.Add(books);
-                await _context.SaveChangesAsync();
+
+                GlobalAlertMessages.StatusMessage = await this.adminPanel.CreateBook(books);
+
                 return RedirectToAction(nameof(Index));
             }
             return View(books);
@@ -74,7 +75,8 @@ namespace MBshop.Controllers
                 return NotFound();
             }
 
-            var books = await _context.Books.FindAsync(id);
+            var books = await this.adminPanel.FindBookById(id);
+
             if (books == null)
             {
                 return NotFound();
@@ -96,8 +98,9 @@ namespace MBshop.Controllers
             {
                 try
                 {
-                    _context.Update(books);
-                    await _context.SaveChangesAsync();
+
+                    GlobalAlertMessages.StatusMessage = await this.adminPanel.UpdateBook(books);
+
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -123,8 +126,8 @@ namespace MBshop.Controllers
                 return NotFound();
             }
 
-            var books = await _context.Books
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var books = await this.adminPanel.FindBookById(id);
+
             if (books == null)
             {
                 return NotFound();
@@ -139,21 +142,15 @@ namespace MBshop.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             //fixing cascade delete manualy 
-            var books = await _context.Books.FindAsync(id);
-            var shopBooks = _context.Shops.Where(x => x.BooksId == books.Id).ToList();
-            var ratingBooks = _context.Rating.Where(x => x.BooksId == books.Id).ToList();
 
-            _context.Rating.RemoveRange(ratingBooks);
-            _context.RemoveRange(shopBooks);
-            _context.Books.Remove(books);
+            GlobalAlertMessages.StatusMessage = await this.adminPanel.RemoveBook(id);
 
-            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool BooksExists(int id)
         {
-            return _context.Books.Any(e => e.Id == id);
+            return this.adminPanel.BookExist(id);
         }
     }
 }

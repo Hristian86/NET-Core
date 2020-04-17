@@ -57,7 +57,7 @@ namespace MBshop.Service.Services
                     Genre = item.Genre,
                     Status = item.Status,
                     Rate = item.Rate,
-                    Type = WebConstansVariables.Movie
+                    Type = WebConstantsVariables.Movie
 
                 }).ToList();
 
@@ -71,7 +71,7 @@ namespace MBshop.Service.Services
                     Genre = item.Genre,
                     Status = item.Status,
                     Rate = item.Rate,
-                    Type = WebConstansVariables.Book
+                    Type = WebConstantsVariables.Book
 
                 }).ToList();
 
@@ -100,6 +100,7 @@ namespace MBshop.Service.Services
             this.status.StatusChekMovies(movieses, userPersonalMovies);
 
             var result = movieses
+                .Where(r => r.Rate != null)
                 .Select(item => new ViewProducts
                 {
                     Id = item.Id,
@@ -109,11 +110,12 @@ namespace MBshop.Service.Services
                     Genre = item.Genre,
                     Status = item.Status,
                     Rate = Math.Round((double)item.Rate, 1),
-                    Type = WebConstansVariables.Movie
+                    Type = WebConstantsVariables.Movie
 
                 }).ToList();
 
             var result1 = bookses
+                .Where(r => r.Rate != null)
                 .Select(item => new ViewProducts
                 {
                     Id = item.Id,
@@ -123,7 +125,7 @@ namespace MBshop.Service.Services
                     Genre = item.Genre,
                     Status = item.Status,
                     Rate = Math.Round((double)item.Rate, 1),
-                    Type = WebConstansVariables.Book
+                    Type = WebConstantsVariables.Book
 
                 }).ToList();
 

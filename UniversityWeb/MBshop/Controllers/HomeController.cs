@@ -25,6 +25,7 @@ namespace MBshop.Controllers
         private readonly UserManager<IdentityUser> userManager;
         private readonly ILogger<HomeController> _logger;
         private readonly ISearchEngineService search;
+        private readonly ICartService cartBasket;
         private string user = "";
 
         //private UserNames names = new UserNames();
@@ -34,10 +35,12 @@ namespace MBshop.Controllers
             IProfileEditService edit,
             UserManager<IdentityUser> userManager,
             ISearchEngineService search,
-            IUserShopedProductsService userItems
+            IUserShopedProductsService userItems,
+            ICartService cartBasket
             )
         {
             this.search = search;
+            this.cartBasket = cartBasket;
             this.edits = edit;
             this.userManager = userManager;
             _logger = logger;
@@ -113,6 +116,8 @@ namespace MBshop.Controllers
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
+            //To Do error log in database
+
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }

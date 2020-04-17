@@ -57,7 +57,7 @@ namespace MBshop.Controllers
             //cart user interface for displayin numberof items in card
             GlobalAlertMessages.StatusMessage = await this.cartBasket.AddToCartMovie(model.Id, model.price, GetCurrentUser());
 
-            ViewData["CartCount"] = this.cartBasket.GetCartBasketUser(GetCurrentUser());
+            ViewData["CartCount"] = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count;
 
             globalMessage.CountOfProductsInBasket = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count;
 
@@ -117,7 +117,7 @@ namespace MBshop.Controllers
 
             await this.cartBasket.DisposeCartProducts(GetCurrentUser());
 
-            ViewData["CartCount"] = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count.ToString();
+            ViewData["CartCount"] = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count;
 
             globalMessage.CountOfProductsInBasket = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count();
 
@@ -138,7 +138,7 @@ namespace MBshop.Controllers
 
             //GlobalAlertMessages.MessageForStaatus = "";
 
-            ViewData["CartCount"] = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count.ToString();
+            ViewData["CartCount"] = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count;
 
             globalMessage.CountOfProductsInBasket = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count();
 
@@ -159,7 +159,7 @@ namespace MBshop.Controllers
 
             //GlobalAlertMessages.MessageForStaatus = "";
 
-            ViewData["CartCount"] = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count.ToString();
+            ViewData["CartCount"] = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count;
 
             globalMessage.CountOfProductsInBasket = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count();
 

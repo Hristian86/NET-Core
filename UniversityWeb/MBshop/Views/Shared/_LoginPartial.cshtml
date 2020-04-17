@@ -8,7 +8,7 @@
     {
 
 
-        if (User.IsInRole(WebConstansVariables.User))
+        if (User.IsInRole(WebConstantsVariables.User))
         {
 
             @*To Do - add link for evry user shoped items*@
@@ -16,7 +16,7 @@
                 <a asp-controller="UserShopedItems" asp-action="UserMovieShops" class="btn btn-outline-info">Shoped products</a>
             </Li>
         }
-        if (User.IsInRole(WebConstansVariables.Admin))
+        if (User.IsInRole(WebConstantsVariables.Admin))
         {
             <Li class="ItemsPerPerson">
                 <a asp-controller="UserShopedItems" asp-action="UserMovieShops" class="btn btn-outline-info">Shoped products</a>
