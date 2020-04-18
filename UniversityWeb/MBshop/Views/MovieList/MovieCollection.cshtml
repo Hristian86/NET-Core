@@ -39,28 +39,28 @@
             <table class="table" id="tabul">
                 <thead>
                     <tr>
-                        <th>
+                        <th id="hide-on-mobile">
                             @Html.DisplayNameFor(model => model.Title)
                         </th>
-                        <th>
+                        <th id="hide-on-mobile">
                             @Html.DisplayNameFor(model => model.Director)
                         </th>
-                        <th>
+                        <th id="hide-on-mobile">
                             @Html.DisplayNameFor(model => model.Actors)
                         </th>
-                        <th>
+                        <th id="hide-on-mobile">
                             Rating
                         </th>
-                        <th>
+                        <th id="hide-on-mobile">
                             @Html.DisplayNameFor(model => model.Description)
                         </th>
-                        <th>
+                        <th id="hide-on-mobile">
                             Released
                         </th>
-                        <th>
+                        <th id="hide-on-mobile">
                             @Html.DisplayNameFor(model => model.Genre)
                         </th>
-                        <th>
+                        <th class="price-title">
                             Price $
                         </th>
                         <th>
@@ -73,25 +73,25 @@
                     @foreach (var item in Model)
                     {
                         <tr>
-                            <td>
+                            <td id="hide-on-mobile">
                                 @Html.DisplayFor(modelItem => item.Title)
                             </td>
-                            <td>
+                            <td id="hide-on-mobile">
                                 @Html.DisplayFor(modelItem => item.Director)
                             </td>
-                            <td>
+                            <td id="hide-on-mobile">
                                 @Html.DisplayFor(modelItem => item.Actors)
                             </td>
-                            <td>
+                            <td id="hide-on-mobile">
                                 @Html.DisplayFor(modelItem => item.Rate)
                             </td>
-                            <td>
+                            <td id="hide-on-mobile">
                                 @Html.DisplayFor(modelItem => item.Description)
                             </td>
-                            <td>
+                            <td id="hide-on-mobile">
                                 @Html.DisplayFor(modelItem => item.RealeaseDate)
                             </td>
-                            <td>
+                            <td id="hide-on-mobile">
                                 @Html.DisplayFor(modelItem => item.Genre)
                             </td>
                             <td>

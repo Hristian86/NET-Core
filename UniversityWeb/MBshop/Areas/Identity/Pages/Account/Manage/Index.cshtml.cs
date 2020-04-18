@@ -52,20 +52,25 @@ namespace MBshop.Areas.Identity.Pages.Account.Manage
 
         public class InputModel
         {
-            [Display(Name = "Chat nick name")]
+            [Display(Name = "Chat nick name template - Aaa12 , aaa12 , aaaa , Aaaa aaa, Aaaa Aaa,")]
             [MaxLength(20, ErrorMessage = "To long chat nick name")]
+            [RegularExpression(@"\b([A-Z][a-z]+\d+)|([a-z]+\d+)|([A-Z]+[a-z]+ [A-Z]+[a-z]+)|([A-Z]+ [A-Z]+)|([a-z]+ [a-z]+)|([a-z]+)|([a-z]+ [a-z]+)|([A-Z]{1}[a-z]+\d+)|([a-z]+[0-9]+)|([a-z]+ )|([A-Z]+[a-z]+)|([A-Z]+)", ErrorMessage = "Invalid symbols")]
             public string ChatName { get; set; }
 
             [Phone]
-            [Display(Name = "Phone number")]
+            [Display(Name = "Phone number example +359-1234-123-123")]
+            [MaxLength(20)]
+            [RegularExpression(@"\+\d{3}-\d{4}-\d{3}-\d{3}",ErrorMessage = "Invalid phone number!")]
             public string PhoneNumber { get; set; }
 
             [Display(Name = "First name")]
             [MaxLength(20, ErrorMessage = "Too Long Name")]
+            [RegularExpression(@"(^|\s)(?<word>[a-zA-Z][a-zA-Z']*)", ErrorMessage = "First name must contains only letters")]
             public string FirstName { get; set; }
 
             [Display(Name = "Last name")]
             [MaxLength(20, ErrorMessage = "Too log last name")]
+            [RegularExpression(@"(^|\s)(?<word>[a-zA-Z][a-zA-Z']*)", ErrorMessage = "Last name must contains only letters")]
             public string LastName { get; set; }
 
             [Display(Name = "Address")]

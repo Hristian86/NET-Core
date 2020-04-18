@@ -110,7 +110,8 @@ function GetMessages() {
 
                         //ids = s;
                         if (avatar == null || avatar.length < 1) {
-                            avatar = 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTYPN-S2G6m1RHbx5S4JjAGITpWCYYoBnMTa28lW3E-2aSMCHbD&usqp=CAU';
+                            //default avatar
+                            avatar = 'https://hristian86.github.io/WebTest/images/default-avatar.jpg';
                         }
                         //current loget user
                         var currUser = obj[prop].currentUser;

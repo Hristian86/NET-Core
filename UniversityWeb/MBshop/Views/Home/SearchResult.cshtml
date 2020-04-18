@@ -6,20 +6,20 @@
 
     <h1>Results for <text class="text-warning">@ViewData["Search"]</text></h1>
 
-    @if (Model.Any())
+    @if (Model != null)
     {
 
         <div class="table-responsive-sm">
             <table class="table bg-transparent" id="tabul">
                 <thead>
                     <tr>
-                        <th>
+                        <th id="hide-on-mobile">
                             @Html.DisplayNameFor(model => model.Title)
                         </th>
-                        <th>
+                        <th id="hide-on-mobile">
                             @Html.DisplayNameFor(model => model.Type)
                         </th>
-                        <th>
+                        <th id="hide-on-mobile">
                             @Html.DisplayNameFor(model => model.Genre)
                         </th>
                         <th>
@@ -35,13 +35,13 @@
                     @foreach (var item in Model)
                     {
                         <tr>
-                            <td>
+                            <td id="hide-on-mobile">
                                 @Html.DisplayFor(modelItem => item.Title)
                             </td>
-                            <td>
+                            <td id="hide-on-mobile">
                                 @Html.DisplayFor(modelItem => item.Type)
                             </td>
-                            <td>
+                            <td id="hide-on-mobile">
                                 @Html.DisplayFor(modelItem => item.Genre)
                             </td>
                             <td>

@@ -110,6 +110,7 @@ namespace MBshop.Controllers
 
         public IActionResult Privacy()
         {
+
             return View();
         }
 

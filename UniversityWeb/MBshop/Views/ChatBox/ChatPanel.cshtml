@@ -13,7 +13,7 @@
     <div class="container">
         <div class="con" style="display:flex;align-items: center;
   justify-content: center;">
-            <h1>
+            <h1 id="chat-name">
                 @{
                     if (User.Identity.IsAuthenticated)
                     {
@@ -21,10 +21,14 @@
                         {
                             <sction>@ViewData.Model.ChatName's</sction>
                         }
+                        else
+                        {
+            <span>You need to create chat nick name from user manage</span>
+                        }
                     }
                 }
                 Chat panel
-
+                
             </h1>
             @if (User.IsInRole(WebConstantsVariables.Admin))
             {
@@ -35,7 +39,7 @@
         </div>
 
         <div class="wrapper">
-            <form action="/" method="post">
+            <form method="post">
                 <input type="text" required name="name" value="" id="input" />
                 @if (User.Identity.IsAuthenticated)
                 {
@@ -45,7 +49,7 @@
                     }
                     else
                     {
-                        <a class="btn btn-lg rounded-pill btn-warning" id="buttonPost" asp-area="Identity" asp-page="/Account/Manage/Index">Create chat nickname</a>
+                        <a class="btn btn-lg rounded-pill btn-danger" id="buttonPost" asp-area="Identity" asp-page="/Account/Manage/Index">Create chat nickname</a>
                     }
                 }
                 else

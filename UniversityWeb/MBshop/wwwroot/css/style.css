@@ -79,7 +79,7 @@
 #input {
     margin-top: 15px;
     height: 50px;
-    width: 400px;
+    width: 800px;
 }
 
 #buttonPost {
@@ -155,7 +155,7 @@
 }
 
 #carouselExampleIndicators {
-    background: url(https://wallpaperaccess.com/full/288727.jpg);
+    background: url(https://hristian86.github.io/WebTest/images/slider-background.jpg);
     background-size: cover;
 }
 
@@ -198,7 +198,7 @@
 #slider-first-page {
     width: 100%;
     height: 800px;
-    background: url(https://wallpaperhd.wiki/wp-content/uploads/free-download-storm-x-men-movie-wallpapers-storm-x-men-movie-desktop-wallpaper.jpg);
+    background: url(https://hristian86.github.io/WebTest/images/front-image.jpg);
     background-size: cover;
     background-repeat: no-repeat;
 }
