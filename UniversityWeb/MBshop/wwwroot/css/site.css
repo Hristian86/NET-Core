@@ -102,15 +102,22 @@ body {
 
 /* Made with love by Mutiullah Samim*/
 @media only screen and (max-width: 768px) {
-    #caht-panel {
-        margin-top:15px;
+    #admin-panel-wrapper {
+        margin-bottom:10px;
     }
+
+    #caht-panel {
+        margin-top: 15px;
+    }
+
     #cart {
         margin-top: 15px;
     }
+
     #admin-panel {
         margin-top: 10px;
     }
+
     #search-button {
         margin-top: 15px!important;
     }

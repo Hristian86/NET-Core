@@ -38,6 +38,7 @@ function Start() {
     //setting the enviornment
     var urlLinks = document.getElementById("secretEnviornment");
     urlLink = urlLinks.getAttribute('value');
+    console.log(urlLink);
 
 
     //reseting count when the page is loadet on user requested -

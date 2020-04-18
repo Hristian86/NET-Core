@@ -18,9 +18,9 @@
 </head>
 <body id="body-customize">
     <header>
-        <nav class="navbar navbar-expand-xl navbar-toggleable-lg navbar-light bg-transparent border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-lg navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MBshop</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/mask.png" id="logo-image" alt="Alternate Text" />MBshop</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -30,6 +30,7 @@
                     <ul class="navbar-nav flex-grow-1">
 
                         @*drop down for products*@
+
                         <li>
                             <div class="btn-group" id="main-button-dropdown">
                                 <button type="button" class="btn btn-outline-primary dropdown-toggle mr-3" data-toggle="dropdown" data-hover="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -52,13 +53,15 @@
                                 </div>
                             </div>
                         </li>
+                        
 
-                        <Li class="ItemsPerPerson">
-                            <a asp-controller="ChatBox" asp-action="ChatPanel" onclick="GetUrlLink(@WebConstantsVariables.EnvironmentVariables)" id="caht-panel" class="btn btn-outline-success ">Chat panel</a>
-                        </Li>
+                        <li class="ItemsPerPerson">
+                            <a asp-controller="ChatBox" asp-action="ChatPanel" onclick="GetUrlLink(@WebConstantsVariables.EnvironmentVariables)" id="caht-panel" class="text-success pt-5 ml-1">Chat panel</a>
+                        </li>
+
                         <li class="nav-item">
-                            <a class="nav-link text-dark btn btn-outline-warning d-inline-flex" asp-area="" asp-controller="Cart" id="cart" asp-action="Cart">
-                                Cart
+                            <a class="nav-link text-dark text-primary d-inline-flex" asp-area="" asp-controller="Cart" id="cart" asp-action="Cart">
+                                <i class="fa fa-shopping-cart pt-1" id="cart-icon" aria-hidden="true"></i>
                                 
                                 @*@if (GlobalAlertMessages.CountOfProductsInBasket != 0)
         {

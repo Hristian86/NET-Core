@@ -11,32 +11,12 @@
         if (User.IsInRole(WebConstantsVariables.User))
         {
 
-            @*To Do - add link for evry user shoped items*@
-            <Li class="ItemsPerPerson">
-                <a asp-controller="UserShopedItems" asp-action="UserMovieShops" class="btn btn-outline-info">Shoped products</a>
-            </Li>
+            @*<Li class="ItemsPerPerson">
+                    <a asp-controller="UserShopedItems" asp-action="UserMovieShops" class="btn btn-info">Shoped products</a>
+                </Li>*@
         }
         if (User.IsInRole(WebConstantsVariables.Admin))
         {
-            <Li class="ItemsPerPerson">
-                <a asp-controller="UserShopedItems" asp-action="UserMovieShops" class="btn btn-outline-info">Shoped products</a>
-            </Li>
-            <!-- Example single danger button -->
-            <li>
-                <div class="btn-group">
-                    <button type="button" class="btn btn-outline-danger dropdown-toggle" id="admin-panel" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Admin CnlPanel
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="Movies" asp-action="Index">Create Movies</a>
-
-                        <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="Books" asp-action="Index">Create Books</a>
-
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="Shops" asp-action="Index">Shoped items</a>
-                    </div>
-                </div>
-            </li>
 
             <li class="nav-item">
                 <a class="nav-link text-dark" asp-area="Identity" id="dropM" asp-page="/Account/Manage/Index">Hello Admin @User.Identity.Name !</a>
@@ -64,6 +44,32 @@
         </li>
     }
 </ul>
+
+
+@if (User.IsInRole(WebConstantsVariables.User))
+{
+    <a asp-controller="UserShopedItems" asp-action="UserMovieShops" class="btn btn-info">Shoped products</a>
+}
+else if (User.IsInRole(WebConstantsVariables.Admin))
+{
+
+    <!-- Example single danger button -->
+    <div class="btn-group mr-2" id="admin-panel-wrapper">
+        <button type="button" class="btn btn-outline-danger dropdown-toggle" id="admin-panel" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Admin CnlPanel
+        </button>
+        <div class="dropdown-menu dropdown-menu-right">
+            <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="Movies" asp-action="Index">Create Movies</a>
+
+            <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="Books" asp-action="Index">Create Books</a>
+
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="Shops" asp-action="Index">Shoped items</a>
+        </div>
+    </div>
+    <a asp-controller="UserShopedItems" asp-action="UserMovieShops" class="btn btn-info mr-3">Shoped products</a>
+
+}
 
 
 <form method="post" asp-controller="Home" asp-action="SearchResult" class="form-inline my-2 my-lg-0 mr-3">

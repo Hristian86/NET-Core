@@ -4,7 +4,10 @@
 }
 
 .ItemsPerPerson {
+    /*margin-top:8px;*/
+    padding-top:8px;
     margin-right: 10px;
+    /*text-decoration:none;*/
 }
 
 #hovers:hover {
@@ -108,17 +111,23 @@
 
 
 
+#logo-image {
+    height:28px;
+
+}
 
 #cart {
     width: 80px;
     height: 38px;
-    padding-left:18px;
+    /*padding-left:8px;*/
 }
 
+#cart-icon {
+    height:10px;
+}
 /*#drop-down-menu {
     width:180px;
 }*/
-
 .statusMessage {
     position: fixed;
     margin-top: 20px;
@@ -189,7 +198,7 @@
 #slider-first-page {
     width: 100%;
     height: 800px;
-    background: url(https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293__340.jpg);
+    background: url(https://wallpaperhd.wiki/wp-content/uploads/free-download-storm-x-men-movie-wallpapers-storm-x-men-movie-desktop-wallpaper.jpg);
     background-size: cover;
     background-repeat: no-repeat;
 }
