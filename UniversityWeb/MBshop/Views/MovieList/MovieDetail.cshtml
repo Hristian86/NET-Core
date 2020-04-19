@@ -5,7 +5,27 @@
 }
     <div class="container">
 
-        <h1>@ViewData["Title"]</h1>
+        @if (Model.Status)
+        {
+            <h1>Rate</h1>
+        }
+        else
+        {
+            <h1>@ViewData["Title"]</h1>
+        }
+
+        @*<div class="jumbotron jumbotron-fluid bg-dark">
+            <div class="container text-light">
+                <h1 class="display-1 text-center">@Model.Title</h1>
+                <p class="lead">Genre: @Model.Genre</p>
+                <p class="lead">Actors: @Model.Actors</p>
+                <p class="lead">Directed by @Model.Director</p>
+                <p class="lead">Released on  @Model.RealeaseDate</p>
+                <p class="lead">Price:  @Model.price.ToString("f2")</p>
+                <p>Description</p>
+                <p class="lead">@Model.Description</p>
+            </div>
+        </div>*@
 
         <div>
             <h4>Movie</h4>
@@ -134,4 +154,4 @@
                 </form>
             </div>
         }
-</div>
+    </div>

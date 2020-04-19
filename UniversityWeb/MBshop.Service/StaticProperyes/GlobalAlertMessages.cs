@@ -9,6 +9,6 @@ namespace MBshop.Service.StaticProperyes
 
         public static string StatusMessage { get; set; }
 
-        public int CountOfProductsInBasket { get; set; }
+        public static int CountOfProductsInBasket { get; set; }
     }
 }

@@ -78,11 +78,18 @@ namespace MBshop.Controllers
 
             var result = this.search.ViewProducts(user);
 
-            //Can be made orderBy
+            //order items for landing page
+            return this.View(result
+                .OrderByDescending(x => x.Rate)
+                .ThenBy(x => x.Title)
+                .Take(5)
+                .ToList());
+        }
 
-            return this.View(result.OrderByDescending(x => x.Rate).ThenBy(x => x.Title).Take(5).ToList());
+        public IActionResult DecisionPage()
+        {
 
-            //return View();
+            return this.View();
         }
 
         [HttpPost]

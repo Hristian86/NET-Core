@@ -48,7 +48,18 @@
 
 @if (User.IsInRole(WebConstantsVariables.User))
 {
-    <a asp-controller="UserShopedItems" asp-action="UserMovieShops" class="btn btn-info">Shoped products</a>
+<div class="btn-group mr-2" >
+    <button type="button" class="btn btn-info mr-3 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="shop-menu-navbar">
+        Shoped products
+    </button>
+    <div class="dropdown-menu dropdown-menu-left">
+        <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="UserShopedItems" asp-action="UserMovieShops">Personal Movies</a>
+
+        <div class="dropdown-divider"></div>
+
+        <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="UserShopedItems" asp-action="UserBooksShops">Personal Books</a>
+    </div>
+</div>
 }
 else if (User.IsInRole(WebConstantsVariables.Admin))
 {
@@ -67,12 +78,24 @@ else if (User.IsInRole(WebConstantsVariables.Admin))
             <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="Shops" asp-action="Index">Shoped items</a>
         </div>
     </div>
-    <a asp-controller="UserShopedItems" asp-action="UserMovieShops" class="btn btn-info mr-3">Shoped products</a>
+
+    <div class="btn-group mr-2" id="admin-panel-wrapper">
+        <button type="button" class="btn btn-info mr-2 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="shop-menu-navbar">
+            Shoped products
+        </button>
+        <div class="dropdown-menu dropdown-menu-left">
+            <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="UserShopedItems" asp-action="UserMovieShops">Personal Movies</a>
+
+            <div class="dropdown-divider"></div>
+
+            <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="UserShopedItems" asp-action="UserBooksShops">Personal Books</a>
+        </div>
+    </div>
 
 }
 
 
-<form method="post" asp-controller="Home" asp-action="SearchResult" class="form-inline my-2 my-lg-0 mr-3">
+<form method="post" asp-controller="Home" asp-action="SearchResult" class="form-inline my-2 my-lg-0 mr-4">
     <input class="form-control mr-sm-2" type="text" name="SearchItem" placeholder="Search" aria-label="Search">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="search-button">Search</button>
 </form>

@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewData["Title"] = "Decision page";
+}
+
+<div class="container-fluid d-flex justify-content-between" style="background: url(https://previews.123rf.com/images/bestvectorelements/bestvectorelements1707/bestvectorelements170706573/83153855-vector-illustration-of-complex-symbol-on-decision-making-icon.jpg)center;height:800px;background-repeat:no-repeat;">
+
+    <h3 class="text-center">
+        Maybe you wanna relax with<br /><br />
+        Watching a <br /><br />
+
+        <a class="nav-link btn btn-success" id="decision-page-buttons" asp-area="" asp-controller="UserShopedItems" asp-action="UserMovieShops">Movie</a><br />
+        Or maybe read a<br /><br />
+
+        <a class="nav-link btn btn-success" asp-area="" asp-controller="UserShopedItems" asp-action="UserBooksShops" id="decision-page-buttons">Book</a><br /><br />
+        Or just type out in<br /><br />
+
+        <a asp-controller="ChatBox" asp-action="ChatPanel" onclick="GetUrlLink(@WebConstantsVariables.EnvironmentVariables)"  class="btn btn-outline-secondary" >Chat panel</a>
+
+
+
+
+
+    </h3>
+    <h3 class="text-center">
+        So now what you want to do?<br /><br />Explore more<br /><br /><a class="nav-link btn btn-success" asp-area="" asp-controller="MovieList" asp-action="MovieCollection" aria-haspopup="true" aria-expanded="false" id="decision-page-buttons">Movies</a><br />Or explore more<br /><br />
+        <a class="nav-link btn btn-success" asp-area="" asp-controller="BookList" asp-action="BooksCollection" aria-haspopup="true" aria-expanded="false" id="decision-page-buttons">Books</a>
+        <br /><br />
+        Maybe check out?<br /><br />
+        @*<i class="fa fa-shopping-cart pt-1" id="cart-icon" aria-hidden="true"></i>*@
+        <a class="nav-link text-dark text-primary d-inline-flex" asp-area="" asp-controller="Cart" id="cart" asp-action="Cart">
+            <i class="fa fa-shopping-cart pt-1" id="cart-icon" aria-hidden="true"></i>
+        </a>
+
+
+    </h3>
+</div>

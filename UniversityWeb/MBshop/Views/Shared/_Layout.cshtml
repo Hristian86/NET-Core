@@ -18,14 +18,14 @@
 </head>
 <body id="body-customize">
     <header>
-        <nav class="navbar navbar-expand-lg navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/mask.png" id="logo-image" alt="Alternate Text" />MBshop</a>
+        <nav class="navbar navbar-expand-lg navbar-toggleable-sm navbar-light  border-bottom box-shadow mb-3" id="navbar-image" >
+            <div class="container-fluid" >
+                <a class="navbar-brand mr-3" asp-area="" asp-controller="Home" asp-action="Index" id="nav-logo"><img src="~/mask.png" id="logo-image" alt="Alternate Text" /> MBshop</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                <div class="navbar-collapse collapse d-lg-inline-flex flex-lg-row-reverse">
                     <partial name="_LoginPartial" />
                     <ul class="navbar-nav flex-grow-1">
 
@@ -33,7 +33,7 @@
 
                         <li>
                             <div class="btn-group" id="main-button-dropdown">
-                                <button type="button" class="btn btn-outline-primary dropdown-toggle mr-3" data-toggle="dropdown" data-hover="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <button type="button" class="btn btn-outline-primary dropdown-toggle mr-4" data-toggle="dropdown" data-hover="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Categories
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-left " id="drop-menu-links-js" >
@@ -55,18 +55,18 @@
                         </li>
                         
 
-                        <li class="ItemsPerPerson">
-                            <a asp-controller="ChatBox" asp-action="ChatPanel" onclick="GetUrlLink(@WebConstantsVariables.EnvironmentVariables)" id="caht-panel" class="text-success pt-5 ml-1">Chat panel</a>
+                        <li class="ItemsPerPerson mr">
+                            <a asp-controller="ChatBox" asp-action="ChatPanel" onclick="GetUrlLink(@WebConstantsVariables.EnvironmentVariables)" id="caht-panel" class="text-success pt-5 ml-1 mr-3">Chat panel</a>
                         </li>
 
                         <li class="nav-item">
                             <a class="nav-link text-dark text-primary d-inline-flex" asp-area="" asp-controller="Cart" id="cart" asp-action="Cart">
                                 <i class="fa fa-shopping-cart pt-1" id="cart-icon" aria-hidden="true"></i>
-                                
-                                @*@if (GlobalAlertMessages.CountOfProductsInBasket != 0)
-        {
-            @GlobalAlertMessages.CountOfProductsInBasket
-        }*@
+
+                                @if (GlobalAlertMessages.CountOfProductsInBasket != 0)
+                                {
+               @GlobalAlertMessages.CountOfProductsInBasket
+                                }
                             </a>
                         </li>
                         
@@ -82,6 +82,19 @@
         @{ GlobalAlertMessages.StatusMessage = ""; }
     </div>
 
+
+    @*<div class="d-flex justify-content-start" style="width:100%;position:fixed;margin-top:650px;">
+
+        <div>
+            <div ></div>
+            <img src="https://png.pngtree.com/png-clipart/20200224/original/pngtree-cinema-movie-icons-set-realistic-popcorn-3d-glasses-film-strip-reel-png-image_5204364.jpg" alt="Alternate Text" style="width:200px;"/>
+        </div>
+
+    </div>*@
+
+
+
+
     <div class="container-fluid">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -91,6 +104,7 @@
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2020 - MBshop - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

@@ -23,6 +23,18 @@ namespace MBshop.Controllers
             this.rateService = rateService;
         }
 
+        public IActionResult Rate()
+        {
+            if (User.Identity.Name != null)
+            {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+
+                rateService.GetUserRate(userId);
+            }
+
+            return this.View();
+        }
+
         [HttpPost]
         [Authorize]
         public async Task<IActionResult> RateMovie([Bind("Id", "Raiting")] OutputMovies model)
@@ -31,9 +43,9 @@ namespace MBshop.Controllers
             {
                 var userId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-                 GlobalAlertMessages.StatusMessage = await this.rateService.RateMovie(model,userId);
+                GlobalAlertMessages.StatusMessage = await this.rateService.RateMovie(model, userId);
 
-                return this.RedirectToAction("MovieCollection", "MovieList");
+                return this.RedirectToAction("DecisionPage", "Home");
             }
             return this.View();
         }
@@ -48,7 +60,7 @@ namespace MBshop.Controllers
 
                 GlobalAlertMessages.StatusMessage = await this.rateService.RateBook(model, user);
 
-                return this.RedirectToAction("BooksCollection", "BookList");
+                return this.RedirectToAction("DecisionPage", "Home");
             }
 
             return this.View();

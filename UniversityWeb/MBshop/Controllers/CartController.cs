@@ -19,15 +19,12 @@ namespace MBshop.Controllers
     {
         private readonly IShopItemsService shopService;
         private readonly ICartService cartBasket;
-        private readonly GlobalAlertMessages globalMessage;
 
         public CartController(IShopItemsService shopService,
-            ICartService cartBasket,
-            GlobalAlertMessages globalMessage)
+            ICartService cartBasket)
         {
             this.shopService = shopService;
             this.cartBasket = cartBasket;
-            this.globalMessage = globalMessage;
         }
 
         public IActionResult Cart()
@@ -59,7 +56,7 @@ namespace MBshop.Controllers
 
             ViewData["CartCount"] = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count;
 
-            globalMessage.CountOfProductsInBasket = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count;
+            GlobalAlertMessages.CountOfProductsInBasket = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count;
 
             return RedirectToAction("MovieCollection", "MovieList");
         }
@@ -79,7 +76,7 @@ namespace MBshop.Controllers
 
             ViewData["CartCount"] = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count;
 
-            globalMessage.CountOfProductsInBasket = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count();
+            GlobalAlertMessages.CountOfProductsInBasket = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count();
 
             return RedirectToAction("BooksCollection", "BookList");
         }
@@ -119,9 +116,9 @@ namespace MBshop.Controllers
 
             ViewData["CartCount"] = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count;
 
-            globalMessage.CountOfProductsInBasket = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count();
+            GlobalAlertMessages.CountOfProductsInBasket = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count();
 
-            return RedirectToAction("UserMovieShops", "UserShopedItems");
+            return RedirectToAction("DecisionPage", "Home");
         }
 
         [Authorize]
@@ -140,7 +137,7 @@ namespace MBshop.Controllers
 
             ViewData["CartCount"] = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count;
 
-            globalMessage.CountOfProductsInBasket = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count();
+            GlobalAlertMessages.CountOfProductsInBasket = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count();
 
             return RedirectToAction("Cart", "Cart");
         }
@@ -161,7 +158,7 @@ namespace MBshop.Controllers
 
             ViewData["CartCount"] = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count;
 
-            globalMessage.CountOfProductsInBasket = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count();
+            GlobalAlertMessages.CountOfProductsInBasket = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count();
 
             return RedirectToAction("Cart", "Cart");
         }

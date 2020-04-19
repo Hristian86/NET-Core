@@ -116,7 +116,22 @@ body {
 }
 
 .con {
-    height: 120px!important;
+    height: 120px !important;
+}
+
+#shope-button {
+    /*margin-left:12px;*/
+    margin-top: 14px;
+    width: 100px;
+}
+
+#nav-logo {
+    margin-right: 24px !important;
+}
+
+#decision-page-buttons {
+    width: 100px;
+    margin-left: 130px;
 }
 
 /*stats that must be hidden in mobile*/
@@ -124,48 +139,61 @@ body {
     display:inline-block;
 }*/
 /* Made with love by Mutiullah Samim*/
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1600px) {
 
-    
+
+
+    /*#body-customize {
+        background: none !important;
+    }*/
+}
+
+
+
+@media only screen and (max-width: 768px) {
+    #shop-menu-navbar {
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
 
     .container {
-        margin-top:25px!important;
+        margin-top: 25px !important;
     }
 
     #chat-name {
-        margin-top:20px!important;
-        margin-bottom:50px!important;
+        margin-top: 20px !important;
+        margin-bottom: 50px !important;
     }
 
     /*chat input resized on mobile*/
     #input {
         width: 100px !important;
     }
-    
+
     /*image size in slider for products*/
     #pic {
-        margin-top:45px!important;
+        margin-top: 45px !important;
     }
 
     /*hides thead advertising*/
     #header-content {
-        display:none!important;
+        display: none !important;
     }
 
-    /*getting item to the left side for mobile*/ 
+    /*getting item to the left side for mobile*/
     #hide-on-mobile {
-        float:left;
+        float: left;
     }
 
     /*new height is applied to the slider*/
     .jumbo {
-        height:530px!important;
+        height: 530px !important;
     }
 
     /*moving items in slider and adjusting them*/
     #corousel-size {
-        text-align:start!important;
-        width: 100%!important;
+        text-align: start !important;
+        width: 100% !important;
         /*width: 200px;*/
         height: 700px;
     }
@@ -203,6 +231,10 @@ body {
 @media only screen and (max-width: 1210px) {
     #input {
         width: 400px !important;
+    }
+
+    .order-btn {
+        display:none;
     }
 }
 

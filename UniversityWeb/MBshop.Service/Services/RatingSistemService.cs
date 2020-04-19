@@ -20,6 +20,26 @@ namespace MBshop.Service.Services
             this.db = db;
         }
 
+        public void GetUserRate(string userId)
+        {
+            //geting current user
+            var curUser = this.db.AspNetUsers
+                .Where(x => x.Id == userId)
+                .FirstOrDefault();
+
+            var movie = this.db.Movies
+                .Where(x => x.Id == 1)
+                .FirstOrDefault();
+
+            var userRates = this.db.Rating
+                .Where(x => x.User == curUser && x.Movies == movie)
+                .Select(x => x.RatingMovies)
+                .ToList();
+
+            string userName = curUser.UserName;
+
+        }
+
         /// <summary>
         /// Rate movie
         /// </summary>

@@ -18,7 +18,7 @@
         </p>
 
 
-        @*<form onchange="$('#autoPost').submit();" asp-controller="MovieList" asp-action="MovieCollection" id="autoPost" class="orderForm">
+        <form onchange="$('#autoPost').submit();" asp-controller="MovieList" asp-action="MovieCollection" id="autoPost" class="orderForm btn btn-outline-success">
             <select name="orderBy" class="custom-select-sm drop">
                 <option value="0">Original order</option>
                 <option value="1">Order by Title A-Z</option>
@@ -26,13 +26,13 @@
                 <option value="3">Order by Price ascending</option>
                 <option value="4">Order by Price descending</option>
             </select>
-        </form>*@
+        </form>
 
-        @Html.ActionLink("Original order", "MovieCollection", "MovieList", new { orderBy = 0 }, new { @class = "btn btn-outline-success" })
-        @Html.ActionLink("Order by Title A-Z", "MovieCollection", "MovieList", new { orderBy = 1 }, new { @class = "btn btn-outline-success" })
-        @Html.ActionLink("Order by Title Z-A", "MovieCollection", "MovieList", new { orderBy = 2 }, new { @class = "btn btn-outline-success" })
-        @Html.ActionLink("Order by Price ascending", "MovieCollection", "MovieList", new { orderBy = 3 }, new { @class = "btn btn-outline-success" })
-        @Html.ActionLink("Order by Price descending", "MovieCollection", "MovieList", new { orderBy = 4 }, new { @class = "btn btn-outline-success" })
+        @Html.ActionLink("Original order", "MovieCollection", "MovieList", new { orderBy = 0 }, new { @class = "btn btn-outline-success order-btn" })
+        @Html.ActionLink("Order by Title A-Z", "MovieCollection", "MovieList", new { orderBy = 1 }, new { @class = "btn btn-outline-success order-btn" })
+        @Html.ActionLink("Order by Title Z-A", "MovieCollection", "MovieList", new { orderBy = 2 }, new { @class = "btn btn-outline-success order-btn" })
+        @Html.ActionLink("Order by Price ascending", "MovieCollection", "MovieList", new { orderBy = 3 }, new { @class = "btn btn-outline-success order-btn" })
+        @Html.ActionLink("Order by Price descending", "MovieCollection", "MovieList", new { orderBy = 4 }, new { @class = "btn btn-outline-success order-btn" })
 
 
         <div class="table-responsive-sm">

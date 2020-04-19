@@ -19,7 +19,7 @@
                     {
                         if (ViewData.Model.ChatName != null)
                         {
-                            <sction>@ViewData.Model.ChatName's</sction>
+                                <sction>@ViewData.Model.ChatName's Chat panel</sction>
                         }
                         else
                         {
@@ -27,7 +27,7 @@
                         }
                     }
                 }
-                Chat panel
+                
                 
             </h1>
             @if (User.IsInRole(WebConstantsVariables.Admin))
@@ -40,21 +40,22 @@
 
         <div class="wrapper">
             <form method="post">
-                <input type="text" required name="name" value="" id="input" />
+
                 @if (User.Identity.IsAuthenticated)
                 {
                     if (ViewData.Model.ChatName != null)
                     {
+                        <input type="text" required name="name" value="" id="input" />
                         <button class="btn btn-lg btn-primary rounded-pill" id="buttonPost" type="submit" onclick="PostMessages(); return false;">Send Message</button>
                     }
                     else
                     {
-                        <a class="btn btn-lg rounded-pill btn-danger" id="buttonPost" asp-area="Identity" asp-page="/Account/Manage/Index">Create chat nickname</a>
+                        <a class="btn btn-lg rounded-pill btn-danger mt-3" id="buttonPost" asp-area="Identity" asp-page="/Account/Manage/Index">Create chat nickname</a>
                     }
                 }
                 else
                 {
-                    <a class="btn btn-lg rounded-pill btn-warning" id="buttonPost" asp-area="Identity" asp-page="/Account/Manage/Index">Create chat nickname</a>
+                    <a class="btn btn-lg rounded-pill btn-danger mt-3" id="buttonPost" asp-area="Identity" asp-page="/Account/Manage/Index">Create chat nickname</a>
                 }
             </form>
         </div>

@@ -83,7 +83,7 @@
                             <img src="@item.Picture" id="MovieList" alt="Alternate Text" />
                             @using (Html.BeginForm("BookDetail", "BookList", new { id = item.Id }, FormMethod.Get))
                             {
-                                <button type="submit" class="btn btn-outline-primary mt-3 ml-3">Details  </button>
+                                <button type="submit" class="btn btn-warning mt-3 " id="shope-button">Rate  </button>
                             }
                         </td>
                     </tr>

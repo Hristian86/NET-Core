@@ -43,6 +43,7 @@ namespace MBshop.Areas.Identity.Pages.Account
 
         public class InputModel
         {
+            [Display(Name = "User name")]
             [Required]
             [StringLength(50, ErrorMessage = "Name is required")]
             public string UserName { get; set; }

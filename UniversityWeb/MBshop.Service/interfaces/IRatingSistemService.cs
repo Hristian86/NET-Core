@@ -8,6 +8,7 @@ namespace MBshop.Service.interfaces
 {
     public interface IRatingSistemService
     {
+        void GetUserRate(string userId);
         Task<string> RateMovie(OutputMovies model, string userId);
         Task<string> RateBook(OutputBooks model, string userId);
     }
