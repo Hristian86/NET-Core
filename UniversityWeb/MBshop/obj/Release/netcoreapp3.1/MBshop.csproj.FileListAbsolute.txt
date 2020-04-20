@@ -225,3 +225,4 @@ C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-P
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop\obj\Release\netcoreapp3.1\MBshop.dll
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop\obj\Release\netcoreapp3.1\MBshop.pdb
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop\obj\Release\netcoreapp3.1\MBshop.genruntimeconfig.cache
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop\obj\Release\netcoreapp3.1\Razor\Views\Home\DecisionPage.cshtml.g.cs

@@ -92,6 +92,17 @@ namespace MBshop.Controllers
             return this.View();
         }
 
+        public IActionResult Contact()
+        {
+            return this.View();
+        }
+
+        public IActionResult Contacts(string name, string email, string subject, string content)
+        {
+            //TO DO email sender or firebase or sql
+            return this.View();
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult SearchResult(string searchItem)

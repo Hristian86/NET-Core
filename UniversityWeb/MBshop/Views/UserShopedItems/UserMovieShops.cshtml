@@ -5,12 +5,12 @@
 }
     <div class="container">
 
-        <h1>@User.Identity.Name's shoped products</h1>
+        <h1>@User.Identity.Name's shoped movies</h1>
 
 
         <br />
         <p class="bookLink">
-            <a asp-controller="UserShopedItems" asp-action="UserBooksShops" class="btn btn-primary btn-lg">Book collection</a>
+            <a asp-controller="UserShopedItems" asp-action="UserBooksShops" class="btn btn-primary btn-lg coolbtn ml-0 mb-1">Book collection</a>
         </p>
 
 
@@ -44,7 +44,7 @@
                             </td>
                             <td>
                                 @*@Html.DisplayFor(modelItem => item.LinkForPurchasedContend)*@
-                                <iframe width="420" height="315"
+                                <iframe id="product-screen" 
                                         src="@item.LinkForPurchasedContend">
                                 </iframe>
                             </td>

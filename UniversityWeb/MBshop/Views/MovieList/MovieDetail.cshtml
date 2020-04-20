@@ -90,7 +90,7 @@
 
         @if (Model.Status)
         {
-            <a asp-controller="UserShopedItems" asp-action="UserMovieShops" class="btn btn-dark">Back to personal collection</a>
+            <a asp-controller="UserShopedItems" asp-action="UserMovieShops" id="back-button-a-link" class="btn btn-dark">Back to personal collection</a>
         }
         else
         {
@@ -99,11 +99,10 @@
                 <form asp-controller="Cart" asp-action="AddToCartMovie" method="post">
                     <input type="hidden" asp-for="Id" />
                     <input type="hidden" asp-for="price" />
-                    <input type="submit" value="Add to cart" class="btn btn-danger" />
+                    <input type="submit" value="Add to cart @Model.price.ToString("f2") $" class="btn btn-danger ml-0" id="add-to-cart-input" />
 
-                    <button asp-controller="MovieList" asp-action="MovieCollection" type="submit" class="btn btn-primary">
-                        Back to movies
-                    </button>
+                    <input asp-controller="MovieList" asp-action="MovieCollection" type="submit" value="Back to movies" class="btn btn-primary bg-dark ml-0" id="back-link" />
+                        
                 </form>
             </div>
         }
@@ -112,45 +111,51 @@
         {
             <div style="display:flex;align-items: center;
   justify-content: center;">
+
                 <form asp-controller="Rating" asp-action="RateMovie" method="post">
                     <input type="hidden" asp-for="Id" />
                     <div class="form-group">
                         <input type="hidden" asp-for="Raiting" value="1" class="form-control" />
                         <span asp-validation-for="Raiting" class="text-danger"></span>
                     </div>
-                    <input type="submit" id="rateStars" value="Rate 1" class="btn btn-outline-success" />
+                    <button type="submit" id="rateStars" value="Rate 1" class="btn btn-outline-success" >Rate 1</button>
                 </form>
+
+
                 <form asp-controller="Rating" asp-action="RateMovie" method="post">
                     <input type="hidden" asp-for="Id" />
                     <div class="form-group">
                         <input type="hidden" asp-for="Raiting" value="2" class="form-control" />
                         <span asp-validation-for="Raiting" class="text-danger"></span>
                     </div>
-                    <input type="submit" value="Rate 2" class="btn btn-outline-success" id="rateStars" />
+                    <button type="submit" value="Rate 2" class="btn btn-outline-success" id="rateStars" >Rate 2</button>
                 </form>
+
                 <form asp-controller="Rating" asp-action="RateMovie" method="post">
                     <input type="hidden" asp-for="Id" />
                     <div class="form-group">
                         <input type="hidden" asp-for="Raiting" value="3" class="form-control" />
                         <span asp-validation-for="Raiting" class="text-danger"></span>
                     </div>
-                    <input type="submit" value="Rate 3" class="btn btn-outline-success" id="rateStars" />
+                    <button type="submit" value="Rate 3" class="btn btn-outline-success" id="rateStars" >Rate 3</button>
                 </form>
+
                 <form asp-controller="Rating" asp-action="RateMovie" method="post">
                     <input type="hidden" asp-for="Id" />
                     <div class="form-group">
                         <input type="hidden" asp-for="Raiting" value="4" class="form-control" />
                         <span asp-validation-for="Raiting" class="text-danger"></span>
                     </div>
-                    <input type="submit" value="Rate 4" class="btn btn-outline-success" id="rateStars" />
+                    <button type="submit" value="Rate 4" class="btn btn-outline-success" id="rateStars" >Rate 4</button>
                 </form>
+
                 <form asp-controller="Rating" asp-action="RateMovie" method="post">
                     <input type="hidden" asp-for="Id" />
                     <div class="form-group">
                         <input type="hidden" asp-for="Raiting" value="5" class="form-control" />
                         <span asp-validation-for="Raiting" class="text-danger"></span>
                     </div>
-                    <input type="submit" value="Rate 5" class="btn btn-outline-success" id="rateStars" />
+                    <button type="submit" value="Rate 5" class="btn btn-outline-success" id="rateStars" >Rate 5</button>
                 </form>
             </div>
         }

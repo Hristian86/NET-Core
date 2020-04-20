@@ -22,7 +22,7 @@
                     <th id="hide-on-mobile">
                         @Html.DisplayNameFor(model => model.Genre)
                     </th>
-                    <th>
+                    <th id="hide-on-mobile">
                         Price $
                     </th>
                     <th>
@@ -44,7 +44,7 @@
                         <td id="hide-on-mobile">
                             @Html.DisplayFor(modelItem => item.Genre)
                         </td>
-                        <td>
+                        <td id="hide-on-mobile">
                             @Html.DisplayFor(modelItem => item.price)
                         </td>
                         <td>
@@ -71,6 +71,7 @@
                                             </div>
                                         </div>
                                     }
+                                    <p class="ml-2" id="price-hide">Price: @item.price.ToString("f2") $</p>
                                 }
 
 
@@ -92,6 +93,7 @@
                                             </div>
                                         </div>
                                     }
+                                    <p class="ml-2" id="price-hide">Price: @item.price.ToString("f2") $</p>
                                 }
 
 
