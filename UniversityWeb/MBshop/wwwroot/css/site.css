@@ -134,17 +134,18 @@ body {
     margin-left: 130px;
 }
 
-#price-hide {
-    display:none;
+#product-frame {
+    width: 420px;
+    height: 315px;
 }
 
-/*#contact-us-button {
-    width: 1100px;
-    height: 550px;
-}*/
+.price-mobile {
+    margin-left:12px;
+}
 
-#container-fluid-div-spacer {
-    margin-bottom:100px;
+#button-padding {
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 /*stats that must be hidden in mobile*/
@@ -153,34 +154,24 @@ body {
 }*/
 /* Made with love by Mutiullah Samim*/
 @media only screen and (max-width: 1600px) {
-    /*#body-customize {
-        background: none !important;
-    }*/
-    #contact-us-button {
-        width: 800px;
-    }
 }
 
-#product-screen {
-    width:420px;
-    height:315px;
-}
+
 
 @media only screen and (max-width: 768px) {
-    /*product screen*/
 
-    #product-screen {
-        width: 320px;
-        height: 315px;
+
+    /*product frame for user items*/
+    #product-frame {
+        width:250px;
+        height:150px;
     }
 
-    /*mmobile drop menu fixes*/
     #shop-menu-navbar {
         margin-top: 8px;
         margin-bottom: 8px;
     }
 
-    /*chat wrapper*/
     .container {
         margin-top: 25px !important;
     }
@@ -236,14 +227,9 @@ body {
         margin-bottom: 10px;
     }
 
-    #chat-panel {
+    #caht-panel {
         margin-top: 15px;
     }
-
-    #ItemsPerPerson {
-        
-    }
-
 
     #cart {
         margin-top: 15px;
@@ -259,11 +245,6 @@ body {
 }
 
 @media only screen and (max-width: 1210px) {
-
-    /*#contact-us-button {
-        width: 700px;
-    }*/
-
     #input {
         width: 400px !important;
     }
@@ -273,9 +254,12 @@ body {
     }
 }
 
-@media only screen and (max-width: 976px) {
+/*price for items*/
+#price-hide {
+    display: none;
+}
 
-    
+@media only screen and (max-width: 976px) {
 
     /*price for items*/
     #price-hide {
@@ -290,5 +274,3 @@ body {
         width: 200px !important;
     }
 }
-
-

@@ -46,7 +46,7 @@
                     if (ViewData.Model.ChatName != null)
                     {
                         <input type="text" required name="name" value="" id="input" />
-                        <button class="btn btn-lg btn-primary rounded-pill coolbtn" id="buttonPost" type="submit" onclick="PostMessages(); return false;">Send Message</button>
+                        <button class="btn btn-lg btn-primary rounded-pill" id="buttonPost" type="submit" onclick="PostMessages(); return false;">Send Message</button>
                     }
                     else
                     {
@@ -55,7 +55,7 @@
                 }
                 else
                 {
-                    <a class="btn btn-lg rounded-pill btn-danger mt-3" id="buttonPost" asp-area="Identity" asp-page="/Account/Manage/Index">You have to register & create a chat nick name from managment</a>
+                    <a class="btn btn-lg rounded-pill btn-danger mt-3" id="buttonPost" asp-area="Identity" asp-page="/Account/Manage/Index">Create chat nickname</a>
                 }
             </form>
         </div>

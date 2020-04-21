@@ -77,7 +77,29 @@ namespace MBshop.Service.Services
 
             result.AddRange(result1);
 
-            return result.ToList().Where(x => x.Title.ToLower().Contains(searchItem.ToLower())).ToList();
+            //first search by title
+            ////second search by genre 
+            //var temp = result.Where(a => a.Genre != null && a.Genre.ToLower().Contains(searchItem.ToLower()))
+            //    .ToList();
+
+            //int resultLenght = tempResult.Count;
+
+            ////compare the two search results for equals
+            //for (int i = 0; i < resultLenght; i++)
+            //{
+            //    var item = tempResult[i];
+            //    for (int j = 0; j < temp.Count; j++)
+            //    {
+            //        if (item.Title != temp[j].Title)
+            //        {
+            //            tempResult.Add(temp[j]);
+            //            break;
+            //        }
+            //    }
+            //}
+
+            return result.Where(x => x.Title != null && x.Title.ToLower()
+                .Contains(searchItem.ToLower())).ToList();
         }
 
         /// <summary>

@@ -45,7 +45,7 @@ namespace MBshop.Controllers
 
                 GlobalAlertMessages.StatusMessage = await this.rateService.RateMovie(model, userId);
 
-                return this.RedirectToAction("DecisionPage", "Home");
+                return this.RedirectToAction("UserMovieShops", "UserShopedItems");
             }
             return this.View();
         }
@@ -60,7 +60,7 @@ namespace MBshop.Controllers
 
                 GlobalAlertMessages.StatusMessage = await this.rateService.RateBook(model, user);
 
-                return this.RedirectToAction("DecisionPage", "Home");
+                return this.RedirectToAction("UserBooksShops", "UserShopedItems");
             }
 
             return this.View();

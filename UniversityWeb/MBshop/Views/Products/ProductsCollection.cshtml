@@ -59,7 +59,7 @@
                             {
                                 if (item.Status)
                                 {
-                                    <a asp-controller="UserShopedItems" asp-action="UserBooksShops" style="margin-left:15px;" class="btn btn-warning">Owned</a>
+                                    <a asp-controller="UserShopedItems" asp-action="UserBooksShops" style="margin-left:15px;" class="btn btn-warning" id="button-padding">Owned</a>
                                 }
                                 else
                                 {
@@ -67,11 +67,11 @@
                                     {
                                         <div class="form-group">
                                             <div class="col-lg-10 col-lg-offset-2">
-                                                <button type="submit" class="btn btn-outline-primary">Details  </button>
+                                                <button type="submit" class="btn btn-outline-primary">Purcahse</button>
                                             </div>
                                         </div>
                                     }
-                                    <p class="ml-2" id="price-hide">Price: @item.price.ToString("f2") $</p>
+                                    <p class="price-mobile" id="price-hide">Price: @item.price.ToString("f2") $</p>
                                 }
 
 
@@ -80,7 +80,7 @@
                             {
                                 if (item.Status)
                                 {
-                                    <a asp-controller="UserShopedItems" asp-action="UserMovieShops" style="margin-left:15px;" class="btn btn-warning">Owned</a>
+                                    <a asp-controller="UserShopedItems" asp-action="UserMovieShops" style="margin-left:15px;" class="btn btn-warning" id="button-padding">Owned</a>
                                 }
                                 else
                                 {
@@ -89,11 +89,11 @@
                                         <div class="form-group">
                                             <div class="col-lg-10 col-lg-offset-2">
                                                 <input class="form-control mr-sm-2" type="hidden" name="type" value="@item.Type">
-                                                <button type="submit" class="btn btn-outline-primary">Details  </button>
+                                                <button type="submit" class="btn btn-outline-primary">Purchase</button>
                                             </div>
                                         </div>
                                     }
-                                    <p class="ml-2" id="price-hide">Price: @item.price.ToString("f2") $</p>
+                                    <p class="price-mobile" id="price-hide">Price: @item.price.ToString("f2") $</p>
                                 }
 
 

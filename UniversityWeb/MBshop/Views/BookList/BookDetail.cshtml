@@ -3,141 +3,143 @@
 @{
     ViewData["Title"] = "Details";
 }
-    <div class="container">
+<div class="container">
 
-        @if (Model.Status)
-        {
-            <h1>Rate</h1>
-        }
-        else
-        {
-            <h1>@ViewData["Title"]</h1>
-        }
+    @if (Model.Status)
+    {
+    <h1>Rate</h1>
+    }
+    else
+    {
+        <h1>@ViewData["Title"]</h1>
+    }
+
+    <div>
+        <h4>Books</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Author)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Author)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Genre)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Genre)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.UserId)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.UserId)
+            </dd>
+            <dt class="col-sm-2">
+                Release date
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.RealeseDate)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Picture)
+            </dt>
+            <dd class="col-sm-10">
+                <img src="@Model.Picture" id="MovieList" alt="Alternate Text" />
+            </dd>
+            <dt class="col-sm-2">
+                Price
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.price) $
+            </dd>
+            <dt class="col-sm-2">
+                Rating
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Rate)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+        </dl>
+    </div>
+
+    @if (Model.Status)
+    {
+        <a asp-controller="UserShopedItems" asp-action="UserBooksShops" class="btn btn-dark">Back to personal collection</a>
+    }
+    else
+    {
+        <form asp-controller="Cart" asp-action="AddToCartBook" method="post">
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="price" />
+            <input type="submit" value="Add to cart @Model.price.ToString("f2") $" class="btn btn-danger mr-2" />
+
+            <button asp-controller="BookList" asp-action="BooksCollection" type="submit" class="btn btn-primary">
+                Back to books
+            </button>
+        </form>
+    }
+
+
+    @if (Model.Status)
+    {
 
         <div>
-            <h4>Books</h4>
-            <hr />
-            <dl class="row">
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Title)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Title)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Author)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Author)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Genre)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Genre)
-                </dd>
-                <dt class="col-sm-2">
-                    Release date
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.RealeseDate)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Picture)
-                </dt>
-                <dd class="col-sm-10">
-                    <img src="@Model.Picture" id="MovieList" alt="Alternate Text" />
-                </dd>
-                <dt class="col-sm-2">
-                    Price $
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.price)
-                </dd>
-                <dt class="col-sm-2">
-                    Rating
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Rate)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Description)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Description)
-                </dd>
-            </dl>
-        </div>
-
-        @if (Model.Status)
-        {
-            <a asp-controller="UserShopedItems" asp-action="UserBooksShops" id="back-button-a-link" class="btn btn-dark">Back to personal collection</a>
-        }
-        else
-        {
-    <form asp-controller="Cart" asp-action="AddToCartBook" method="post">
-        <input type="hidden" asp-for="Id" />
-        <input type="hidden" asp-for="price" />
-        <input type="submit" value="Add to cart @Model.price.ToString("f2") $" class="btn btn-danger  ml-0" id="add-to-cart-input" />
-
-        <input asp-controller="BookList" asp-action="BooksCollection" type="submit" class="btn btn-primary bg-dark ml-0" id="back-link" value="Back to books" />
-    </form>
-
-            
-        }
-
-
-        @if (Model.Status)
-        {
-
-            <div>
-                <div style="display:flex;align-items: center;
+            <div style="display:flex;align-items: center;
   justify-content: center;">
-                    <form asp-controller="Rating" asp-action="RateBook" method="post">
-                        <input type="hidden" asp-for="Id" />
-                        <div class="form-group">
-                            <input type="hidden" asp-for="Raiting" value="1" class="form-control" />
-                            <span asp-validation-for="Raiting" class="text-danger"></span>
-                        </div>
-                        <button type="submit" value="Rate 1" class="btn btn-outline-success" id="rateStars">Raet 1</button>
-                    </form>
-
-                    <form asp-controller="Rating" asp-action="RateBook" method="post">
-                        <input type="hidden" asp-for="Id" />
-                        <div class="form-group">
-                            <input type="hidden" asp-for="Raiting" value="2" class="form-control" />
-                            <span asp-validation-for="Raiting" class="text-danger"></span>
-                        </div>
-                        <button type="submit" value="Rate 2" class="btn btn-outline-success" id="rateStars">Rate 2</button>
-                    </form>
-
-                    <form asp-controller="Rating" asp-action="RateBook" method="post">
-                        <input type="hidden" asp-for="Id" />
-                        <div class="form-group">
-                            <input type="hidden" asp-for="Raiting" value="3" class="form-control" />
-                            <span asp-validation-for="Raiting" class="text-danger"></span>
-                        </div>
-                        <button type="submit" value="Rate 3" class="btn btn-outline-success" id="rateStars">Rate 3</button>
-                    </form>
-
-                    <form asp-controller="Rating" asp-action="RateBook" method="post">
-                        <input type="hidden" asp-for="Id" />
-                        <div class="form-group">
-                            <input type="hidden" asp-for="Raiting" value="4" class="form-control" />
-                            <span asp-validation-for="Raiting" class="text-danger"></span>
-                        </div>
-                        <button type="submit" value="Rate 4" class="btn btn-outline-success" id="rateStars">Rate 4</button>
-                    </form>
-
-                    <form asp-controller="Rating" asp-action="RateBook" method="post">
-                        <input type="hidden" asp-for="Id" />
-                        <div class="form-group">
-                            <input type="hidden" asp-for="Raiting" value="5" class="form-control" />
-                            <span asp-validation-for="Raiting" class="text-danger"></span>
-                        </div>
-                        <button type="submit" value="Rate 5" class="btn btn-outline-success" id="rateStars">Rate 5</button>
-                    </form>
-                </div>
+                <form asp-controller="Rating" asp-action="RateBook" method="post">
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <input type="hidden" asp-for="Raiting" value="1" class="form-control" />
+                        <span asp-validation-for="Raiting" class="text-danger"></span>
+                    </div>
+                    <input type="submit" value="Rate 1" class="btn btn-outline-success" id="rateStars" />
+                </form>
+                <form asp-controller="Rating" asp-action="RateBook" method="post">
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <input type="hidden" asp-for="Raiting" value="2" class="form-control" />
+                        <span asp-validation-for="Raiting" class="text-danger"></span>
+                    </div>
+                    <input type="submit" value="Rate 2" class="btn btn-outline-success" id="rateStars" />
+                </form>
+                <form asp-controller="Rating" asp-action="RateBook" method="post">
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <input type="hidden" asp-for="Raiting" value="3" class="form-control" />
+                        <span asp-validation-for="Raiting" class="text-danger"></span>
+                    </div>
+                    <input type="submit" value="Rate 3" class="btn btn-outline-success" id="rateStars" />
+                </form>
+                <form asp-controller="Rating" asp-action="RateBook" method="post">
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <input type="hidden" asp-for="Raiting" value="4" class="form-control" />
+                        <span asp-validation-for="Raiting" class="text-danger"></span>
+                    </div>
+                    <input type="submit" value="Rate 4" class="btn btn-outline-success" id="rateStars" />
+                </form>
+                <form asp-controller="Rating" asp-action="RateBook" method="post">
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <input type="hidden" asp-for="Raiting" value="5" class="form-control" />
+                        <span asp-validation-for="Raiting" class="text-danger"></span>
+                    </div>
+                    <input type="submit" value="Rate 5" class="btn btn-outline-success" id="rateStars" />
+                </form>
             </div>
-        }
-    </div>
+        </div>
+    }
+</div>

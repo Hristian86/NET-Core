@@ -3,62 +3,52 @@
 @{
     ViewData["Title"] = "UserBooksShops";
 }
-    <div class="container">
+<div class="container">
 
-        <h1>@User.Identity.Name's shoped Books</h1>
+    <h1>@User.Identity.Name's shoped products</h1>
 
-        <br />
-        <p class="movieLink">
-            <a asp-controller="UserShopedItems" asp-action="UserMovieShops" class="btn btn-primary btn-lg coolbtn ml-0 mb-1">Movie Collection</a>
-        </p>
+    <br />
+    <p class="movieLink">
+        <a asp-controller="UserShopedItems" asp-action="UserMovieShops" class="btn btn-primary btn-lg">Movie Collection</a>
+    </p>
+    @if (Model.Any())
+    {
 
+        <table class="table" id="tabul">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Picture)
+                    </th>
+                    <th>
+                        Product
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+                        <img src="@item.Picture" id="MovieList" alt="Alternate Text" />
+                        @using (Html.BeginForm("BookDetail", "BookList", new { id = item.Id }, FormMethod.Get))
+                        {
+                            <button type="submit" class="btn btn-warning mt-3 " id="shope-button">Rate  </button>
+                        }
+                    </td>
+                    <td>
+                        <iframe src="@item.LinkForProductContentWhenPurchase" id="product-frame">
+                        </iframe>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
 
-
-
-
-        @if (Model.Any())
-        {
-
-            <table class="table" id="tabul">
-                <thead>
-                    <tr>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Title)
-                        </th>
-                        <th>
-                            Product
-                        </th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
-                        <tr>
-                            <td>
-                                <h3 id="user-product-title">@item.Title</h3>
-                                <img src="@item.Picture" class="mb-3" id="MovieList" alt="Alternate Text" />
-                                @using (Html.BeginForm("BookDetail", "BookList", new { id = item.Id }, FormMethod.Get))
-                                {
-                                    <input class="form-control mr-sm-2" type="hidden" name="type" value="@item.price">
-                                    <button type="submit" class="btn btn-warning btn-lg" id="shope-button">Rate </button>
-                                }
-                            </td>
-                            <td>
-                                @*@Html.DisplayFor(modelItem => item.LinkForPurchasedContend)*@
-                                <iframe id="product-screen"
-                                        src="@item.LinkForProductContentWhenPurchase">
-                                </iframe>
-                            </td>
-                        </tr>
-
-                    }
-                </tbody>
-            </table>
-
-        }
-        else
-        {
-            <div class="wrapper bg-transparent mt-5"><h3 class="text-center pt-3">There are no products</h3></div>
-        }
-    </div>
+    }
+    else
+    {
+        <div class="wrapper bg-transparent mt-5"><h3 class="text-center pt-3">There are no products</h3></div>
+    }
+</div>

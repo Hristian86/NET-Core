@@ -14,13 +14,13 @@
 
         <br />
         <p class="bookLink">
-            <a asp-controller="BookList" asp-action="BooksCollection" class="btn btn-primary btn-lg coolbtn ml-0 mb-1">Book collection</a>
+            <a asp-controller="BookList" asp-action="BooksCollection" class="btn btn-primary btn-lg">Book collection</a>
         </p>
 
 
         <form onchange="$('#autoPost').submit();" asp-controller="MovieList" asp-action="MovieCollection" id="autoPost" class="orderForm btn btn-outline-success">
             <select name="orderBy" class="custom-select-sm drop">
-                <option value="0">Filter</option>
+                <option value="0">Original order</option>
                 <option value="1">Order by Title A-Z</option>
                 <option value="2">Order by Title Z-A</option>
                 <option value="3">Order by Price ascending</option>
@@ -60,7 +60,7 @@
                         <th id="hide-on-mobile">
                             @Html.DisplayNameFor(model => model.Genre)
                         </th>
-                        <th id="hide-on-mobile" class="price-title">
+                        <th class="price-title" id="hide-on-mobile">
                             Price $
                         </th>
                         <th>
@@ -95,9 +95,10 @@
                                 @Html.DisplayFor(modelItem => item.Genre)
                             </td>
                             <td id="hide-on-mobile">
-                                Price: @item.price.ToString("f2")
+                                @item.price.ToString("f2") $
                             </td>
                             <td>
+                                @*@Html.DisplayFor(modelItem => item.Picture)*@
                                 <img src="@item.Picture" id="MovieList" alt="Alternate Text" />
                             </td>
                             <td>
@@ -108,19 +109,17 @@
                                     @using (Html.BeginForm("MovieDetail", "MovieList", new { id = item.Id }, FormMethod.Get))
                                     {
                                         <div class="form-group">
-
-                                            <div class="col-lg-10 col-lg-offset-2 ">
+                                            <div class="col-lg-10 col-lg-offset-2">
                                                 <input class="form-control mr-sm-2" type="hidden" name="type" value="@item.price">
-                                                <button type="submit" class="btn btn-outline-primary">Details  </button>
-
+                                                <button type="submit" class="btn btn-outline-primary">Purchase</button>
                                             </div>
                                         </div>
                                     }
-                                    <p class="ml-2" id="price-hide">Price: @item.price.ToString("f2") $</p>
+                                    <p class="price-mobile" id="price-hide">Price: @item.price.ToString("f2") $</p>
                                 }
                                 else
                                 {
-                                    <a asp-controller="UserShopedItems" asp-action="UserMovieShops" style="margin-left:15px;" class="btn btn-warning">Owned</a>
+                                    <a asp-controller="UserShopedItems" asp-action="UserMovieShops" style="margin-left:15px;" id="button-padding" class="btn btn-warning">Owned</a>
                                 }
                             </td>
                         </tr>

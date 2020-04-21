@@ -10,12 +10,12 @@
 
         <br />
         <p class="movieLink">
-            <a asp-controller="MovieList" asp-action="MovieCollection"  class="btn btn-primary btn-lg coolbtn ml-0 mb-1">Movie collection</a>
+            <a asp-controller="MovieList" asp-action="MovieCollection" class="btn btn-primary btn-lg">Movie collection</a>
         </p>
 
         <form onchange="$('#autoPost').submit();" asp-controller="BookList" asp-action="BooksCollection" id="autoPost" class="orderForm btn btn-outline-success">
             <select name="orderBy" class="custom-select-sm drop">
-                <option value="0">Filter</option>
+                <option value="0">Original order</option>
                 <option value="1">Order by Title A-Z</option>
                 <option value="2">Order by Title Z-A</option>
                 <option value="3">Order by Price ascending</option>
@@ -96,15 +96,15 @@
                                     {
                                         <div class="form-group">
                                             <div class="col-lg-10 col-lg-offset-2">
-                                                <button type="submit" class="btn btn-outline-primary">Details  </button>
+                                                <button type="submit" class="btn btn-outline-primary">Purchase</button>
                                             </div>
                                         </div>
                                     }
-                                    <p class="ml-2" id="price-hide">Price: @item.price.ToString("f2") $</p>
+                                    <p class="price-mobile" id="price-hide">Price: @item.price.ToString("f2") $</p>
                                 }
                                 else
                                 {
-                                    <a asp-controller="UserShopedItems" asp-action="UserBooksShops" style="margin-left:15px;" class="btn btn-warning">Owned</a>
+                                    <a asp-controller="UserShopedItems" asp-action="UserBooksShops" style="margin-left:15px;" id="button-padding" class="btn btn-warning">Owned</a>
                                 }
                             </td>
                         </tr>

@@ -118,7 +118,7 @@ namespace MBshop.Controllers
 
             GlobalAlertMessages.CountOfProductsInBasket = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count();
 
-            return RedirectToAction("DecisionPage", "Home");
+            return RedirectToAction("UserMovieShops", "UserShopedItems");
         }
 
         [Authorize]

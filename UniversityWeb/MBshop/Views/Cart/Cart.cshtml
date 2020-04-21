@@ -41,7 +41,7 @@
                                 @Html.DisplayFor(modelItem => item.Type)
                             </td>
                             <td id="hide-on-mobile">
-                                @Html.DisplayFor(modelItem => item.price)
+                                @Html.DisplayFor(modelItem => item.price) $
                             </td>
                             <td>
                                 <img src="@item.Picture" id="MovieList" alt="Alternate Text" />
@@ -58,6 +58,7 @@
                                             </div>
                                         </div>
                                     }
+                                    <p class="ml-4" id="price-hide">Price: @item.price.ToString("f2") $</p>
                                 }
                                 else if (item.Type == WebConstantsVariables.Book)
                                 {
@@ -69,8 +70,8 @@
                                             </div>
                                         </div>
                                     }
+                                    <p class="ml-4" id="price-hide">Price: @item.price.ToString("f2") $</p>
                                 }
-                                <p class="ml-4" id="price-hide">Price: @item.price.ToString("f2") $</p>
                             </td>
                         </tr>
                     }
@@ -97,17 +98,16 @@
                 {
                     <div class="form-group">
                         <div class="col-lg-10 col-lg-offset-2">
-                            @foreach (var item in Model)
-                            {
-                                <input type="hidden" name="productId" value="@item.Id" />
-                                <input type="hidden" name="type" value="@item.Type" />
-                            }
                             @{
                                 var sum = $"{Model.Sum(p => p.price):f2}";
                             }
-                            <input type="submit" class="btn btn-danger mr-1" value="Chek out @sum $" id="chek-out-input-button" />
+                            @foreach (var item in Model)
+                            {
 
-                            
+                                <input type="hidden" name="productId" value="@item.Id" />
+                                <input type="hidden" name="type" value="@item.Type" />
+                            }
+                        <button type="submit" class="btn btn-danger mr-1">Check out @sum $</button>
                         </div>
                     </div>
                 }
