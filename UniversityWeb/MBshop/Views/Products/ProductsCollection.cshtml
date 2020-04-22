@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ViewProducts>
+﻿@model ProductsViewPageListingModel
 @{
     ViewData["Title"] = "All Products";
 }
@@ -12,128 +12,146 @@
         {
 
 
-            <form onchange="$('#autoPost').submit();" asp-controller="Products" asp-action="ProductsCollection" id="autoPost" class="orderForm btn btn-outline-success">
-                <select name="orderBy" class="custom-select-sm drop">
-                    <option value="">Filer</option>
-                    <option value="TitleA-Z">Order by Title A-Z</option>
-                    <option value="TitleZ-A">Order by Title Z-A</option>
-                    <option value="Price0-9">Order by Price ascending</option>
-                    <option value="Price9-0">Order by Price descending</option>
-                    <option value="RatingHigh">Order by high rating</option>
-                    <option value="Ratinglow">Order by low rating</option>
-                </select>
-            </form>
+
+                <form onchange="$('#autoPost').submit();" asp-controller="Products" asp-action="ProductsCollection" id="autoPost" class="orderForm btn btn-outline-success">
+                    <select name="orderBy" class="custom-select-sm drop">
+                        <option value="">Filer</option>
+                        <option value="TitleA-Z">Order by Title A-Z</option>
+                        <option value="TitleZ-A">Order by Title Z-A</option>
+                        <option value="Price0-9">Order by Price ascending</option>
+                        <option value="Price9-0">Order by Price descending</option>
+                        <option value="RatingHigh">Order by high rating</option>
+                        <option value="Ratinglow">Order by low rating</option>
+                    </select>
+                </form>
+
+
 
             <div class="table-responsive-sm">
                 <table class="table bg-transparent" id="tabul">
                     <thead>
                         <tr>
                             <th id="hide-on-mobile">
-                                @Html.DisplayNameFor(model => model.Title)
+                                Title
                             </th>
                             <th id="hide-on-mobile">
-                                @Html.DisplayNameFor(model => model.Type)
+                                Type
                             </th>
                             <th id="hide-on-mobile">
-                                @Html.DisplayNameFor(model => model.Rate)
+                                Rate
                             </th>
                             <th id="hide-on-mobile">
-                                @Html.DisplayNameFor(model => model.Genre)
+                                Genre
                             </th>
                             <th id="hide-on-mobile">
                                 Price $
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.Picture)
+                                Picture
                             </th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var item in Model)
+                        @foreach (var item in Model.Products)
                         {
-                        <tr>
-                            <td id="hide-on-mobile">
-                                @Html.DisplayFor(modelItem => item.Title)
-                            </td>
-                            <td id="hide-on-mobile">
-                                @Html.DisplayFor(modelItem => item.Type)
-                            </td>
-                            <td id="hide-on-mobile">
-                                @Html.DisplayFor(modelItem => item.Rate)
-                            </td>
-                            <td id="hide-on-mobile">
-                                @Html.DisplayFor(modelItem => item.Genre)
-                            </td>
-                            <td id="hide-on-mobile">
-                                @Html.DisplayFor(modelItem => item.price)
-                            </td>
-                            <td>
-                                @*@Html.DisplayFor(modelItem => item.Picture)*@
-                                <img src="@item.Picture" id="MovieList" alt="Alternate Text" />
-                            </td>
+                            <tr>
+                                <td id="hide-on-mobile">
+                                    @Html.DisplayFor(modelItem => item.Title)
+                                </td>
+                                <td id="hide-on-mobile">
+                                    @Html.DisplayFor(modelItem => item.Type)
+                                </td>
+                                <td id="hide-on-mobile">
+                                    @Html.DisplayFor(modelItem => item.Rate)
+                                </td>
+                                <td id="hide-on-mobile">
+                                    @Html.DisplayFor(modelItem => item.Genre)
+                                </td>
+                                <td id="hide-on-mobile">
+                                    @Html.DisplayFor(modelItem => item.price)
+                                </td>
+                                <td>
+                                    @*@Html.DisplayFor(modelItem => item.Picture)*@
+                                    <img src="@item.Picture" id="MovieList" alt="Alternate Text" />
+                                </td>
 
-                            <td>
+                                <td>
 
 
-                                @if (item.Type == WebConstantsVariables.Book)
-                                {
-                                    if (item.Status)
+                                    @if (item.Type == WebConstantsVariables.Book)
                                     {
-                                        <a asp-controller="UserShopedItems" asp-action="UserBooksShops" style="margin-left:15px;" class="btn btn-warning" id="button-padding">Owned</a>
-                                    }
-                                    else
-                                    {
-
-                                        <p class="price-mobile" id="price-hide">@item.Title</p>
-                                        <p class="price-mobile" id="price-hide">Rate: @item.Rate</p>
-                                        <p class="price-mobile" id="price-hide">Price: @item.price.ToString("f2") $</p>
-
-                                        @using (Html.BeginForm("BookDetail", "BookList", new { id = item.Id }, FormMethod.Get))
+                                        if (item.Status)
                                         {
-                                            <div class="form-group">
-                                                <div class="col-lg-10 col-lg-offset-2">
-                                                    <button type="submit" class="btn btn-outline-primary">Purcahse</button>
+                                            <a asp-controller="UserShopedItems" asp-action="UserBooksShops" style="margin-left:15px;" class="btn btn-warning" id="button-padding">Owned</a>
+                                        }
+                                        else
+                                        {
+
+                                            <p class="price-mobile" id="price-hide">@item.Title</p>
+                                            <p class="price-mobile" id="price-hide">Rate: @item.Rate</p>
+                                            <p class="price-mobile" id="price-hide">Price: @item.price.ToString("f2") $</p>
+
+                                            @using (Html.BeginForm("BookDetail", "BookList", new { id = item.Id }, FormMethod.Get))
+                                            {
+                                                <div class="form-group">
+                                                    <div class="col-lg-10 col-lg-offset-2">
+                                                        <button type="submit" class="btn btn-outline-primary">Purcahse</button>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            }
+
                                         }
 
-                                    }
 
-
-                                }
-                                else if (item.Type == WebConstantsVariables.Movie)
-                                {
-                                    if (item.Status)
-                                    {
-                                        <a asp-controller="UserShopedItems" asp-action="UserMovieShops" style="margin-left:15px;" class="btn btn-warning" id="button-padding">Owned</a>
                                     }
-                                    else
+                                    else if (item.Type == WebConstantsVariables.Movie)
                                     {
-                                        <p class="price-mobile" id="price-hide">@item.Title</p>
-                                        var rate = $"{item.Rate:f1}";
-                                        <p class="price-mobile" id="price-hide">Rate: @rate</p>
-                                        <p class="price-mobile" id="price-hide">Price: @item.price.ToString("f2") $</p>
-                                        @using (Html.BeginForm("MovieDetail", "MovieList", new { id = item.Id }, FormMethod.Get))
+                                        if (item.Status)
                                         {
-                                            <div class="form-group">
-                                                <div class="col-lg-10 col-lg-offset-2">
-                                                    <input class="form-control mr-sm-2" type="hidden" name="type" value="@item.Type">
-                                                    <button type="submit" class="btn btn-outline-primary">Purchase</button>
+                                            <a asp-controller="UserShopedItems" asp-action="UserMovieShops" style="margin-left:15px;" class="btn btn-warning" id="button-padding">Owned</a>
+                                        }
+                                        else
+                                        {
+                                            <p class="price-mobile" id="price-hide">@item.Title</p>
+                                            var rate = $"{item.Rate:f1}";
+                                            <p class="price-mobile" id="price-hide">Rate: @rate</p>
+                                            <p class="price-mobile" id="price-hide">Price: @item.price.ToString("f2") $</p>
+                                            @using (Html.BeginForm("MovieDetail", "MovieList", new { id = item.Id }, FormMethod.Get))
+                                            {
+                                                <div class="form-group">
+                                                    <div class="col-lg-10 col-lg-offset-2">
+                                                        <input class="form-control mr-sm-2" type="hidden" name="type" value="@item.Type">
+                                                        <button type="submit" class="btn btn-outline-primary">Purchase</button>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            }
+
                                         }
 
+
                                     }
-
-
-                                }
-                            </td>
-                        </tr>
+                                </td>
+                            </tr>
 
                         }
                     </tbody>
                 </table>
             </div>
         }
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                @*@{ 
+                    var orderBy = ViewData["order"].ToString(); 
+                 }*@
+                @for (int i = 1; i <= Model.TotalPages; i++)
+                {
+                    <li class="page-item">
+                <a class="page-link" href="/Products/ProductsCollection?page=@i">@i</a></li>
+                }
+                @*<li class="page-item">
+                    <a class="page-link" href="/Products/ProductsCollection?page=@Model.NextPage">Next</a>
+                </li>*@
+            </ul>
+        </nav>
     </div>

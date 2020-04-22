@@ -51,7 +51,7 @@ namespace MBshop.Test
         public void ShouldReturnSearchResultCountOfItemsForNull()
         {
             var service = new SearchEngine();
-
+             
             var result = service.Search("", null);
 
             Assert.NotEqual(1, result.Count);
@@ -69,6 +69,11 @@ namespace MBshop.Test
     }
     public class SearchEngine : ISearchEngineService
     {
+        public int GetAllCount()
+        {
+            throw new NotImplementedException();
+        }
+
         public List<ViewProducts> Search(string searchItem, string user)
         {
             var options = new DbContextOptionsBuilder<MovieShopDBSEContext>().UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString()).Options;
@@ -291,6 +296,16 @@ namespace MBshop.Test
             }
 
             return result.ToList();
+        }
+
+        public List<ViewProducts> ViewProductsWithPage(string userId, string orderBy, int page = 1)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<ViewProducts> ViewProductsWithPage(string userId, string orderBy, int page = 1, int pageSize = 10)
+        {
+            throw new NotImplementedException();
         }
     }
 }
