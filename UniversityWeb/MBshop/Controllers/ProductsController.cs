@@ -21,7 +21,8 @@ namespace MBshop.Controllers
             this.search = search;
         }
 
-        public IActionResult ProductsCollection()
+
+        public IActionResult ProductsCollection(string orderBy)
         {
             string user = "";
 
@@ -31,9 +32,7 @@ namespace MBshop.Controllers
                 user = User.FindFirst(ClaimTypes.NameIdentifier).Value;
             }
 
-            var result = this.search.ViewProducts(user);
-
-            //Can be made orderBy
+            var result = this.search.ViewProducts(user,orderBy);
 
             return this.View(result);
         }

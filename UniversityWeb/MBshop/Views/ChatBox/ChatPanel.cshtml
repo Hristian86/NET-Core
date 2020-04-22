@@ -10,6 +10,8 @@
 <body onload="Start()">
     <input type="hidden" id="secretEnviornment" value="@WebConstantsVariables.EnvironmentVariables" />
 
+    <h1><span class="text-danger" style="position:fixed" id="validation"></span></h1>
+
     <div class="container">
         <div class="con" style="display:flex;align-items: center;
   justify-content: center;">
@@ -45,7 +47,7 @@
                 {
                     if (ViewData.Model.ChatName != null)
                     {
-                        <input type="text" required name="name" value="" id="input" />
+                        <input type="text" maxlength="101" required name="name" value="" id="input" />
                         <button class="btn btn-lg btn-primary rounded-pill" id="buttonPost" type="submit" onclick="PostMessages(); return false;">Send Message</button>
                     }
                     else

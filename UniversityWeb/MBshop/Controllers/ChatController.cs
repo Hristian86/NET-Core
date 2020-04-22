@@ -85,7 +85,7 @@ namespace MBshop.Controllers
 
             ChatModel message = new ChatModel
             {
-                //Content = model.Content
+                Content = model.Content
             };
 
             this.fullNameOfUser = "";

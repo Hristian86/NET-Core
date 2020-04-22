@@ -8,6 +8,6 @@ namespace MBshop.Service.interfaces
     public interface ISearchEngineService
     {
         List<ViewProducts> Search(string searchItem,string user);
-        List<ViewProducts> ViewProducts(string userId);
+        List<ViewProducts> ViewProducts(string userId,string orderBy);
     }
 }

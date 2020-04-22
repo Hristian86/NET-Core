@@ -11,44 +11,49 @@
     <p class="movieLink">
         <a asp-controller="UserShopedItems" asp-action="UserMovieShops" class="btn btn-primary btn-lg">Movie Collection</a>
     </p>
-    @if (Model.Any())
+    @if (Model != null)
     {
 
-        <table class="table" id="tabul">
-            <thead>
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Picture)
-                    </th>
-                    <th>
-                        Product
-                    </th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                <tr>
-                    <td>
-                        <img src="@item.Picture" id="MovieList" alt="Alternate Text" />
-                        @using (Html.BeginForm("BookDetail", "BookList", new { id = item.Id }, FormMethod.Get))
-                        {
-                            <button type="submit" class="btn btn-warning mt-3 " id="shope-button">Rate  </button>
-                        }
-                    </td>
-                    <td>
-                        <iframe src="@item.LinkForProductContentWhenPurchase" id="product-frame">
-                        </iframe>
-                    </td>
-                </tr>
-                }
-            </tbody>
-        </table>
+        @if (Model.Any())
+        {
 
-    }
-    else
-    {
-        <div class="wrapper bg-transparent mt-5"><h3 class="text-center pt-3">There are no products</h3></div>
+            <table class="table" id="tabul">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Picture)
+                        </th>
+                        <th>
+                            Product
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <img src="@item.Picture" id="MovieList" alt="Alternate Text" />
+                                @using (Html.BeginForm("BookDetail", "BookList", new { id = item.Id }, FormMethod.Get))
+                                {
+                                    <button type="submit" class="btn btn-warning mt-3 " id="shope-button">Rate  </button>
+                                }
+                            </td>
+                            <td>
+                                <iframe src="@item.LinkForProductContentWhenPurchase" id="product-frame">
+                                </iframe>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        }
+        else
+        {
+            <div class="wrapper bg-transparent mt-5"><h3 class="text-center pt-3">There are no products</h3></div>
+        }
+
     }
 </div>

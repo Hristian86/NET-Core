@@ -398,6 +398,11 @@ namespace MBshop.Test
                     return $"Book does not exists";
                 }
             }
+
+            public void GetUserRate(string userId)
+            {
+                throw new NotImplementedException();
+            }
         }
     }
 }

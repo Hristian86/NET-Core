@@ -15,6 +15,7 @@ namespace MBshop.Models
 
         public DateTime? DateT { get; set; }
 
+        [MaxLength(99,ErrorMessage = "To long sentance")]
         public string Content { get; set; }
 
         [MaxLength(50)]

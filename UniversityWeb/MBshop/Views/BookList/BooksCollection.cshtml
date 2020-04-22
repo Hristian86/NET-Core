@@ -1,17 +1,19 @@
 ﻿@model IEnumerable<MBshop.Service.OutputModels.OutputBooks>
 
 @{
-    ViewData["Title"] = "BooksCollection";
+    ViewData["Title"] = "Book Collection";
 }
 
     <div class="container">
 
-        <h1>Book collection</h1>
+        <h1>@ViewData["Title"]</h1>
 
         <br />
         <p class="movieLink">
             <a asp-controller="MovieList" asp-action="MovieCollection" class="btn btn-primary btn-lg">Movie collection</a>
         </p>
+        @if (Model != null)
+        {
 
         <form onchange="$('#autoPost').submit();" asp-controller="BookList" asp-action="BooksCollection" id="autoPost" class="orderForm btn btn-outline-success">
             <select name="orderBy" class="custom-select-sm drop">
@@ -86,12 +88,15 @@
                                 @Html.DisplayFor(modelItem => item.price) $
                             </td>
                             <td>
-                                @*@Html.DisplayFor(modelItem => item.Picture)*@
                                 <img src="@item.Picture" id="MovieList" alt="Alternate Text" />
                             </td>
                             <td>
                                 @if (item.Status == false)
                                 {
+                                    <p class="price-mobile" id="price-hide">@item.Title</p>
+                                    var rate = $"{item.Rate:f1}";
+                                    <p class="price-mobile" id="price-hide">Rate: @rate</p>
+                                    <p class="price-mobile" id="price-hide">Price: @item.price.ToString("f2") $</p>
                                     @using (Html.BeginForm("BookDetail", "BookList", new { id = item.Id }, FormMethod.Get))
                                     {
                                         <div class="form-group">
@@ -100,7 +105,6 @@
                                             </div>
                                         </div>
                                     }
-                                    <p class="price-mobile" id="price-hide">Price: @item.price.ToString("f2") $</p>
                                 }
                                 else
                                 {
@@ -112,4 +116,6 @@
                 </tbody>
             </table>
         </div>
+        
+        }
     </div>

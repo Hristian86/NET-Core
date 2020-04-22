@@ -75,6 +75,7 @@ namespace MBshop.Areas.Identity.Pages.Account.Manage
 
             [Display(Name = "Address")]
             [MaxLength(50, ErrorMessage = "Too long address description")]
+            [RegularExpression(@"[A-Za-z0-9]+",ErrorMessage ="It contains only letters and digits")]
             public string Address { get; set; }
 
             [Display(Name = "Image Avatar")]

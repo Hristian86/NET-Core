@@ -178,7 +178,7 @@ namespace MBshop.Service.Services
                 else
                 {
                     //error
-                    return $"Opps it seems that there is an error when adding book to the cart";
+                    return $"Opps it seems that there is an error when adding movie to the cart";
                 }
             }
             else

@@ -47,7 +47,8 @@ namespace MBshop.Service.Services
             //status chek for movies
             status.StatusChekMovies(movieses, userPersonalMovies);
 
-            var result = movieses
+            var result = movieses.Where(x => x.Title != null && x.Title.ToLower()
+                .Contains(searchItem.ToLower()))
                 .Select(item => new ViewProducts
                 {
                     Id = item.Id,
@@ -61,7 +62,8 @@ namespace MBshop.Service.Services
 
                 }).ToList();
 
-            var result1 = bookses
+            result.AddRange(bookses.Where(x => x.Title != null && x.Title.ToLower()
+                .Contains(searchItem.ToLower()))
                 .Select(item => new ViewProducts
                 {
                     Id = item.Id,
@@ -73,41 +75,19 @@ namespace MBshop.Service.Services
                     Rate = item.Rate,
                     Type = WebConstantsVariables.Book
 
-                }).ToList();
+                }));
 
-            result.AddRange(result1);
+            //result.AddRange(result1);
 
-            //first search by title
-            ////second search by genre 
-            //var temp = result.Where(a => a.Genre != null && a.Genre.ToLower().Contains(searchItem.ToLower()))
-            //    .ToList();
-
-            //int resultLenght = tempResult.Count;
-
-            ////compare the two search results for equals
-            //for (int i = 0; i < resultLenght; i++)
-            //{
-            //    var item = tempResult[i];
-            //    for (int j = 0; j < temp.Count; j++)
-            //    {
-            //        if (item.Title != temp[j].Title)
-            //        {
-            //            tempResult.Add(temp[j]);
-            //            break;
-            //        }
-            //    }
-            //}
-
-            return result.Where(x => x.Title != null && x.Title.ToLower()
-                .Contains(searchItem.ToLower())).ToList();
+            return result.ToList();
         }
 
         /// <summary>
-        /// Combined collection of products
+        /// Combined collection of products and sorting
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        public List<ViewProducts> ViewProducts(string userId)
+        public List<ViewProducts> ViewProducts(string userId, string orderBy)
         {
             var movieses = this.movies.GetListOfMovies();
             var bookses = this.books.GetListOfBooks();
@@ -152,6 +132,36 @@ namespace MBshop.Service.Services
                 }).ToList();
 
             result.AddRange(result1);
+
+
+            //Can be made orderBy
+            if (orderBy != null)
+            {
+                if (orderBy == "TitleA-Z")
+                {
+                    result = result.OrderBy(x => x.Title).ToList();
+                }
+                else if (orderBy == "TitleZ-A")
+                {
+                    result = result.OrderByDescending(x => x.Title).ToList();
+                }
+                else if (orderBy == "Price0-9")
+                {
+                    result = result.OrderBy(x => x.price).ToList();
+                }
+                else if (orderBy == "Price9-0")
+                {
+                    result = result.OrderByDescending(x => x.price).ToList();
+                }
+                else if (orderBy == "RatingHigh")
+                {
+                    result = result.OrderByDescending(x => x.Rate).ToList();
+                }
+                else if (orderBy == "Ratinglow")
+                {
+                    result = result.OrderBy(x => x.Rate).ToList();
+                }
+            }
 
             return result.ToList();
         }
