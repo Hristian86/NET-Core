@@ -108,6 +108,10 @@
                                 }
                                 else
                                 {
+                                    <p class="price-mobile" id="price-hide">@item.Title</p>
+                                    var rate = $"{item.Rate:f1}";
+                                    <p class="price-mobile" id="price-hide">Rate: @rate</p>
+                                    <p class="price-mobile" id="price-hide">Price: </p>
                                     <a asp-controller="UserShopedItems" asp-action="UserBooksShops" style="margin-left:15px;" id="button-padding" class="btn btn-warning">Owned</a>
                                 }
                             </td>

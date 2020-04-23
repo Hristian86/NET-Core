@@ -83,6 +83,10 @@
                                     {
                                         if (item.Status)
                                         {
+                                            <p class="price-mobile" id="price-hide">@item.Title</p>
+                                            var rate = $"{item.Rate:f1}";
+                                            <p class="price-mobile" id="price-hide">Rate: @rate</p>
+                                            <p class="price-mobile" id="price-hide">Price: </p>
                                             <a asp-controller="UserShopedItems" asp-action="UserBooksShops" style="margin-left:15px;" class="btn btn-warning" id="button-padding">Owned</a>
                                         }
                                         else
@@ -109,6 +113,10 @@
                                     {
                                         if (item.Status)
                                         {
+                                            <p class="price-mobile" id="price-hide">@item.Title</p>
+                                            var rate = $"{item.Rate:f1}";
+                                            <p class="price-mobile" id="price-hide">Rate: @rate</p>
+                                            <p class="price-mobile" id="price-hide">Price: </p>
                                             <a asp-controller="UserShopedItems" asp-action="UserMovieShops" style="margin-left:15px;" class="btn btn-warning" id="button-padding">Owned</a>
                                         }
                                         else
