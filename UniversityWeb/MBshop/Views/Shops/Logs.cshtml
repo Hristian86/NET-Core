@@ -1,0 +1,57 @@
+﻿@model IEnumerable<MBshop.Models.Logs>
+
+@{
+    ViewData["Title"] = "Logs";
+}
+
+<h1>Logs</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<div class="table-responsive-sm">
+    <table class="table" id="tabul">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.LogId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateLoged)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UserLoged)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LogId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateLoged)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserLoged)
+                    </td>
+                    <td>
+                        <form asp-controller="Shops" asp-action="DeleteLog" method="post">
+                            <input type="hidden" name="name" value="%name-no-name%" />
+                            <input type="hidden" name="userName" value="@item.UserLoged" />
+                            <input type="hidden" name="hooks" value="%sid-ni-as-no-one%" />
+                            <input type="hidden" name="id" value="@item.LogId" />
+                            <input type="submit" class="btn btn-secondary" value="Delete" />
+                        </form>
+                        @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

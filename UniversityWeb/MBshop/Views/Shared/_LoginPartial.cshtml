@@ -25,7 +25,7 @@
         else
         {
             <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index">Hello  @User.Identity.Name !</a>
+                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index"> @User.Identity.Name's Management</a>
             </li>
         }
         <li class="nav-item">
@@ -76,6 +76,12 @@ else if (User.IsInRole(WebConstantsVariables.Admin))
 
             <div class="dropdown-divider"></div>
             <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="Shops" asp-action="Index">Shoped items</a>
+
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="Shops" asp-action="Logs">Logged users</a>
+
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="Administration" asp-action="Index">Users modifier</a>
         </div>
     </div>
 

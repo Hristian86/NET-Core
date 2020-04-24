@@ -85,6 +85,7 @@ namespace MBshop
             services.AddScoped<IRatingSistemService, RatingSistemService>();
             services.AddScoped<ISearchEngineService, SearchEngineService>();
             services.AddScoped<GlobalAlertMessages>();
+            services.AddScoped<ILogService, LogService>();
 
             services.AddCors(option =>
             {

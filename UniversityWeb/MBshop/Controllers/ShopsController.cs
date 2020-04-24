@@ -29,6 +29,7 @@ namespace MBshop.Controllers
         }
 
         // GET: Shops
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Index()
         {
             var movieShopDBSEContext = db.Shops.Include(s => s.Books).Include(s => s.Movie).Include(s => s.User);
@@ -57,7 +58,7 @@ namespace MBshop.Controllers
 
                 //var claimses = await userManager.GetClaimsAsync(usery);
 
-                
+
 
                 var userId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
                 var role = User.FindFirst(ClaimTypes.Role).Value;
@@ -73,6 +74,7 @@ namespace MBshop.Controllers
         }
 
         // GET: Shops/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -94,6 +96,7 @@ namespace MBshop.Controllers
         }
 
         // POST: Shops/Delete/5
+        [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -104,9 +107,44 @@ namespace MBshop.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+
+        [Authorize(Roles = "Admin")]
+        public IActionResult Logs()
+        {
+
+            var logs = this.db.Logs
+                .Select(x => x)
+                .ToList();
+
+            return this.View(logs);
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpPost, ActionName("DeleteLog")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteLog(string name, string userName,string hooks, int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var userLog = this.db.Logs.Where(x => x.UserLoged == userName && x.LogId == id).FirstOrDefault();
+
+            if (name == "%name-no-name%" && userLog.UserLoged == userName && hooks == "%sid-ni-as-no-one%" && userLog.LogId == id)
+            {
+                this.db.Logs.Remove(userLog);
+
+                await this.db.SaveChangesAsync();
+            }
+
+            return this.RedirectToAction("Logs", "Shops");
+        }
+
         private bool ShopsExists(int id)
         {
             return db.Shops.Any(e => e.Id == id);
         }
+
     }
 }

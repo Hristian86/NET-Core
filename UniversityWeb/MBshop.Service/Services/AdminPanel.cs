@@ -91,6 +91,13 @@ namespace MBshop.Service.Services
         {
             string title = "";
 
+            bool movieExists = this.db.Movies.Any(x => x.Id == movieId);
+
+            if (!movieExists)
+            {
+                return $"Movie {title} not found";
+            }
+
             var movies = await this.db.Movies.FindAsync(movieId);
 
             title = movies.Title;
@@ -129,6 +136,13 @@ namespace MBshop.Service.Services
         public async Task<string> RemoveBook(int bookId)
         {
             var title = "";
+
+            bool bookExists = db.Books.Any(x => x.Id == bookId);
+
+            if (!bookExists)
+            {
+                return $"Book {title} not found";
+            }
 
             //fixing cascade delete manualy 
             var books = await this.db.Books

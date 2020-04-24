@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using MBshop.Data;
+using MBshop.Service.interfaces;
 
 namespace MBshop.Areas.Identity.Pages.Account
 {
@@ -19,14 +20,18 @@ namespace MBshop.Areas.Identity.Pages.Account
     public class LoginModel : PageModel
     {
         private readonly UserManager<IdentityUser> _userManager;
+        private readonly ILogService userLogs;
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
 
         public LoginModel(SignInManager<IdentityUser> signInManager, 
             ILogger<LoginModel> logger,
-            UserManager<IdentityUser> userManager)
+            UserManager<IdentityUser> userManager,
+            ILogService userLogs
+            )
         {
             _userManager = userManager;
+            this.userLogs = userLogs;
             _signInManager = signInManager;
             _logger = logger;
         }
@@ -85,6 +90,8 @@ namespace MBshop.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
+
+                    await this.userLogs.LoggedUser(Input.UserName);
 
                     return LocalRedirect(returnUrl);
                 }

@@ -875,6 +875,8 @@ C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-P
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-b120af0290e90c5c0f75c3d8ba780b4ae32cfc7b\UniversityWeb\MBshop\obj\Debug\netcoreapp3.1\MBshop.pdb
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-b120af0290e90c5c0f75c3d8ba780b4ae32cfc7b\UniversityWeb\MBshop\obj\Debug\netcoreapp3.1\MBshop.genruntimeconfig.cache
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_CookieConsentPartial.cshtml.g.cs
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop\obj\Debug\netcoreapp3.1\Razor\Views\Shops\Statistics.cshtml.g.cs
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop\obj\Debug\netcoreapp3.1\Razor\Views\Shops\Logs.cshtml.g.cs
 C:\Users\Pencho\Desktop\GitHGub\UniversityWeb\MBshop\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\Pencho\Desktop\GitHGub\UniversityWeb\MBshop\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\Pencho\Desktop\GitHGub\UniversityWeb\MBshop\bin\Debug\netcoreapp3.1\Connected Services\Application Insights\ConnectedService.json
@@ -1091,6 +1093,8 @@ C:\Users\Pencho\Desktop\GitHGub\UniversityWeb\MBshop\obj\Debug\netcoreapp3.1\Raz
 C:\Users\Pencho\Desktop\GitHGub\UniversityWeb\MBshop\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\Pencho\Desktop\GitHGub\UniversityWeb\MBshop\obj\Debug\netcoreapp3.1\Razor\Views\Shops\Delete.cshtml.g.cs
 C:\Users\Pencho\Desktop\GitHGub\UniversityWeb\MBshop\obj\Debug\netcoreapp3.1\Razor\Views\Shops\Index.cshtml.g.cs
+C:\Users\Pencho\Desktop\GitHGub\UniversityWeb\MBshop\obj\Debug\netcoreapp3.1\Razor\Views\Shops\Logs.cshtml.g.cs
+C:\Users\Pencho\Desktop\GitHGub\UniversityWeb\MBshop\obj\Debug\netcoreapp3.1\Razor\Views\Shops\Statistics.cshtml.g.cs
 C:\Users\Pencho\Desktop\GitHGub\UniversityWeb\MBshop\obj\Debug\netcoreapp3.1\Razor\Views\UserShopedItems\UserBooksShops.cshtml.g.cs
 C:\Users\Pencho\Desktop\GitHGub\UniversityWeb\MBshop\obj\Debug\netcoreapp3.1\Razor\Views\UserShopedItems\UserMovieShops.cshtml.g.cs
 C:\Users\Pencho\Desktop\GitHGub\UniversityWeb\MBshop\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
@@ -1104,3 +1108,8 @@ C:\Users\Pencho\Desktop\GitHGub\UniversityWeb\MBshop\obj\Debug\netcoreapp3.1\sta
 C:\Users\Pencho\Desktop\GitHGub\UniversityWeb\MBshop\obj\Debug\netcoreapp3.1\MBshop.dll
 C:\Users\Pencho\Desktop\GitHGub\UniversityWeb\MBshop\obj\Debug\netcoreapp3.1\MBshop.pdb
 C:\Users\Pencho\Desktop\GitHGub\UniversityWeb\MBshop\obj\Debug\netcoreapp3.1\MBshop.genruntimeconfig.cache
+C:\Users\Pencho\Desktop\GitHGub\UniversityWeb\MBshop\obj\Debug\netcoreapp3.1\Razor\Views\Administration\Create.cshtml.g.cs
+C:\Users\Pencho\Desktop\GitHGub\UniversityWeb\MBshop\obj\Debug\netcoreapp3.1\Razor\Views\Administration\Delete.cshtml.g.cs
+C:\Users\Pencho\Desktop\GitHGub\UniversityWeb\MBshop\obj\Debug\netcoreapp3.1\Razor\Views\Administration\Details.cshtml.g.cs
+C:\Users\Pencho\Desktop\GitHGub\UniversityWeb\MBshop\obj\Debug\netcoreapp3.1\Razor\Views\Administration\Edit.cshtml.g.cs
+C:\Users\Pencho\Desktop\GitHGub\UniversityWeb\MBshop\obj\Debug\netcoreapp3.1\Razor\Views\Administration\Index.cshtml.g.cs
