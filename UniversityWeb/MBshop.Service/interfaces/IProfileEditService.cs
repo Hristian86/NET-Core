@@ -18,6 +18,8 @@ namespace MBshop.Service.interfaces
         /// <param name="userId"></param>
         Task<bool> SaveUserProperties(string avatar, string chatName, string firstName, string lastName, string address, string userId);
 
+        Task DateCreatedAcc(string userId);
+
 
         /// <summary>
         /// Getting current user for the session

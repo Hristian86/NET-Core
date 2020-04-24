@@ -110,6 +110,18 @@ namespace MBshop.Service.Services
             return usr;
         }
 
+        public async Task DateCreatedAcc(string userId)
+        {
+            var user = await this.db.AspNetUsers.FindAsync(userId);
+
+            user.CreatedOn = DateTime.UtcNow;
+
+            this.db.AspNetUsers.Update(user);
+
+            await this.db.SaveChangesAsync();
+
+        }
+
         private bool ChekNickName(string ChatName)
         {
             return this.db.AspNetUsers.Any(x => x.ChatName == ChatName);

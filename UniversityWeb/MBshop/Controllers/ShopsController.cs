@@ -141,6 +141,24 @@ namespace MBshop.Controllers
             return this.RedirectToAction("Logs", "Shops");
         }
 
+        [Authorize(Roles = "Admin,Moderator")]
+        [HttpPost, ActionName("DeleteLogs")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteLogs(string name, string userName, string hooks, int? id)
+        {
+            
+            var allLogs = this.db.Logs
+                .Where(x => x.UserLoged != null)
+                .ToList();
+
+                this.db.Logs.RemoveRange(allLogs);
+
+                await this.db.SaveChangesAsync();
+            
+
+            return this.RedirectToAction("Logs", "Shops");
+        }
+
         private bool ShopsExists(int id)
         {
             return db.Shops.Any(e => e.Id == id);

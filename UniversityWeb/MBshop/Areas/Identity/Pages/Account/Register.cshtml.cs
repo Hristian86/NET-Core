@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
+using MBshop.Service.interfaces;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -24,7 +25,7 @@ namespace MBshop.Areas.Identity.Pages.Account
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
         private readonly RoleManager<IdentityRole> _roleManager;
-
+        private readonly IProfileEditService profileEdit;
         private readonly string adminRole = "Admin";
         private readonly string userRole = "User";
 
@@ -33,10 +34,12 @@ namespace MBshop.Areas.Identity.Pages.Account
             SignInManager<IdentityUser> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender,
-            RoleManager<IdentityRole> roleManager
+            RoleManager<IdentityRole> roleManager,
+            IProfileEditService profileEdit
             )
         {
             this._roleManager = roleManager;
+            this.profileEdit = profileEdit;
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
@@ -112,7 +115,7 @@ namespace MBshop.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
 
-                    
+                    await this.profileEdit.DateCreatedAcc(user.Id);
 
                     _logger.LogInformation("User created a new account with password.");
 

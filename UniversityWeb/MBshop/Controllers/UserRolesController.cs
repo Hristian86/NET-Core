@@ -106,8 +106,6 @@ namespace MBshop.Controllers
 
                 await this.userManager.AddToRoleAsync(user, adminRole);
 
-
-
             }
             else if (userRole == this.Moderator)
             {
