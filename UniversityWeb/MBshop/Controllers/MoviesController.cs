@@ -15,7 +15,7 @@ using MBshop.Service.StaticProperyes;
 namespace MBshop.Controllers
 {
 
-    [Authorize(Roles = "Admin")]
+    
     public class MoviesController : Controller
     {
         private readonly IAdminPanel adminProducts;
@@ -25,13 +25,16 @@ namespace MBshop.Controllers
             this.adminProducts = adminProducts;
         }
 
+
         // GET: Movies
+        [Authorize(Roles = "Admin,Moderator")]
         public IActionResult Index()
         {
             return this.View(this.adminProducts.GetMovies());
         }
 
         // GET: Movies/Details/5
+        [Authorize(Roles = "Admin,Moderator")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -50,12 +53,14 @@ namespace MBshop.Controllers
         }
 
         // GET: Movies/Create
+        [Authorize(Roles = "Admin,Moderator")]
         public IActionResult Create()
         {
             return View();
         }
 
         // POST: Movies/Create
+        [Authorize(Roles = "Admin,Moderator")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Title,Director,RealeaseDate,Genre,price,Discount,Picture,Actors,Raiting,Description,LinkForProductContentWhenPurchase,Rate")] Movies movies)
@@ -73,6 +78,7 @@ namespace MBshop.Controllers
         }
 
         // GET: Movies/Edit/5
+        [Authorize(Roles = "Admin,Moderator")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -90,6 +96,7 @@ namespace MBshop.Controllers
             return View(movies);
         }
 
+        [Authorize(Roles = "Admin,Moderator")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Director,RealeaseDate,Genre,price,LinkForProductContentWhenPurchase,Discount,Picture,Actors,Raiting,Description,Rate")] Movies movies)
@@ -125,6 +132,7 @@ namespace MBshop.Controllers
         }
 
         // GET: Movies/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -143,6 +151,7 @@ namespace MBshop.Controllers
         }
 
         // POST: Movies/Delete/5
+        [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

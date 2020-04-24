@@ -3,63 +3,110 @@
 @inject UserManager<IdentityUser> UserManager
 
 
-<ul class="navbar-nav">
-    @if (SignInManager.IsSignedIn(User))
-    {
-
-
-        if (User.IsInRole(WebConstantsVariables.User))
+    <ul class="navbar-nav">
+        @if (SignInManager.IsSignedIn(User))
         {
 
-            @*<Li class="ItemsPerPerson">
+
+            if (User.IsInRole(WebConstantsVariables.User))
+            {
+
+                @*<Li class="ItemsPerPerson">
                     <a asp-controller="UserShopedItems" asp-action="UserMovieShops" class="btn btn-info">Shoped products</a>
                 </Li>*@
-        }
-        if (User.IsInRole(WebConstantsVariables.Admin))
-        {
+            }
+            if (User.IsInRole(WebConstantsVariables.Admin))
+            {
 
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="Identity" id="dropM" asp-page="/Account/Manage/Index">Hello Admin @User.Identity.Name !</a>
+                </li>
+            }
+            else if (User.IsInRole(WebConstantsVariables.Moderator))
+            {
+
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="Identity" id="dropM" asp-page="/Account/Manage/Index">Hello Moderator @User.Identity.Name !</a>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index"> @User.Identity.Name's Management</a>
+                </li>
+            }
             <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="Identity" id="dropM" asp-page="/Account/Manage/Index">Hello Admin @User.Identity.Name !</a>
+                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                    <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+                </form>
             </li>
         }
         else
         {
             <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index"> @User.Identity.Name's Management</a>
+                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Log in</a>
             </li>
         }
-        <li class="nav-item">
-            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
-            </form>
-        </li>
-    }
-    else
-    {
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Log in</a>
-        </li>
-    }
-</ul>
+    </ul>
 
 
 @if (User.IsInRole(WebConstantsVariables.User))
 {
-<div class="btn-group mr-2" >
-    <button type="button" class="btn btn-info mr-3 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="shop-menu-navbar">
-        Shoped products
-    </button>
-    <div class="dropdown-menu dropdown-menu-left">
-        <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="UserShopedItems" asp-action="UserMovieShops">Personal Movies</a>
+    <div class="btn-group mr-2">
+        <button type="button" class="btn btn-info mr-3 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="shop-menu-navbar">
+            Shoped products
+        </button>
+        <div class="dropdown-menu dropdown-menu-left">
+            <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="UserShopedItems" asp-action="UserMovieShops">Personal Movies</a>
 
-        <div class="dropdown-divider"></div>
+            <div class="dropdown-divider"></div>
 
-        <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="UserShopedItems" asp-action="UserBooksShops">Personal Books</a>
+            <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="UserShopedItems" asp-action="UserBooksShops">Personal Books</a>
+        </div>
     </div>
-</div>
+}
+@if (User.IsInRole(WebConstantsVariables.Moderator))
+{
+    <!-- Example single danger button -->
+    <div class="btn-group mr-2" id="admin-panel-wrapper">
+        <button type="button" class="btn btn-outline-danger dropdown-toggle" id="admin-panel" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Admin CnlPanel
+        </button>
+        <div class="dropdown-menu dropdown-menu-right">
+            <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="Movies" asp-action="Index">Create Movies</a>
+
+            <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="Books" asp-action="Index">Create Books</a>
+
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="Shops" asp-action="Index">Shoped items</a>
+
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="Shops" asp-action="Logs">Logged users</a>
+
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="Administration" asp-action="Index">Users modifier</a>
+
+
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="UserRoles" asp-action="Index">User Roles</a>
+        </div>
+    </div>
+
+    <div class="btn-group mr-2" id="admin-panel-wrapper">
+        <button type="button" class="btn btn-info mr-2 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="shop-menu-navbar">
+            Shoped products
+        </button>
+        <div class="dropdown-menu dropdown-menu-left">
+            <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="UserShopedItems" asp-action="UserMovieShops">Personal Movies</a>
+
+            <div class="dropdown-divider"></div>
+
+            <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="UserShopedItems" asp-action="UserBooksShops">Personal Books</a>
+        </div>
+    </div>
 }
 else if (User.IsInRole(WebConstantsVariables.Admin))
 {
@@ -82,6 +129,10 @@ else if (User.IsInRole(WebConstantsVariables.Admin))
 
             <div class="dropdown-divider"></div>
             <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="Administration" asp-action="Index">Users modifier</a>
+
+
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item nav-link text-dark dropdnText" asp-area="" asp-controller="UserRoles" asp-action="Index">User Roles</a>
         </div>
     </div>
 

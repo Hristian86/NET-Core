@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace MBshop.Controllers
 {
 
-    [Authorize(Roles = "Admin")]
+    
     public class AdministrationController : Controller
     {
         private readonly MovieShopDBSEContext db;
@@ -23,12 +23,14 @@ namespace MBshop.Controllers
         }
 
         // GET: Administration
+        [Authorize(Roles = "Admin,Moderator")]
         public async Task<IActionResult> Index()
         {
             return View(await db.AspNetUsers.ToListAsync());
         }
 
         // GET: Administration/Details/5
+        [Authorize(Roles = "Admin,Moderator")]
         public async Task<IActionResult> Details(string id)
         {
             if (id == null)
@@ -47,12 +49,14 @@ namespace MBshop.Controllers
         }
 
         // GET: Administration/Create
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View();
         }
 
         // POST: Administration/Create
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,UserName,NormalizedUserName,Email,NormalizedEmail,EmailConfirmed,PasswordHash,SecurityStamp,ConcurrencyStamp,Avatar,ChatName,FirstName,LastName,Address,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEnd,LockoutEnabled,AccessFailedCount,RentalId,CreatedOn")] AspNetUsers aspNetUsers)
@@ -67,6 +71,7 @@ namespace MBshop.Controllers
         }
 
         // GET: Administration/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
@@ -83,6 +88,7 @@ namespace MBshop.Controllers
         }
 
         // POST: Administration/Edit/5
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(string id, [Bind("Id,UserName,NormalizedUserName,Email,NormalizedEmail,EmailConfirmed,PasswordHash,SecurityStamp,ConcurrencyStamp,Avatar,ChatName,FirstName,LastName,Address,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEnd,LockoutEnabled,AccessFailedCount,RentalId,CreatedOn")] AspNetUsers aspNetUsers)
@@ -116,6 +122,7 @@ namespace MBshop.Controllers
         }
 
         // GET: Administration/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
@@ -134,6 +141,7 @@ namespace MBshop.Controllers
         }
 
         // POST: Administration/Delete/5
+        [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)

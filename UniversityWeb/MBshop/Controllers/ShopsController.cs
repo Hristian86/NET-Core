@@ -15,7 +15,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace MBshop.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    
     public class ShopsController : Controller
     {
         private readonly MovieShopDBSEContext db;
@@ -29,7 +29,7 @@ namespace MBshop.Controllers
         }
 
         // GET: Shops
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Moderator")]
         public async Task<IActionResult> Index()
         {
             var movieShopDBSEContext = db.Shops.Include(s => s.Books).Include(s => s.Movie).Include(s => s.User);
@@ -74,7 +74,7 @@ namespace MBshop.Controllers
         }
 
         // GET: Shops/Delete/5
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Moderator")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -96,7 +96,7 @@ namespace MBshop.Controllers
         }
 
         // POST: Shops/Delete/5
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Moderator")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -108,7 +108,7 @@ namespace MBshop.Controllers
         }
 
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Moderator")]
         public IActionResult Logs()
         {
 
@@ -119,7 +119,7 @@ namespace MBshop.Controllers
             return this.View(logs);
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Moderator")]
         [HttpPost, ActionName("DeleteLog")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteLog(string name, string userName,string hooks, int? id)

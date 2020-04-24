@@ -12,5 +12,7 @@ namespace MBshop.Service.WebConstants
         public static string Book { get; } = "Book";
         public static string EnvironmentVariables { get; set; } 
         public static string type { get; set; }
+
+        public static string Moderator { get; } = "Moderator";
     }
 }
