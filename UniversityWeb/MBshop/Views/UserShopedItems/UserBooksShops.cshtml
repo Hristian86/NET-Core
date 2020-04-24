@@ -16,39 +16,39 @@
 
         @if (Model.Any())
         {
-
-            <table class="table" id="tabul">
-                <thead>
-                    <tr>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Picture)
-                        </th>
-                        <th>
-                            Product
-                        </th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
+            <div class="table-responsive-sm">
+                <table class="table" id="tabul">
+                    <thead>
                         <tr>
-                            <td>
-                                <img src="@item.Picture" id="MovieList" alt="Alternate Text" />
-                                @using (Html.BeginForm("BookDetail", "BookList", new { id = item.Id }, FormMethod.Get))
-                                {
-                                    <button type="submit" class="btn btn-warning mt-3 " id="shope-button">Rate  </button>
-                                }
-                            </td>
-                            <td>
-                                <iframe src="@item.LinkForProductContentWhenPurchase" id="product-frame">
-                                </iframe>
-                            </td>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Picture)
+                            </th>
+                            <th>
+                                Product
+                            </th>
+                            <th></th>
                         </tr>
-                    }
-                </tbody>
-            </table>
-
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <img src="@item.Picture" id="MovieList" alt="Alternate Text" />
+                                    @using (Html.BeginForm("BookDetail", "BookList", new { id = item.Id }, FormMethod.Get))
+                                    {
+                                        <button type="submit" class="btn btn-warning mt-3 " id="shope-button">Rate  </button>
+                                    }
+                                </td>
+                                <td>
+                                    <iframe src="@item.LinkForProductContentWhenPurchase" id="product-frame">
+                                    </iframe>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
         }
         else
         {

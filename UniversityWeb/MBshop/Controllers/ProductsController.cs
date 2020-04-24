@@ -37,11 +37,12 @@ namespace MBshop.Controllers
 
             if (orderBy == null || orderBy == "")
             {
+                ViewData["order"] = "";
                 orderBy = order;
             }
             else
             {
-                //ViewData["order"] = orderBy;
+                ViewData["order"] = orderBy;
                 order = orderBy;
             }
             

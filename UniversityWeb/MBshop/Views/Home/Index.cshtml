@@ -3,19 +3,20 @@
     ViewData["Title"] = "Home Page";
 }
 
-<header>
-    <div class="text-center">
-        @{
-            if (User.Identity.IsAuthenticated)
-            {
-                @*<h1>@ViewData.Model.firstName @ViewData.Model.LastName @ViewData.Model.Address</h1>*@
+
+    <header>
+        <div class="text-center">
+            @{
+                if (User.Identity.IsAuthenticated)
+                {
+                    @*<h1>@ViewData.Model.firstName @ViewData.Model.LastName @ViewData.Model.Address</h1>*@
+                }
+
             }
 
-        }
-
-        @*<h1 class="display-4">Welcome</h1>*@
-    </div>
-</header>
+            @*<h1 class="display-4">Welcome</h1>*@
+        </div>
+    </header>
 <body>
     <div class="container-fluid">
 

@@ -20,6 +20,6 @@ namespace MBshop.Models
 
         public int NextPage => this.CurrentPage == this.TotalPages
             ? this.TotalPages
-            : this.CurrentPage;
+            : this.CurrentPage + 1;
     }   
 }

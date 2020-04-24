@@ -58,6 +58,12 @@ namespace MBshop
                 options.Password.RequiredUniqueChars = 0;
             });
 
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                options.CheckConsentNeeded = context => true;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
+
             services.AddControllersWithViews();
 
             services.AddRazorPages();
@@ -116,6 +122,8 @@ namespace MBshop
             app.UseHttpsRedirection();
 
             app.UseStaticFiles();
+
+            app.UseCookiePolicy();
 
             app.UseRouting();
 

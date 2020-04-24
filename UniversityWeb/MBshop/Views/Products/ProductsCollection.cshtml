@@ -3,163 +3,191 @@
     ViewData["Title"] = "All Products";
 }
 
-    <div class="container">
+<div class="container">
 
 
-        <h1 class="mb-4">@ViewData["Title"]</h1>
+    <h1 class="mb-4">@ViewData["Title"]</h1>
 
-        @if (Model != null)
-        {
-
-
-
-                <form onchange="$('#autoPost').submit();" asp-controller="Products" asp-action="ProductsCollection" id="autoPost" class="orderForm btn btn-outline-success">
-                    <select name="orderBy" class="custom-select-sm drop">
-                        <option value="">Filer</option>
-                        <option value="TitleA-Z">Order by Title A-Z</option>
-                        <option value="TitleZ-A">Order by Title Z-A</option>
-                        <option value="Price0-9">Order by Price ascending</option>
-                        <option value="Price9-0">Order by Price descending</option>
-                        <option value="RatingHigh">Order by high rating</option>
-                        <option value="Ratinglow">Order by low rating</option>
-                    </select>
-                </form>
+    @if (Model != null)
+    {
 
 
 
-            <div class="table-responsive-sm">
-                <table class="table bg-transparent" id="tabul">
-                    <thead>
+        <form onchange="$('#autoPost').submit();" asp-controller="Products" asp-action="ProductsCollection" id="autoPost" class="orderForm btn btn-outline-success">
+            <select name="orderBy" class="custom-select-sm drop">
+                <option value="">Filer</option>
+                <option value="TitleA-Z">Order by Title A-Z</option>
+                <option value="TitleZ-A">Order by Title Z-A</option>
+                <option value="Price0-9">Order by Price ascending</option>
+                <option value="Price9-0">Order by Price descending</option>
+                <option value="RatingHigh">Order by high rating</option>
+                <option value="Ratinglow">Order by low rating</option>
+            </select>
+        </form>
+
+
+
+        <div class="table-responsive-sm">
+            <table class="table bg-transparent" id="tabul">
+                <thead>
+                    <tr>
+                        <th id="hide-on-mobile">
+                            Title
+                        </th>
+                        <th id="hide-on-mobile">
+                            Type
+                        </th>
+                        <th id="hide-on-mobile">
+                            Rate
+                        </th>
+                        <th id="hide-on-mobile">
+                            Genre
+                        </th>
+                        <th id="hide-on-mobile">
+                            Price $
+                        </th>
+                        <th>
+                            Picture
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Products)
+                    {
                         <tr>
-                            <th id="hide-on-mobile">
-                                Title
-                            </th>
-                            <th id="hide-on-mobile">
-                                Type
-                            </th>
-                            <th id="hide-on-mobile">
-                                Rate
-                            </th>
-                            <th id="hide-on-mobile">
-                                Genre
-                            </th>
-                            <th id="hide-on-mobile">
-                                Price $
-                            </th>
-                            <th>
-                                Picture
-                            </th>
-                            <th></th>
+                            <td id="hide-on-mobile">
+                                @Html.DisplayFor(modelItem => item.Title)
+                            </td>
+                            <td id="hide-on-mobile">
+                                @Html.DisplayFor(modelItem => item.Type)
+                            </td>
+                            <td id="hide-on-mobile">
+                                @Html.DisplayFor(modelItem => item.Rate)
+                            </td>
+                            <td id="hide-on-mobile">
+                                @Html.DisplayFor(modelItem => item.Genre)
+                            </td>
+                            <td id="hide-on-mobile">
+                                @Html.DisplayFor(modelItem => item.price)
+                            </td>
+                            <td>
+                                @*@Html.DisplayFor(modelItem => item.Picture)*@
+                                <img src="@item.Picture" id="MovieList" alt="Alternate Text" />
+                            </td>
+
+                            <td>
+
+
+                                @if (item.Type == WebConstantsVariables.Book)
+                                {
+                                    if (item.Status)
+                                    {
+                                        <p class="price-mobile" id="price-hide">@item.Title</p>
+                                        var rate = $"{item.Rate:f1}";
+                                        <p class="price-mobile" id="price-hide">Rate: @rate</p>
+                                        <p class="price-mobile" id="price-hide">Price: </p>
+                                        <a asp-controller="UserShopedItems" asp-action="UserBooksShops" style="margin-left:15px;" class="btn btn-warning" id="button-padding">Owned</a>
+                                    }
+                                    else
+                                    {
+
+                                        <p class="price-mobile" id="price-hide">@item.Title</p>
+                                        <p class="price-mobile" id="price-hide">Rate: @item.Rate</p>
+                                        <p class="price-mobile" id="price-hide">Price: @item.price.ToString("f2") $</p>
+
+                                        @using (Html.BeginForm("BookDetail", "BookList", new { id = item.Id }, FormMethod.Get))
+                                        {
+                                            <div class="form-group">
+                                                <div class="col-lg-10 col-lg-offset-2">
+                                                    <button type="submit" class="btn btn-outline-primary">Purcahse</button>
+                                                </div>
+                                            </div>
+                                        }
+
+                                    }
+
+
+                                }
+                                else if (item.Type == WebConstantsVariables.Movie)
+                                {
+                                    if (item.Status)
+                                    {
+                                        <p class="price-mobile" id="price-hide">@item.Title</p>
+                                        var rate = $"{item.Rate:f1}";
+                                        <p class="price-mobile" id="price-hide">Rate: @rate</p>
+                                        <p class="price-mobile" id="price-hide">Price: </p>
+                                        <a asp-controller="UserShopedItems" asp-action="UserMovieShops" style="margin-left:15px;" class="btn btn-warning" id="button-padding">Owned</a>
+                                    }
+                                    else
+                                    {
+                                        <p class="price-mobile" id="price-hide">@item.Title</p>
+                                        var rate = $"{item.Rate:f1}";
+                                        <p class="price-mobile" id="price-hide">Rate: @rate</p>
+                                        <p class="price-mobile" id="price-hide">Price: @item.price.ToString("f2") $</p>
+                                        @using (Html.BeginForm("MovieDetail", "MovieList", new { id = item.Id }, FormMethod.Get))
+                                        {
+                                            <div class="form-group">
+                                                <div class="col-lg-10 col-lg-offset-2">
+                                                    <input class="form-control mr-sm-2" type="hidden" name="type" value="@item.Type">
+                                                    <button type="submit" class="btn btn-outline-primary">Purchase</button>
+                                                </div>
+                                            </div>
+                                        }
+
+                                    }
+
+
+                                }
+                            </td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model.Products)
-                        {
-                            <tr>
-                                <td id="hide-on-mobile">
-                                    @Html.DisplayFor(modelItem => item.Title)
-                                </td>
-                                <td id="hide-on-mobile">
-                                    @Html.DisplayFor(modelItem => item.Type)
-                                </td>
-                                <td id="hide-on-mobile">
-                                    @Html.DisplayFor(modelItem => item.Rate)
-                                </td>
-                                <td id="hide-on-mobile">
-                                    @Html.DisplayFor(modelItem => item.Genre)
-                                </td>
-                                <td id="hide-on-mobile">
-                                    @Html.DisplayFor(modelItem => item.price)
-                                </td>
-                                <td>
-                                    @*@Html.DisplayFor(modelItem => item.Picture)*@
-                                    <img src="@item.Picture" id="MovieList" alt="Alternate Text" />
-                                </td>
 
-                                <td>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            @{
+                var disableNext = Model.CurrentPage == Model.TotalPages ? "disabled" : "";
 
+                var disablePrevious = Model.CurrentPage == 1 ? "disabled" : "";
 
-                                    @if (item.Type == WebConstantsVariables.Book)
-                                    {
-                                        if (item.Status)
-                                        {
-                                            <p class="price-mobile" id="price-hide">@item.Title</p>
-                                            var rate = $"{item.Rate:f1}";
-                                            <p class="price-mobile" id="price-hide">Rate: @rate</p>
-                                            <p class="price-mobile" id="price-hide">Price: </p>
-                                            <a asp-controller="UserShopedItems" asp-action="UserBooksShops" style="margin-left:15px;" class="btn btn-warning" id="button-padding">Owned</a>
-                                        }
-                                        else
-                                        {
-
-                                            <p class="price-mobile" id="price-hide">@item.Title</p>
-                                            <p class="price-mobile" id="price-hide">Rate: @item.Rate</p>
-                                            <p class="price-mobile" id="price-hide">Price: @item.price.ToString("f2") $</p>
-
-                                            @using (Html.BeginForm("BookDetail", "BookList", new { id = item.Id }, FormMethod.Get))
-                                            {
-                                                <div class="form-group">
-                                                    <div class="col-lg-10 col-lg-offset-2">
-                                                        <button type="submit" class="btn btn-outline-primary">Purcahse</button>
-                                                    </div>
-                                                </div>
-                                            }
-
-                                        }
-
-
-                                    }
-                                    else if (item.Type == WebConstantsVariables.Movie)
-                                    {
-                                        if (item.Status)
-                                        {
-                                            <p class="price-mobile" id="price-hide">@item.Title</p>
-                                            var rate = $"{item.Rate:f1}";
-                                            <p class="price-mobile" id="price-hide">Rate: @rate</p>
-                                            <p class="price-mobile" id="price-hide">Price: </p>
-                                            <a asp-controller="UserShopedItems" asp-action="UserMovieShops" style="margin-left:15px;" class="btn btn-warning" id="button-padding">Owned</a>
-                                        }
-                                        else
-                                        {
-                                            <p class="price-mobile" id="price-hide">@item.Title</p>
-                                            var rate = $"{item.Rate:f1}";
-                                            <p class="price-mobile" id="price-hide">Rate: @rate</p>
-                                            <p class="price-mobile" id="price-hide">Price: @item.price.ToString("f2") $</p>
-                                            @using (Html.BeginForm("MovieDetail", "MovieList", new { id = item.Id }, FormMethod.Get))
-                                            {
-                                                <div class="form-group">
-                                                    <div class="col-lg-10 col-lg-offset-2">
-                                                        <input class="form-control mr-sm-2" type="hidden" name="type" value="@item.Type">
-                                                        <button type="submit" class="btn btn-outline-primary">Purchase</button>
-                                                    </div>
-                                                </div>
-                                            }
-
-                                        }
-
-
-                                    }
-                                </td>
-                            </tr>
-
-                        }
-                    </tbody>
-                </table>
-            </div>
-        }
-        <nav aria-label="Page navigation example">
-            <ul class="pagination justify-content-center">
-                @*@{ 
-                    var orderBy = ViewData["order"].ToString(); 
-                 }*@
-                @for (int i = 1; i <= Model.TotalPages; i++)
-                {
-                    <li class="page-item">
-                <a class="page-link" href="/Products/ProductsCollection?page=@i">@i</a></li>
                 }
-                @*<li class="page-item">
-                    <a class="page-link" href="/Products/ProductsCollection?page=@Model.NextPage">Next</a>
-                </li>*@
-            </ul>
-        </nav>
-    </div>
+            <li class="page-item @disablePrevious">
+                <form>
+                    <input type="hidden" name="orderBy" value="@ViewData["order"]" />
+                    <input type="hidden" name="page" value="@Model.PreviosPage" />
+                    <input type="submit" class="page-link" name="as%%asmd%" value="Pevious" />
+                </form>
+            </li>
+            @for (int i = 1; i <= Model.TotalPages; i++)
+            {
+                var activePage = "";
+                       if (i == Model.CurrentPage)
+                {
+                    activePage = "active";
+                }
+                else
+                {
+                    activePage = "";
+                }
+                <li class="page-item @activePage">
+                    <form>
+                        <input type="hidden" name="orderBy" value="@ViewData["order"]" />
+                        <input type="hidden" name="page" value="@i" />
+                        <input type="submit" class="page-link" name="as%%asmd%" value="@i" />
+                    </form>
+                </li>
+            }
+        <li class="page-item @disableNext">
+            <form>
+                <input type="hidden" name="orderBy" value="@ViewData["order"]" />
+                <input type="hidden" name="page" value="@Model.NextPage" />
+                <input type="submit" class="page-link" name="as%%asmd%" value="Next" />
+            </form>
+        </li>
+        </ul>
+    </nav>
+</div>

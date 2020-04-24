@@ -1,0 +1,35 @@
+﻿@using Microsoft.AspNetCore.Http.Features
+
+@{
+
+    var consentFeature = Context.Features.Get<ITrackingConsentFeature>();
+
+    var showBanner = consentFeature?.CanTrack ?? false;
+
+    var cookieString = consentFeature?.CreateConsentCookie();
+}
+
+@if (!showBanner)
+{
+
+    <div class="container d-flex justify-content-center alert alert-dismissible text-center cookiealert" role="alert" id="cookieConsent">
+        <p class="navbar-text">
+            Why we use cookies, mainly for collecting information and security purpose.
+        </p>
+        <div class="navbar-right ml-3  d-flex justify-content-center" style="height:37px;">
+            <a asp-controller="Home" asp-action="Privacy" class="btn btn-info ">Learn More</a>
+            <form asp-controller="Home" asp-action="Index">
+                <button type="submit" class="btn btn-success ml-2" data-cookie-string="@cookieString">Accept</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            var button = document.querySelector("#cookieConsent button[data-cookie-string]");
+            button.addEventListener("click", function (event) {
+                document.cookie = button.dataset.cookieString;
+            }, false);
+        })();
+    </script>
+}

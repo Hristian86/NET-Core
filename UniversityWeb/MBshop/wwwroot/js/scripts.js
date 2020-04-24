@@ -45,3 +45,10 @@ if (x.length > 0) {
 //    dropMenuLinks.setAttribute("class", "dropdown-menu dropdown-menu-left");
 
 //}
+
+//(function () {
+//    document.querySelector("#cookieConsent button[data-cookie-string]").addEventListener("click", function (el) {
+//        document.cookie = el.target.dataset.cookieString;
+//        document.querySelector("#cookieConsent").classList.add("hidden");
+//    }, false);
+//})();

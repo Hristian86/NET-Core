@@ -3,63 +3,63 @@
 @{
     ViewData["Title"] = "UserShops";
 }
-<div class="container">
+    <div class="container">
 
-    <h1>@User.Identity.Name's shoped products</h1>
+        <h1>@User.Identity.Name's shoped products</h1>
 
 
-    <br />
-    <p class="bookLink">
-        <a asp-controller="UserShopedItems" asp-action="UserBooksShops" class="btn btn-primary btn-lg">Book collection</a>
-    </p>
+        <br />
+        <p class="bookLink">
+            <a asp-controller="UserShopedItems" asp-action="UserBooksShops" class="btn btn-primary btn-lg">Book collection</a>
+        </p>
 
-    @if (Model != null)
-    {
-
-        @if (Model.Any())
+        @if (Model != null)
         {
 
-            <table class="table" id="tabul">
-                <thead>
-                    <tr>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Picture)
-                        </th>
-                        <th>
-                            Product
-                        </th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
+            @if (Model.Any())
+            {
+                <div class="table-responsive-sm">
+                    <table class="table" id="tabul">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Picture)
+                                </th>
+                                <th>
+                                    Product
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @*<h3 id="user-product-title">@item.Title</h3>*@
+                                        <img src="@item.Picture" id="MovieList" alt="Alternate Text" />
+                                        @using (Html.BeginForm("MovieDetail", "MovieList", new { id = item.Id }, FormMethod.Get))
+                                        {
+                                            <input class="form-control mr-sm-2" type="hidden" name="type" value="@item.price">
+                                            <button type="submit" class="btn btn-warning btn-lg" id="shope-button">Rate </button>
+                                        }
+                                    </td>
+                                    <td>
+                                        @*@Html.DisplayFor(modelItem => item.LinkForPurchasedContend)*@
+                                        <iframe id="product-frame" src="@item.LinkForPurchasedContend">
+                                        </iframe>
+                                    </td>
+                                </tr>
+
+                            }
+                        </tbody>
+                    </table>
+                    </div>
+                    }
+                    else
                     {
-                        <tr>
-                            <td>
-                                @*<h3 id="user-product-title">@item.Title</h3>*@
-                                <img src="@item.Picture" id="MovieList" alt="Alternate Text" />
-                                @using (Html.BeginForm("MovieDetail", "MovieList", new { id = item.Id }, FormMethod.Get))
-                                {
-                                    <input class="form-control mr-sm-2" type="hidden" name="type" value="@item.price">
-                                    <button type="submit" class="btn btn-warning btn-lg" id="shope-button">Rate </button>
-                                }
-                            </td>
-                            <td>
-                                @*@Html.DisplayFor(modelItem => item.LinkForPurchasedContend)*@
-                                <iframe id="product-frame" src="@item.LinkForPurchasedContend">
-                                </iframe>
-                            </td>
-                        </tr>
+                    <div class="wrapper bg-transparent mt-5"><h3 class="text-center pt-3">There are no products</h3></div>
+                    }
 
                     }
-                </tbody>
-            </table>
-
-        }
-        else
-        {
-            <div class="wrapper bg-transparent mt-5"><h3 class="text-center pt-3">There are no products</h3></div>
-        }
-
-    }
-</div>
+                </div>
