@@ -43,6 +43,11 @@ namespace MBshop.Test
 
     public class ProfileEditService : IProfileEditService
     {
+        public Task DateCreatedAcc(string userId)
+        {
+            throw new NotImplementedException();
+        }
+
         public AspNetUsers GetUserProperties(string userName)
         {
             var options = new DbContextOptionsBuilder<MovieShopDBSEContext>().UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString()).Options;

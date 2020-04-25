@@ -45,7 +45,8 @@ namespace MBshop.Controllers
         [Authorize(Roles = "Admin,Moderator")]
         public async Task<IActionResult> Index()
         {
-            var movieShopDBSEContext = db.AspNetUserRoles.Include(a => a.Role).Include(a => a.User);
+            var movieShopDBSEContext = this.db.AspNetUserRoles.Include(a => a.Role).Include(a => a.User);
+
             return View(await movieShopDBSEContext.ToListAsync());
         }
 
@@ -95,11 +96,6 @@ namespace MBshop.Controllers
                 var urs = await this.userManager.RemoveFromRoleAsync(user, this.Moderator);
             }
 
-
-            //TO DO Roles
-
-            //var userRol = await userManager.GetUserAsync(this.User);
-
             if (userRole == this.adminRole)
             {
                 await this.roleManager.CreateAsync(new IdentityRole { Name = this.adminRole });
@@ -120,7 +116,7 @@ namespace MBshop.Controllers
                 await this.userManager.AddToRoleAsync(user, userRole);
             }
 
-            return View();
+            return RedirectToAction("Index", "UserRoles");
         }
 
     }

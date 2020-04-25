@@ -71,7 +71,7 @@ namespace MBshop
             services.AddScoped<IProfileEditService, ProfileEditService>();
             services.AddScoped<MovieShopDBSEContext>();
             services.AddScoped<IViewMoviesService, ViewMoviesService>();
-            services.AddScoped<IViewBooksService, ViewBooksService>();
+            services.AddScoped<IViewBooksService, ViewBooksService>();  
             services.AddScoped<IShopItemsService, ShopItemsService>();
             services.AddScoped<IAdminPanel, AdminPanel>();
             services.AddSingleton<Status>();

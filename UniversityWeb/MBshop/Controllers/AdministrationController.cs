@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace MBshop.Controllers
 {
 
-    
+
     public class AdministrationController : Controller
     {
         private readonly MovieShopDBSEContext db;
@@ -132,6 +132,7 @@ namespace MBshop.Controllers
 
             var aspNetUsers = await db.AspNetUsers
                 .FirstOrDefaultAsync(m => m.Id == id);
+
             if (aspNetUsers == null)
             {
                 return NotFound();
@@ -147,6 +148,52 @@ namespace MBshop.Controllers
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
             var aspNetUsers = await db.AspNetUsers.FindAsync(id);
+
+
+
+            bool chekForShops = this.db.Shops.Any(x => x.UserId == aspNetUsers.Id);
+
+            bool chekForRatings = this.db.Rating.Any(x => x.UserId == aspNetUsers.Id);
+
+            bool chekForCartItems = this.db.Cart.Any(x => x.UserId == aspNetUsers.Id);
+
+            bool chekForMessages = this.db.Messages.Any(x => x.UserId == aspNetUsers.Id);
+
+            if (chekForShops)
+            {
+                var userShops = this.db.Shops
+                .Where(x => x.UserId == aspNetUsers.Id)
+                .ToList();
+
+                this.db.RemoveRange(userShops);
+                await this.db.SaveChangesAsync();
+            }
+
+            if (chekForRatings)
+            {
+                var userRating = this.db.Rating.Where(x => x.UserId == aspNetUsers.Id).ToList();
+
+                this.db.RemoveRange(userRating);
+                await this.db.SaveChangesAsync();
+            }
+
+            if (chekForCartItems)
+            {
+                var userCart = this.db.Cart.Where(x => x.UserId == aspNetUsers.Id).ToList();
+
+                this.db.RemoveRange(userCart);
+                await this.db.SaveChangesAsync();
+            }
+
+            if (chekForMessages)
+            {
+
+                var userMessages = this.db.Messages.Where(x => x.UserId == aspNetUsers.Id).ToList();
+
+                this.db.RemoveRange(userMessages);
+                await this.db.SaveChangesAsync();
+            }
+
             db.AspNetUsers.Remove(aspNetUsers);
             await db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

@@ -74,7 +74,7 @@ namespace MBshop.Controllers
         }
 
         // GET: Shops/Delete/5
-        [Authorize(Roles = "Admin,Moderator")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -96,7 +96,7 @@ namespace MBshop.Controllers
         }
 
         // POST: Shops/Delete/5
-        [Authorize(Roles = "Admin,Moderator")]
+        [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -119,7 +119,7 @@ namespace MBshop.Controllers
             return this.View(logs);
         }
 
-        [Authorize(Roles = "Admin,Moderator")]
+        [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("DeleteLog")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteLog(string name, string userName,string hooks, int? id)
@@ -141,7 +141,7 @@ namespace MBshop.Controllers
             return this.RedirectToAction("Logs", "Shops");
         }
 
-        [Authorize(Roles = "Admin,Moderator")]
+        [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("DeleteLogs")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteLogs(string name, string userName, string hooks, int? id)
