@@ -1301,11 +1301,6 @@ C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\Extra.save\MBs
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\Extra.save\MBshop\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\Extra.save\MBshop\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\Extra.save\MBshop\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
-C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\Extra.save\MBshop\obj\Debug\netcoreapp3.1\Razor\Views\Administration\Create.cshtml.g.cs
-C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\Extra.save\MBshop\obj\Debug\netcoreapp3.1\Razor\Views\Administration\Delete.cshtml.g.cs
-C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\Extra.save\MBshop\obj\Debug\netcoreapp3.1\Razor\Views\Administration\Details.cshtml.g.cs
-C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\Extra.save\MBshop\obj\Debug\netcoreapp3.1\Razor\Views\Administration\Edit.cshtml.g.cs
-C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\Extra.save\MBshop\obj\Debug\netcoreapp3.1\Razor\Views\Administration\Index.cshtml.g.cs
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\Extra.save\MBshop\obj\Debug\netcoreapp3.1\Razor\Views\BookList\BookDetail.cshtml.g.cs
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\Extra.save\MBshop\obj\Debug\netcoreapp3.1\Razor\Views\BookList\BooksCollection.cshtml.g.cs
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\Extra.save\MBshop\obj\Debug\netcoreapp3.1\Razor\Views\Books\Create.cshtml.g.cs
@@ -1349,9 +1344,11 @@ C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\Extra.save\MBs
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\Extra.save\MBshop\obj\Debug\netcoreapp3.1\MBshop.dll
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\Extra.save\MBshop\obj\Debug\netcoreapp3.1\MBshop.pdb
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\Extra.save\MBshop\obj\Debug\netcoreapp3.1\MBshop.genruntimeconfig.cache
-C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop\obj\Debug\netcoreapp3.1\Razor\Views\Administration\Create.cshtml.g.cs
-C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop\obj\Debug\netcoreapp3.1\Razor\Views\Administration\Delete.cshtml.g.cs
-C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop\obj\Debug\netcoreapp3.1\Razor\Views\Administration\Details.cshtml.g.cs
-C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop\obj\Debug\netcoreapp3.1\Razor\Views\Administration\Edit.cshtml.g.cs
-C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop\obj\Debug\netcoreapp3.1\Razor\Views\Administration\Index.cshtml.g.cs
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop\obj\Debug\netcoreapp3.1\Razor\Views\UserRoles\Index.cshtml.g.cs
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop\obj\Debug\netcoreapp3.1\Razor\Views\Error404\Error404Page.cshtml.g.cs
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\Index.cshtml.g.cs
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\RoleAssignment\Index.cshtml.g.cs
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\Extra.save\MBshop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\Index.cshtml.g.cs
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\Extra.save\MBshop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\RoleAssignment\Index.cshtml.g.cs
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\Extra.save\MBshop\obj\Debug\netcoreapp3.1\Razor\Views\Error404\Error404Page.cshtml.g.cs
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\Extra.save\MBshop\obj\Debug\netcoreapp3.1\Razor\Views\UserRoles\Index.cshtml.g.cs

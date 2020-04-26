@@ -1,4 +1,5 @@
-﻿@model IEnumerable<MBshop.Models.AspNetUserRoles>
+﻿@*@model IEnumerable<MBshop.Models.AspNetUserRoles>*@
+@model List<OutputRoleAssignModel>
 
 @{
     ViewData["Title"] = "User Roles";
@@ -12,31 +13,65 @@
             <thead>
                 <tr>
                     <th>
-                        @Html.DisplayNameFor(model => model.User)
+                        @*@Html.DisplayNameFor(model => model.User)*@
+                        Users
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Role)
+                        @*@Html.DisplayNameFor(model => model.Role)*@
+                        Role
                     </th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
+                @*@foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Role.Name)
+                </td>
+                <td>
+                    @{
+                        var roles = Model.ToList();
+                    }
+                    @if (item.Role.Name != WebConstansVariables.Admin)
+                    {
+                        <form asp-controller="UserRoles" asp-action="Edit" method="post">
+
+                            <select class="custom-select-sm drop" name="userRole">
+
+                                <option value="User">User</option>
+                                <option value="Moderator">Moderator</option>
+
+                            </select>
+                            <input type="hidden" name="userName" value="@item.User.UserName" />
+                            <input type="hidden" name="userId" value="@item.User.Id" />
+                            <input type="submit" class="btn btn-secondary" name="name" value="Add Role" />
+
+                        </form>
+                    }
+                </td>
+            </tr>
+        }*@
                 @foreach (var item in Model)
                 {
                     <tr>
                         <td>
                             @*@Html.DisplayFor(modelItem => item.User.Id)*@
-                            @Html.DisplayFor(modelItem => item.User.UserName)
+                            @Html.DisplayFor(modelItem => item.Users)
                         </td>
                         <td>
                             @*@Html.DisplayFor(modelItem => item.Role.Id)*@
-                            @Html.DisplayFor(modelItem => item.Role.Name)
+                            @Html.DisplayFor(modelItem => item.UserRole)
                         </td>
                         <td>
                             @{
                                 var roles = Model.ToList();
                             }
-                            @if (item.Role.Name != WebConstansVariables.Admin)
+                            @if (item.UserRole != WebConstansVariables.Admin)
                             {
                                 <form asp-controller="UserRoles" asp-action="Edit" method="post">
 
@@ -47,8 +82,8 @@
                                         @*<option value="Admin">Admin</option>*@
 
                                     </select>
-                                    <input type="hidden" name="userName" value="@item.User.UserName" />
-                                    <input type="hidden" name="userId" value="@item.User.Id" />
+                                    <input type="hidden" name="userName" value="@item.Users" />
+                                    <input type="hidden" name="userId" value="@item.userId" />
                                     <input type="submit" class="btn btn-secondary" name="name" value="Add Role" />
 
                                 </form>

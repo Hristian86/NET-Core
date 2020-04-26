@@ -1,0 +1,83 @@
+﻿@*@model IEnumerable<MBshop.Models.AspNetUserRoles>*@
+@using MBshop.Service.StaticProperyes
+@using MBshop.Service.OutputModels
+@model List<OutputRoleAssignModel>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "User Roles";
+    var Admin = "Admin";
+}
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+<link rel="stylesheet" href="~/css/site.css" />
+<link rel="stylesheet" href="~/css/style.css" />
+
+    <div id="hideMessage">
+        <div class="statusMessage"><h4 class="bg-success text-light messageHeader" id="message">@GlobalAlertMessages.StatusMessage</h4></div>
+        @{ GlobalAlertMessages.StatusMessage = ""; }
+    </div>
+    <div class="container">
+
+        <h1>@ViewData["Title"]</h1>
+        <a href="/Home/Index" class="btn btn-primary">Back to home</a>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Users
+                    </th>
+                    <th>
+                        Role
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Users)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserRole)
+                        </td>
+                        <td>
+                            @{
+                                var roles = Model.ToList();
+                            }
+                            @if (item.UserRole != Admin)
+                            {
+                                <form action="/Admin/RoleAssignment/Edit" method="post">
+                                    @Html.AntiForgeryToken()
+                                    <select class="custom-select-sm drop" name="userRole">
+
+                                        <option value="User">User</option>
+                                        <option value="Moderator">Moderator</option>
+
+                                    </select>
+                                    <input type="hidden" name="userName" value="@item.Users" />
+                                    <input type="hidden" name="userId" value="@item.userId" />
+                                    <input type="submit" class="btn btn-secondary" name="name" value="Add Role" />
+
+                                </form>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @*<script src="js/bootstrap-dropdownhover.min.js"></script>*@
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/scripts.js" asp-append-version="true"></script>

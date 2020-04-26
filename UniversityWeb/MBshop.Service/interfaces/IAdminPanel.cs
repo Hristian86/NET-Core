@@ -32,5 +32,18 @@ namespace MBshop.Service.interfaces
 
         bool BookExist(int id);
 
+        public Microsoft.EntityFrameworkCore.Query.IIncludableQueryable<Shops, AspNetUsers> ViewShops();
+
+        Task<Shops> ChekViewShop(int id);
+
+        Task<string> DeleteViewShops(int id);
+
+        public List<Logs> LoggedUsers();
+
+        Logs ChekForLog(string userName, int id);
+
+        Task<string> DeleteLogsAfterTheChek(string userName, int id);
+
+        Task<string> DeleteAllLogs();
     }
 }

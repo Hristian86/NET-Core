@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using MBshop.Data.Data;
 using MBshop.Models;
 using Microsoft.AspNetCore.Authorization;
+using MBshop.Service.StaticProperyes;
 
 namespace MBshop.Controllers
 {
@@ -93,6 +94,10 @@ namespace MBshop.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(string id, [Bind("Id,UserName,NormalizedUserName,Email,NormalizedEmail,EmailConfirmed,PasswordHash,SecurityStamp,ConcurrencyStamp,Avatar,ChatName,FirstName,LastName,Address,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEnd,LockoutEnabled,AccessFailedCount,RentalId,CreatedOn")] AspNetUsers aspNetUsers)
         {
+            string userName = "";
+
+            userName = aspNetUsers.UserName;
+
             if (id != aspNetUsers.Id)
             {
                 return NotFound();
@@ -116,8 +121,10 @@ namespace MBshop.Controllers
                         throw;
                     }
                 }
+                GlobalAlertMessages.StatusMessage = $"this user {userName} has been updated !";
                 return RedirectToAction(nameof(Index));
             }
+            GlobalAlertMessages.StatusMessage = $"this user {userName} not found !";
             return View(aspNetUsers);
         }
 
@@ -147,9 +154,11 @@ namespace MBshop.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
+            string userName = "";
+
             var aspNetUsers = await db.AspNetUsers.FindAsync(id);
 
-
+            userName = aspNetUsers.UserName;
 
             bool chekForShops = this.db.Shops.Any(x => x.UserId == aspNetUsers.Id);
 
@@ -196,6 +205,7 @@ namespace MBshop.Controllers
 
             db.AspNetUsers.Remove(aspNetUsers);
             await db.SaveChangesAsync();
+            GlobalAlertMessages.StatusMessage = $"This user {userName} has been deleted !";
             return RedirectToAction(nameof(Index));
         }
 

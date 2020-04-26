@@ -14,6 +14,8 @@ namespace MBshop.Controllers
     public class UserShopedItemsController : Controller
     {
         private readonly IUserShopedProductsService products;
+        private IEnumerable<OutputMovies> movi;
+        private IEnumerable<OutputBooks> books;
 
         public UserShopedItemsController(IUserShopedProductsService products)
         {
@@ -28,12 +30,19 @@ namespace MBshop.Controllers
 
             if (user == null)
             {
-                return NotFound();
+                return RedirectToAction("Error404Page", "Error404");
             }
 
-            IEnumerable<OutputMovies> movi = this.products.PersonalMovies(user);
+            try
+            {
+                this.movi = this.products.PersonalMovies(user);
+            }
+            catch (InvalidOperationException e)
+            {
+                throw new InvalidOperationException("Problem with mapping models",e);
+            }
 
-            return View(movi);
+            return View(this.movi);
         }
 
         [Authorize]
@@ -44,12 +53,19 @@ namespace MBshop.Controllers
 
             if (user == null)
             {
-                return NotFound();
+                return RedirectToAction("Error404Page", "Error404");
             }
 
-            IEnumerable<OutputBooks> books = this.products.PersonalBooks(user); 
+            try
+            {
+                this.books = this.products.PersonalBooks(user);
+            }
+            catch (InvalidOperationException e)
+            {
+                throw new InvalidOperationException("Problem with mapping books",e);
+            }
 
-            return View(books);
+            return View(this.books);
         }
 
         private string CurrentUser()

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using MBshop.Service.interfaces;
 using MBshop.Data.Data;
 using MBshop.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace MBshop.Service.Services
 {
@@ -17,6 +18,71 @@ namespace MBshop.Service.Services
         {
             this.db = db;
         }
+
+        //view shops
+        public Microsoft.EntityFrameworkCore.Query.IIncludableQueryable<Shops, AspNetUsers> ViewShops()
+        {
+            Microsoft.EntityFrameworkCore.Query.IIncludableQueryable<Shops, AspNetUsers> movieShopDBSEContext = db.Shops.Include(s => s.Books).Include(s => s.Movie).Include(s => s.User);
+
+            return movieShopDBSEContext;
+        }
+
+        //chek for shops to be deleted
+        public async Task<Shops> ChekViewShop(int id)
+        {
+            var shops = await this.db.Shops
+                .Include(s => s.Books)
+                .Include(s => s.Movie)
+                .Include(s => s.User)
+                .FirstOrDefaultAsync(m => m.Id == id);
+
+            return shops;
+        }
+
+        public async Task<string> DeleteViewShops(int id)
+        {
+            var shops = await this.db.Shops.FindAsync(id);
+            this.db.Shops.Remove(shops);
+            await this.db.SaveChangesAsync();
+
+            return $"Success";
+        }
+
+        // loged users
+        public List<Logs> LoggedUsers() => this.db.Logs
+                .Select(x => x)
+                .ToList();
+
+        //Delete logs
+        public Logs ChekForLog(string userName,int id) => this.db.Logs.Where(x => x.UserLoged == userName && x.LogId == id).FirstOrDefault();
+
+        public async Task<string> DeleteLogsAfterTheChek(string userName, int id)
+        {
+
+            var log = this.db.Logs
+                 .Where(x => x.UserLoged == userName && x.LogId == id)
+                 .FirstOrDefault();
+
+            this.db.Logs.Remove(log);
+
+            await this.db.SaveChangesAsync();
+
+            return $"Success";
+        }
+
+        public async Task<string> DeleteAllLogs()
+        {
+            var allLogs = this.db.Logs
+                .Where(x => x.UserLoged != null)
+                .ToList();
+
+            this.db.Logs.RemoveRange(allLogs);
+
+            await this.db.SaveChangesAsync();
+
+            return $"Success";
+        }
+
 
         //Find
         public async Task<Movies> FindMovieById(int? id)

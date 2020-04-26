@@ -14,9 +14,9 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Http;
 using MBshop.Data.Data;
 using MBshop.Service.interfaces;
-using MBshop.Service.Services;
 using MBshop.Service.StaticProperyes;
 using MBshop.Service.WebConstants;
+using MBshop.Service.Services;
 
 namespace MBshop
 {
@@ -68,10 +68,12 @@ namespace MBshop
 
             services.AddRazorPages();
 
+            services.AddRouting();
+
             services.AddScoped<IProfileEditService, ProfileEditService>();
             services.AddScoped<MovieShopDBSEContext>();
             services.AddScoped<IViewMoviesService, ViewMoviesService>();
-            services.AddScoped<IViewBooksService, ViewBooksService>();  
+            services.AddScoped<IViewBooksService, ViewBooksService>();
             services.AddScoped<IShopItemsService, ShopItemsService>();
             services.AddScoped<IAdminPanel, AdminPanel>();
             services.AddSingleton<Status>();
@@ -86,6 +88,7 @@ namespace MBshop
             services.AddScoped<ISearchEngineService, SearchEngineService>();
             services.AddScoped<GlobalAlertMessages>();
             services.AddScoped<ILogService, LogService>();
+            services.AddScoped<IRoleService, RoleService>();
 
             services.AddCors(option =>
             {
@@ -120,6 +123,9 @@ namespace MBshop
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+
+
             app.UseHttpsRedirection();
 
             app.UseStaticFiles();
@@ -135,6 +141,19 @@ namespace MBshop
             app.UseEndpoints(endpoints =>
             {
 
+                endpoints.MapControllerRoute(
+           name: "MyArea",
+           pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapAreaControllerRoute(
+           name: "Admin",
+           areaName: "Admin",
+           pattern: "Admin/{controller=RoleAssignment}/{action=Index}/{id?}");
+
+                endpoints.MapAreaControllerRoute(
+           name: "RoleEdit",
+           areaName: "Edit",
+           pattern: "Edit/{controller=RoleAssignment}/{action=Index}/{id?}");
 
                 endpoints.MapControllerRoute(
                     name: "default",
@@ -144,10 +163,13 @@ namespace MBshop
                     name: "Order",
                     pattern: "{controller=Home}/{action=Index}/{string}");
 
+                
+
                 endpoints.MapRazorPages();
 
 
             });
+
         }
     }
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\SoftUni-Exam-Projext-master – Копие\\MBshop\\MBshop.csproj": {}
+    "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\Extra.save\\MBshop\\MBshop.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\SoftUni-Exam-Projext-master – Копие\\MBshop.Data\\MBshop.Data.csproj": {
+    "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\Extra.save\\MBshop.Data\\MBshop.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\SoftUni-Exam-Projext-master – Копие\\MBshop.Data\\MBshop.Data.csproj",
+        "projectUniqueName": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\Extra.save\\MBshop.Data\\MBshop.Data.csproj",
         "projectName": "MBshop.Data",
-        "projectPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\SoftUni-Exam-Projext-master – Копие\\MBshop.Data\\MBshop.Data.csproj",
+        "projectPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\Extra.save\\MBshop.Data\\MBshop.Data.csproj",
         "packagesPath": "C:\\Users\\Pencho\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\SoftUni-Exam-Projext-master – Копие\\MBshop.Data\\obj\\",
+        "outputPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\Extra.save\\MBshop.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -32,8 +32,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\SoftUni-Exam-Projext-master – Копие\\MBshop.Models\\MBshop.Models.csproj": {
-                "projectPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\SoftUni-Exam-Projext-master – Копие\\MBshop.Models\\MBshop.Models.csproj"
+              "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\Extra.save\\MBshop.Models\\MBshop.Models.csproj": {
+                "projectPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\Extra.save\\MBshop.Models\\MBshop.Models.csproj"
               }
             }
           }
@@ -91,14 +91,14 @@
         }
       }
     },
-    "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\SoftUni-Exam-Projext-master – Копие\\MBshop.Models\\MBshop.Models.csproj": {
+    "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\Extra.save\\MBshop.Models\\MBshop.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\SoftUni-Exam-Projext-master – Копие\\MBshop.Models\\MBshop.Models.csproj",
+        "projectUniqueName": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\Extra.save\\MBshop.Models\\MBshop.Models.csproj",
         "projectName": "MBshop.Models",
-        "projectPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\SoftUni-Exam-Projext-master – Копие\\MBshop.Models\\MBshop.Models.csproj",
+        "projectPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\Extra.save\\MBshop.Models\\MBshop.Models.csproj",
         "packagesPath": "C:\\Users\\Pencho\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\SoftUni-Exam-Projext-master – Копие\\MBshop.Models\\obj\\",
+        "outputPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\Extra.save\\MBshop.Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -148,14 +148,14 @@
         }
       }
     },
-    "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\SoftUni-Exam-Projext-master – Копие\\MBshop.Service\\MBshop.Service.csproj": {
+    "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\Extra.save\\MBshop.Service\\MBshop.Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\SoftUni-Exam-Projext-master – Копие\\MBshop.Service\\MBshop.Service.csproj",
+        "projectUniqueName": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\Extra.save\\MBshop.Service\\MBshop.Service.csproj",
         "projectName": "MBshop.Service",
-        "projectPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\SoftUni-Exam-Projext-master – Копие\\MBshop.Service\\MBshop.Service.csproj",
+        "projectPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\Extra.save\\MBshop.Service\\MBshop.Service.csproj",
         "packagesPath": "C:\\Users\\Pencho\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\SoftUni-Exam-Projext-master – Копие\\MBshop.Service\\obj\\",
+        "outputPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\Extra.save\\MBshop.Service\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -176,11 +176,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\SoftUni-Exam-Projext-master – Копие\\MBshop.Data\\MBshop.Data.csproj": {
-                "projectPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\SoftUni-Exam-Projext-master – Копие\\MBshop.Data\\MBshop.Data.csproj"
+              "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\Extra.save\\MBshop.Data\\MBshop.Data.csproj": {
+                "projectPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\Extra.save\\MBshop.Data\\MBshop.Data.csproj"
               },
-              "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\SoftUni-Exam-Projext-master – Копие\\MBshop.Models\\MBshop.Models.csproj": {
-                "projectPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\SoftUni-Exam-Projext-master – Копие\\MBshop.Models\\MBshop.Models.csproj"
+              "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\Extra.save\\MBshop.Models\\MBshop.Models.csproj": {
+                "projectPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\Extra.save\\MBshop.Models\\MBshop.Models.csproj"
               }
             }
           }
@@ -212,14 +212,14 @@
         }
       }
     },
-    "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\SoftUni-Exam-Projext-master – Копие\\MBshop\\MBshop.csproj": {
+    "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\Extra.save\\MBshop\\MBshop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\SoftUni-Exam-Projext-master – Копие\\MBshop\\MBshop.csproj",
+        "projectUniqueName": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\Extra.save\\MBshop\\MBshop.csproj",
         "projectName": "MBshop",
-        "projectPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\SoftUni-Exam-Projext-master – Копие\\MBshop\\MBshop.csproj",
+        "projectPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\Extra.save\\MBshop\\MBshop.csproj",
         "packagesPath": "C:\\Users\\Pencho\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\SoftUni-Exam-Projext-master – Копие\\MBshop\\obj\\",
+        "outputPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\Extra.save\\MBshop\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -240,11 +240,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\SoftUni-Exam-Projext-master – Копие\\MBshop.Data\\MBshop.Data.csproj": {
-                "projectPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\SoftUni-Exam-Projext-master – Копие\\MBshop.Data\\MBshop.Data.csproj"
+              "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\Extra.save\\MBshop.Data\\MBshop.Data.csproj": {
+                "projectPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\Extra.save\\MBshop.Data\\MBshop.Data.csproj"
               },
-              "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\SoftUni-Exam-Projext-master – Копие\\MBshop.Service\\MBshop.Service.csproj": {
-                "projectPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\SoftUni-Exam-Projext-master – Копие\\MBshop.Service\\MBshop.Service.csproj"
+              "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\Extra.save\\MBshop.Service\\MBshop.Service.csproj": {
+                "projectPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\Extra.save\\MBshop.Service\\MBshop.Service.csproj"
               }
             }
           }

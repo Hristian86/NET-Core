@@ -23,6 +23,8 @@ namespace MBshop.Controllers
             this.rateService = rateService;
         }
 
+        [Authorize]
+        [AutoValidateAntiforgeryToken]
         public IActionResult Rate()
         {
             if (User.Identity.Name != null)
@@ -37,6 +39,7 @@ namespace MBshop.Controllers
 
         [HttpPost]
         [Authorize]
+        [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> RateMovie([Bind("Id", "Raiting")] OutputMovies model)
         {
             if (ModelState.IsValid)
@@ -47,11 +50,16 @@ namespace MBshop.Controllers
 
                 return this.RedirectToAction("UserMovieShops", "UserShopedItems");
             }
-            return this.View();
+            else
+            {
+                return RedirectToAction("Error404Page", "Error404");
+            }
+
         }
 
         [HttpPost]
         [Authorize]
+        [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> RateBook([Bind("Id", "Raiting")] OutputBooks model)
         {
             if (ModelState.IsValid)
@@ -62,8 +70,10 @@ namespace MBshop.Controllers
 
                 return this.RedirectToAction("UserBooksShops", "UserShopedItems");
             }
-
-            return this.View();
+            else
+            {
+                return RedirectToAction("Error404Page", "Error404");
+            }
         }
     }
 }

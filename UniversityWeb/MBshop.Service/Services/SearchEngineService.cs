@@ -34,7 +34,7 @@ namespace MBshop.Service.Services
         /// <param name="searchItem"></param>
         /// <param name="userId"></param>
         /// <returns></returns>
-        public List<ViewProducts> Search(string searchItem, string userId)
+        public List<ViewProducts> Search(string searchItem, string userId,string orderBy)
         {
             var movieses = this.movies.GetListOfMovies();
             var bookses = this.books.GetListOfBooks();
@@ -77,6 +77,34 @@ namespace MBshop.Service.Services
                     Type = WebConstantsVariables.Book
 
                 }));
+
+            if (orderBy != null)
+            {
+                if (orderBy == "TitleA-Z")
+                {
+                    result = result.OrderBy(x => x.Title).ToList();
+                }
+                else if (orderBy == "TitleZ-A")
+                {
+                    result = result.OrderByDescending(x => x.Title).ToList();
+                }
+                else if (orderBy == "Price0-9")
+                {
+                    result = result.OrderBy(x => x.price).ToList();
+                }
+                else if (orderBy == "Price9-0")
+                {
+                    result = result.OrderByDescending(x => x.price).ToList();
+                }
+                else if (orderBy == "RatingHigh")
+                {
+                    result = result.OrderByDescending(x => x.Rate).ToList();
+                }
+                else if (orderBy == "Ratinglow")
+                {
+                    result = result.OrderBy(x => x.Rate).ToList();
+                }
+            }
 
             //result.AddRange(result1);
 

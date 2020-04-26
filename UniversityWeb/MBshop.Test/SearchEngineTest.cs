@@ -171,6 +171,11 @@ namespace MBshop.Test
             return result.ToList();
         }
 
+        public List<ViewProducts> Search(string searchItem, string user, string orderBy)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<ViewProducts> ViewProducts(string userId, string orderBy)
         {
             var options = new DbContextOptionsBuilder<MovieShopDBSEContext>().UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString()).Options;

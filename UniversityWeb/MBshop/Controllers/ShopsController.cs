@@ -12,69 +12,38 @@ using System.Security.Claims;
 using Microsoft.Net.Http.Headers;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
+using MBshop.Service.Services;
+using MBshop.Service.interfaces;
 
 namespace MBshop.Controllers
 {
-    
+
     public class ShopsController : Controller
     {
-        private readonly MovieShopDBSEContext db;
-        private readonly UserManager<IdentityUser> userManager;
+        private readonly IAdminPanel adminPanel;
+        private string result = "";
 
-        public ShopsController(MovieShopDBSEContext db,
-            UserManager<IdentityUser> userManager)
+        public ShopsController(
+            IAdminPanel adminPanel)
         {
-            this.db = db;
-            this.userManager = userManager;
+            this.adminPanel = adminPanel;
         }
 
         // GET: Shops
         [Authorize(Roles = "Admin,Moderator")]
-        public async Task<IActionResult> Index()
+        [ValidateAntiForgeryToken]
+        [AutoValidateAntiforgeryToken]
+        public IActionResult Index()
         {
-            var movieShopDBSEContext = db.Shops.Include(s => s.Books).Include(s => s.Movie).Include(s => s.User);
+            var shops = this.adminPanel.ViewShops();
 
-            var cookie = new CookieHeaderValue("session-id", "12345");
-
-
-
-            if (User.Identity.Name != null)
-            {
-
-                var userClaims = new List<Claim>()
-                {
-                    new Claim(ClaimTypes.Email,"ho knows"),
-                    new Claim("Hello","Hi")
-
-                };
-
-                var userIdentity = new ClaimsIdentity(userClaims, "User Identity");
-
-                var userPrincipal = new ClaimsPrincipal(new[] { userIdentity });
-
-                await HttpContext.SignInAsync(userPrincipal);
-
-                //var usery = await userManager.GetUserAsync(this.User);
-
-                //var claimses = await userManager.GetClaimsAsync(usery);
-
-
-
-                var userId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
-                var role = User.FindFirst(ClaimTypes.Role).Value;
-                var name = User.FindFirst(ClaimTypes.Name).Value;
-
-                ViewData["Cookie"] = "User: " + userId.ToString() + " Role: " + role.ToString()
-                + " Name: " + name.ToString();
-            }
-            //var cookie = HttpContext.Response.Cookies;
-
-
-            return View(await movieShopDBSEContext.ToListAsync());
+            return View(shops);
         }
 
         // GET: Shops/Delete/5
         [Authorize(Roles = "Admin")]
+        [ValidateAntiForgeryToken]
+        [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -82,11 +51,8 @@ namespace MBshop.Controllers
                 return NotFound();
             }
 
-            var shops = await db.Shops
-                .Include(s => s.Books)
-                .Include(s => s.Movie)
-                .Include(s => s.User)
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var shops = await this.adminPanel.ChekViewShop((int)id);
+
             if (shops == null)
             {
                 return NotFound();
@@ -99,43 +65,53 @@ namespace MBshop.Controllers
         [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var shops = await db.Shops.FindAsync(id);
-            db.Shops.Remove(shops);
-            await db.SaveChangesAsync();
+            try
+            {
+                this.result = await this.adminPanel.DeleteViewShops(id);
+            }
+            catch (InvalidOperationException e)
+            {
+                throw new InvalidOperationException("Somthing goes wrong with Delete shops in db", e);
+            }
+
             return RedirectToAction(nameof(Index));
         }
 
 
         [Authorize(Roles = "Admin,Moderator")]
-        public IActionResult Logs()
-        {
+        [ValidateAntiForgeryToken]
+        [AutoValidateAntiforgeryToken]
+        public IActionResult Logs() => this.View(this.adminPanel.LoggedUsers());
 
-            var logs = this.db.Logs
-                .Select(x => x)
-                .ToList();
-
-            return this.View(logs);
-        }
 
         [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("DeleteLog")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteLog(string name, string userName,string hooks, int? id)
+        [AutoValidateAntiforgeryToken]
+        public async Task<IActionResult> DeleteLog(string name, string userName, string hooks, int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var userLog = this.db.Logs.Where(x => x.UserLoged == userName && x.LogId == id).FirstOrDefault();
+            var userLog = this.adminPanel.ChekForLog(userName, (int)id);
 
             if (name == "%name-no-name%" && userLog.UserLoged == userName && hooks == "%sid-ni-as-no-one%" && userLog.LogId == id)
             {
-                this.db.Logs.Remove(userLog);
+                //To Do globalAlertMessages
+                try
+                {
+                    this.result = await this.adminPanel.DeleteLogsAfterTheChek(userName, (int)id);
+                }
+                catch (InvalidOperationException e)
+                {
 
-                await this.db.SaveChangesAsync();
+                    throw new InvalidOperationException("Somthing goes wrong with deleting single logs in db", e);
+                }
             }
 
             return this.RedirectToAction("Logs", "Shops");
@@ -146,23 +122,16 @@ namespace MBshop.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteLogs(string name, string userName, string hooks, int? id)
         {
-            
-            var allLogs = this.db.Logs
-                .Where(x => x.UserLoged != null)
-                .ToList();
-
-                this.db.Logs.RemoveRange(allLogs);
-
-                await this.db.SaveChangesAsync();
-            
+            try
+            {
+                this.result = await this.adminPanel.DeleteAllLogs();
+            }
+            catch (InvalidOperationException e)
+            {
+                throw new InvalidOperationException("Somthing goes wrong with Deleting all logs from db", e);
+            }
 
             return this.RedirectToAction("Logs", "Shops");
         }
-
-        private bool ShopsExists(int id)
-        {
-            return db.Shops.Any(e => e.Id == id);
-        }
-
     }
 }

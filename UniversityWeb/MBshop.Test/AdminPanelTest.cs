@@ -9,6 +9,7 @@ using MBshop.Service.interfaces;
 using MBshop.Service.OutputModels;
 using MBshop.Service.WebConstants;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
 using Xunit;
 
 namespace MBshop.Test
@@ -92,6 +93,16 @@ namespace MBshop.Test
             throw new NotImplementedException();
         }
 
+        public Logs ChekForLog(string userName, int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Shops> ChekViewShop(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<string> CreateBook(Books book)
         {
 
@@ -100,6 +111,21 @@ namespace MBshop.Test
         }
 
         public Task<string> CreateMovie(Movies movie)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<string> DeleteAllLogs()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<string> DeleteLogsAfterTheChek(string userName, int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<string> DeleteViewShops(int id)
         {
             throw new NotImplementedException();
         }
@@ -120,6 +146,11 @@ namespace MBshop.Test
         }
 
         public List<Movies> GetMovies()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Logs> LoggedUsers()
         {
             throw new NotImplementedException();
         }
@@ -321,6 +352,11 @@ namespace MBshop.Test
         }
 
         public Task<string> UpdateMovie(Movies movie)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IIncludableQueryable<Shops, AspNetUsers> ViewShops()
         {
             throw new NotImplementedException();
         }

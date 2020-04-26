@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MBshop.Controllers
 {
-    
+
     public class ChatBoxController : Controller
     {
         private readonly IProfileEditService edit;
@@ -48,10 +48,17 @@ namespace MBshop.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete()
         {
+            try
+            {
+                await this.msg.DeleteAllMessages();
+            }
+            catch (InvalidOperationException e)
+            {
 
-            await this.msg.DeleteAllMessages();
+                throw new InvalidOperationException("Somthing goes wrong with deleting all messages",e);
+            }
 
-            return RedirectToAction("ChatPanel","ChatBox");
+            return RedirectToAction("ChatPanel", "ChatBox");
         }
     }
 }

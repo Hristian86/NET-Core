@@ -46,28 +46,9 @@ namespace MBshop.Controllers
             _logger = logger;
         }
 
-
+        [AllowAnonymous]
         public IActionResult Index()
         {
-
-            //ViewData["error"] = "This is error";
-
-            if (User.Identity.Name != null)
-            {
-
-                var curUser = this.edits.GetUserProperties(User.Identity.Name);
-
-                //var usery = userManager.GetUserId(this.User);
-
-                UserNames tempUser = new UserNames
-                {
-                    firstName = curUser.FirstName,
-                    LastName = curUser.LastName,
-                    Address = curUser.Address
-                };
-                //return View(tempUser);
-            }
-
             string user = "";
 
             if (User.Identity.Name != null)
@@ -86,12 +67,14 @@ namespace MBshop.Controllers
                 .ToList());
         }
 
+        [AllowAnonymous]
         public IActionResult DecisionPage()
         {
 
             return this.View();
         }
 
+        [AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult SearchResult(string searchItem,string orderBy)
@@ -109,38 +92,9 @@ namespace MBshop.Controllers
                     user = User.FindFirst(ClaimTypes.NameIdentifier).Value;
                 }
 
-                var result = this.search.Search(searchItem, user);
+                var result = this.search.Search(searchItem, user,orderBy);
 
                 ViewData["Search"] = searchItem;
-
-                //Can be made orderBy
-                if (orderBy != null)
-                {
-                    if (orderBy == "TitleA-Z")
-                    {
-                        result = result.OrderBy(x => x.Title).ToList();
-                    }
-                    else if (orderBy == "TitleZ-A")
-                    {
-                        result = result.OrderByDescending(x => x.Title).ToList();
-                    }
-                    else if (orderBy == "Price0-9")
-                    {
-                        result = result.OrderBy(x => x.price).ToList();
-                    }
-                    else if (orderBy == "Price9-0")
-                    {
-                        result = result.OrderByDescending(x => x.price).ToList();
-                    }
-                    else if (orderBy == "RatingHigh")
-                    {
-                        result = result.OrderByDescending(x => x.Rate).ToList();
-                    }
-                    else if (orderBy == "Ratinglow")
-                    {
-                        result = result.OrderBy(x => x.Rate).ToList();
-                    }
-                }
 
                 return this.View(result);
 

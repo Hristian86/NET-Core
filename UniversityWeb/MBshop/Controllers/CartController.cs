@@ -27,6 +27,7 @@ namespace MBshop.Controllers
             this.cartBasket = cartBasket;
         }
 
+        [AllowAnonymous]
         public IActionResult Cart()
         {
 
@@ -38,7 +39,7 @@ namespace MBshop.Controllers
             var viewItms = this.cartBasket.GetCartBasketUser(GetCurrentUser());
 
             return this.View(viewItms);
-            //return View(this.cardBasket.GetCartBascket());
+
         }
 
         [Authorize]
@@ -48,11 +49,18 @@ namespace MBshop.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return NotFound();
+                return RedirectToAction("Error404Page", "Error404");
             }
 
             //cart user interface for displayin numberof items in card
-            GlobalAlertMessages.StatusMessage = await this.cartBasket.AddToCartMovie(model.Id, model.price, GetCurrentUser());
+            try
+            {
+                GlobalAlertMessages.StatusMessage = await this.cartBasket.AddToCartMovie(model.Id, model.price, GetCurrentUser());
+            }
+            catch (InvalidOperationException e)
+            {
+                throw new InvalidOperationException("Somthing goes wrong with adding movie to the cart", e);
+            }
 
             ViewData["CartCount"] = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count;
 
@@ -68,11 +76,18 @@ namespace MBshop.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return NotFound();
+                return RedirectToAction("Error404Page", "Error404");
             }
 
             //cart user interface for displayin numberof items in card
-            GlobalAlertMessages.StatusMessage = await this.cartBasket.AddToCartBook(model.Id, model.price, GetCurrentUser());
+            try
+            {
+                GlobalAlertMessages.StatusMessage = await this.cartBasket.AddToCartBook(model.Id, model.price, GetCurrentUser());
+            }
+            catch (InvalidOperationException e)
+            {
+                throw new InvalidOperationException("Somthing goes wrong with addin book to the cart", e);
+            }
 
             ViewData["CartCount"] = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count;
 
@@ -89,7 +104,7 @@ namespace MBshop.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return NotFound();
+                return RedirectToAction("Error404Page", "Error404");
             }
 
             //Current product in cart basket
@@ -101,18 +116,41 @@ namespace MBshop.Controllers
             {
                 if (product.Type == "Movie")
                 {
-                    GlobalAlertMessages.StatusMessage = await this.shopService
-                        .BuyMovie(user, product.Id);
+                    try
+                    {
+
+                        GlobalAlertMessages.StatusMessage = await this.shopService
+                            .BuyMovie(user, product.Id);
+                    }
+                    catch (InvalidOperationException e)
+                    {
+
+                        throw new InvalidOperationException("Somthing goes wrong with shoping movie", e);
+                    }
                 }
                 else if (product.Type == "Book")
                 {
                     //To Do string message
-                    GlobalAlertMessages.StatusMessage = await this.shopService
-                        .BuyBook(user, product.Id);
+                    try
+                    {
+                        GlobalAlertMessages.StatusMessage = await this.shopService
+                            .BuyBook(user, product.Id);
+                    }
+                    catch (InvalidOperationException e)
+                    {
+                        throw new InvalidOperationException("Somthing goes wrong with shoping a book", e);
+                    }
                 }
             }
 
-            await this.cartBasket.DisposeCartProducts(GetCurrentUser());
+            try
+            {
+                await this.cartBasket.DisposeCartProducts(GetCurrentUser());
+            }
+            catch (InvalidOperationException e)
+            {
+                throw new InvalidOperationException("Somthing goes wrong when deleting user cart bascket", e);
+            }
 
             ViewData["CartCount"] = this.cartBasket.GetCartBasketUser(GetCurrentUser()).Count;
 
@@ -131,7 +169,14 @@ namespace MBshop.Controllers
                 return NotFound();
             }
 
-            GlobalAlertMessages.StatusMessage = await this.cartBasket.RemoveMovie((int)id, GetCurrentUser());
+            try
+            {
+                GlobalAlertMessages.StatusMessage = await this.cartBasket.RemoveMovie((int)id, GetCurrentUser());
+            }
+            catch (InvalidOperationException e)
+            {
+                throw new InvalidOperationException("Somthing goes wrong when removing movie from user - cart", e);
+            }
 
             //GlobalAlertMessages.MessageForStaatus = "";
 
@@ -149,10 +194,17 @@ namespace MBshop.Controllers
         {
             if (id == null)
             {
-                return NotFound();
+                return RedirectToAction("Error404Page", "Error404");
             }
 
-            GlobalAlertMessages.StatusMessage = await this.cartBasket.RemoveBook((int)id, GetCurrentUser());
+            try
+            {
+                GlobalAlertMessages.StatusMessage = await this.cartBasket.RemoveBook((int)id, GetCurrentUser());
+            }
+            catch (InvalidOperationException e)
+            {
+                throw new InvalidOperationException("Somthing goes wrong when removing book from user cart",e);
+            }
 
             //GlobalAlertMessages.MessageForStaatus = "";
 

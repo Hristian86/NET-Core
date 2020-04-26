@@ -6,3 +6,11 @@ C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-P
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop.Models\obj\Release\netcoreapp3.1\MBshop.Models.AssemblyInfo.cs
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop.Models\obj\Release\netcoreapp3.1\MBshop.Models.dll
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop.Models\obj\Release\netcoreapp3.1\MBshop.Models.pdb
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\Extra.save\MBshop.Models\bin\Release\netcoreapp3.1\MBshop.Models.deps.json
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\Extra.save\MBshop.Models\bin\Release\netcoreapp3.1\MBshop.Models.dll
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\Extra.save\MBshop.Models\bin\Release\netcoreapp3.1\MBshop.Models.pdb
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\Extra.save\MBshop.Models\obj\Release\netcoreapp3.1\MBshop.Models.csprojAssemblyReference.cache
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\Extra.save\MBshop.Models\obj\Release\netcoreapp3.1\MBshop.Models.AssemblyInfoInputs.cache
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\Extra.save\MBshop.Models\obj\Release\netcoreapp3.1\MBshop.Models.AssemblyInfo.cs
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\Extra.save\MBshop.Models\obj\Release\netcoreapp3.1\MBshop.Models.dll
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\Extra.save\MBshop.Models\obj\Release\netcoreapp3.1\MBshop.Models.pdb

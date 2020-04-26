@@ -8,6 +8,7 @@ using MBshop.Service.interfaces;
 using MBshop.Service.OutputModels;
 using MBshop.Service.Services;
 using MBshop.Service.WebConstants;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MBshop.Controllers
@@ -24,7 +25,7 @@ namespace MBshop.Controllers
             this.search = search;
         }
 
-
+        [AllowAnonymous]
         public IActionResult ProductsCollection(string orderBy,int page = 1)
         {
             string user = "";

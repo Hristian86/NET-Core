@@ -29,6 +29,7 @@ namespace MBshop.Controllers
             this.status = status;
         }
 
+        [AllowAnonymous]
         public IActionResult MovieCollection(int orderBy, string searchItem, string type)
         {
             
@@ -61,7 +62,7 @@ namespace MBshop.Controllers
         {
             if (id == null)
             {
-                return NotFound();
+                return RedirectToAction("Error404Page", "Error404");
             }
 
             var movie = this.movieDb.GetListOfMovies()
@@ -85,7 +86,7 @@ namespace MBshop.Controllers
 
             if (movie == null)
             {
-                return NotFound();
+                return RedirectToAction("Error404Page", "Error404");
             }
 
             return View(movie);

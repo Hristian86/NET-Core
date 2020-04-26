@@ -22,6 +22,7 @@ namespace MBshop.Controllers
         private readonly IChatService msg;
         private string fullNameOfUser;
         private string userId;
+        private string responce = "";
 
         public ChatController(IChatService msg,
             IProfileEditService profEdit)
@@ -75,11 +76,18 @@ namespace MBshop.Controllers
             {
 
                 // creating message in database
-                string responce = await this.msg.CreateMessage(this.fullNameOfUser, model.Content, userId, CurrentUserAvatar());
-
-                if (responce == "User account is required!")
+                try
                 {
-                    GlobalAlertMessages.StatusMessage = responce;
+                    this.responce = await this.msg.CreateMessage(this.fullNameOfUser, model.Content, userId, CurrentUserAvatar());
+                }
+                catch (InvalidOperationException e)
+                {
+                    throw new InvalidOperationException("Somthing goes wrong with posting message to db",e);
+                }
+
+                if (this.responce == "User account is required!")
+                {
+                    GlobalAlertMessages.StatusMessage = this.responce;
                 }
             }
 

@@ -26,7 +26,7 @@ namespace MBshop.Controllers
             this.status = status;
         }
 
-
+        [AllowAnonymous]
         public IActionResult BooksCollection(int orderBy, string searchItem)
         {
             var list = this.books.SortBooks(orderBy);
@@ -58,7 +58,7 @@ namespace MBshop.Controllers
         {
             if (id == null)
             {
-                return NotFound();
+                return RedirectToAction("Error404Page", "Error404");
             }
 
             var book = this.books.GetListOfBooks()
@@ -83,7 +83,7 @@ namespace MBshop.Controllers
 
             if (book == null)
             {
-                return NotFound();
+                return RedirectToAction("Error404Page", "Error404");
             }
 
             return View(book);
