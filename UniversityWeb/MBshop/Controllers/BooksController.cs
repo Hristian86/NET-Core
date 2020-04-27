@@ -31,6 +31,7 @@ namespace MBshop.Controllers
 
         // GET: Books
         [Authorize(Roles = "Admin,Moderator")]
+        [AutoValidateAntiforgeryToken]
         public IActionResult Index()
         {
             var books = this.adminPanel.GetBooks();
@@ -53,6 +54,8 @@ namespace MBshop.Controllers
 
         // GET: Books/Details
         [Authorize(Roles = "Admin,Moderator")]
+        [ValidateAntiForgeryToken]
+        [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -74,6 +77,8 @@ namespace MBshop.Controllers
 
         // GET: Books/Create
         [Authorize(Roles = "Admin,Moderator")]
+        [ValidateAntiForgeryToken]
+        [AutoValidateAntiforgeryToken]
         public IActionResult Create()
         {
             return View();
@@ -83,6 +88,7 @@ namespace MBshop.Controllers
         [Authorize(Roles = "Admin,Moderator")]
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Title,Author,Genre,UserId,RealeseDate,Created,Picture,price,Discount,Raiting,Description,LinkForProductContentWhenPurchase")] OutPutViewBooks books)
         {
             if (ModelState.IsValid)
@@ -99,6 +105,8 @@ namespace MBshop.Controllers
 
         // GET: Books/Edit
         [Authorize(Roles = "Admin")]
+        [ValidateAntiForgeryToken]
+        [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -120,6 +128,7 @@ namespace MBshop.Controllers
         [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Author,Genre,UserId,RealeseDate,Created,Picture,price,Discount,Raiting,Description,LinkForProductContentWhenPurchase")] OutPutViewBooks books)
         {
             if (id != books.Id)
@@ -154,6 +163,7 @@ namespace MBshop.Controllers
 
         // GET: Books/Delete
         [Authorize(Roles = "Admin")]
+        [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -175,6 +185,7 @@ namespace MBshop.Controllers
         [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             //fixing cascade delete manualy 

@@ -226,11 +226,6 @@ C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-P
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop\obj\Release\netcoreapp3.1\MBshop.pdb
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop\obj\Release\netcoreapp3.1\MBshop.genruntimeconfig.cache
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop\obj\Release\netcoreapp3.1\Razor\Views\Home\DecisionPage.cshtml.g.cs
-C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop\obj\Release\netcoreapp3.1\Razor\Views\Administration\Create.cshtml.g.cs
-C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop\obj\Release\netcoreapp3.1\Razor\Views\Administration\Delete.cshtml.g.cs
-C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop\obj\Release\netcoreapp3.1\Razor\Views\Administration\Details.cshtml.g.cs
-C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop\obj\Release\netcoreapp3.1\Razor\Views\Administration\Edit.cshtml.g.cs
-C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop\obj\Release\netcoreapp3.1\Razor\Views\Administration\Index.cshtml.g.cs
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop\obj\Release\netcoreapp3.1\Razor\Views\Shared\_CookieConsentPartial.cshtml.g.cs
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop\obj\Release\netcoreapp3.1\Razor\Views\Shops\Logs.cshtml.g.cs
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop\obj\Release\netcoreapp3.1\Razor\Views\Shops\Statistics.cshtml.g.cs
@@ -470,3 +465,8 @@ C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\Extra.save\MBs
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\Extra.save\MBshop\obj\Release\netcoreapp3.1\MBshop.dll
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\Extra.save\MBshop\obj\Release\netcoreapp3.1\MBshop.pdb
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\Extra.save\MBshop\obj\Release\netcoreapp3.1\MBshop.genruntimeconfig.cache
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop\bin\Release\netcoreapp3.1\AutoMapper.dll
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop\bin\Release\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop\obj\Release\netcoreapp3.1\Razor\Areas\Admin\Views\Home\Index.cshtml.g.cs
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop\obj\Release\netcoreapp3.1\Razor\Areas\Admin\Views\RoleAssignment\Index.cshtml.g.cs
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop\obj\Release\netcoreapp3.1\Razor\Views\Error404\Error404Page.cshtml.g.cs

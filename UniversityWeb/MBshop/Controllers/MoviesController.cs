@@ -35,6 +35,7 @@ namespace MBshop.Controllers
 
         // GET: Movies
         [Authorize(Roles = "Admin,Moderator")]
+        [AutoValidateAntiforgeryToken]
         public IActionResult Index()
         {
 
@@ -58,6 +59,8 @@ namespace MBshop.Controllers
 
         // GET: Movies/Details/5
         [Authorize(Roles = "Admin,Moderator")]
+        [ValidateAntiForgeryToken]
+        [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -77,6 +80,8 @@ namespace MBshop.Controllers
 
         // GET: Movies/Create
         [Authorize(Roles = "Admin,Moderator")]
+        [ValidateAntiForgeryToken]
+        [AutoValidateAntiforgeryToken]
         public IActionResult Create()
         {
             return View();
@@ -86,6 +91,7 @@ namespace MBshop.Controllers
         [Authorize(Roles = "Admin,Moderator")]
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Title,Director,RealeaseDate,Genre,price,Discount,Picture,Actors,Raiting,Description,LinkForProductContentWhenPurchase,Rate")] OutPutViewMovies movies)
         {
 
@@ -105,6 +111,8 @@ namespace MBshop.Controllers
 
         // GET: Movies/Edit/5
         [Authorize(Roles = "Admin")]
+        [ValidateAntiForgeryToken]
+        [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -125,6 +133,7 @@ namespace MBshop.Controllers
         [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Director,RealeaseDate,Genre,price,LinkForProductContentWhenPurchase,Discount,Picture,Actors,Raiting,Description,Rate")] OutPutViewMovies movies)
         {
             if (id != movies.Id)
@@ -161,6 +170,7 @@ namespace MBshop.Controllers
 
         // GET: Movies/Delete/5
         [Authorize(Roles = "Admin")]
+        [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -182,6 +192,7 @@ namespace MBshop.Controllers
         [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
 
