@@ -9,6 +9,8 @@ using MBshop.Models;
 using Microsoft.AspNetCore.Authorization;
 using MBshop.Service.interfaces;
 using MBshop.Service.StaticProperyes;
+using AutoMapper;
+using MBshop.Models.ViewBooks;
 
 namespace MBshop.Controllers
 {
@@ -16,17 +18,37 @@ namespace MBshop.Controllers
     public class BooksController : Controller
     {
         private readonly IAdminPanel adminPanel;
+        private readonly IMapper mapper;
+        private List<OutPutViewBooks> booksMap;
 
-        public BooksController(IAdminPanel adminPanel)
+        public BooksController(IAdminPanel adminPanel,
+            IMapper mapper)
         {
+            booksMap = new List<OutPutViewBooks>();
             this.adminPanel = adminPanel;
+            this.mapper = mapper;
         }
 
         // GET: Books
         [Authorize(Roles = "Admin,Moderator")]
         public IActionResult Index()
         {
-            return this.View(this.adminPanel.GetBooks());
+            var books = this.adminPanel.GetBooks();
+
+            if (books == null)
+            {
+                return RedirectToAction("Error404Page", "Error404");
+            }
+
+            for (int i = 0; i < books.Count(); i++)
+            {
+
+                var booksViewModel = this.mapper.Map<OutPutViewBooks>(books[i]);
+
+                this.booksMap.Add(booksViewModel);
+            }
+
+            return this.View(this.booksMap);
         }
 
         // GET: Books/Details
@@ -35,17 +57,19 @@ namespace MBshop.Controllers
         {
             if (id == null)
             {
-                return NotFound();
+                return RedirectToAction("Error404Page", "Error404");
             }
 
-            var books = await this.adminPanel.FindBookById(id);
+            //var books = await this.adminPanel.FindBookById(id);
 
-            if (books == null)
+            var booksViewModel = this.mapper.Map<OutPutViewBooks>(await this.adminPanel.FindBookById(id));
+
+            if (booksViewModel == null)
             {
-                return NotFound();
+                return RedirectToAction("Error404Page", "Error404");
             }
 
-            return View(books);
+            return View(booksViewModel);
         }
 
         // GET: Books/Create
@@ -59,15 +83,17 @@ namespace MBshop.Controllers
         [Authorize(Roles = "Admin,Moderator")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Author,Genre,UserId,RealeseDate,Created,Picture,price,Discount,Raiting,Description,LinkForProductContentWhenPurchase")] Books books)
+        public async Task<IActionResult> Create([Bind("Id,Title,Author,Genre,UserId,RealeseDate,Created,Picture,price,Discount,Raiting,Description,LinkForProductContentWhenPurchase")] OutPutViewBooks books)
         {
             if (ModelState.IsValid)
             {
+                var booksViewModel = this.mapper.Map<Books>(books);
 
-                GlobalAlertMessages.StatusMessage = await this.adminPanel.CreateBook(books);
+                GlobalAlertMessages.StatusMessage = await this.adminPanel.CreateBook(booksViewModel);
 
                 return RedirectToAction(nameof(Index));
             }
+
             return View(books);
         }
 
@@ -77,46 +103,48 @@ namespace MBshop.Controllers
         {
             if (id == null)
             {
-                return NotFound();
+                return RedirectToAction("Error404Page", "Error404");
             }
 
-            var books = await this.adminPanel.FindBookById(id);
+            var booksViewModel = this.mapper.Map<OutPutViewBooks>(await this.adminPanel.FindBookById(id));
 
-            if (books == null)
+
+            if (booksViewModel == null)
             {
-                return NotFound();
+                return RedirectToAction("Error404Page", "Error404");
             }
-            return View(books);
+            return View(booksViewModel);
         }
 
         // POST: Books/Edit
         [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Author,Genre,UserId,RealeseDate,Created,Picture,price,Discount,Raiting,Description,LinkForProductContentWhenPurchase")] Books books)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Author,Genre,UserId,RealeseDate,Created,Picture,price,Discount,Raiting,Description,LinkForProductContentWhenPurchase")] OutPutViewBooks books)
         {
             if (id != books.Id)
             {
-                return NotFound();
+                return RedirectToAction("Error404Page", "Error404");
             }
 
             if (ModelState.IsValid)
             {
                 try
                 {
+                    var book = this.mapper.Map<Books>(books);
 
-                    GlobalAlertMessages.StatusMessage = await this.adminPanel.UpdateBook(books);
+                    GlobalAlertMessages.StatusMessage = await this.adminPanel.UpdateBook(book);
 
                 }
                 catch (DbUpdateConcurrencyException)
                 {
                     if (!BooksExists(books.Id))
                     {
-                        return NotFound();
+                        return RedirectToAction("Error404Page", "Error404");
                     }
                     else
                     {
-                        throw;
+                        throw new DbUpdateConcurrencyException("Problem is in db");
                     }
                 }
                 return RedirectToAction(nameof(Index));
@@ -130,17 +158,17 @@ namespace MBshop.Controllers
         {
             if (id == null)
             {
-                return NotFound();
+                return RedirectToAction("Error404Page", "Error404");
             }
 
-            var books = await this.adminPanel.FindBookById(id);
+            var booksViewModel = this.mapper.Map<OutPutViewBooks>(await this.adminPanel.FindBookById(id));
 
-            if (books == null)
+            if (booksViewModel == null)
             {
-                return NotFound();
+                return RedirectToAction("Error404Page", "Error404");
             }
 
-            return View(books);
+            return View(booksViewModel);
         }
 
         // POST: Books/Delete

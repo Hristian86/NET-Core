@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using MBshop.Data;
 using MBshop.Service.interfaces;
+using MBshop.Service.StaticProperyes;
 
 namespace MBshop.Areas.Identity.Pages.Account
 {
@@ -91,7 +92,7 @@ namespace MBshop.Areas.Identity.Pages.Account
                 {
                     _logger.LogInformation("User logged in.");
 
-                    await this.userLogs.LoggedUser(Input.UserName);
+                   GlobalAlertMessages.StatusMessage = await this.userLogs.LoggedUser(Input.UserName);
 
                     return LocalRedirect(returnUrl);
                 }

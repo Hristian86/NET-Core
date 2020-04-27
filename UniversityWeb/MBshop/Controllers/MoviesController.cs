@@ -11,18 +11,25 @@ using MBshop.Data;
 using Microsoft.AspNetCore.Authorization;
 using MBshop.Service.interfaces;
 using MBshop.Service.StaticProperyes;
+using AutoMapper;
+using MBshop.Models.ViewMovies;
 
 namespace MBshop.Controllers
 {
 
-    
+
     public class MoviesController : Controller
     {
         private readonly IAdminPanel adminProducts;
+        private readonly IMapper mapper;
+        private List<OutPutViewMovies> movieMap; //= new List<OutPutViewMovies>();
 
-        public MoviesController(IAdminPanel adminProducts)
+        public MoviesController(IAdminPanel adminProducts,
+            IMapper mapper)
         {
+            this.movieMap = new List<OutPutViewMovies>();
             this.adminProducts = adminProducts;
+            this.mapper = mapper;
         }
 
 
@@ -30,7 +37,23 @@ namespace MBshop.Controllers
         [Authorize(Roles = "Admin,Moderator")]
         public IActionResult Index()
         {
-            return this.View(this.adminProducts.GetMovies());
+
+            var movies = this.adminProducts.GetMovies().ToList();
+
+            if (movies == null)
+            {
+                return RedirectToAction("Error404Page", "Error404");
+            }
+
+            for (int i = 0; i < movies.Count(); i++)
+            {
+
+                var moviesViewModel = this.mapper.Map<OutPutViewMovies>(movies[i]);
+
+                this.movieMap.Add(moviesViewModel);
+            }
+
+            return this.View(this.movieMap);
         }
 
         // GET: Movies/Details/5
@@ -39,17 +62,17 @@ namespace MBshop.Controllers
         {
             if (id == null)
             {
-                return NotFound();
+                return RedirectToAction("Error404Page", "Error404");
             }
 
-            var movies = await this.adminProducts.FindMovieById(id);
+            var moviesViewModel = this.mapper.Map<OutPutViewMovies>(await this.adminProducts.FindMovieById(id));
 
-            if (movies == null)
+            if (moviesViewModel == null)
             {
-                return NotFound();
+                return RedirectToAction("Error404Page", "Error404");
             }
 
-            return View(movies);
+            return View(moviesViewModel);
         }
 
         // GET: Movies/Create
@@ -63,16 +86,19 @@ namespace MBshop.Controllers
         [Authorize(Roles = "Admin,Moderator")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Director,RealeaseDate,Genre,price,Discount,Picture,Actors,Raiting,Description,LinkForProductContentWhenPurchase,Rate")] Movies movies)
+        public async Task<IActionResult> Create([Bind("Id,Title,Director,RealeaseDate,Genre,price,Discount,Picture,Actors,Raiting,Description,LinkForProductContentWhenPurchase,Rate")] OutPutViewMovies movies)
         {
 
             if (ModelState.IsValid)
             {
 
-               GlobalAlertMessages.StatusMessage = await this.adminProducts.CreateMovie(movies);
+                var moviesViewModel = this.mapper.Map<Movies>(movies);
+
+                GlobalAlertMessages.StatusMessage = await this.adminProducts.CreateMovie(moviesViewModel);
 
                 return RedirectToAction(nameof(Index));
             }
+
             return View(movies);
 
         }
@@ -83,27 +109,27 @@ namespace MBshop.Controllers
         {
             if (id == null)
             {
-                return NotFound();
+                return RedirectToAction("Error404Page", "Error404");
             }
 
-            var movies = await this.adminProducts.FindMovieById(id);
+            var moviesViewModel = this.mapper.Map<OutPutViewMovies>(await this.adminProducts.FindMovieById(id));
 
-            if (movies == null)
+            if (moviesViewModel == null)
             {
-                return NotFound();
+                return RedirectToAction("Error404Page", "Error404");
             }
 
-            return View(movies);
+            return View(moviesViewModel);
         }
 
         [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Director,RealeaseDate,Genre,price,LinkForProductContentWhenPurchase,Discount,Picture,Actors,Raiting,Description,Rate")] Movies movies)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Director,RealeaseDate,Genre,price,LinkForProductContentWhenPurchase,Discount,Picture,Actors,Raiting,Description,Rate")] OutPutViewMovies movies)
         {
             if (id != movies.Id)
             {
-                return NotFound();
+                return RedirectToAction("Error404Page", "Error404");
             }
 
             if (ModelState.IsValid)
@@ -111,7 +137,9 @@ namespace MBshop.Controllers
                 try
                 {
 
-                    GlobalAlertMessages.StatusMessage = await this.adminProducts.UpdateMovie(movies);
+                    var moviesViewModel = this.mapper.Map<Movies>(movies);
+
+                    GlobalAlertMessages.StatusMessage = await this.adminProducts.UpdateMovie(moviesViewModel);
 
                 }
 
@@ -119,11 +147,11 @@ namespace MBshop.Controllers
                 {
                     if (!MoviesExists(movies.Id))
                     {
-                        return NotFound();
+                        return RedirectToAction("Error404Page", "Error404");
                     }
                     else
                     {
-                        throw;
+                        throw new DbUpdateConcurrencyException("Problem with updaiting db");
                     }
                 }
                 return RedirectToAction(nameof(Index));
@@ -137,17 +165,17 @@ namespace MBshop.Controllers
         {
             if (id == null)
             {
-                return NotFound();
+                return RedirectToAction("Error404Page", "Error404");
             }
 
-            var movies = await this.adminProducts.FindMovieById(id);
+            var moviesViewModel = this.mapper.Map<OutPutViewMovies>(await this.adminProducts.FindMovieById(id));
 
-            if (movies == null)
+            if (moviesViewModel == null)
             {
-                return NotFound();
+                return RedirectToAction("Error404Page", "Error404");
             }
 
-            return View(movies);
+            return View(moviesViewModel);
         }
 
         // POST: Movies/Delete/5

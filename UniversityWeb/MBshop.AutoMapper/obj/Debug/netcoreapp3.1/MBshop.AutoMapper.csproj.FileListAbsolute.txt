@@ -1,0 +1,4 @@
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop.AutoMapper\bin\Debug\netcoreapp3.1\MBshop.AutoMapper.deps.json
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop.AutoMapper\bin\Debug\netcoreapp3.1\MBshop.AutoMapper.dll
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop.AutoMapper\obj\Debug\netcoreapp3.1\MBshop.AutoMapper.AssemblyInfoInputs.cache
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop.AutoMapper\obj\Debug\netcoreapp3.1\MBshop.AutoMapper.AssemblyInfo.cs

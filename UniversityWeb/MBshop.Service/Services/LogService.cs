@@ -17,8 +17,13 @@ namespace MBshop.Service.Services
             this.db = db;
         }
 
-        public async Task LoggedUser(string userName)
+        public async Task<string> LoggedUser(string userName)
         {
+            if (userName == null || userName == "")
+            {
+                return $"Not found";
+            }
+
             Logs logUser = new Logs
             {
                 UserLoged = userName,
@@ -27,6 +32,8 @@ namespace MBshop.Service.Services
             this.db.Logs.Add(logUser);
 
             await this.db.SaveChangesAsync();
+
+            return $"You are logged as {userName}";
         } 
     }
 }

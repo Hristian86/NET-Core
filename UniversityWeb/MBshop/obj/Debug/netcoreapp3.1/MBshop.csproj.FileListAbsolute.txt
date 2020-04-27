@@ -643,8 +643,6 @@ C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-P
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netstandard1.3\System.Data.SqlClient.dll
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard1.3\System.Data.SqlClient.dll
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Diagnostics.PerformanceCounter.dll
-C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop\obj\Debug\netcoreapp3.1\MBshop.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop\obj\Debug\netcoreapp3.1\MBshop.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop\obj\Debug\netcoreapp3.1\Razor\Views\Home\DecisionPage.cshtml.g.cs
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-b120af0290e90c5c0f75c3d8ba780b4ae32cfc7b\UniversityWeb\MBshop\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-b120af0290e90c5c0f75c3d8ba780b4ae32cfc7b\UniversityWeb\MBshop\bin\Debug\netcoreapp3.1\Connected Services\Application Insights\ConnectedService.json
@@ -1352,3 +1350,7 @@ C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\Extra.save\MBs
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\Extra.save\MBshop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\RoleAssignment\Index.cshtml.g.cs
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\Extra.save\MBshop\obj\Debug\netcoreapp3.1\Razor\Views\Error404\Error404Page.cshtml.g.cs
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\Extra.save\MBshop\obj\Debug\netcoreapp3.1\Razor\Views\UserRoles\Index.cshtml.g.cs
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop\obj\Debug\netcoreapp3.1\MBshop.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop\obj\Debug\netcoreapp3.1\MBshop.MvcApplicationPartsAssemblyInfo.cache

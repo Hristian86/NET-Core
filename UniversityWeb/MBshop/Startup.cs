@@ -17,6 +17,7 @@ using MBshop.Service.interfaces;
 using MBshop.Service.StaticProperyes;
 using MBshop.Service.WebConstants;
 using MBshop.Service.Services;
+using AutoMapper;
 
 namespace MBshop
 {
@@ -63,6 +64,8 @@ namespace MBshop
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+
+            services.AddAutoMapper(typeof(Startup));
 
             services.AddControllersWithViews();
 

@@ -22,9 +22,9 @@ namespace MBshop.Service.Services
         //view shops
         public Microsoft.EntityFrameworkCore.Query.IIncludableQueryable<Shops, AspNetUsers> ViewShops()
         {
-            Microsoft.EntityFrameworkCore.Query.IIncludableQueryable<Shops, AspNetUsers> movieShopDBSEContext = db.Shops.Include(s => s.Books).Include(s => s.Movie).Include(s => s.User);
+            Microsoft.EntityFrameworkCore.Query.IIncludableQueryable<Shops, AspNetUsers> ShopList = db.Shops.Include(s => s.Books).Include(s => s.Movie).Include(s => s.User);
 
-            return movieShopDBSEContext;
+            return ShopList;
         }
 
         //chek for shops to be deleted

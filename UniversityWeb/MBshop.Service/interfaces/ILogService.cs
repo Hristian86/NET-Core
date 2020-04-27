@@ -7,6 +7,6 @@ namespace MBshop.Service.interfaces
 {
     public interface ILogService
     {
-        Task LoggedUser(string userName);
+        Task<string> LoggedUser(string userName);
     }
 }
