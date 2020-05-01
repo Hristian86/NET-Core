@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\SoftUni-Exam-Projext-master – Fixing many things\\MBshop.Models\\MBshop.Models.csproj": {}
+    "C:\\Users\\Pencho\\Desktop\\GitHGub\\UniversityWeb\\MBshop.Models\\MBshop.Models.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\SoftUni-Exam-Projext-master – Fixing many things\\MBshop.Models\\MBshop.Models.csproj": {
+    "C:\\Users\\Pencho\\Desktop\\GitHGub\\UniversityWeb\\MBshop.Models\\MBshop.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\SoftUni-Exam-Projext-master – Fixing many things\\MBshop.Models\\MBshop.Models.csproj",
+        "projectUniqueName": "C:\\Users\\Pencho\\Desktop\\GitHGub\\UniversityWeb\\MBshop.Models\\MBshop.Models.csproj",
         "projectName": "MBshop.Models",
-        "projectPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\SoftUni-Exam-Projext-master – Fixing many things\\MBshop.Models\\MBshop.Models.csproj",
+        "projectPath": "C:\\Users\\Pencho\\Desktop\\GitHGub\\UniversityWeb\\MBshop.Models\\MBshop.Models.csproj",
         "packagesPath": "C:\\Users\\Pencho\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Pencho\\Desktop\\testoveteweba\\SoftUni-Exam-Projext-master\\SoftUni-Exam-Projext-master – Fixing many things\\MBshop.Models\\obj\\",
+        "outputPath": "C:\\Users\\Pencho\\Desktop\\GitHGub\\UniversityWeb\\MBshop.Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
