@@ -10,7 +10,7 @@ namespace MBshop.Controllers
     {
         public IActionResult Error404Page()
         {
-            return View();
+            return this.View();
         }
     }
 }

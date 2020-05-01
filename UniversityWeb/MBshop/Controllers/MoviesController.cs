@@ -75,7 +75,7 @@ namespace MBshop.Controllers
                 return RedirectToAction("Error404Page", "Error404");
             }
 
-            return View(moviesViewModel);
+            return this.View(moviesViewModel);
         }
 
         // GET: Movies/Create
@@ -105,7 +105,7 @@ namespace MBshop.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            return View(movies);
+            return this.View(movies);
 
         }
 
@@ -127,7 +127,7 @@ namespace MBshop.Controllers
                 return RedirectToAction("Error404Page", "Error404");
             }
 
-            return View(moviesViewModel);
+            return this.View(moviesViewModel);
         }
 
         [Authorize(Roles = "Admin")]
@@ -165,7 +165,7 @@ namespace MBshop.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(movies);
+            return this.View(movies);
         }
 
         // GET: Movies/Delete/5
@@ -185,7 +185,7 @@ namespace MBshop.Controllers
                 return RedirectToAction("Error404Page", "Error404");
             }
 
-            return View(moviesViewModel);
+            return this.View(moviesViewModel);
         }
 
         // POST: Movies/Delete/5

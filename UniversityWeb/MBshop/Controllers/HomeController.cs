@@ -108,7 +108,7 @@ namespace MBshop.Controllers
         public IActionResult Privacy()
         {
 
-            return View();
+            return this.View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

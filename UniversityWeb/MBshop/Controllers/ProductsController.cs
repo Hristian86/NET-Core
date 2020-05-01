@@ -17,7 +17,6 @@ namespace MBshop.Controllers
     {
         private readonly ISearchEngineService search;
         private const int pageSize = 5;
-        static string order = "";
 
         public ProductsController(
             ISearchEngineService search)
@@ -39,12 +38,10 @@ namespace MBshop.Controllers
             if (orderBy == null || orderBy == "")
             {
                 ViewData["order"] = "";
-                orderBy = order;
             }
             else
             {
                 ViewData["order"] = orderBy;
-                order = orderBy;
             }
             
             var result = this.search.ViewProductsWithPage(user,orderBy,page);

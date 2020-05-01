@@ -42,7 +42,7 @@ namespace MBshop.Controllers
                 throw new InvalidOperationException("Problem with mapping models",e);
             }
 
-            return View(this.movi);
+            return this.View(this.movi);
         }
 
         [Authorize]
@@ -65,7 +65,7 @@ namespace MBshop.Controllers
                 throw new InvalidOperationException("Problem with mapping books",e);
             }
 
-            return View(this.books);
+            return this.View(this.books);
         }
 
         private string CurrentUser()

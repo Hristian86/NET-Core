@@ -63,8 +63,6 @@ namespace MBshop.Controllers
                 return RedirectToAction("Error404Page", "Error404");
             }
 
-            //var books = await this.adminPanel.FindBookById(id);
-
             var booksViewModel = this.mapper.Map<OutPutViewBooks>(await this.adminPanel.FindBookById(id));
 
             if (booksViewModel == null)
@@ -72,7 +70,7 @@ namespace MBshop.Controllers
                 return RedirectToAction("Error404Page", "Error404");
             }
 
-            return View(booksViewModel);
+            return this.View(booksViewModel);
         }
 
         // GET: Books/Create
@@ -100,7 +98,7 @@ namespace MBshop.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            return View(books);
+            return this.View(books);
         }
 
         // GET: Books/Edit
@@ -121,7 +119,7 @@ namespace MBshop.Controllers
             {
                 return RedirectToAction("Error404Page", "Error404");
             }
-            return View(booksViewModel);
+            return this.View(booksViewModel);
         }
 
         // POST: Books/Edit
@@ -158,7 +156,7 @@ namespace MBshop.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(books);
+            return this.View(books);
         }
 
         // GET: Books/Delete
@@ -178,7 +176,7 @@ namespace MBshop.Controllers
                 return RedirectToAction("Error404Page", "Error404");
             }
 
-            return View(booksViewModel);
+            return this.View(booksViewModel);
         }
 
         // POST: Books/Delete

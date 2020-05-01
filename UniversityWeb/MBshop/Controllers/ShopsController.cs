@@ -58,7 +58,7 @@ namespace MBshop.Controllers
                 return NotFound();
             }
 
-            return View(shops);
+            return this.View(shops);
         }
 
         // POST: Shops/Delete/5

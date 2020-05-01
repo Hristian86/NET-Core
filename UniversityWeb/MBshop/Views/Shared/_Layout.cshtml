@@ -6,6 +6,8 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML, CSS, JavaScript, test, shop, template, asp.net core, cart, movie, book, chat">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - MBshop</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
@@ -18,8 +20,8 @@
 </head>
 <body id="body-customize">
     <header>
-        <nav class="navbar navbar-expand-lg navbar-toggleable-sm navbar-light  border-bottom box-shadow mb-3" id="navbar-image" >
-            <div class="container-fluid" >
+        <nav class="navbar navbar-expand-lg navbar-toggleable-sm navbar-light  border-bottom box-shadow mb-3" id="navbar-image">
+            <div class="container-fluid">
                 <a class="navbar-brand mr-3" asp-area="" asp-controller="Home" asp-action="Index" id="nav-logo"><img src="~/mask.png" id="logo-image" alt="Alternate Text" /> MBshop</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -51,6 +53,10 @@
                         </li>
 
 
+                        <li class="nav-item pt-2 mr-3">
+                            <a asp-controller="PersonalInfo" asp-action="ContactInfo" style="text-decoration:none;">Contact-Info</a>
+                        </li>
+
                         <li class="ItemsPerPerson mr">
                             <a asp-controller="ChatBox" asp-action="ChatPanel" onclick="GetUrlLink(@WebConstantsVariables.EnvironmentVariables)" id="caht-panel" class="text-success pt-5 ml-1 mr-3" style="text-decoration:none;">Chat panel</a>
                         </li>
@@ -66,12 +72,12 @@
                             </a>
                         </li>
 
+
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-
     @*Alert status message for user requests*@
     <div id="hideMessage">
         <div class="statusMessage"><h4 class="bg-success text-light messageHeader" id="message">@GlobalAlertMessages.StatusMessage</h4></div>
@@ -79,29 +85,19 @@
     </div>
 
 
-    @*<div class="d-flex justify-content-start" style="width:100%;position:fixed;margin-top:650px;">
-
-        <div>
-            <div ></div>
-            <img src="https://png.pngtree.com/png-clipart/20200224/original/pngtree-cinema-movie-icons-set-realistic-popcorn-3d-glasses-film-strip-reel-png-image_5204364.jpg" alt="Alternate Text" style="width:200px;"/>
-        </div>
-
-    </div>*@
 
 
-
-
-<div class="container-fluid" id="container-fluid-div-spacer">
-    <partial name="_CookieConsentPartial" />
+    <div class="container-fluid" id="container-fluid-div-spacer">
+        <partial name="_CookieConsentPartial" />
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
-</div>
+    </div>
 
     <footer class="border-top footer text-muted">
-        <div class="container">
+        <div class="container d-flex justify-content-between">
             &copy; 2020 - MBshop - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-
+                                   <div class="text-primary"><a asp-controller="PersonalInfo" asp-action="ContactInfo" style="text-decoration:none;">Contact-Info</a></div>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

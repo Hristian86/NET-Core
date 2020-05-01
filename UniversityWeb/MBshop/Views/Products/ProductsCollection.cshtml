@@ -55,6 +55,7 @@
                 <tbody>
                     @foreach (var item in Model.Products)
                     {
+                        string rateToBeDisplayed = $"{item.Rate:f1}";
                         <tr>
                             <td id="hide-on-mobile">
                                 @Html.DisplayFor(modelItem => item.Title)
@@ -63,7 +64,7 @@
                                 @Html.DisplayFor(modelItem => item.Type)
                             </td>
                             <td id="hide-on-mobile">
-                                @Html.DisplayFor(modelItem => item.Rate)
+                                @rateToBeDisplayed
                             </td>
                             <td id="hide-on-mobile">
                                 @Html.DisplayFor(modelItem => item.Genre)
@@ -84,8 +85,8 @@
                                     if (item.Status)
                                     {
                                         <p class="price-mobile" id="price-hide">@item.Title</p>
-                                        var rate = $"{item.Rate:f1}";
-                                        <p class="price-mobile" id="price-hide">Rate: @rate</p>
+                                        //var rate = $"{item.Rate:f1}";
+                                        <p class="price-mobile" id="price-hide">Rate: @rateToBeDisplayed</p>
                                         <p class="price-mobile" id="price-hide">Price: </p>
                                         <a asp-controller="UserShopedItems" asp-action="UserBooksShops" style="margin-left:15px;" class="btn btn-warning" id="button-padding">Owned</a>
                                     }
@@ -93,7 +94,7 @@
                                     {
 
                                         <p class="price-mobile" id="price-hide">@item.Title</p>
-                                        <p class="price-mobile" id="price-hide">Rate: @item.Rate</p>
+                                        <p class="price-mobile" id="price-hide">Rate: @rateToBeDisplayed</p>
                                         <p class="price-mobile" id="price-hide">Price: @item.price.ToString("f2") $</p>
 
                                         @using (Html.BeginForm("BookDetail", "BookList", new { id = item.Id }, FormMethod.Get))
@@ -115,7 +116,7 @@
                                     {
                                         <p class="price-mobile" id="price-hide">@item.Title</p>
                                         var rate = $"{item.Rate:f1}";
-                                        <p class="price-mobile" id="price-hide">Rate: @rate</p>
+                                        <p class="price-mobile" id="price-hide">Rate: @rateToBeDisplayed</p>
                                         <p class="price-mobile" id="price-hide">Price: </p>
                                         <a asp-controller="UserShopedItems" asp-action="UserMovieShops" style="margin-left:15px;" class="btn btn-warning" id="button-padding">Owned</a>
                                     }
@@ -123,7 +124,7 @@
                                     {
                                         <p class="price-mobile" id="price-hide">@item.Title</p>
                                         var rate = $"{item.Rate:f1}";
-                                        <p class="price-mobile" id="price-hide">Rate: @rate</p>
+                                        <p class="price-mobile" id="price-hide">Rate: @rateToBeDisplayed</p>
                                         <p class="price-mobile" id="price-hide">Price: @item.price.ToString("f2") $</p>
                                         @using (Html.BeginForm("MovieDetail", "MovieList", new { id = item.Id }, FormMethod.Get))
                                         {
@@ -134,10 +135,7 @@
                                                 </div>
                                             </div>
                                         }
-
                                     }
-
-
                                 }
                             </td>
                         </tr>

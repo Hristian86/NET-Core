@@ -37,7 +37,7 @@ namespace MBshop.Controllers
                     ChatName = curUser.ChatName
                 };
 
-                return View(tempUser);
+                return this.View(tempUser);
             }
 
             return this.View();

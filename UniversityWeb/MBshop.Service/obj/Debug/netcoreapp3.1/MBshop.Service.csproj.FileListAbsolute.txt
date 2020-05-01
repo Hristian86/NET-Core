@@ -24,3 +24,16 @@ C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-P
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop.Service\obj\Debug\netcoreapp3.1\MBshop.Service.csproj.CopyComplete
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop.Service\obj\Debug\netcoreapp3.1\MBshop.Service.dll
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Копие\MBshop.Service\obj\Debug\netcoreapp3.1\MBshop.Service.pdb
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Fixing many things\MBshop.Service\bin\Debug\netcoreapp3.1\MBshop.Service.deps.json
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Fixing many things\MBshop.Service\bin\Debug\netcoreapp3.1\MBshop.Service.dll
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Fixing many things\MBshop.Service\bin\Debug\netcoreapp3.1\MBshop.Service.pdb
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Fixing many things\MBshop.Service\bin\Debug\netcoreapp3.1\MBshop.Data.dll
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Fixing many things\MBshop.Service\bin\Debug\netcoreapp3.1\MBshop.Models.dll
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Fixing many things\MBshop.Service\bin\Debug\netcoreapp3.1\MBshop.Data.pdb
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Fixing many things\MBshop.Service\bin\Debug\netcoreapp3.1\MBshop.Models.pdb
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Fixing many things\MBshop.Service\obj\Debug\netcoreapp3.1\MBshop.Service.csprojAssemblyReference.cache
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Fixing many things\MBshop.Service\obj\Debug\netcoreapp3.1\MBshop.Service.AssemblyInfoInputs.cache
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Fixing many things\MBshop.Service\obj\Debug\netcoreapp3.1\MBshop.Service.AssemblyInfo.cs
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Fixing many things\MBshop.Service\obj\Debug\netcoreapp3.1\MBshop.Service.csproj.CopyComplete
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Fixing many things\MBshop.Service\obj\Debug\netcoreapp3.1\MBshop.Service.dll
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Fixing many things\MBshop.Service\obj\Debug\netcoreapp3.1\MBshop.Service.pdb

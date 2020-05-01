@@ -89,7 +89,7 @@ namespace MBshop.Controllers
                 return RedirectToAction("Error404Page", "Error404");
             }
 
-            return View(movie);
+            return this.View(movie);
         }
     }
 }

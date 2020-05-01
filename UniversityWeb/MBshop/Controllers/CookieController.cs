@@ -10,7 +10,7 @@ namespace MBshop.Controllers
     {
         public IActionResult _CookieConsentPartial()
         {
-            return View();
+            return this.View();
         }
     }
 }
