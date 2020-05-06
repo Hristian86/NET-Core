@@ -98,7 +98,7 @@ namespace MBshop
             services.AddScoped<ILogService, LogService>();
             services.AddScoped<IRoleService, RoleService>();
 
-            services.AddTransient<IEmailSender>(x => new EmailSender("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"));
+            services.AddTransient<IEmailSender>(x => new EmailSender(""));
 
             services.AddCors(option =>
             {
