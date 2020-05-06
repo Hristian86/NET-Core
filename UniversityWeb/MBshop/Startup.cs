@@ -18,6 +18,10 @@ using MBshop.Service.StaticProperyes;
 using MBshop.Service.WebConstants;
 using MBshop.Service.Services;
 using AutoMapper;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using SendGrid;
+using SendGrid.Helpers.Mail;
+using MBshop.MailKit.MessageSenders;
 
 namespace MBshop
 {
@@ -45,8 +49,9 @@ namespace MBshop
             // Get connection string 
             //ConnectionString.ConString = Configuration.GetConnectionString("DefaultConnection");
 
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
+            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddRoles<IdentityRole>()
+                .AddDefaultTokenProviders()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.Configure<IdentityOptions>(options =>
@@ -92,6 +97,8 @@ namespace MBshop
             services.AddScoped<GlobalAlertMessages>();
             services.AddScoped<ILogService, LogService>();
             services.AddScoped<IRoleService, RoleService>();
+
+            services.AddTransient<IEmailSender>(x => new EmailSender("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"));
 
             services.AddCors(option =>
             {

@@ -26,3 +26,17 @@ C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\Extra.save\MBs
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\Extra.save\MBshop.Data\obj\Release\netcoreapp3.1\MBshop.Data.dll
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\Extra.save\MBshop.Data\obj\Release\netcoreapp3.1\MBshop.Data.pdb
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\Extra.save\MBshop.Data\obj\Release\netcoreapp3.1\MBshop.Data.genruntimeconfig.cache
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Fixing many things\MBshop.Data\bin\Release\netcoreapp3.1\MBshop.Data.deps.json
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Fixing many things\MBshop.Data\bin\Release\netcoreapp3.1\MBshop.Data.runtimeconfig.json
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Fixing many things\MBshop.Data\bin\Release\netcoreapp3.1\MBshop.Data.runtimeconfig.dev.json
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Fixing many things\MBshop.Data\bin\Release\netcoreapp3.1\MBshop.Data.dll
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Fixing many things\MBshop.Data\bin\Release\netcoreapp3.1\MBshop.Data.pdb
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Fixing many things\MBshop.Data\bin\Release\netcoreapp3.1\MBshop.Models.dll
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Fixing many things\MBshop.Data\bin\Release\netcoreapp3.1\MBshop.Models.pdb
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Fixing many things\MBshop.Data\obj\Release\netcoreapp3.1\MBshop.Data.csprojAssemblyReference.cache
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Fixing many things\MBshop.Data\obj\Release\netcoreapp3.1\MBshop.Data.AssemblyInfoInputs.cache
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Fixing many things\MBshop.Data\obj\Release\netcoreapp3.1\MBshop.Data.AssemblyInfo.cs
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Fixing many things\MBshop.Data\obj\Release\netcoreapp3.1\MBshop.Data.csproj.CopyComplete
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Fixing many things\MBshop.Data\obj\Release\netcoreapp3.1\MBshop.Data.dll
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Fixing many things\MBshop.Data\obj\Release\netcoreapp3.1\MBshop.Data.pdb
+C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Fixing many things\MBshop.Data\obj\Release\netcoreapp3.1\MBshop.Data.genruntimeconfig.cache

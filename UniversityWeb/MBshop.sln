@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MBshop.Service", "MBshop.Se
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MBshop.Test", "MBshop.Test\MBshop.Test.csproj", "{DC594CD4-70E2-4A0D-B05F-D5E0BEA04508}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MBshop.MailKit", "MBshop.MailKit\MBshop.MailKit.csproj", "{1B6167FB-06B4-4EEA-B20E-1C95E097B7C6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{DC594CD4-70E2-4A0D-B05F-D5E0BEA04508}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC594CD4-70E2-4A0D-B05F-D5E0BEA04508}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC594CD4-70E2-4A0D-B05F-D5E0BEA04508}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B6167FB-06B4-4EEA-B20E-1C95E097B7C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B6167FB-06B4-4EEA-B20E-1C95E097B7C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B6167FB-06B4-4EEA-B20E-1C95E097B7C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B6167FB-06B4-4EEA-B20E-1C95E097B7C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

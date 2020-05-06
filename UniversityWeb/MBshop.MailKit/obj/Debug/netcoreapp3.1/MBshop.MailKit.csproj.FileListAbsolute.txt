@@ -1,0 +1,8 @@
+C:\Users\Pencho\Desktop\SoftUni-Exam-Projext-master – Fixing many things – Копие\MBshop.MailKit\bin\Debug\netcoreapp3.1\MBshop.MailKit.deps.json
+C:\Users\Pencho\Desktop\SoftUni-Exam-Projext-master – Fixing many things – Копие\MBshop.MailKit\bin\Debug\netcoreapp3.1\MBshop.MailKit.dll
+C:\Users\Pencho\Desktop\SoftUni-Exam-Projext-master – Fixing many things – Копие\MBshop.MailKit\obj\Debug\netcoreapp3.1\MBshop.MailKit.AssemblyInfoInputs.cache
+C:\Users\Pencho\Desktop\SoftUni-Exam-Projext-master – Fixing many things – Копие\MBshop.MailKit\obj\Debug\netcoreapp3.1\MBshop.MailKit.AssemblyInfo.cs
+C:\Users\Pencho\Desktop\SoftUni-Exam-Projext-master – Fixing many things – Копие\MBshop.MailKit\obj\Debug\netcoreapp3.1\MBshop.MailKit.csprojAssemblyReference.cache
+C:\Users\Pencho\Desktop\SoftUni-Exam-Projext-master – Fixing many things – Копие\MBshop.MailKit\bin\Debug\netcoreapp3.1\MBshop.MailKit.pdb
+C:\Users\Pencho\Desktop\SoftUni-Exam-Projext-master – Fixing many things – Копие\MBshop.MailKit\obj\Debug\netcoreapp3.1\MBshop.MailKit.dll
+C:\Users\Pencho\Desktop\SoftUni-Exam-Projext-master – Fixing many things – Копие\MBshop.MailKit\obj\Debug\netcoreapp3.1\MBshop.MailKit.pdb

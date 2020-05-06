@@ -6,8 +6,9 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="description" content="Free Web tutorials">
-    <meta name="keywords" content="HTML, CSS, JavaScript, test, shop, template, asp.net core, cart, movie, book, chat">
+    <meta name="title" content="Template for ASP.NET Core" />
+    <meta name="description" content="Free Web tutorials, templates, web design">
+    <meta name="keywords" content="HTML, CSS, JavaScript, test, shop, template, asp.net core, cart, movie, book, chat, web design, web support, fixing bugs, debug, creating website">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - MBshop</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
@@ -54,11 +55,11 @@
 
 
                         <li class="nav-item pt-2 mr-3">
-                            <a asp-controller="PersonalInfo" asp-action="ContactInfo" style="text-decoration:none;">Contact-Info</a>
+                            <a asp-area="" asp-controller="PersonalInfo" asp-action="ContactInfo" style="text-decoration:none;">Contact-Info</a>
                         </li>
 
                         <li class="ItemsPerPerson mr">
-                            <a asp-controller="ChatBox" asp-action="ChatPanel" onclick="GetUrlLink(@WebConstantsVariables.EnvironmentVariables)" id="caht-panel" class="text-success pt-5 ml-1 mr-3" style="text-decoration:none;">Chat panel</a>
+                            <a asp-area="" asp-controller="ChatBox" asp-action="ChatPanel" onclick="GetUrlLink(@WebConstantsVariables.EnvironmentVariables)" id="caht-panel" class="text-success pt-5 ml-1 mr-3" style="text-decoration:none;">Chat panel</a>
                         </li>
 
                         <li class="nav-item">
