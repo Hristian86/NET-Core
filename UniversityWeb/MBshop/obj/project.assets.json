@@ -3728,10 +3728,7 @@
         },
         "runtime": {
           "bin/placeholder/MBshop.MailKit.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
+        }
       },
       "MBshop.Models/1.0.0": {
         "type": "project",
@@ -11104,11 +11101,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Pencho\\Desktop\\SoftUni-Exam-Projext-master – Fixing many things – Копие\\MBshop\\MBshop.csproj",
+      "projectUniqueName": "G:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\MBshop\\MBshop.csproj",
       "projectName": "MBshop",
-      "projectPath": "C:\\Users\\Pencho\\Desktop\\SoftUni-Exam-Projext-master – Fixing many things – Копие\\MBshop\\MBshop.csproj",
+      "projectPath": "G:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\MBshop\\MBshop.csproj",
       "packagesPath": "C:\\Users\\Pencho\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Pencho\\Desktop\\SoftUni-Exam-Projext-master – Fixing many things – Копие\\MBshop\\obj\\",
+      "outputPath": "G:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\MBshop\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -11129,14 +11126,14 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\Pencho\\Desktop\\SoftUni-Exam-Projext-master – Fixing many things – Копие\\MBshop.Data\\MBshop.Data.csproj": {
-              "projectPath": "C:\\Users\\Pencho\\Desktop\\SoftUni-Exam-Projext-master – Fixing many things – Копие\\MBshop.Data\\MBshop.Data.csproj"
+            "G:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\MBshop.Data\\MBshop.Data.csproj": {
+              "projectPath": "G:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\MBshop.Data\\MBshop.Data.csproj"
             },
-            "C:\\Users\\Pencho\\Desktop\\SoftUni-Exam-Projext-master – Fixing many things – Копие\\MBshop.MailKit\\MBshop.MailKit.csproj": {
-              "projectPath": "C:\\Users\\Pencho\\Desktop\\SoftUni-Exam-Projext-master – Fixing many things – Копие\\MBshop.MailKit\\MBshop.MailKit.csproj"
+            "G:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\MBshop.MailKit\\MBshop.MailKit.csproj": {
+              "projectPath": "G:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\MBshop.MailKit\\MBshop.MailKit.csproj"
             },
-            "C:\\Users\\Pencho\\Desktop\\SoftUni-Exam-Projext-master – Fixing many things – Копие\\MBshop.Service\\MBshop.Service.csproj": {
-              "projectPath": "C:\\Users\\Pencho\\Desktop\\SoftUni-Exam-Projext-master – Fixing many things – Копие\\MBshop.Service\\MBshop.Service.csproj"
+            "G:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\MBshop.Service\\MBshop.Service.csproj": {
+              "projectPath": "G:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\MBshop.Service\\MBshop.Service.csproj"
             }
           }
         }
@@ -11213,7 +11210,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

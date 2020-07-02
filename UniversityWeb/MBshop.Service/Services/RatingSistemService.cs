@@ -57,7 +57,7 @@ namespace MBshop.Service.Services
 
             if (movi != null)
             {
-                //get collection of ratngs in numbers
+                //get collection of ratings in numbers
                 var sum = this.db.Rating.Where(x => x.Movies == movi).Select(x => x.RatingMovies).ToList();
 
                 var count = sum.Sum();
@@ -97,6 +97,20 @@ namespace MBshop.Service.Services
                         .Where(x => x.Id == userId)
                         .FirstOrDefault();
 
+                    var userRates = this.db.Rating
+                .Any(x => x.User == curUser && x.Movies == movi);
+                    if (userRates)
+                    {
+                        var userRate = this.db.Rating
+                .Where(x => x.User == curUser && x.Movies == movi).FirstOrDefault();
+
+                        userRate.RatingMovies = model.Raiting;
+                        this.db.Update(userRate);
+                        await this.db.SaveChangesAsync();
+
+                        return $"The vote has been changet";
+                    }
+
                     //creating new object for database with added values
                     Rating nwRate = new Rating
                     {
@@ -109,12 +123,13 @@ namespace MBshop.Service.Services
                     this.db.Rating.Add(nwRate);
 
                     await this.db.SaveChangesAsync();
-                    
+
 
                     total = 0;
 
                     //on successfully rated movie
                     return $"You have rated this {movi.Title} movie successfully";
+
                 }
                 else
                 {
@@ -127,7 +142,7 @@ namespace MBshop.Service.Services
                 //if movie does not exists in database
                 return $"Movie does not exists";
             }
-            
+
         }
 
         /// <summary>
@@ -186,6 +201,20 @@ namespace MBshop.Service.Services
                     var curUser = this.db.AspNetUsers
                         .Where(x => x.Id == userId)
                         .FirstOrDefault();
+
+                    var userRates = this.db.Rating
+                .Any(x => x.User == curUser && x.Books == book);
+                    if (userRates)
+                    {
+                        var userRate = this.db.Rating
+                .Where(x => x.User == curUser && x.Books == book).FirstOrDefault();
+
+                        userRate.RatingMovies = model.Raiting;
+                        this.db.Update(userRate);
+                        await this.db.SaveChangesAsync();
+
+                        return $"The vote has been changet";
+                    }
 
                     //creating new object for database with added values
                     Rating nwRate = new Rating

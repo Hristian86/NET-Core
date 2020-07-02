@@ -8573,11 +8573,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Pencho\\Desktop\\SoftUni-Exam-Projext-master – Fixing many things – Копие\\MBshop.Test\\MBshop.Test.csproj",
+      "projectUniqueName": "G:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\MBshop.Test\\MBshop.Test.csproj",
       "projectName": "MBshop.Test",
-      "projectPath": "C:\\Users\\Pencho\\Desktop\\SoftUni-Exam-Projext-master – Fixing many things – Копие\\MBshop.Test\\MBshop.Test.csproj",
+      "projectPath": "G:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\MBshop.Test\\MBshop.Test.csproj",
       "packagesPath": "C:\\Users\\Pencho\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Pencho\\Desktop\\SoftUni-Exam-Projext-master – Fixing many things – Копие\\MBshop.Test\\obj\\",
+      "outputPath": "G:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\MBshop.Test\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -8598,8 +8598,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\Pencho\\Desktop\\SoftUni-Exam-Projext-master – Fixing many things – Копие\\MBshop.Service\\MBshop.Service.csproj": {
-              "projectPath": "C:\\Users\\Pencho\\Desktop\\SoftUni-Exam-Projext-master – Fixing many things – Копие\\MBshop.Service\\MBshop.Service.csproj"
+            "G:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\MBshop.Service\\MBshop.Service.csproj": {
+              "projectPath": "G:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\MBshop.Service\\MBshop.Service.csproj"
             }
           }
         }
@@ -8653,7 +8653,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

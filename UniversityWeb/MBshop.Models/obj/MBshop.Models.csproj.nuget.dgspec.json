@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Pencho\\Desktop\\SoftUni-Exam-Projext-master – Fixing many things – Копие\\MBshop.Models\\MBshop.Models.csproj": {}
+    "G:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\MBshop.Models\\MBshop.Models.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Pencho\\Desktop\\SoftUni-Exam-Projext-master – Fixing many things – Копие\\MBshop.Models\\MBshop.Models.csproj": {
+    "G:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\MBshop.Models\\MBshop.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Pencho\\Desktop\\SoftUni-Exam-Projext-master – Fixing many things – Копие\\MBshop.Models\\MBshop.Models.csproj",
+        "projectUniqueName": "G:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\MBshop.Models\\MBshop.Models.csproj",
         "projectName": "MBshop.Models",
-        "projectPath": "C:\\Users\\Pencho\\Desktop\\SoftUni-Exam-Projext-master – Fixing many things – Копие\\MBshop.Models\\MBshop.Models.csproj",
+        "projectPath": "G:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\MBshop.Models\\MBshop.Models.csproj",
         "packagesPath": "C:\\Users\\Pencho\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Pencho\\Desktop\\SoftUni-Exam-Projext-master – Fixing many things – Копие\\MBshop.Models\\obj\\",
+        "outputPath": "G:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\MBshop.Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -57,7 +57,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

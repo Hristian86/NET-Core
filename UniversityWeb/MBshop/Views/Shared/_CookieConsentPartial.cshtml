@@ -17,8 +17,8 @@
             Why we use cookies, mainly for security purpose. THIS IS TEMPLATE
         </p>
         <div class="navbar-right ml-3  d-flex justify-content-center" style="height:37px;">
-            <a asp-controller="Home" asp-action="Privacy" class="btn btn-info ">Learn More</a>
-            <form asp-controller="Home" asp-action="Index">
+            <a asp-controller="Home" asp-area="" asp-action="Privacy" class="btn btn-info ">Learn More</a>
+            <form asp-controller="Home" asp-area="" asp-action="Index">
                 <button type="submit" class="btn btn-success ml-2" data-cookie-string="@cookieString">Accept</button>
             </form>
         </div>

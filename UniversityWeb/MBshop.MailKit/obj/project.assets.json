@@ -6056,11 +6056,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Pencho\\Desktop\\SoftUni-Exam-Projext-master – Fixing many things – Копие\\MBshop.MailKit\\MBshop.MailKit.csproj",
+      "projectUniqueName": "G:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\MBshop.MailKit\\MBshop.MailKit.csproj",
       "projectName": "MBshop.MailKit",
-      "projectPath": "C:\\Users\\Pencho\\Desktop\\SoftUni-Exam-Projext-master – Fixing many things – Копие\\MBshop.MailKit\\MBshop.MailKit.csproj",
+      "projectPath": "G:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\MBshop.MailKit\\MBshop.MailKit.csproj",
       "packagesPath": "C:\\Users\\Pencho\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Pencho\\Desktop\\SoftUni-Exam-Projext-master – Fixing many things – Копие\\MBshop.MailKit\\obj\\",
+      "outputPath": "G:\\FilesForGithub\\SoftUni-Exam-Projext\\UniversityWeb\\MBshop.MailKit\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -6123,7 +6123,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

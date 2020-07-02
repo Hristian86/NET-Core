@@ -1,4 +1,5 @@
 ﻿var counts = 0;
+var urlLinks = document.getElementById("secretEnviornment");
 
 var oldValue = 0;
 
@@ -17,6 +18,29 @@ if (x.length > 0) {
     x.innerText = "";
 }
 
+
+var nums = "";
+var itemsInBasket = document.getElementById("CartCount");
+
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+        //itemsInBasket.innerText =
+        //    this.responseText;
+
+        nums = JSON.parse(this.responseText);
+    }
+};
+
+setTimeout(function () {
+    if (nums != 0) {
+    itemsInBasket.innerText = nums;
+    }
+}, 500)
+
+xhttp.open("GET", "https://mashp.herokuapp.com/api/CartNumber", true);
+//xhr.setRequestHeader("Content-Type", "application/json");
+xhttp.send();
 
 //$(function () {
 //    $('[data-toggle="dropdown"]').tooltip('toggle')

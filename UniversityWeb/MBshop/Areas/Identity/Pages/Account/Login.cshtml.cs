@@ -51,11 +51,12 @@ namespace MBshop.Areas.Identity.Pages.Account
         {
             [Display(Name = "User name")]
             [Required]
-            [StringLength(50, ErrorMessage = "Name is required")]
+            [StringLength(50,ErrorMessage = "Name must be between 3 and 40 characters",MinimumLength = 3)]
             public string UserName { get; set; }
 
             [Required]
             [DataType(DataType.Password)]
+            [StringLength(40, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 3)]
             public string Password { get; set; }
 
             [Display(Name = "Remember me?")]

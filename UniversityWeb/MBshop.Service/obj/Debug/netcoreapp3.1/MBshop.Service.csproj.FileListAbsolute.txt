@@ -37,3 +37,68 @@ C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-P
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Fixing many things\MBshop.Service\obj\Debug\netcoreapp3.1\MBshop.Service.csproj.CopyComplete
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Fixing many things\MBshop.Service\obj\Debug\netcoreapp3.1\MBshop.Service.dll
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Fixing many things\MBshop.Service\obj\Debug\netcoreapp3.1\MBshop.Service.pdb
+C:\Users\Pencho\Desktop\Heroku App\MBshop\MBshop.Service\bin\Debug\netcoreapp3.1\MBshop.Service.deps.json
+C:\Users\Pencho\Desktop\Heroku App\MBshop\MBshop.Service\bin\Debug\netcoreapp3.1\MBshop.Service.dll
+C:\Users\Pencho\Desktop\Heroku App\MBshop\MBshop.Service\bin\Debug\netcoreapp3.1\MBshop.Service.pdb
+C:\Users\Pencho\Desktop\Heroku App\MBshop\MBshop.Service\bin\Debug\netcoreapp3.1\MBshop.Data.dll
+C:\Users\Pencho\Desktop\Heroku App\MBshop\MBshop.Service\bin\Debug\netcoreapp3.1\MBshop.Models.dll
+C:\Users\Pencho\Desktop\Heroku App\MBshop\MBshop.Service\bin\Debug\netcoreapp3.1\MBshop.Data.pdb
+C:\Users\Pencho\Desktop\Heroku App\MBshop\MBshop.Service\bin\Debug\netcoreapp3.1\MBshop.Models.pdb
+C:\Users\Pencho\Desktop\Heroku App\MBshop\MBshop.Service\obj\Debug\netcoreapp3.1\MBshop.Service.csprojAssemblyReference.cache
+C:\Users\Pencho\Desktop\Heroku App\MBshop\MBshop.Service\obj\Debug\netcoreapp3.1\MBshop.Service.AssemblyInfoInputs.cache
+C:\Users\Pencho\Desktop\Heroku App\MBshop\MBshop.Service\obj\Debug\netcoreapp3.1\MBshop.Service.AssemblyInfo.cs
+C:\Users\Pencho\Desktop\Heroku App\MBshop\MBshop.Service\obj\Debug\netcoreapp3.1\MBshop.Service.csproj.CopyComplete
+C:\Users\Pencho\Desktop\Heroku App\MBshop\MBshop.Service\obj\Debug\netcoreapp3.1\MBshop.Service.dll
+C:\Users\Pencho\Desktop\Heroku App\MBshop\MBshop.Service\obj\Debug\netcoreapp3.1\MBshop.Service.pdb
+C:\Users\Pencho\Desktop\HerokuApp\MBshop\MBshop.Service\bin\Debug\netcoreapp3.1\MBshop.Service.deps.json
+C:\Users\Pencho\Desktop\HerokuApp\MBshop\MBshop.Service\bin\Debug\netcoreapp3.1\MBshop.Service.dll
+C:\Users\Pencho\Desktop\HerokuApp\MBshop\MBshop.Service\bin\Debug\netcoreapp3.1\MBshop.Service.pdb
+C:\Users\Pencho\Desktop\HerokuApp\MBshop\MBshop.Service\bin\Debug\netcoreapp3.1\MBshop.Data.dll
+C:\Users\Pencho\Desktop\HerokuApp\MBshop\MBshop.Service\bin\Debug\netcoreapp3.1\MBshop.Models.dll
+C:\Users\Pencho\Desktop\HerokuApp\MBshop\MBshop.Service\bin\Debug\netcoreapp3.1\MBshop.Data.pdb
+C:\Users\Pencho\Desktop\HerokuApp\MBshop\MBshop.Service\bin\Debug\netcoreapp3.1\MBshop.Models.pdb
+C:\Users\Pencho\Desktop\HerokuApp\MBshop\MBshop.Service\obj\Debug\netcoreapp3.1\MBshop.Service.csprojAssemblyReference.cache
+C:\Users\Pencho\Desktop\HerokuApp\MBshop\MBshop.Service\obj\Debug\netcoreapp3.1\MBshop.Service.AssemblyInfoInputs.cache
+C:\Users\Pencho\Desktop\HerokuApp\MBshop\MBshop.Service\obj\Debug\netcoreapp3.1\MBshop.Service.AssemblyInfo.cs
+C:\Users\Pencho\Desktop\HerokuApp\MBshop\MBshop.Service\obj\Debug\netcoreapp3.1\MBshop.Service.csproj.CopyComplete
+C:\Users\Pencho\Desktop\HerokuApp\MBshop\MBshop.Service\obj\Debug\netcoreapp3.1\MBshop.Service.dll
+C:\Users\Pencho\Desktop\HerokuApp\MBshop\MBshop.Service\obj\Debug\netcoreapp3.1\MBshop.Service.pdb
+C:\Users\Pencho\Desktop\HerokuApp\Тест\MBshop\MBshop.Service\bin\Debug\netcoreapp3.1\MBshop.Service.deps.json
+C:\Users\Pencho\Desktop\HerokuApp\Тест\MBshop\MBshop.Service\bin\Debug\netcoreapp3.1\MBshop.Service.dll
+C:\Users\Pencho\Desktop\HerokuApp\Тест\MBshop\MBshop.Service\bin\Debug\netcoreapp3.1\MBshop.Service.pdb
+C:\Users\Pencho\Desktop\HerokuApp\Тест\MBshop\MBshop.Service\bin\Debug\netcoreapp3.1\MBshop.Data.dll
+C:\Users\Pencho\Desktop\HerokuApp\Тест\MBshop\MBshop.Service\bin\Debug\netcoreapp3.1\MBshop.Models.dll
+C:\Users\Pencho\Desktop\HerokuApp\Тест\MBshop\MBshop.Service\bin\Debug\netcoreapp3.1\MBshop.Data.pdb
+C:\Users\Pencho\Desktop\HerokuApp\Тест\MBshop\MBshop.Service\bin\Debug\netcoreapp3.1\MBshop.Models.pdb
+C:\Users\Pencho\Desktop\HerokuApp\Тест\MBshop\MBshop.Service\obj\Debug\netcoreapp3.1\MBshop.Service.csprojAssemblyReference.cache
+C:\Users\Pencho\Desktop\HerokuApp\Тест\MBshop\MBshop.Service\obj\Debug\netcoreapp3.1\MBshop.Service.AssemblyInfoInputs.cache
+C:\Users\Pencho\Desktop\HerokuApp\Тест\MBshop\MBshop.Service\obj\Debug\netcoreapp3.1\MBshop.Service.AssemblyInfo.cs
+C:\Users\Pencho\Desktop\HerokuApp\Тест\MBshop\MBshop.Service\obj\Debug\netcoreapp3.1\MBshop.Service.csproj.CopyComplete
+C:\Users\Pencho\Desktop\HerokuApp\Тест\MBshop\MBshop.Service\obj\Debug\netcoreapp3.1\MBshop.Service.dll
+C:\Users\Pencho\Desktop\HerokuApp\Тест\MBshop\MBshop.Service\obj\Debug\netcoreapp3.1\MBshop.Service.pdb
+D:\Heroku\Heroku-App\Heroku\MBshop.Service\bin\Debug\netcoreapp3.1\MBshop.Service.deps.json
+D:\Heroku\Heroku-App\Heroku\MBshop.Service\bin\Debug\netcoreapp3.1\MBshop.Service.dll
+D:\Heroku\Heroku-App\Heroku\MBshop.Service\bin\Debug\netcoreapp3.1\MBshop.Service.pdb
+D:\Heroku\Heroku-App\Heroku\MBshop.Service\bin\Debug\netcoreapp3.1\MBshop.Data.dll
+D:\Heroku\Heroku-App\Heroku\MBshop.Service\bin\Debug\netcoreapp3.1\MBshop.Models.dll
+D:\Heroku\Heroku-App\Heroku\MBshop.Service\bin\Debug\netcoreapp3.1\MBshop.Data.pdb
+D:\Heroku\Heroku-App\Heroku\MBshop.Service\bin\Debug\netcoreapp3.1\MBshop.Models.pdb
+D:\Heroku\Heroku-App\Heroku\MBshop.Service\obj\Debug\netcoreapp3.1\MBshop.Service.csprojAssemblyReference.cache
+D:\Heroku\Heroku-App\Heroku\MBshop.Service\obj\Debug\netcoreapp3.1\MBshop.Service.AssemblyInfoInputs.cache
+D:\Heroku\Heroku-App\Heroku\MBshop.Service\obj\Debug\netcoreapp3.1\MBshop.Service.AssemblyInfo.cs
+D:\Heroku\Heroku-App\Heroku\MBshop.Service\obj\Debug\netcoreapp3.1\MBshop.Service.csproj.CopyComplete
+D:\Heroku\Heroku-App\Heroku\MBshop.Service\obj\Debug\netcoreapp3.1\MBshop.Service.dll
+D:\Heroku\Heroku-App\Heroku\MBshop.Service\obj\Debug\netcoreapp3.1\MBshop.Service.pdb
+C:\Users\Pencho\Desktop\HerokuApp\Heroku\MBshop.Service\bin\Debug\netcoreapp3.1\MBshop.Service.deps.json
+C:\Users\Pencho\Desktop\HerokuApp\Heroku\MBshop.Service\bin\Debug\netcoreapp3.1\MBshop.Service.dll
+C:\Users\Pencho\Desktop\HerokuApp\Heroku\MBshop.Service\bin\Debug\netcoreapp3.1\MBshop.Service.pdb
+C:\Users\Pencho\Desktop\HerokuApp\Heroku\MBshop.Service\bin\Debug\netcoreapp3.1\MBshop.Data.dll
+C:\Users\Pencho\Desktop\HerokuApp\Heroku\MBshop.Service\bin\Debug\netcoreapp3.1\MBshop.Models.dll
+C:\Users\Pencho\Desktop\HerokuApp\Heroku\MBshop.Service\bin\Debug\netcoreapp3.1\MBshop.Data.pdb
+C:\Users\Pencho\Desktop\HerokuApp\Heroku\MBshop.Service\bin\Debug\netcoreapp3.1\MBshop.Models.pdb
+C:\Users\Pencho\Desktop\HerokuApp\Heroku\MBshop.Service\obj\Debug\netcoreapp3.1\MBshop.Service.csprojAssemblyReference.cache
+C:\Users\Pencho\Desktop\HerokuApp\Heroku\MBshop.Service\obj\Debug\netcoreapp3.1\MBshop.Service.AssemblyInfoInputs.cache
+C:\Users\Pencho\Desktop\HerokuApp\Heroku\MBshop.Service\obj\Debug\netcoreapp3.1\MBshop.Service.AssemblyInfo.cs
+C:\Users\Pencho\Desktop\HerokuApp\Heroku\MBshop.Service\obj\Debug\netcoreapp3.1\MBshop.Service.csproj.CopyComplete
+C:\Users\Pencho\Desktop\HerokuApp\Heroku\MBshop.Service\obj\Debug\netcoreapp3.1\MBshop.Service.dll
+C:\Users\Pencho\Desktop\HerokuApp\Heroku\MBshop.Service\obj\Debug\netcoreapp3.1\MBshop.Service.pdb

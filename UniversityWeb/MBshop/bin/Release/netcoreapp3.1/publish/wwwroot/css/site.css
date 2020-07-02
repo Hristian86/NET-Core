@@ -1,0 +1,283 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+    color: #0366d6;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
+}
+
+#MovieList {
+    width: 100px;
+}
+
+#purchaseHeader {
+    text-align: center;
+}
+
+/*.orderForm {
+
+}*/
+
+.drop {
+    height: 35px;
+}
+
+#heading {
+    width: 50%;
+}
+
+#lowerHalf {
+    width: 50%;
+}
+
+/*@media only screen and (max-width: 600px) {
+
+}*/
+
+/*price tag align*/
+.price-title {
+    width: 90px;
+}
+
+/*drop down menu links*/
+#drop-menu-links-js {
+    width: 500px;
+}
+
+#slider-mobile {
+    margin-left: 0;
+}
+
+.con {
+    height: 120px !important;
+}
+
+#shope-button {
+    /*margin-left:12px;*/
+    margin-top: 14px;
+    width: 100px;
+}
+
+#nav-logo {
+    margin-right: 24px !important;
+}
+
+#decision-page-buttons {
+    width: 100px;
+    margin-left: 130px;
+}
+
+#product-frame {
+    width: 420px;
+    height: 315px;
+}
+
+.price-mobile {
+    margin-left:17px;
+}
+
+#button-padding {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/*stats that must be hidden in mobile*/
+/*#hide-on-mobile {
+    display:inline-block;
+}*/
+/* Made with love by Mutiullah Samim*/
+@media only screen and (max-width: 1600px) {
+}
+
+
+
+@media only screen and (max-width: 768px) {
+
+
+    /*product frame for user items*/
+    #product-frame {
+        width:250px;
+        height:150px;
+    }
+
+    #shop-menu-navbar {
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+
+    .container {
+        margin-top: 25px !important;
+    }
+
+    #chat-name {
+        margin-top: 20px !important;
+        margin-bottom: 50px !important;
+    }
+
+    /*chat input resized on mobile*/
+    #input {
+        width: 100px !important;
+    }
+
+    /*image size in slider for products*/
+    #pic {
+        margin-top: 45px !important;
+    }
+
+    /*hides thead advertising*/
+    #header-content {
+        display: none !important;
+    }
+
+    /*getting item to the left side for mobile*/
+    #hide-on-mobile {
+        float: left;
+    }
+
+    /*new height is applied to the slider*/
+    .jumbo {
+        height: 530px !important;
+    }
+
+    /*moving items in slider and adjusting them*/
+    #corousel-size {
+        text-align: start !important;
+        width: 100% !important;
+        /*width: 200px;*/
+        height: 700px;
+    }
+
+
+    #hide-on-mobile {
+        display: none;
+    }
+
+    #drop-menu-links-js {
+        width: 120px;
+    }
+
+    #admin-panel-wrapper {
+        margin-bottom: 10px;
+    }
+
+    #caht-panel {
+        margin-top: 15px;
+    }
+
+    #cart {
+        margin-top: 15px;
+    }
+
+    #admin-panel {
+        margin-top: 10px;
+    }
+
+    #search-button {
+        margin-top: 15px !important;
+    }
+}
+
+@media only screen and (max-width: 1210px) {
+
+    #pic {
+        margin-top:15px!important;
+    }
+
+    #input {
+        width: 400px !important;
+    }
+
+    .order-btn {
+        display:none;
+    }
+}
+
+/*price for items*/
+#price-hide {
+    display: none;
+}
+
+@media only screen and (max-width: 976px) {
+
+    
+
+    /*price for items*/
+    #price-hide {
+        display: block;
+    }
+
+    #hide-on-mobile {
+        display: none;
+    }
+
+    #input {
+        width: 200px !important;
+    }
+}

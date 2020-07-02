@@ -66,10 +66,12 @@
                             <a class="nav-link text-dark text-primary d-inline-flex" asp-area="" asp-controller="Cart" id="cart" asp-action="Cart">
                                 <i class="fa fa-shopping-cart pt-1" id="cart-icon" aria-hidden="true"></i>
 
-                                @if (GlobalAlertMessages.CountOfProductsInBasket != 0)
+                                @*@if (GlobalAlertMessages.CountOfProductsInBasket != 0)
                                 {
                                     @GlobalAlertMessages.CountOfProductsInBasket
-                                }
+                                }*@
+
+                                <text id="CartCount"></text>
                             </a>
                         </li>
 

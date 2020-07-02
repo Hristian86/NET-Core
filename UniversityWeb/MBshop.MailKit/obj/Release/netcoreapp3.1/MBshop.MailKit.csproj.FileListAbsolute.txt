@@ -1,0 +1,35 @@
+C:\Users\Pencho\Desktop\SoftUni-Exam-Projext-master – Fixing many things – Копие\MBshop.MailKit\bin\Release\netcoreapp3.1\MBshop.MailKit.deps.json
+C:\Users\Pencho\Desktop\SoftUni-Exam-Projext-master – Fixing many things – Копие\MBshop.MailKit\bin\Release\netcoreapp3.1\MBshop.MailKit.dll
+C:\Users\Pencho\Desktop\SoftUni-Exam-Projext-master – Fixing many things – Копие\MBshop.MailKit\bin\Release\netcoreapp3.1\MBshop.MailKit.pdb
+C:\Users\Pencho\Desktop\SoftUni-Exam-Projext-master – Fixing many things – Копие\MBshop.MailKit\obj\Release\netcoreapp3.1\MBshop.MailKit.csprojAssemblyReference.cache
+C:\Users\Pencho\Desktop\SoftUni-Exam-Projext-master – Fixing many things – Копие\MBshop.MailKit\obj\Release\netcoreapp3.1\MBshop.MailKit.AssemblyInfoInputs.cache
+C:\Users\Pencho\Desktop\SoftUni-Exam-Projext-master – Fixing many things – Копие\MBshop.MailKit\obj\Release\netcoreapp3.1\MBshop.MailKit.AssemblyInfo.cs
+C:\Users\Pencho\Desktop\SoftUni-Exam-Projext-master – Fixing many things – Копие\MBshop.MailKit\obj\Release\netcoreapp3.1\MBshop.MailKit.dll
+C:\Users\Pencho\Desktop\SoftUni-Exam-Projext-master – Fixing many things – Копие\MBshop.MailKit\obj\Release\netcoreapp3.1\MBshop.MailKit.pdb
+C:\Users\Pencho\Desktop\Heroku App\MBshop\MBshop.MailKit\bin\Release\netcoreapp3.1\MBshop.MailKit.deps.json
+C:\Users\Pencho\Desktop\Heroku App\MBshop\MBshop.MailKit\bin\Release\netcoreapp3.1\MBshop.MailKit.dll
+C:\Users\Pencho\Desktop\Heroku App\MBshop\MBshop.MailKit\bin\Release\netcoreapp3.1\MBshop.MailKit.pdb
+C:\Users\Pencho\Desktop\Heroku App\MBshop\MBshop.MailKit\obj\Release\netcoreapp3.1\MBshop.MailKit.csprojAssemblyReference.cache
+C:\Users\Pencho\Desktop\Heroku App\MBshop\MBshop.MailKit\obj\Release\netcoreapp3.1\MBshop.MailKit.csproj.CoreCompileInputs.cache
+C:\Users\Pencho\Desktop\Heroku App\MBshop\MBshop.MailKit\obj\Release\netcoreapp3.1\MBshop.MailKit.AssemblyInfoInputs.cache
+C:\Users\Pencho\Desktop\Heroku App\MBshop\MBshop.MailKit\obj\Release\netcoreapp3.1\MBshop.MailKit.AssemblyInfo.cs
+C:\Users\Pencho\Desktop\Heroku App\MBshop\MBshop.MailKit\obj\Release\netcoreapp3.1\MBshop.MailKit.dll
+C:\Users\Pencho\Desktop\Heroku App\MBshop\MBshop.MailKit\obj\Release\netcoreapp3.1\MBshop.MailKit.pdb
+C:\Users\Pencho\Desktop\HerokuApp\MBshop\MBshop.MailKit\bin\Release\netcoreapp3.1\MBshop.MailKit.deps.json
+C:\Users\Pencho\Desktop\HerokuApp\MBshop\MBshop.MailKit\bin\Release\netcoreapp3.1\MBshop.MailKit.dll
+C:\Users\Pencho\Desktop\HerokuApp\MBshop\MBshop.MailKit\bin\Release\netcoreapp3.1\MBshop.MailKit.pdb
+C:\Users\Pencho\Desktop\HerokuApp\MBshop\MBshop.MailKit\obj\Release\netcoreapp3.1\MBshop.MailKit.csprojAssemblyReference.cache
+C:\Users\Pencho\Desktop\HerokuApp\MBshop\MBshop.MailKit\obj\Release\netcoreapp3.1\MBshop.MailKit.csproj.CoreCompileInputs.cache
+C:\Users\Pencho\Desktop\HerokuApp\MBshop\MBshop.MailKit\obj\Release\netcoreapp3.1\MBshop.MailKit.AssemblyInfoInputs.cache
+C:\Users\Pencho\Desktop\HerokuApp\MBshop\MBshop.MailKit\obj\Release\netcoreapp3.1\MBshop.MailKit.AssemblyInfo.cs
+C:\Users\Pencho\Desktop\HerokuApp\MBshop\MBshop.MailKit\obj\Release\netcoreapp3.1\MBshop.MailKit.dll
+C:\Users\Pencho\Desktop\HerokuApp\MBshop\MBshop.MailKit\obj\Release\netcoreapp3.1\MBshop.MailKit.pdb
+C:\Users\Pencho\Desktop\HerokuApp\Heroku\MBshop.MailKit\bin\Release\netcoreapp3.1\MBshop.MailKit.deps.json
+C:\Users\Pencho\Desktop\HerokuApp\Heroku\MBshop.MailKit\bin\Release\netcoreapp3.1\MBshop.MailKit.dll
+C:\Users\Pencho\Desktop\HerokuApp\Heroku\MBshop.MailKit\bin\Release\netcoreapp3.1\MBshop.MailKit.pdb
+C:\Users\Pencho\Desktop\HerokuApp\Heroku\MBshop.MailKit\obj\Release\netcoreapp3.1\MBshop.MailKit.csprojAssemblyReference.cache
+C:\Users\Pencho\Desktop\HerokuApp\Heroku\MBshop.MailKit\obj\Release\netcoreapp3.1\MBshop.MailKit.csproj.CoreCompileInputs.cache
+C:\Users\Pencho\Desktop\HerokuApp\Heroku\MBshop.MailKit\obj\Release\netcoreapp3.1\MBshop.MailKit.AssemblyInfoInputs.cache
+C:\Users\Pencho\Desktop\HerokuApp\Heroku\MBshop.MailKit\obj\Release\netcoreapp3.1\MBshop.MailKit.AssemblyInfo.cs
+C:\Users\Pencho\Desktop\HerokuApp\Heroku\MBshop.MailKit\obj\Release\netcoreapp3.1\MBshop.MailKit.dll
+C:\Users\Pencho\Desktop\HerokuApp\Heroku\MBshop.MailKit\obj\Release\netcoreapp3.1\MBshop.MailKit.pdb

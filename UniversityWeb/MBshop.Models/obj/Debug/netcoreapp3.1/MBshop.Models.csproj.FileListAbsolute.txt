@@ -22,3 +22,35 @@ C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-P
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Fixing many things\MBshop.Models\obj\Debug\netcoreapp3.1\MBshop.Models.AssemblyInfo.cs
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Fixing many things\MBshop.Models\obj\Debug\netcoreapp3.1\MBshop.Models.dll
 C:\Users\Pencho\Desktop\testoveteweba\SoftUni-Exam-Projext-master\SoftUni-Exam-Projext-master – Fixing many things\MBshop.Models\obj\Debug\netcoreapp3.1\MBshop.Models.pdb
+C:\Users\Pencho\Desktop\Heroku App\MBshop\MBshop.Models\bin\Debug\netcoreapp3.1\MBshop.Models.deps.json
+C:\Users\Pencho\Desktop\Heroku App\MBshop\MBshop.Models\bin\Debug\netcoreapp3.1\MBshop.Models.dll
+C:\Users\Pencho\Desktop\Heroku App\MBshop\MBshop.Models\bin\Debug\netcoreapp3.1\MBshop.Models.pdb
+C:\Users\Pencho\Desktop\Heroku App\MBshop\MBshop.Models\obj\Debug\netcoreapp3.1\MBshop.Models.csprojAssemblyReference.cache
+C:\Users\Pencho\Desktop\Heroku App\MBshop\MBshop.Models\obj\Debug\netcoreapp3.1\MBshop.Models.AssemblyInfoInputs.cache
+C:\Users\Pencho\Desktop\Heroku App\MBshop\MBshop.Models\obj\Debug\netcoreapp3.1\MBshop.Models.AssemblyInfo.cs
+C:\Users\Pencho\Desktop\Heroku App\MBshop\MBshop.Models\obj\Debug\netcoreapp3.1\MBshop.Models.dll
+C:\Users\Pencho\Desktop\Heroku App\MBshop\MBshop.Models\obj\Debug\netcoreapp3.1\MBshop.Models.pdb
+C:\Users\Pencho\Desktop\HerokuApp\MBshop\MBshop.Models\bin\Debug\netcoreapp3.1\MBshop.Models.deps.json
+C:\Users\Pencho\Desktop\HerokuApp\MBshop\MBshop.Models\bin\Debug\netcoreapp3.1\MBshop.Models.dll
+C:\Users\Pencho\Desktop\HerokuApp\MBshop\MBshop.Models\bin\Debug\netcoreapp3.1\MBshop.Models.pdb
+C:\Users\Pencho\Desktop\HerokuApp\MBshop\MBshop.Models\obj\Debug\netcoreapp3.1\MBshop.Models.csprojAssemblyReference.cache
+C:\Users\Pencho\Desktop\HerokuApp\MBshop\MBshop.Models\obj\Debug\netcoreapp3.1\MBshop.Models.AssemblyInfoInputs.cache
+C:\Users\Pencho\Desktop\HerokuApp\MBshop\MBshop.Models\obj\Debug\netcoreapp3.1\MBshop.Models.AssemblyInfo.cs
+C:\Users\Pencho\Desktop\HerokuApp\MBshop\MBshop.Models\obj\Debug\netcoreapp3.1\MBshop.Models.dll
+C:\Users\Pencho\Desktop\HerokuApp\MBshop\MBshop.Models\obj\Debug\netcoreapp3.1\MBshop.Models.pdb
+C:\Users\Pencho\Desktop\HerokuApp\Тест\MBshop\MBshop.Models\bin\Debug\netcoreapp3.1\MBshop.Models.deps.json
+C:\Users\Pencho\Desktop\HerokuApp\Тест\MBshop\MBshop.Models\bin\Debug\netcoreapp3.1\MBshop.Models.dll
+C:\Users\Pencho\Desktop\HerokuApp\Тест\MBshop\MBshop.Models\bin\Debug\netcoreapp3.1\MBshop.Models.pdb
+C:\Users\Pencho\Desktop\HerokuApp\Тест\MBshop\MBshop.Models\obj\Debug\netcoreapp3.1\MBshop.Models.csprojAssemblyReference.cache
+C:\Users\Pencho\Desktop\HerokuApp\Тест\MBshop\MBshop.Models\obj\Debug\netcoreapp3.1\MBshop.Models.AssemblyInfoInputs.cache
+C:\Users\Pencho\Desktop\HerokuApp\Тест\MBshop\MBshop.Models\obj\Debug\netcoreapp3.1\MBshop.Models.AssemblyInfo.cs
+C:\Users\Pencho\Desktop\HerokuApp\Тест\MBshop\MBshop.Models\obj\Debug\netcoreapp3.1\MBshop.Models.dll
+C:\Users\Pencho\Desktop\HerokuApp\Тест\MBshop\MBshop.Models\obj\Debug\netcoreapp3.1\MBshop.Models.pdb
+C:\Users\Pencho\Desktop\HerokuApp\Heroku\MBshop.Models\bin\Debug\netcoreapp3.1\MBshop.Models.deps.json
+C:\Users\Pencho\Desktop\HerokuApp\Heroku\MBshop.Models\bin\Debug\netcoreapp3.1\MBshop.Models.dll
+C:\Users\Pencho\Desktop\HerokuApp\Heroku\MBshop.Models\bin\Debug\netcoreapp3.1\MBshop.Models.pdb
+C:\Users\Pencho\Desktop\HerokuApp\Heroku\MBshop.Models\obj\Debug\netcoreapp3.1\MBshop.Models.csprojAssemblyReference.cache
+C:\Users\Pencho\Desktop\HerokuApp\Heroku\MBshop.Models\obj\Debug\netcoreapp3.1\MBshop.Models.AssemblyInfoInputs.cache
+C:\Users\Pencho\Desktop\HerokuApp\Heroku\MBshop.Models\obj\Debug\netcoreapp3.1\MBshop.Models.AssemblyInfo.cs
+C:\Users\Pencho\Desktop\HerokuApp\Heroku\MBshop.Models\obj\Debug\netcoreapp3.1\MBshop.Models.dll
+C:\Users\Pencho\Desktop\HerokuApp\Heroku\MBshop.Models\obj\Debug\netcoreapp3.1\MBshop.Models.pdb
