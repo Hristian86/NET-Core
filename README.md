@@ -5,3 +5,4 @@ Test account :
 Username : baba
 password : asd
 
+Certificate: https://softuni.bg/certificates/details/80996/6df2170c
