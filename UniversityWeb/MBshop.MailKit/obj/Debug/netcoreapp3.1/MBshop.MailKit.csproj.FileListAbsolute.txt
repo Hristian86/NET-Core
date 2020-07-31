@@ -38,3 +38,11 @@ C:\Users\Pencho\Desktop\HerokuApp\Heroku\MBshop.MailKit\obj\Debug\netcoreapp3.1\
 C:\Users\Pencho\Desktop\HerokuApp\Heroku\MBshop.MailKit\obj\Debug\netcoreapp3.1\MBshop.MailKit.AssemblyInfo.cs
 C:\Users\Pencho\Desktop\HerokuApp\Heroku\MBshop.MailKit\obj\Debug\netcoreapp3.1\MBshop.MailKit.dll
 C:\Users\Pencho\Desktop\HerokuApp\Heroku\MBshop.MailKit\obj\Debug\netcoreapp3.1\MBshop.MailKit.pdb
+G:\FilesForGithub\SoftUni-Exam-Projext\UniversityWeb\MBshop.MailKit\bin\Debug\netcoreapp3.1\MBshop.MailKit.deps.json
+G:\FilesForGithub\SoftUni-Exam-Projext\UniversityWeb\MBshop.MailKit\bin\Debug\netcoreapp3.1\MBshop.MailKit.dll
+G:\FilesForGithub\SoftUni-Exam-Projext\UniversityWeb\MBshop.MailKit\bin\Debug\netcoreapp3.1\MBshop.MailKit.pdb
+G:\FilesForGithub\SoftUni-Exam-Projext\UniversityWeb\MBshop.MailKit\obj\Debug\netcoreapp3.1\MBshop.MailKit.csprojAssemblyReference.cache
+G:\FilesForGithub\SoftUni-Exam-Projext\UniversityWeb\MBshop.MailKit\obj\Debug\netcoreapp3.1\MBshop.MailKit.AssemblyInfoInputs.cache
+G:\FilesForGithub\SoftUni-Exam-Projext\UniversityWeb\MBshop.MailKit\obj\Debug\netcoreapp3.1\MBshop.MailKit.AssemblyInfo.cs
+G:\FilesForGithub\SoftUni-Exam-Projext\UniversityWeb\MBshop.MailKit\obj\Debug\netcoreapp3.1\MBshop.MailKit.dll
+G:\FilesForGithub\SoftUni-Exam-Projext\UniversityWeb\MBshop.MailKit\obj\Debug\netcoreapp3.1\MBshop.MailKit.pdb

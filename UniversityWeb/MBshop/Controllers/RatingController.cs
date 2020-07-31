@@ -12,7 +12,6 @@ using MBshop.Service.StaticProperyes;
 
 namespace MBshop.Controllers
 {
-
     public class RatingController : Controller
     {
         private readonly IRatingSistemService rateService;

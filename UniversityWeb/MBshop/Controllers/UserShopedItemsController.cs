@@ -14,7 +14,7 @@ namespace MBshop.Controllers
     public class UserShopedItemsController : Controller
     {
         private readonly IUserShopedProductsService products;
-        private IEnumerable<OutputMovies> movi;
+        private IEnumerable<OutputMovies> movies;
         private IEnumerable<OutputBooks> books;
 
         public UserShopedItemsController(IUserShopedProductsService products)
@@ -35,14 +35,14 @@ namespace MBshop.Controllers
 
             try
             {
-                this.movi = this.products.PersonalMovies(user);
+                this.movies = this.products.PersonalMovies(user);
             }
             catch (InvalidOperationException e)
             {
                 throw new InvalidOperationException("Problem with mapping models",e);
             }
 
-            return this.View(this.movi);
+            return this.View(this.movies);
         }
 
         [Authorize]

@@ -22,7 +22,7 @@ namespace MBshop.Controllers
     {
         private readonly IAdminPanel adminProducts;
         private readonly IMapper mapper;
-        private List<OutPutViewMovies> movieMap; //= new List<OutPutViewMovies>();
+        private List<OutPutViewMovies> movieMap;
 
         public MoviesController(IAdminPanel adminProducts,
             IMapper mapper)
@@ -48,9 +48,7 @@ namespace MBshop.Controllers
 
             for (int i = 0; i < movies.Count(); i++)
             {
-
                 var moviesViewModel = this.mapper.Map<OutPutViewMovies>(movies[i]);
-
                 this.movieMap.Add(moviesViewModel);
             }
 
@@ -79,7 +77,7 @@ namespace MBshop.Controllers
         }
 
         // GET: Movies/Create
-        [Authorize(Roles = "Admin,Moderator")]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         [AutoValidateAntiforgeryToken]
         public IActionResult Create()
@@ -88,16 +86,14 @@ namespace MBshop.Controllers
         }
 
         // POST: Movies/Create
-        [Authorize(Roles = "Admin,Moderator")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Title,Director,RealeaseDate,Genre,price,Discount,Picture,Actors,Raiting,Description,LinkForProductContentWhenPurchase,Rate")] OutPutViewMovies movies)
         {
-
             if (ModelState.IsValid)
             {
-
                 var moviesViewModel = this.mapper.Map<Movies>(movies);
 
                 GlobalAlertMessages.StatusMessage = await this.adminProducts.CreateMovie(moviesViewModel);
@@ -106,7 +102,6 @@ namespace MBshop.Controllers
             }
 
             return this.View(movies);
-
         }
 
         // GET: Movies/Edit/5
@@ -145,13 +140,9 @@ namespace MBshop.Controllers
             {
                 try
                 {
-
                     var moviesViewModel = this.mapper.Map<Movies>(movies);
-
                     GlobalAlertMessages.StatusMessage = await this.adminProducts.UpdateMovie(moviesViewModel);
-
                 }
-
                 catch (DbUpdateConcurrencyException)
                 {
                     if (!MoviesExists(movies.Id))

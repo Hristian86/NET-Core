@@ -22,7 +22,7 @@ namespace MBshop.Service.Services
         //view shops
         public Microsoft.EntityFrameworkCore.Query.IIncludableQueryable<Shops, AspNetUsers> ViewShops()
         {
-            Microsoft.EntityFrameworkCore.Query.IIncludableQueryable<Shops, AspNetUsers> ShopList = db.Shops.Include(s => s.Books).Include(s => s.Movie).Include(s => s.User);
+            var ShopList = this.db.Shops.Include(s => s.Books).Include(s => s.Movie).Include(s => s.User);
 
             return ShopList;
         }
@@ -54,7 +54,7 @@ namespace MBshop.Service.Services
                 .ToList();
 
         //Delete logs
-        public Logs ChekForLog(string userName,int id) => this.db.Logs.Where(x => x.UserLoged == userName && x.LogId == id).FirstOrDefault();
+        public Logs ChekForLog(string userName, int id) => this.db.Logs.Where(x => x.UserLoged == userName && x.LogId == id).FirstOrDefault();
 
         public async Task<string> DeleteLogsAfterTheChek(string userName, int id)
         {
@@ -152,7 +152,7 @@ namespace MBshop.Service.Services
             return $"Book {book.Title} updated successfully";
         }
 
-        //setted with interface Remove
+        // Remove movie from database
         public async Task<string> RemoveMovie(int movieId)
         {
             string title = "";
@@ -164,17 +164,17 @@ namespace MBshop.Service.Services
                 return $"Movie {title} not found";
             }
 
-            var movies = await this.db.Movies.FindAsync(movieId);
+            var movieToBeRemoved = await this.db.Movies.FindAsync(movieId);
 
-            title = movies.Title;
+            title = movieToBeRemoved.Title;
 
             //cascade delete manualy 
             var shopMovies = this.db.Shops
-                .Where(x => x.MovieId == movies.Id)
+                .Where(x => x.MovieId == movieToBeRemoved.Id)
                 .ToList();
 
             var ratingMovies = this.db.Rating
-                .Where(x => x.MoviesId == movies.Id)
+                .Where(x => x.MoviesId == movieToBeRemoved.Id)
                 .ToList();
 
             if (ratingMovies != null)
@@ -187,9 +187,9 @@ namespace MBshop.Service.Services
                 this.db.RemoveRange(shopMovies);
             }
 
-            if (movies != null)
+            if (movieToBeRemoved != null)
             {
-                this.db.Movies.Remove(movies);
+                this.db.Movies.Remove(movieToBeRemoved);
 
                 await this.db.SaveChangesAsync();
 
@@ -199,6 +199,7 @@ namespace MBshop.Service.Services
             return $"Movie {title} not found";
         }
 
+        //Remove book from database
         public async Task<string> RemoveBook(int bookId)
         {
             var title = "";
@@ -211,17 +212,17 @@ namespace MBshop.Service.Services
             }
 
             //fixing cascade delete manualy 
-            var books = await this.db.Books
+            var bookToBeRemoved = await this.db.Books
                 .FindAsync(bookId);
 
-            title = books.Title;
+            title = bookToBeRemoved.Title;
 
             var shopBooks = this.db.Shops
-                .Where(x => x.BooksId == books.Id)
+                .Where(x => x.BooksId == bookToBeRemoved.Id)
                 .ToList();
 
             var ratingBooks = this.db.Rating
-                .Where(x => x.BooksId == books.Id)
+                .Where(x => x.BooksId == bookToBeRemoved.Id)
                 .ToList();
 
             if (ratingBooks != null)
@@ -234,9 +235,9 @@ namespace MBshop.Service.Services
                 this.db.RemoveRange(shopBooks);
             }
 
-            if (books != null)
+            if (bookToBeRemoved != null)
             {
-                this.db.Books.Remove(books);
+                this.db.Books.Remove(bookToBeRemoved);
 
                 await this.db.SaveChangesAsync();
 
@@ -262,6 +263,5 @@ namespace MBshop.Service.Services
         {
 
         }
-
     }
 }

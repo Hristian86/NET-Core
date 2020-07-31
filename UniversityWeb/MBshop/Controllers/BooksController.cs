@@ -74,7 +74,7 @@ namespace MBshop.Controllers
         }
 
         // GET: Books/Create
-        [Authorize(Roles = "Admin,Moderator")]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         [AutoValidateAntiforgeryToken]
         public IActionResult Create()
@@ -83,7 +83,7 @@ namespace MBshop.Controllers
         }
 
         // POST: Books/Create
-        [Authorize(Roles = "Admin,Moderator")]
+        [Authorize(Roles = "Admin,")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         [AutoValidateAntiforgeryToken]

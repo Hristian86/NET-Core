@@ -12,8 +12,8 @@ namespace MBshop.MailKit.MessageSenders
 {
     public class EmailSender : IEmailSender
     {
-        private const string EmailFrom = "ico33888@abv.bg";
-        private const string NameOfSender = "MBshop - verification no - replay";
+        private const string EmailFrom = "";
+        private const string NameOfSender = "MBshop - verification";
 
         private readonly SendGridClient client;
 

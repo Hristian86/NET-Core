@@ -65,9 +65,8 @@ namespace MBshop.Controllers
         [HttpPost(Name = "Create")]
         [Route("Create")]
         [Authorize]
-        public async Task<ChatModel> Create(ChatModel model)
+        public async Task Create(ChatModel model)
         {
-
             this.userId = GetUserId();
 
             this.fullNameOfUser = await this.msg.GetFullName(this.userId);
@@ -91,14 +90,13 @@ namespace MBshop.Controllers
                 }
             }
 
-            ChatModel message = new ChatModel
-            {
-                Content = model.Content
-            };
+            //ChatModel message = new ChatModel
+            //{
+            //    Content = model.Content
+            //};
 
             this.fullNameOfUser = "";
 
-            return message;
         }
 
         [Authorize]

@@ -46,9 +46,6 @@ namespace MBshop
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
-            // Get connection string 
-            //ConnectionString.ConString = Configuration.GetConnectionString("DefaultConnection");
-
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddRoles<IdentityRole>()
                 .AddDefaultTokenProviders()
@@ -126,15 +123,11 @@ namespace MBshop
             }
             else
             {
-
                 WebConstantsVariables.EnvironmentVariables = Configuration.GetConnectionString("ProductionConnection");
 
                 app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
-
 
             app.UseHttpsRedirection();
 
@@ -150,7 +143,6 @@ namespace MBshop
 
             app.UseEndpoints(endpoints =>
             {
-
                 endpoints.MapControllerRoute(
            name: "MyArea",
            pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
@@ -173,13 +165,8 @@ namespace MBshop
                     name: "Order",
                     pattern: "{controller=Home}/{action=Index}/{string}");
 
-                
-
                 endpoints.MapRazorPages();
-
-
             });
-
         }
     }
 }

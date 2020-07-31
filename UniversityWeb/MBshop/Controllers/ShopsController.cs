@@ -109,7 +109,6 @@ namespace MBshop.Controllers
                 }
                 catch (InvalidOperationException e)
                 {
-
                     throw new InvalidOperationException("Somthing goes wrong with deleting single logs in db", e);
                 }
             }

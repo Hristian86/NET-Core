@@ -54,3 +54,11 @@ C:\Users\Pencho\Desktop\HerokuApp\Heroku\MBshop.Models\obj\Debug\netcoreapp3.1\M
 C:\Users\Pencho\Desktop\HerokuApp\Heroku\MBshop.Models\obj\Debug\netcoreapp3.1\MBshop.Models.AssemblyInfo.cs
 C:\Users\Pencho\Desktop\HerokuApp\Heroku\MBshop.Models\obj\Debug\netcoreapp3.1\MBshop.Models.dll
 C:\Users\Pencho\Desktop\HerokuApp\Heroku\MBshop.Models\obj\Debug\netcoreapp3.1\MBshop.Models.pdb
+G:\FilesForGithub\SoftUni-Exam-Projext\UniversityWeb\MBshop.Models\bin\Debug\netcoreapp3.1\MBshop.Models.deps.json
+G:\FilesForGithub\SoftUni-Exam-Projext\UniversityWeb\MBshop.Models\bin\Debug\netcoreapp3.1\MBshop.Models.dll
+G:\FilesForGithub\SoftUni-Exam-Projext\UniversityWeb\MBshop.Models\bin\Debug\netcoreapp3.1\MBshop.Models.pdb
+G:\FilesForGithub\SoftUni-Exam-Projext\UniversityWeb\MBshop.Models\obj\Debug\netcoreapp3.1\MBshop.Models.csprojAssemblyReference.cache
+G:\FilesForGithub\SoftUni-Exam-Projext\UniversityWeb\MBshop.Models\obj\Debug\netcoreapp3.1\MBshop.Models.AssemblyInfoInputs.cache
+G:\FilesForGithub\SoftUni-Exam-Projext\UniversityWeb\MBshop.Models\obj\Debug\netcoreapp3.1\MBshop.Models.AssemblyInfo.cs
+G:\FilesForGithub\SoftUni-Exam-Projext\UniversityWeb\MBshop.Models\obj\Debug\netcoreapp3.1\MBshop.Models.dll
+G:\FilesForGithub\SoftUni-Exam-Projext\UniversityWeb\MBshop.Models\obj\Debug\netcoreapp3.1\MBshop.Models.pdb
